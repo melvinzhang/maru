@@ -1,3 +1,5 @@
+SHELL=bash
+
 all: eval
 
 clean:
@@ -5,8 +7,11 @@ clean:
 
 .SUFFIXES:
 
+%.e: %.l
+	./eval boot.l $^
+
 %.s: %.l
-	./eval boot.l emit.l $^ > $@
+	./eval boot.l emit.l <(echo "(compile-begin)"; cat $^; echo "(compile-end)") > $@
 
 %: %.s
 	gcc -m32 $^ -o $@ 
