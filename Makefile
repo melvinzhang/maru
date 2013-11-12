@@ -1,16 +1,9 @@
-#CFLAGS = -Wall -g 
-#CFLAGS = -Wall -g -DDEBUGGC=1 
-CFLAGS = -Wall -g -O3 -fomit-frame-pointer -DNDEBUG \
-         -Wextra -std=c99 -pedantic \
-         -Wshadow -Wpointer-arith -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes
+all: eval
 
-all : boot-eval eval
+clean:
+	rm -f *.o eval
 
-boot-eval : boot-eval.c
-	gcc -g $(CFLAGS) -o boot-eval boot-eval.c
-
-eval.s: eval.l
-	./boot-eval boot.l emit.l $^ > $@
+.SUFFIXES:
 
 %.s: %.l
 	./eval boot.l emit.l $^ > $@
@@ -18,14 +11,18 @@ eval.s: eval.l
 %: %.s
 	gcc -m32 $^ -o $@ 
 
-test : eval eval.s
-	./eval boot.l emit.l eval.l > eval2.s
-	diff eval.s eval2.s
+%.s: %.ll
+	llc-3.4 -march=x86 $^ > $@
 
-stats :
-	cat boot.l emit.l 	 | sed 's/.*debug.*//;s/;.*//' | sort -u | wc -l
-	cat eval.l        	 | sed 's/.*debug.*//;s/;.*//' | sort -u | wc -l
+%.ll: %.c
+	 clang -S -emit-llvm $^ -o $@ 
+
+test: boot.l emit.l eval.l
+	./eval $^ > eval-self.s
+	diff eval.s eval-self.s
+	rm eval-self.s
+
+stats:
+	cat boot.l emit.l        | sed 's/.*debug.*//;s/;.*//' | sort -u | wc -l
+	cat eval.l               | sed 's/.*debug.*//;s/;.*//' | sort -u | wc -l
 	cat boot.l emit.l eval.l | sed 's/.*debug.*//;s/;.*//' | sort -u | wc -l
-
-clean :
-	rm -f *~ *.o *.s boot-eval eval
