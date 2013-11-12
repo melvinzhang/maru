@@ -530,7 +530,7 @@
       (emit TEXT)
       (and main (emit GLOBAL tnam))
       (emit DEFLABEL tnam)
-      (emit COMMENT (list "frame "arg-size" "(<compiler>-tmp-limit comp)" "tmp-size" "frm-size))
+      (emit COMMENT (list "frame arg-size:"arg-size" tmp-limit:"(<compiler>-tmp-limit comp)" tmp-size:"tmp-size" frm-size:"frm-size))
       (emit ENTER (- frm-size 8))
       (for (i 0 (<compiler>-pc comp)) (apply emit (array-at (<compiler>-asm comp) i)))
       (and (<compiler>-epilogue comp)

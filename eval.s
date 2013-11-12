@@ -2,7 +2,7 @@
 	.text
 	.globl main
 main:
-## frame 32 20 64 80
+## frame arg-size:32 tmp-limit:20 tmp-size:64 frm-size:80
 	pushl %ebp
 	movl %esp,%ebp
 	subl $72,%esp
@@ -1506,7 +1506,7 @@ __L__85:
 ## defn define-fsubr
 	.text
 __L__86:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -1567,7 +1567,7 @@ __L__86:
 ## defn define-subr
 	.text
 __L__87:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -1621,7 +1621,7 @@ __L__87:
 ## defn repl_stream
 	.text
 __L__88:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -1819,7 +1819,7 @@ __L__91:
 ## defn subr_current_environment
 	.text
 __L__100:
-## frame 0 0 0 16
+## frame arg-size:0 tmp-limit:0 tmp-size:0 frm-size:16
 	pushl %ebp
 	movl %esp,%ebp
 	subl $8,%esp
@@ -1830,7 +1830,7 @@ __L__100:
 ## defn subr_long_string
 	.text
 __L__101:
-## frame 16 20 48 64
+## frame arg-size:16 tmp-limit:20 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -1952,7 +1952,7 @@ __L__103:
 ## defn subr_symbol_string
 	.text
 __L__108:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -2044,7 +2044,7 @@ __L__110:
 ## defn subr_string_symbol
 	.text
 __L__114:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -2136,7 +2136,7 @@ __L__116:
 ## defn subr_set_string_at
 	.text
 __L__120:
-## frame 16 32 48 64
+## frame arg-size:16 tmp-limit:32 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -2305,7 +2305,7 @@ __L__122:
 ## defn subr_string_at
 	.text
 __L__126:
-## frame 16 24 48 64
+## frame arg-size:16 tmp-limit:24 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -2426,7 +2426,7 @@ __L__128:
 ## defn subr_string_length
 	.text
 __L__131:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -2481,7 +2481,7 @@ __L__132:
 ## defn subr_set_array_at
 	.text
 __L__134:
-## frame 16 24 48 64
+## frame arg-size:16 tmp-limit:24 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -2589,7 +2589,7 @@ __L__136:
 ## defn subr_array_at
 	.text
 __L__138:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -2676,7 +2676,7 @@ __L__140:
 ## defn subr_array_length
 	.text
 __L__142:
-## frame 16 4 32 48
+## frame arg-size:16 tmp-limit:4 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -2702,7 +2702,7 @@ __L__142:
 ## defn subr_set_oop_at
 	.text
 __L__143:
-## frame 16 20 48 64
+## frame arg-size:16 tmp-limit:20 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -2805,7 +2805,7 @@ __L__145:
 ## defn subr_oop_at
 	.text
 __L__147:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -2888,7 +2888,7 @@ __L__149:
 ## defn subr_cdr
 	.text
 __L__151:
-## frame 16 4 32 48
+## frame arg-size:16 tmp-limit:4 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -2909,7 +2909,7 @@ __L__151:
 ## defn subr_car
 	.text
 __L__152:
-## frame 16 4 32 48
+## frame arg-size:16 tmp-limit:4 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -2930,7 +2930,7 @@ __L__152:
 ## defn subr_arrayP
 	.text
 __L__153:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -2975,7 +2975,7 @@ __L__154:
 ## defn subr_pairP
 	.text
 __L__156:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -3020,7 +3020,7 @@ __L__157:
 ## defn subr_symbolP
 	.text
 __L__159:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -3065,7 +3065,7 @@ __L__160:
 ## defn subr_stringP
 	.text
 __L__162:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -3110,7 +3110,7 @@ __L__163:
 ## defn subr_type_of
 	.text
 __L__165:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -3150,7 +3150,7 @@ __L__166:
 ## defn subr_allocate
 	.text
 __L__169:
-## frame 16 20 48 64
+## frame arg-size:16 tmp-limit:20 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -3273,7 +3273,7 @@ __L__171:
 ## defn subr_form
 	.text
 __L__174:
-## frame 16 4 32 48
+## frame arg-size:16 tmp-limit:4 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -3294,7 +3294,7 @@ __L__174:
 ## defn subr_array
 	.text
 __L__175:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -3354,7 +3354,7 @@ __L__176:
 ## defn subr_string
 	.text
 __L__178:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -3414,7 +3414,7 @@ __L__179:
 ## defn subr_cons
 	.text
 __L__181:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -3444,7 +3444,7 @@ __L__181:
 ## defn subr_eval
 	.text
 __L__182:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -3518,7 +3518,7 @@ __L__183:
 ## defn subr_eval_pair
 	.text
 __L__184:
-## frame 16 24 48 64
+## frame arg-size:16 tmp-limit:24 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -3693,7 +3693,7 @@ __L__186:
 ## defn evlist
 	.text
 __L__188:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -3805,7 +3805,7 @@ __L__190:
 ## defn subr_eval_symbol
 	.text
 __L__192:
-## frame 16 20 48 64
+## frame arg-size:16 tmp-limit:20 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -3926,7 +3926,7 @@ __L__193:
 ## defn subr_apply
 	.text
 __L__200:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -3969,7 +3969,7 @@ __L__201:
 ## defn subr_apply_fixed
 	.text
 __L__202:
-## frame 16 20 48 64
+## frame arg-size:16 tmp-limit:20 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -4044,7 +4044,7 @@ __L__203:
 ## defn subr_apply_expr
 	.text
 __L__205:
-## frame 16 32 48 64
+## frame arg-size:16 tmp-limit:32 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -4519,7 +4519,7 @@ __L__206:
 ## defn subr_warn
 	.text
 __L__229:
-## frame 16 24 48 64
+## frame arg-size:16 tmp-limit:24 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -4666,7 +4666,7 @@ __L__240:
 ## defn subr_print
 	.text
 __L__241:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -4725,7 +4725,7 @@ __L__244:
 ## defn subr_dump
 	.text
 __L__245:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -4784,7 +4784,7 @@ __L__248:
 ## defn subr_exit
 	.text
 __L__249:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -4846,7 +4846,7 @@ __L__250:
 ## defn subr_abort
 	.text
 __L__252:
-## frame 0 0 0 16
+## frame arg-size:0 tmp-limit:0 tmp-size:0 frm-size:16
 	pushl %ebp
 	movl %esp,%ebp
 	subl $8,%esp
@@ -4858,7 +4858,7 @@ __L__252:
 ## defn subr_ne
 	.text
 __L__253:
-## frame 16 24 48 64
+## frame arg-size:16 tmp-limit:24 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -5053,7 +5053,7 @@ __L__258:
 ## defn subr_eq
 	.text
 __L__266:
-## frame 16 24 48 64
+## frame arg-size:16 tmp-limit:24 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -5254,7 +5254,7 @@ __L__271:
 ## defn subr_gt
 	.text
 __L__279:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -5461,7 +5461,7 @@ __L__282:
 ## defn subr_le
 	.text
 __L__294:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -5668,7 +5668,7 @@ __L__297:
 ## defn subr_lt
 	.text
 __L__309:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -5876,7 +5876,7 @@ __L__312:
 ## defn subr_shr
 	.text
 __L__324:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -6083,7 +6083,7 @@ __L__327:
 ## defn subr_shl
 	.text
 __L__338:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -6290,7 +6290,7 @@ __L__341:
 ## defn subr_div
 	.text
 __L__352:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -6497,7 +6497,7 @@ __L__355:
 ## defn subr_mul
 	.text
 __L__366:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -6703,7 +6703,7 @@ __L__369:
 ## defn subr_add
 	.text
 __L__380:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -6909,7 +6909,7 @@ __L__383:
 ## defn subr_bitxor
 	.text
 __L__394:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -7115,7 +7115,7 @@ __L__397:
 ## defn subr_bitor
 	.text
 __L__408:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -7321,7 +7321,7 @@ __L__411:
 ## defn subr_bitand
 	.text
 __L__422:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -7528,7 +7528,7 @@ __L__425:
 ## defn subr_sub
 	.text
 __L__436:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -7840,7 +7840,7 @@ __L__440:
 ## defn arity3
 	.text
 __L__461:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -7988,7 +7988,7 @@ __L__462:
 ## defn arity2
 	.text
 __L__468:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -8093,7 +8093,7 @@ __L__469:
 ## defn subr_not
 	.text
 __L__474:
-## frame 16 4 32 48
+## frame arg-size:16 tmp-limit:4 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -8116,7 +8116,7 @@ __L__476:
 ## defn subr_quote
 	.text
 __L__477:
-## frame 16 4 32 48
+## frame arg-size:16 tmp-limit:4 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -8132,7 +8132,7 @@ __L__477:
 ## defn subr_and
 	.text
 __L__478:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -8205,7 +8205,7 @@ __L__482:
 ## defn subr_or
 	.text
 __L__484:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -8277,7 +8277,7 @@ __L__488:
 ## defn subr_if
 	.text
 __L__490:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -8385,7 +8385,7 @@ __L__492:
 ## defn subr_while
 	.text
 __L__496:
-## frame 16 20 48 64
+## frame arg-size:16 tmp-limit:20 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -8473,7 +8473,7 @@ __L__498:
 ## defn subr_set
 	.text
 __L__502:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -8599,7 +8599,7 @@ __L__503:
 ## defn subr_let
 	.text
 __L__509:
-## frame 16 36 64 80
+## frame arg-size:16 tmp-limit:36 tmp-size:64 frm-size:80
 	pushl %ebp
 	movl %esp,%ebp
 	subl $72,%esp
@@ -8876,7 +8876,7 @@ __L__521:
 ## defn subr_lambda
 	.text
 __L__522:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -8896,7 +8896,7 @@ __L__522:
 ## defn subr_define
 	.text
 __L__523:
-## frame 16 20 48 64
+## frame arg-size:16 tmp-limit:20 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -9025,7 +9025,7 @@ __L__524:
 ## defn k_apply
 	.text
 __L__529:
-## frame 16 20 48 64
+## frame arg-size:16 tmp-limit:20 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -9200,7 +9200,7 @@ __L__531:
 ## defn k_eval
 	.text
 __L__540:
-## frame 16 20 48 64
+## frame arg-size:16 tmp-limit:20 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -9310,7 +9310,7 @@ __L__543:
 ## defn k_encode
 	.text
 __L__544:
-## frame 16 28 48 64
+## frame arg-size:16 tmp-limit:28 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -10011,7 +10011,7 @@ __L__546:
 ## defn enlist
 	.text
 __L__578:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -10123,7 +10123,7 @@ __L__580:
 ## defn k_expand
 	.text
 __L__582:
-## frame 16 24 48 64
+## frame arg-size:16 tmp-limit:24 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -10602,7 +10602,7 @@ __L__592:
 ## defn exlist
 	.text
 __L__601:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -10714,7 +10714,7 @@ __L__603:
 ## defn k_concat
 	.text
 __L__605:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -10801,7 +10801,7 @@ __L__607:
 ## defn k_set_array_at
 	.text
 __L__609:
-## frame 16 28 48 64
+## frame arg-size:16 tmp-limit:28 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -10949,7 +10949,7 @@ __L__610:
 ## defn k_array_at
 	.text
 __L__614:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -11032,7 +11032,7 @@ __L__615:
 ## defn k_array_length
 	.text
 __L__618:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -11093,7 +11093,7 @@ __L__619:
 ## defn k_string_length
 	.text
 __L__621:
-## frame 0 12 16 32
+## frame arg-size:0 tmp-limit:12 tmp-size:16 frm-size:32
 	pushl %ebp
 	movl %esp,%ebp
 	subl $24,%esp
@@ -11117,7 +11117,7 @@ __L__621:
 ## defn k_caddr
 	.text
 __L__622:
-## frame 16 4 32 48
+## frame arg-size:16 tmp-limit:4 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -11143,7 +11143,7 @@ __L__622:
 ## defn k_cddr
 	.text
 __L__623:
-## frame 16 4 32 48
+## frame arg-size:16 tmp-limit:4 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -11164,7 +11164,7 @@ __L__623:
 ## defn k_cadr
 	.text
 __L__624:
-## frame 16 4 32 48
+## frame arg-size:16 tmp-limit:4 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -11185,7 +11185,7 @@ __L__624:
 ## defn k_caar
 	.text
 __L__625:
-## frame 16 4 32 48
+## frame arg-size:16 tmp-limit:4 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -11206,7 +11206,7 @@ __L__625:
 ## defn k_cdr
 	.text
 __L__626:
-## frame 0 8 16 32
+## frame arg-size:0 tmp-limit:8 tmp-size:16 frm-size:32
 	pushl %ebp
 	movl %esp,%ebp
 	subl $24,%esp
@@ -11251,7 +11251,7 @@ __L__627:
 ## defn k_car
 	.text
 __L__629:
-## frame 0 8 16 32
+## frame arg-size:0 tmp-limit:8 tmp-size:16 frm-size:32
 	pushl %ebp
 	movl %esp,%ebp
 	subl $24,%esp
@@ -11296,7 +11296,7 @@ __L__630:
 ## defn k_assq
 	.text
 __L__632:
-## frame 0 12 16 32
+## frame arg-size:0 tmp-limit:12 tmp-size:16 frm-size:32
 	pushl %ebp
 	movl %esp,%ebp
 	subl $24,%esp
@@ -11396,7 +11396,7 @@ __L__637:
 ## defn k_define
 	.text
 __L__639:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -11457,7 +11457,7 @@ __L__639:
 ## defn k_dumpln
 	.text
 __L__640:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -11487,7 +11487,7 @@ __L__641:
 ## defn k_dump
 	.text
 __L__642:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -11507,7 +11507,7 @@ __L__642:
 ## defn k_println
 	.text
 __L__643:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -11537,7 +11537,7 @@ __L__644:
 ## defn k_print
 	.text
 __L__645:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -11557,7 +11557,7 @@ __L__645:
 ## defn do_print
 	.text
 __L__646:
-## frame 16 24 48 64
+## frame arg-size:16 tmp-limit:24 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -12310,7 +12310,7 @@ __L__650:
 ## defn k_read
 	.text
 __L__718:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -12808,7 +12808,7 @@ __L__725:
 ## defn read_quote
 	.text
 __L__764:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -12881,7 +12881,7 @@ __L__765:
 ## defn read_list
 	.text
 __L__767:
-## frame 16 24 48 64
+## frame arg-size:16 tmp-limit:24 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -13040,7 +13040,7 @@ __L__773:
 ## defn read_string
 	.text
 __L__775:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -13139,7 +13139,7 @@ __L__777:
 ## defn read_symbol
 	.text
 __L__780:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -13228,7 +13228,7 @@ __L__783:
 ## defn read_number
 	.text
 __L__784:
-## frame 16 20 48 64
+## frame arg-size:16 tmp-limit:20 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -13408,7 +13408,7 @@ __L__792:
 ## defn read_char
 	.text
 __L__793:
-## frame 16 28 48 64
+## frame arg-size:16 tmp-limit:28 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -13827,7 +13827,7 @@ __L__795:
 ## defn digit_value
 	.text
 __L__829:
-## frame 16 4 32 48
+## frame arg-size:16 tmp-limit:4 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -13925,7 +13925,7 @@ __L__831:
 ## defn is_hexadecimal
 	.text
 __L__840:
-## frame 0 4 16 32
+## frame arg-size:0 tmp-limit:4 tmp-size:16 frm-size:32
 	pushl %ebp
 	movl %esp,%ebp
 	subl $24,%esp
@@ -13985,7 +13985,7 @@ __L__841:
 ## defn is_octal
 	.text
 __L__845:
-## frame 0 4 16 32
+## frame arg-size:0 tmp-limit:4 tmp-size:16 frm-size:32
 	pushl %ebp
 	movl %esp,%ebp
 	subl $24,%esp
@@ -14010,7 +14010,7 @@ __L__846:
 ## defn intern
 	.text
 __L__847:
-## frame 16 20 48 64
+## frame arg-size:16 tmp-limit:20 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -14124,7 +14124,7 @@ __L__851:
 ## defn buffer_contents
 	.text
 __L__853:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -14167,7 +14167,7 @@ __L__853:
 ## defn buffer_append_all
 	.text
 __L__854:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -14209,7 +14209,7 @@ __L__856:
 ## defn buffer_append
 	.text
 __L__857:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -14277,7 +14277,7 @@ __L__858:
 ## defn buffer_grow
 	.text
 __L__859:
-## frame 16 20 48 64
+## frame arg-size:16 tmp-limit:20 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -14355,7 +14355,7 @@ __L__859:
 ## defn buffer_delete
 	.text
 __L__860:
-## frame 16 4 32 48
+## frame arg-size:16 tmp-limit:4 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -14382,7 +14382,7 @@ __L__860:
 ## defn new_buffer
 	.text
 __L__861:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -14432,7 +14432,7 @@ __L__861:
 ## defn is_letter
 	.text
 __L__862:
-## frame 0 4 16 32
+## frame arg-size:0 tmp-limit:4 tmp-size:16 frm-size:32
 	pushl %ebp
 	movl %esp,%ebp
 	subl $24,%esp
@@ -14565,7 +14565,7 @@ __L__863:
 ## defn is_alpha
 	.text
 __L__868:
-## frame 0 4 16 32
+## frame arg-size:0 tmp-limit:4 tmp-size:16 frm-size:32
 	pushl %ebp
 	movl %esp,%ebp
 	subl $24,%esp
@@ -14608,7 +14608,7 @@ __L__869:
 ## defn is_digit16
 	.text
 __L__872:
-## frame 0 4 16 32
+## frame arg-size:0 tmp-limit:4 tmp-size:16 frm-size:32
 	pushl %ebp
 	movl %esp,%ebp
 	subl $24,%esp
@@ -14668,7 +14668,7 @@ __L__873:
 ## defn is_digit10
 	.text
 __L__877:
-## frame 0 4 16 32
+## frame arg-size:0 tmp-limit:4 tmp-size:16 frm-size:32
 	pushl %ebp
 	movl %esp,%ebp
 	subl $24,%esp
@@ -14693,7 +14693,7 @@ __L__878:
 ## defn is_blank
 	.text
 __L__879:
-## frame 0 4 16 32
+## frame arg-size:0 tmp-limit:4 tmp-size:16 frm-size:32
 	pushl %ebp
 	movl %esp,%ebp
 	subl $24,%esp
@@ -14756,7 +14756,7 @@ __L__880:
 ## defn type_check_fail
 	.text
 __L__881:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -14786,7 +14786,7 @@ __L__882:
 ## defn new-<subr>
 	.text
 __L__883:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -14840,7 +14840,7 @@ __L__883:
 ## defn new-<fixed>
 	.text
 __L__884:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -14885,7 +14885,7 @@ __L__884:
 ## defn new-<form>
 	.text
 __L__885:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -14930,7 +14930,7 @@ __L__885:
 ## defn new-<expr>
 	.text
 __L__886:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -14970,7 +14970,7 @@ __L__886:
 ## defn new-<array>
 	.text
 __L__887:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -15027,7 +15027,7 @@ __L__887:
 ## defn new-<pair>
 	.text
 __L__888:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -15067,7 +15067,7 @@ __L__888:
 ## defn new-<symbol>
 	.text
 __L__889:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -15103,7 +15103,7 @@ __L__889:
 ## defn new-<string>
 	.text
 __L__890:
-## frame 16 20 48 64
+## frame arg-size:16 tmp-limit:20 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -15147,7 +15147,7 @@ __L__890:
 ## defn _new-<string>
 	.text
 __L__891:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -15214,7 +15214,7 @@ __L__891:
 ## defn new-<long>
 	.text
 __L__892:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -15245,7 +15245,7 @@ __L__892:
 ## defn new-oops
 	.text
 __L__893:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -15272,7 +15272,7 @@ __L__893:
 ## defn new-bits
 	.text
 __L__894:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -15347,7 +15347,7 @@ __L__894:
 ## defn gc_gcollect
 	.text
 __L__895:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -15397,7 +15397,7 @@ __L__897:
 ## defn gc_mark_and_trace
 	.text
 __L__898:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -15495,7 +15495,7 @@ __L__899:
 ## defn gc_sweep
 	.text
 __L__904:
-## frame 0 28 32 48
+## frame arg-size:0 tmp-limit:28 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -15608,7 +15608,7 @@ __L__906:
 ## defn gc_malloc
 	.text
 __L__910:
-## frame 16 32 48 64
+## frame arg-size:16 tmp-limit:32 tmp-size:48 frm-size:64
 	pushl %ebp
 	movl %esp,%ebp
 	subl $56,%esp
@@ -15943,7 +15943,7 @@ __L__926:
 ## defn gc_malloc_atomic
 	.text
 __L__927:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -15973,7 +15973,7 @@ __L__927:
 ## defn gc_size
 	.text
 __L__928:
-## frame 0 8 16 32
+## frame arg-size:0 tmp-limit:8 tmp-size:16 frm-size:32
 	pushl %ebp
 	movl %esp,%ebp
 	subl $24,%esp
@@ -15992,7 +15992,7 @@ __L__928:
 ## defn gc_grow_memory
 	.text
 __L__929:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -16032,7 +16032,7 @@ __L__929:
 ## defn gc_pop_root
 	.text
 __L__930:
-## frame 16 4 32 48
+## frame arg-size:16 tmp-limit:4 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -16086,7 +16086,7 @@ __L__933:
 ## defn gc_push_root
 	.text
 __L__935:
-## frame 16 16 32 48
+## frame arg-size:16 tmp-limit:16 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -16172,7 +16172,7 @@ __L__936:
 ## defn gc_initialise
 	.text
 __L__938:
-## frame 16 4 32 48
+## frame arg-size:16 tmp-limit:4 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -16193,7 +16193,7 @@ __L__938:
 ## defn new_memory_block
 	.text
 __L__939:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -16257,7 +16257,7 @@ __L__940:
 ## defn fatal2
 	.text
 __L__942:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -16303,7 +16303,7 @@ __L__944:
 ## defn fatal1
 	.text
 __L__945:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -16345,7 +16345,7 @@ __L__947:
 ## defn fatal
 	.text
 __L__948:
-## frame 16 8 32 48
+## frame arg-size:16 tmp-limit:8 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -16375,7 +16375,7 @@ __L__949:
 ## defn die
 	.text
 __L__950:
-## frame 16 12 32 48
+## frame arg-size:16 tmp-limit:12 tmp-size:32 frm-size:48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
@@ -16439,7 +16439,7 @@ __L__952:
 ## defn max
 	.text
 __L__954:
-## frame 0 4 16 32
+## frame arg-size:0 tmp-limit:4 tmp-size:16 frm-size:32
 	pushl %ebp
 	movl %esp,%ebp
 	subl $24,%esp
