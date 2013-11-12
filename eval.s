@@ -13404,7 +13404,7 @@ __L__1046:
 	movl 64(%esp),%eax
 	movl %eax,28(%esp)
 	movl $0,%eax
-	movl $0,%eax
+	movl $1,%eax
 	movl %eax,32(%esp)
 	movl 28(%esp),%eax
 	movl 32(%esp),%ecx
@@ -18377,7 +18377,7 @@ __L__1402:
 	movl 64(%esp),%eax
 	movl %eax,28(%esp)
 	movl $0,%eax
-	movl $1,%eax
+	movl $0,%eax
 	movl %eax,24(%esp)
 	movl 28(%esp),%eax
 	movl 24(%esp),%ecx
@@ -19770,7 +19770,7 @@ __L__1473:
 	subl $40,%esp
 	movl _3Csubr_3E,%eax
 	movl %eax,16(%esp)
-	movl $12,%eax
+	movl $16,%eax
 	movl %eax,20(%esp)
 	movl new_2Dbits,%eax
 	movl 16(%esp),%ecx
@@ -19787,7 +19787,7 @@ __L__1473:
 	call *%eax
 	movl 48(%esp),%eax
 	movl %eax,16(%esp)
-	movl $0,%eax
+	movl $1,%eax
 	movl %eax,24(%esp)
 	movl 20(%esp),%eax
 	movl 24(%esp),%ecx
@@ -19796,7 +19796,7 @@ __L__1473:
 	movl %eax,(%ecx)
 	movl 52(%esp),%eax
 	movl %eax,16(%esp)
-	movl $1,%eax
+	movl $0,%eax
 	movl %eax,24(%esp)
 	movl 20(%esp),%eax
 	movl 24(%esp),%ecx
