@@ -11,7 +11,8 @@ clean:
 	./eval boot.l $^
 
 %.s: %.l
-	./eval -O boot.l emit.l $^ > $@
+	grep -L "compile-begin" $^ || ./eval -O boot.l emit.l <(echo "(compile-begin)"; cat $^; echo "(compile-end)") > $@
+	grep -L "compile-begin" $^ && ./eval -O boot.l emit.l $^ > $@
 
 %: %.s
 	gcc -m32 $^ -o $@ 
