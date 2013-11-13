@@ -23,6 +23,15 @@ clean:
 %.ll: %.c
 	 clang -S -emit-llvm $^ -o $@ 
 
+osdefs.k : mkosdefs
+	./mkosdefs > $@
+
+mkosdefs : mkosdefs.c
+	gcc -o $@ $^
+
+eval.s: boot.l emit.l eval.l osdefs.k
+	./eval -O boot.l emit.l eval.l > $@
+
 test: boot.l emit.l eval.l
 	./eval $^ > eval-self.s
 	diff eval.s eval-self.s
