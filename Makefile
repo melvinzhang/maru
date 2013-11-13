@@ -3,7 +3,7 @@ SHELL=bash
 all: eval
 
 clean:
-	rm -f *.o eval
+	rm -f *.o eval mkosdefs
 
 .SUFFIXES:
 
