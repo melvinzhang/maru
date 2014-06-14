@@ -36,7 +36,7 @@ eval.s: boot.l emit.l eval.l osdefs.k
 	./eval -O boot.l emit.l eval.l > $@
 
 test: boot.l emit.l eval.l
-	./eval $^ > eval-self.s
+	./eval -O $^ > eval-self.s
 	diff eval.s eval-self.s
 	rm eval-self.s
 
