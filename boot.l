@@ -648,8 +648,6 @@
   ;;(println "; backtrace disabled")
   )
 
-(define-function printf (fmt arg) (print (format fmt arg)))
-
 ;;; multimethod
 
 (define-structure <generic> (name methods default))
@@ -932,8 +930,6 @@
 (define-function max (a . rest)	(list-do b rest (set a (if (> b a) b a))) a)
 (define-function min (a . rest)	(list-do b rest (set a (if (< b a) b a))) a)
 (define-function sum (a . rest)	(list-do b rest (incr a b)) a)
-
-(define-function align (value alignment)	(& (+ value (- alignment 1)) (- alignment)))
 
 ;;; structural equality
 
