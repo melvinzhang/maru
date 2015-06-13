@@ -93,13 +93,6 @@
   (lambda (x y)
     (string->symbol (concat-string (symbol->string x) (symbol->string y)))))
 
-(define concat-symbols
-  (lambda args
-    (let ((result (car args)))
-      (while (symbol? (car (set args (cdr args))))
-	(set result (concat-symbol result (car args))))
-      result)))
-
 (define quasiquote
   (form
     (let ((qq-list) (qq-element) (qq-object))

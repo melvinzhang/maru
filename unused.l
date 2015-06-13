@@ -1,6 +1,13 @@
-(define unit-testing? '(t))
+(define concat-symbols
+  (lambda args
+    (let ((result (car args)))
+      (while (symbol? (car (set args (cdr args))))
+	(set result (concat-symbol result (car args))))
+      result)))
 
 ;;; unit testing
+
+(define unit-testing? '(t))
 
 (define-form unit-fail (expr)
   `(error "UNIT FAIL "unit-name": "',expr))
