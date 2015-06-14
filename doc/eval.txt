@@ -1,0 +1,372 @@
+## defn main
+Entry point of eval.
+Set up GC.
+intern the following
+  t
+  .
+  set
+  define
+  lambda
+  let
+  quote
+  quasiquote
+  unquote
+  unquote-splicing
+setup globals
+  *input*
+  *expanders*
+  *encoders*
+  *evaluators*
+  *applicators*
+define fsubr  
+  define
+  lambda
+  let
+  set
+  while
+  if
+  or
+  and
+  quote
+define subr
+  defined?
+  abort
+  exit
+  format
+  dump
+  print
+  warn
+  apply
+  eval
+  encode
+  expand
+  cons
+  string
+  array
+  form
+  open
+  close
+  getc
+  putc
+  allocate
+  type-of
+  string?
+  symbol?
+  pair?
+  array?
+  car
+  cdr
+  set-car
+  set-cdr
+  oop-at
+  set-oop-at
+  array-length
+  array-at
+  set-array-at
+  string-length
+  string-at
+  set-string-at
+  string->symbol
+  symbol->string
+  long->string
+  verbose
+  optimised
+  read
+
+for each arg in arg list
+    check if arg is options, if so process it 
+    else open file as stream for reading, repl_stream stream
+
+supported options:
+eval [-v] [-O] [file...]
+-v: verbose
+-O: optimised
+
+pass - as file to read from stdin, this means 
+./eval - 
+acts as a repl
+
+## defn define-fsubr
+## defn define-subr
+## defn repl_stream
+## defn subr_read
+## defn subr_optimised
+## defn subr_verbose
+## defn subr_long_string
+## defn subr_symbol_string
+## defn subr_string_symbol
+## defn subr_set_string_at
+## defn subr_string_at
+## defn subr_string_length
+## defn subr_set_array_at
+## defn subr_array_at
+## defn subr_array_length
+## defn subr_set_oop_at
+## defn subr_oop_at
+## defn subr_set_cdr
+## defn subr_set_car
+## defn subr_cdr
+## defn subr_car
+## defn subr_arrayP
+## defn subr_pairP
+## defn subr_symbolP
+## defn subr_stringP
+## defn subr_type_of
+## defn subr_allocate
+## defn subr_form
+## defn subr_array
+## defn subr_string
+## defn subr_cons
+## defn subr_expand
+## defn subr_encode
+## defn subr_eval
+## defn subr_apply
+## defn subr_warn
+## defn subr_print
+## defn subr_dump
+## defn subr_format
+## defn subr_putc
+## defn subr_getc
+## defn subr_close
+## defn subr_open
+## defn subr_exit
+## defn subr_abort
+## defn subr_ne
+## defn subr_eq
+## defn subr_gt
+## defn subr_ge
+## defn subr_le
+## defn subr_lt
+## defn define-relation
+## defn subr_shr
+## defn subr_shl
+## defn subr_div
+## defn subr_mul
+## defn subr_add
+## defn subr_bitxor
+## defn subr_bitor
+## defn subr_bitand
+## defn define-binary
+## defn subr_sub
+## defn arity3
+## defn arity2
+## defn subr_not
+## defn subr_quote
+## defn subr_and
+## defn subr_or
+## defn subr_if
+## defn subr_while
+## defn subr_set
+## defn subr_let
+## defn subr_lambda
+## defn subr_definedP
+## defn subr_define
+## defn evlist
+## defn k_encode
+## defn enlist
+## defn k_expand
+## defn exlist
+## defn k_apply
+## defn counter
+## defn k_apply_expr
+## defn k_eval
+## defn k_env_define
+## defn k_env_lookup
+## defn k_env_find_variable
+## defn read_quote
+## defn read_list
+## defn k_read
+## defn read_string
+## defn read_symbol
+## defn read_number
+## defn read_char
+## defn digit_value
+## defn is_hexadecimal
+## defn is_octal
+## defn intern
+## defn buffer_contents
+## defn buffer_append_all
+## defn buffer_append
+## defn buffer_grow
+## defn buffer_delete
+## defn new_buffer
+## defn is_letter
+## defn is_alpha
+## defn is_digit16
+## defn is_digit10
+## defn is_blank
+## defn k_dumpln
+## defn k_dump
+## defn k_println
+## defn k_print
+## defn do_print
+## defn k_array_insert
+## defn k_array_append
+## defn k_set_array_at
+## defn k_array_at
+## defn k_array_length
+## defn k_concat
+## defn k_string_length
+## defn k_caddr
+## defn k_cddr
+## defn k_cadr
+## defn k_caar
+## defn k_cdr
+## defn k_car
+## defn is_global
+## defn new-<context>
+## defn new-base-<context>
+## defn new-<env>
+## defn set_tail
+## defn set_head
+## defn get_tail
+## defn get_head
+## defn get_long
+## defn is_long
+## defn put
+## defn get
+## defn type_check_fail
+## defn is
+## defn get-type
+## defn new-<variable>
+## defn new-<subr>
+## defn new-<fixed>
+## defn new-<form>
+## defn new-<expr>
+## defn new-<array>
+## defn new-<pair>
+## defn new-<symbol>
+## defn new-<string>
+## defn _new-<string>
+## defn new-<long>
+## defn new-oops
+## defn new-bits
+## defn opt_optimised
+## defn opt_verbose
+## defn f_define
+## defn f_let
+## defn f_lambda
+## defn f_quote
+## defn f_set
+## defn s_applicators
+## defn s_evaluators
+## defn s_encoders
+## defn s_expanders
+## defn s_unquote_splicing
+## defn s_unquote
+## defn s_quasiquote
+## defn s_quote
+## defn s_let
+## defn s_lambda
+## defn s_set
+## defn s_define
+## defn s_dot
+## defn s_t
+## defn applicators
+## defn evaluators
+## defn encoders
+## defn expanders
+## defn globals
+## defn symbols
+## defn <context>
+## defn <env>
+## defn <variable>
+## defn <subr>
+## defn <fixed>
+## defn <form>
+## defn <expr>
+## defn <array>
+## defn <_array>
+## defn <pair>
+## defn <symbol>
+## defn <string>
+## defn <double>
+## defn <long>
+## defn <data>
+## defn <undefined>
+## defn DONE
+## defn EOF
+## defn fscanf
+## defn fflush
+## defn fclose
+## defn fdopen
+## defn fopen
+## defn ungetc
+## defn getc
+## defn putc
+## defn strtoul
+## defn strdup
+## defn strcmp
+## defn strlen
+## defn gc_malloc_atomic
+## defn gc_malloc
+## defn gc_gcollect
+## defn gc_mark_and_trace
+## defn gc_sweep
+## defn gc_size
+## defn gc_grow_memory
+## defn gc_pop_root
+## defn gc_push_root
+## defn gc_initialise
+## defn new_memory_block
+## defn k_error
+## defn fatal2
+## defn fatal1
+## defn fatal
+## defn die
+## defn trace_depth
+## defn trace_stack
+## defn max
+## defn <header>-flags-used+atom
+## defn <header>-flags-mark
+## defn <header>-flags-atom
+## defn <header>-flags-used
+## defn size-of-structure
+## defn gc_collection_count
+## defn gc_alloc_count
+## defn gc_memory_last
+## defn gc_memory_base
+## defn gc_root_max
+## defn gc_root_count
+## defn gc_roots
+## defn gc_bytes_free
+## defn gc_bytes_used
+## defn gc_objects_live
+## defn gc_frequency
+## defn gc_quantum
+## defn stderr
+## defn stdout
+## defn stdin
+## defn input
+## defn arguments
+## defn isatty
+## defn snprintf
+## defn sprintf
+## defn fprintf
+## defn printf
+## defn memmove
+## defn memcpy
+## defn memset
+## defn free
+## defn realloc
+## defn malloc
+## defn exit
+## defn abort
+## form define-relation
+## form define-binary
+## form set_tail
+## form set_head
+## form get_tail
+## form get_head
+## form get_long
+## form is_long
+## form put
+## form get
+## form is
+## form get-type
+## form k_error
+## form <header>-flags-used+atom
+## form <header>-flags-mark
+## form <header>-flags-atom
+## form <header>-flags-used
+## form size-of-structure
