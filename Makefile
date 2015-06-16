@@ -35,7 +35,10 @@ mkosdefs : mkosdefs.c
 eval.s: boot.l emit.l eval.l osdefs.k
 	./eval -O boot.l emit.l eval.l > $@
 
-test: boot.l emit.l eval.l
+test-subr: test/test-subr.l
+	./eval boot.l $^
+
+test-bootstrap: boot.l emit.l eval.l
 	./eval -O $^ > eval-self.s
 	diff eval.s eval-self.s
 	rm eval-self.s
