@@ -49,19 +49,22 @@
 
 (unit-test "test-plus"
   (unit-assert (= (+ 2 10) 12))
+  (unit-assert (= (+ -2 2) 0))
   )
 
 (unit-test "test-minus"
   (unit-assert (= (- 2 1) 1))
+  (unit-assert (= (- 1 2) -1))
   )
 
 (unit-test "test-times"
   (unit-assert (= (* 2 3) 6))
   )
 
-; only works with positive numbers?
+; only works with positive numbers
 (unit-test "test-div"
   (unit-assert (= (/ 10 2) 5))
+  (unit-assert (= (/ 2 10) 0))
   )
 
 (unit-test "test-leftshift"
