@@ -12,7 +12,7 @@
     (%print "\nERROR: ")
     (apply %print args)
     (%print "\n")
-    (abort)))
+    (exit 1)))
 
 (set error
   (lambda args
@@ -20,7 +20,7 @@
     (%print "\n[31;1merror: ")
     (apply print args)
     (%print "[m\n")
-    (abort)))
+    (exit 1)))
 
 (define caar (lambda (x) (car (car x))))
 (define cadr (lambda (x) (car (cdr x))))
