@@ -35,7 +35,9 @@ mkosdefs : mkosdefs.c
 eval.s: boot.l emit.l eval.l osdefs.k
 	./eval -O boot.l emit.l eval.l > $@
 
-test-subr: test/test-subr.l
+tests: eval test/test-subr test/test-basic
+
+test-%: test-%.l
 	./eval boot.l $^
 
 test-bootstrap: boot.l emit.l eval.l
