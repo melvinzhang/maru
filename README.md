@@ -11,8 +11,10 @@ eval.s is compiled version of the interpreter, it can be compiled to a binary wi
 
 The binary can regenerate eval.s from source via the Makefile
 
-`rm eval.s`
-`make eval.s`
+```
+rm eval.s
+make eval.s
+```
 
 The generate eval.s is identical to the version in the repository
 
