@@ -4,6 +4,8 @@
 
 -- http://piumarta.com/software/maru/
 
+This project removes the C based interpreter focuses on the maru compiler/repl written in maru.
+
 ## Bootstrapping
 eval.s is compiled version of the interpreter, it can be compiled to a binary with gcc via the Makefile
 
