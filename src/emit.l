@@ -1,4 +1,4 @@
-(require "osdefs.k")
+(require "src/osdefs.k")
 
 (define __PREFIX__ (if (or (defined? '__MACH__) (defined? '__WIN32__)) "_" ""))
 

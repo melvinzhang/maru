@@ -1,51 +1,51 @@
 SHELL=bash
 
-all: eval
+all: bin/eval
 
 clean:
-	rm -f *.o eval mkosdefs
-
-.SUFFIXES:
+	-rm bin/eval bin/mkosdefs src/osdefs.k
 
 %.e: %.l
-	./eval boot.l $^
+	bin/eval src/boot.l $^
 
 %.s: %.l
 	if [ $$(grep -l "compile-begin" $^) ]; then \
-		./eval -O boot.l emit.l $^ > $@; \
+		bin/eval -O src/boot.l src/emit.l $^ > $@; \
 	else \
-		./eval -O boot.l emit.l <(echo "(compile-begin)"; cat $^; echo "(compile-end)") > $@; \
+		bin/eval -O src/boot.l src/emit.l <(echo "(compile-begin)"; cat $^; echo "(compile-end)") > $@; \
 	fi
-
-%: %.s
-	gcc -m32 $^ -o $@ 
 
 %.s: %.ll
 	llc-3.4 -march=x86 $^ > $@
 
 %.ll: %.c
-	 clang -S -emit-llvm $^ -o $@ 
+	clang -S -emit-llvm $^ -o $@ 
 
-osdefs.k : mkosdefs
-	./mkosdefs > $@
+bin/eval: 
+	git show master:obj/eval.s | gcc -m32 -x assembler - -o bin/eval
 
-mkosdefs : mkosdefs.c
+bin/%.new: obj/%.s
+	gcc -m32 $^ -o $@ 
+
+src/osdefs.k : bin/mkosdefs
+	$^ > $@
+
+bin/mkosdefs : src/mkosdefs.c
 	gcc -o $@ $^
 
-eval.s: boot.l emit.l eval.l osdefs.k
-	./eval -O boot.l emit.l eval.l > $@
+obj/eval.s: bin/eval src/boot.l src/emit.l src/eval.l src/osdefs.k
+	bin/eval -O src/boot.l src/emit.l src/eval.l > $@
 
-tests: eval test/test-subr test/test-basic
+tests: bin/eval test/test-subr test/test-basic
 
 test-%: test-%.l
-	./eval boot.l $^
+	bin/eval src/boot.l $^
 
-test-bootstrap: boot.l emit.l eval.l
-	./eval -O $^ > eval-self.s
-	diff eval.s eval-self.s
-	rm eval-self.s
+test-bootstrap: src/boot.l src/emit.l src/eval.l
+	bin/eval -O $^ > obj/eval-self.s
+	diff obj/eval.s obj/eval-self.s
+	rm obj/eval-self.s
 
 stats:
-	cat boot.l emit.l        | sed 's/.*debug.*//;s/;.*//' | sort -u | wc -l
-	cat eval.l               | sed 's/.*debug.*//;s/;.*//' | sort -u | wc -l
-	cat boot.l emit.l eval.l | sed 's/.*debug.*//;s/;.*//' | sort -u | wc -l
+	cat src/boot.l src/emit.l src/eval.l | sed 's/.*debug.*//;s/;.*//;/^\s*$$/d' | wc -l
+	cat src/boot.l src/emit.l src/eval.l | grep '(' -o | wc -l 
