@@ -21,7 +21,8 @@ clean:
 %.ll: %.c
 	clang -S -emit-llvm $^ -o $@ 
 
-bin/eval: 
+bin/eval:
+	-mkdir bin
 	git show master:obj/eval.s | gcc -m32 -x assembler - -o bin/eval
 
 bin/%.new: obj/%.s
