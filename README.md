@@ -18,7 +18,7 @@ maru-in-C interpreter.
 * add LLVM support
 
 ## Bootstrapping
-eval.s is compiled version of the interpreter, it can be compiled to a binary with gcc via the Makefile
+eval.s is the interpreter compiled to IA32 assembly, it can be compiled to a binary with gcc via the Makefile
 
 `make eval`
 
