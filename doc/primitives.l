@@ -22,9 +22,26 @@ three
 (rest 1 2 3)
 ;.(2 3)
 
-; let
-; set
-; while
+; (let ((symbol expression)...) expression...)
+(let ((a 1)) a)
+;.1
+(let ((a 1) (b 2)) (+ a b))
+;.3
+
+; (set symbol expression)
+(let ((a 1)) 
+  (set a 2) 
+  a)
+;.2
+
+; (while test-expression expression..)
+(let ((i 10)) 
+  (while (> i 0) 
+    (set i (- i 1)) 
+    (print i)) 
+  i)
+;.98765432100
+
 ; if
 ; or
 ; and
