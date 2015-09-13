@@ -159,18 +159,21 @@ three
 ;; string
 (type-of "a")
 ;.4
-;; expr
-(type-of inc)
-;.9
 ;; symbol
 (type-of 'inc)
 ;.5
-;; subr
-(type-of type-of)
-;.12
+;; pair
+(type-of '(1 2))
+;.6
+;; expr
+(type-of inc)
+;.9
 ;; fixed
 (type-of define)
 ;.11
+;; subr
+(type-of type-of)
+;.12
 
 ; (string? expression)
 (string? "a")
@@ -184,12 +187,44 @@ three
 (symbol? "a")
 ;.nil
 
-; pair?
-; array?
-; car
-; cdr
-; set-car
-; set-cdr
+; (pair? expression)
+(pair? '(1 . 2))
+;.t
+(pair? '(1 2))
+;.t
+(pair? 'a)
+;.nil
+(pair? 1)
+;.nil
+
+; (array? expression)
+(array? (array 1))
+;.t
+(array? "a")
+;.nil
+
+; (car list)
+(car '(1 2))
+;.1
+(car "abc")
+;.nil
+
+; (cdr list)
+(cdr '(1 2))
+;.(2)
+(cdr "abc")
+;.nil
+
+; (set-car list expression)
+;; change the car of list to expression, return value of expression
+(let ((a '(1 2))) (set-car a 3) a)
+;.(3 2)
+
+; (set-cdr list expression)
+;; change the cdr of list to expression, return value of expression
+(let ((a '(1 2))) (set-cdr a '(3)) a)
+;.(1 3)
+
 ; oop-at
 ; set-oop-at
 ; array-length
