@@ -225,17 +225,67 @@ three
 (let ((a '(1 2))) (set-cdr a '(3)) a)
 ;.(1 3)
 
-; oop-at
-; set-oop-at
-; array-length
-; array-at
-; set-array-at
-; string-length
-; string-at
-; set-string-at
-; string->symbol
-; symbol->string
-; long->string
-; verbose
-; optimised
-; read
+; (oop-at obj idx)
+;; return field i of obj
+(oop-at "abc" 0)
+;.3
+(oop-at '(1 2) 0)
+;.1
+(oop-at '(1 2) 1)
+;.(2)
+
+; (set-oop-at obj idx val)
+;; modify obj by changing field idx to val, return val
+(let ((a '(1 2))) (set-oop-at a 0 2) a)
+;.(2 2)
+
+; (array-length arr)
+(array-length (array 10))
+;.10
+
+; (set-array-at arr idx val)
+(let ((a (array 2))) (set-array-at a 0 3) a)
+;.Array(3 nil)
+
+; (array-at arr idx)
+(let ((a (array 2))) (set-array-at a 0 3) (array-at a 0))
+;.3
+
+; (string-length str)
+(string-length "abcd")
+;.4
+
+; (string-at str idx)
+(string-at "abcd" 0)
+;.97
+(string-at "abcd" 1)
+;.98
+
+; (set-string-at str idx val)
+(let ((a "abcd")) (set-string-at a 0 98) a)
+;."bbcd"
+
+; (string->symbol str)
+(string->symbol "abcd")
+;.abcd
+
+; (symbol->string sym)
+(symbol->string 'abcd)
+;."abcd"
+
+; (long->string long)
+(long->string 5432)
+;."5432"
+
+; (verbose)
+(verbose)
+;.0
+
+; (optimised)
+(optimised)
+
+
+; (read)
+;; from stdin
+; (read filename)
+;; from filename
