@@ -6,7 +6,6 @@ clean:
 	-rm bin/eval bin/mkosdefs src/osdefs.k
 
 bin/eval: 
-	-mkdir bin
 	git show master:obj/eval.s | gcc -m32 -x assembler - -o bin/eval
 
 bin/eval.new: obj/eval.s
@@ -53,3 +52,19 @@ test-bootstrap: src/boot.l src/emit.l src/eval.l
 stats:
 	cat src/boot.l src/emit.l src/eval.l | sed 's/.*debug.*//;s/;.*//;/^\s*$$/d' | wc -l
 	cat src/boot.l src/emit.l src/eval.l | grep '(' -o | wc -l 
+
+OFLAGS = -O3 -fomit-frame-pointer -DNDEBUG
+CFLAGS = -Wall -Wno-comment -g $(OFLAGS)
+LIBS = -lm -lffi -ldl
+
+bin/eval1 : csrc/eval.c csrc/gc.c csrc/gc.h csrc/buffer.c csrc/chartab.h csrc/wcs.c
+	$(CC) -g $(CFLAGS) -o $@ $< $(LIBS)
+
+bin/eval2 : csrc/eval2.c csrc/gc.c csrc/gc.h csrc/buffer.c csrc/chartab.h csrc/wcs.c src/osdefs.k
+	$(CC) -g $(CFLAGS) -o $@ $< $(LIBS)
+
+bin/eval3 : csrc/eval3.c csrc/gc.c csrc/gc.h csrc/buffer.c csrc/chartab.h csrc/wcs.c src/osdefs.k
+	$(CC) -g $(CFLAGS) -o $@ $< $(LIBS)
+
+bin/gceval: csrc/eval.c csrc/libgc.c csrc/buffer.c csrc/chartab.h csrc/wcs.c
+	$(CC) -g $(CFLAGS) -DLIB_GC=1 -o $@ $< $(LIBS) -lgc
