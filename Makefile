@@ -49,6 +49,12 @@ test-bootstrap: src/boot.l src/emit.l src/eval.l
 	diff obj/eval.s obj/eval-self.s
 	rm obj/eval-self.s
 
+test-pepsi: bin/eval1 bin/eval2 bin/eval3 bin/gceval
+	cd test/pepsi; ../../bin/eval1  repl.l test-pepsi.l > test-pepsi.eval1
+	cd test/pepsi; ../../bin/eval2  repl.l test-pepsi.l > test-pepsi.eval2
+	cd test/pepsi; ../../bin/eval3  repl.l test-pepsi.l > test-pepsi.eval3
+	cd test/pepsi; ../../bin/gceval repl.l test-pepsi.l > test-pepsi.gceval
+
 stats:
 	cat src/boot.l src/emit.l src/eval.l | sed 's/.*debug.*//;s/;.*//;/^\s*$$/d' | wc -l
 	cat src/boot.l src/emit.l src/eval.l | grep '(' -o | wc -l 
