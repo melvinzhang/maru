@@ -1,3 +1,6 @@
+; Fixed primitives
+; ================
+
 ; (define symbol expression)
 (define three 3)
 ;.3
@@ -42,17 +45,68 @@ three
   i)
 ;.98765432100
 
-; if
-; or
-; and
-; quote
+; (if test-expression then-expression [else-expression])
+(if 1 2 3)
+;.2
+(if () 2 3)
+;.3
+(if () 2)
+;.nil
 
-; defined?
-; abort
-; exit
-; format
-; dump
-; print
+; (or expression...)
+(or 1 2 3)
+;.1
+(or () 2 3)
+;.2
+(or () () 3)
+;.3
+
+; (and expression...)
+(and 1 2 3)
+;.3
+(and () 2 3)
+;.nil
+(and 1 2 ())
+;.nil
+
+; (quote expression)
+(quote (1 2 3))
+;.(1 2 3)
+
+
+; Primitives
+; ==========
+
+; (defined? symbol)
+(defined? 'three)
+;three.0+76
+(defined? 'inc)
+;inc.0+77
+(defined? 'unknown)
+;.nil
+
+; (abort)
+; void abort( void ) from stdlib.h
+
+; (exit long)
+;(exit)
+;(exit 0)
+;(exit 1)
+
+; (format format-string expression)
+(format "|%s|" "abc")
+;."|abc|"
+(format "%03d" 12)
+;."012"
+
+; (dump expression...)
+(dump 1 2)
+;.12nil
+
+; (print expression...)
+(print 1 2)
+;.12nil
+
 ; warn
 ; apply
 ; eval
