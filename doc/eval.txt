@@ -18,60 +18,8 @@ setup globals
   *encoders*
   *evaluators*
   *applicators*
-define fsubr  
-  define
-  lambda
-  let
-  set
-  while
-  if
-  or
-  and
-  quote
+define fixed subr
 define subr
-  defined?
-  abort
-  exit
-  format
-  dump
-  print
-  warn
-  apply
-  eval
-  encode
-  expand
-  cons
-  string
-  array
-  form
-  open
-  close
-  getc
-  putc
-  allocate
-  type-of
-  string?
-  symbol?
-  pair?
-  array?
-  car
-  cdr
-  set-car
-  set-cdr
-  oop-at
-  set-oop-at
-  array-length
-  array-at
-  set-array-at
-  string-length
-  string-at
-  set-string-at
-  string->symbol
-  symbol->string
-  long->string
-  verbose
-  optimised
-  read
 
 for each arg in arg list
     check if arg is options, if so process it 
