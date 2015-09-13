@@ -4,7 +4,9 @@
 
 -- http://piumarta.com/software/maru/
 
-This fork focuses on the maru compiler/repl written in maru, while the parent focused on the interpreter written in C
+This fork aims to eliminate the dependence on C as the implementation language
+by updating the maru-in-maru interpreter to include all the features of the
+maru-in-C interpreter.
 
 ## Objective
 * src/eval.l to have the same features as csrc/eval.c
