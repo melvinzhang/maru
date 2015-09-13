@@ -89,6 +89,7 @@ three
 ; void abort( void ) from stdlib.h
 
 ; (exit long)
+; void exit (int status); from stdlib.h
 ;(exit)
 ;(exit 0)
 ;(exit 1)
@@ -107,23 +108,82 @@ three
 (print 1 2)
 ;.12nil
 
-; warn
-; apply
-; eval
-; encode
-; expand
-; cons
-; string
-; array
-; form
-; open
-; close
-; getc
-; putc
-; allocate
-; type-of
-; string?
-; symbol?
+; warn ???
+
+; (apply function args)
+(apply inc '(10))
+;.11
+
+; (eval code)
+(eval '(inc 11))
+;.12
+
+; encode ??
+
+; expand ??
+
+; (cons x xs)
+(cons '1 '(2 3))
+
+; (string l)
+; construct a string with length l
+(string 10)
+;.""
+
+; (array l)
+; construct an array with length l
+(array 2)
+;.Array(nil nil)
+
+; form ??
+
+; (open filename)
+; wrapper around fopen, uses in "rb" mode
+
+; (close fd)
+; wrapper around fclose
+
+; (getc fd)
+; wrapper around getc, returns a long
+
+; (putc fd char)
+; write char to fd, returns long of char written
+
+; (allocate type size)
+; create oops of given type with size*4 bytes of memory
+
+; (type-of expression)
+;; long
+(type-of 1)
+;.2
+;; string
+(type-of "a")
+;.4
+;; expr
+(type-of inc)
+;.9
+;; symbol
+(type-of 'inc)
+;.5
+;; subr
+(type-of type-of)
+;.12
+;; fixed
+(type-of define)
+;.11
+
+; (string? expression)
+(string? "a")
+;.t
+(string? 1)
+;.nil
+
+; (symbol? expression)
+(symbol? 'a)
+;.t
+(symbol? "a")
+;.nil
+
 ; pair?
 ; array?
 ; car
