@@ -4,13 +4,16 @@
 
 -- http://piumarta.com/software/maru/
 
-This project focuses on the maru compiler/repl written in maru, while the parent project focused on the interpreter written in C (eval.c)
+This fork focuses on the maru compiler/repl written in maru, while the parent focused on the interpreter written in C
 
-## Goals
-* port the backend to LLVM so that it is not limited to one hardware platform (IA32)
-* write tests for the repl
+## Objective
+* src/eval.l to have the same features as csrc/eval.c
+  * able to run test-pepsi example
+
+## Other improvements
+* write tests for eval
 * document the maru language
-* update eval.l to support all features of eval.c
+* add LLVM support
 
 ## Bootstrapping
 eval.s is compiled version of the interpreter, it can be compiled to a binary with gcc via the Makefile
