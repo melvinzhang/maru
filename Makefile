@@ -30,6 +30,13 @@ obj/eval.s: bin/eval src/boot.l src/emit.l src/eval.l src/osdefs.k
 		bin/eval -O src/boot.l src/emit.l <(echo "(compile-begin)"; cat $^; echo "(compile-end)") > $@; \
 	fi
 
+%.ll: %.l
+	if [ $$(grep -l "compile-begin" $^) ]; then \
+		bin/eval -O src/boot.l src/emit-llvm.l $^ > $@; \
+	else \
+		bin/eval -O src/boot.l src/emit-llvm.l <(echo "(compile-begin)"; cat $^; echo "(compile-end)") > $@; \
+	fi
+
 %: %.s
 	gcc -m32 $^ -o $@
 
