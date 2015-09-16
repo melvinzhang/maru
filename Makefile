@@ -65,7 +65,12 @@ obj/eval.ll: bin/eval src/boot.l src/emit-llvm.l src/eval.l
 %.ll: %.c
 	clang -S -emit-llvm $^ -o $@ 
 
-tests: bin/eval test/test-subr test/test-fsubr test/test-basic
+tests: bin/eval \
+	test/test-subr-logical \
+	test/test-subr-relation \
+	test/test-subr-binary \
+	test/test-fsubr \
+	test/test-basic
 
 test-%: test-%.l ${bin}
 	${run} $<

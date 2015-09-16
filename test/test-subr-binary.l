@@ -1,42 +1,5 @@
 (require "test/unit-test.l")
 
-(unit-test "test-eq"
-  (unit-assert (= "abc" "abc"))
-  (unit-assert (not (= "abc" "def")))
-  (unit-assert (= 5 5))
-  (unit-assert (not (= 4 5)))
-  )
-
-(unit-test "test-neq"
-  (unit-assert (!= 5 3))
-  (unit-assert (not (!= 3 3)))
-  )
-
-(unit-test "test-lt"
-  (unit-assert (< 4 5))
-  (unit-assert (not (< 6 5)))
-  )
-
-(unit-test "test-le"
-  (unit-assert (<= 4 5))
-  (unit-assert (not (<= 6 5)))
-  )
-
-(unit-test "test-gt"
-  (unit-assert (> 1 0))
-  (unit-assert (not (> 0 1)))
-  )
-
-(unit-test "test-ge"
-  (unit-assert (>= 1 1))
-  (unit-assert (not (>= 2 3)))
-  )
-
-(unit-test "test-not"
-  (unit-assert (not '()))
-  (unit-assert (not (not 1)))
-  )
-
 (unit-test "test-bitand"
   (unit-assert (= (& 0 1) 0))
   )
