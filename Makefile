@@ -2,6 +2,22 @@ SHELL=bash
 
 all: bin/eval
 
+evalm = bin/eval src/boot.l
+
+eval1 = bin/eval1 -b csrc/boot.l
+
+eval2 = bin/eval2 -b csrc/boot2.l
+
+eval3 = bin/eval3 -b csrc/boot2.l
+
+gceval = bin/gceval -b csrc/boot.l
+
+eval = evalm
+
+bin = $(firstword ${${eval}})
+
+run = ${${eval}}
+
 clean:
 	-rm bin/eval bin/mkosdefs src/osdefs.k
 
@@ -51,8 +67,8 @@ obj/eval.ll: bin/eval src/boot.l src/emit-llvm.l src/eval.l
 
 tests: bin/eval test/test-subr test/test-fsubr test/test-basic
 
-test-%: test-%.l
-	bin/eval src/boot.l $^
+test-%: test-%.l ${bin}
+	${run} $<
 
 test-bootstrap: src/boot.l src/emit.l src/eval.l
 	bin/eval -O $^ > obj/eval-self.s
