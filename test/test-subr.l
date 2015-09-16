@@ -1,6 +1,8 @@
 (require "test/unit-test.l")
 
 (unit-test "test-eq"
+  (unit-assert (= "abc" "abc"))
+  (unit-assert (not (= "abc" "def")))
   (unit-assert (= 5 5))
   (unit-assert (not (= 4 5)))
   )
