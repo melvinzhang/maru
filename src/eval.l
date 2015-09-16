@@ -1255,15 +1255,7 @@
 
 (define-function subr_ne (args ctx)
   (arity2 "!=" args)
-  (let* ((lhs  (get_head args))
-	 (rhs  (get_head (get_tail args)))
-	 (ltype (get-type lhs))
-     (rtype (get-type rhs)))
-    (cond
-      ((!= ltype rtype)     s_t)
-      ((= ltype <long>)		(and (!= (get_long lhs) (get_long rhs)) s_t))
-      ((= ltype <string>)	(and (strcmp (get <string> _bits lhs) (get <string> _bits rhs)) s_t))
-      (else			(and (!= lhs rhs) s_t)))))
+  (if (not (subr_eq args ctx)) s_t))
 
 (define-function subr_abort (args ctx)
   (abort))
