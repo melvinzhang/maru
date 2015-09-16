@@ -1260,7 +1260,7 @@
 	 (type (get-type lhs)))
     (cond
       ((= type <long>)		(and (is_long rhs) (!= (get_long lhs) (get_long rhs)) s_t))
-      ((= type <string>)	(and (is <string> rhs) (strcmp (get <string> _bits lhs) (get <string> _bits rhs))) s_t)
+      ((= type <string>)	(and (is <string> rhs) (strcmp (get <string> _bits lhs) (get <string> _bits rhs)) s_t))
       (else			(and (!= lhs rhs) s_t)))))
 
 (define-function subr_abort (args ctx)
