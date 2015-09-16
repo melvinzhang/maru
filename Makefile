@@ -4,6 +4,8 @@ all: bin/eval
 
 evalm = bin/eval src/boot.l
 
+evaln = bin/eval.new src/boot.l
+
 eval1 = bin/eval1 -b csrc/boot.l
 
 eval2 = bin/eval2 -b csrc/boot2.l
@@ -26,6 +28,10 @@ bin/eval:
 
 bin/eval.new: obj/eval.s
 	gcc -m32 $^ -o $@ 
+
+promote: bin/eval.new
+	make tests eval=evaln
+	mv bin/eval.new bin/eval
 
 src/osdefs.k : bin/mkosdefs
 	$^ > $@
