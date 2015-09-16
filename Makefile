@@ -20,6 +20,9 @@ bin/mkosdefs : src/mkosdefs.c
 obj/eval.s: bin/eval src/boot.l src/emit.l src/eval.l src/osdefs.k
 	bin/eval -O src/boot.l src/emit.l src/eval.l > $@
 
+obj/eval.ll: bin/eval src/boot.l src/emit-llvm.l src/eval.l
+	bin/eval -O src/boot.l src/emit-llvm.l src/eval.l > $@
+
 %.e: %.l
 	bin/eval src/boot.l $^
 
@@ -30,11 +33,11 @@ obj/eval.s: bin/eval src/boot.l src/emit.l src/eval.l src/osdefs.k
 		bin/eval -O src/boot.l src/emit.l <(echo "(compile-begin)"; cat $^; echo "(compile-end)") > $@; \
 	fi
 
-%.ll: %.l
-	if [ $$(grep -l "compile-begin" $^) ]; then \
-		bin/eval -O src/boot.l src/emit-llvm.l $^ > $@; \
+%.ll: %.l src/boot.l src/emit-llvm.l
+	if [ $$(grep -l "compile-begin" $<) ]; then \
+		bin/eval -O src/boot.l src/emit-llvm.l $< > $@; \
 	else \
-		bin/eval -O src/boot.l src/emit-llvm.l <(echo "(compile-begin)"; cat $^; echo "(compile-end)") > $@; \
+		bin/eval -O src/boot.l src/emit-llvm.l <(echo "(compile-begin)"; cat $<; echo "(compile-end)") > $@; \
 	fi
 
 %: %.s
@@ -61,6 +64,10 @@ test-pepsi: bin/eval1 bin/eval2 bin/eval3 bin/gceval
 	cd test/pepsi; ../../bin/eval2  repl.l test-pepsi.l > test-pepsi.eval2
 	cd test/pepsi; ../../bin/eval3  repl.l test-pepsi.l > test-pepsi.eval3
 	cd test/pepsi; ../../bin/gceval repl.l test-pepsi.l > test-pepsi.gceval
+
+test-llvm: 
+	make examples/args.ll
+	make obj/eval.ll
 
 stats:
 	cat src/boot.l src/emit.l src/eval.l | sed 's/.*debug.*//;s/;.*//;/^\s*$$/d' | wc -l
