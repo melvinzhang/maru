@@ -49,7 +49,7 @@ obj/eval.ll: bin/eval src/boot.l src/emit-llvm.l src/eval.l
 %.ll: %.c
 	clang -S -emit-llvm $^ -o $@ 
 
-tests: bin/eval test/test-subr test/test-basic
+tests: bin/eval test/test-subr test/test-fsubr test/test-basic
 
 test-%: test-%.l
 	bin/eval src/boot.l $^
