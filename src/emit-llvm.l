@@ -1,3 +1,6 @@
+(define return		(fixed (lambda args (error "(return) encountered in interpreted code"))))
+(define address-of	(fixed (lambda args (error "(address-of) encountered in interpreted code"))))
+
 (define-function gen-definition (value name comp)
   (println "gen-def-stub"))
 
