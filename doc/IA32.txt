@@ -108,3 +108,29 @@ je label
 
 jne label
 // jump if not equal
+
+fildl src
+// convert signed integer from memory into extended floating-point and push onto FPU stack
+
+fldl src
+// push the src onto the FPU stack
+
+fstpl dest
+// dest = st0
+// pop
+
+faddp
+// st1 = st1 + st0
+// pop (st1 now at top of stack)
+
+fsubp
+// st1 = st1 - st0
+// pop
+
+fmulp
+// st1 = st1 * st0
+// pop
+
+fdivp
+// st1 = st1 / st0
+// pop
