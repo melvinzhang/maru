@@ -1,0 +1,110 @@
+suffixes: 
+  l = 4 bytes
+  b = 1 byte
+
+condition codes:
+  CF = carry flag
+  ZF = zero flag
+  SF = sign flag
+  OF = overflow flag
+
+.globl <label>
+<label>:
+// indicates label is a global label so that other parts of the program can see it
+
+.text
+// declares the start of a section of code
+
+.data
+//  assemble the following statements onto the end of the data subsection 0
+
+.asciz
+//  assembles each string into consecutive addresses adding a zero byte at the end
+
+.long
+// emit a number that, at run time, is the value of that expression.
+
+addl src dest
+// dest = dest + src
+
+subl
+// dest = dest - src
+
+mull
+// dest = dest * src
+
+divl
+// dest = dest / src
+
+andl
+// dest = dest & src
+
+orl
+// dest = dest | src
+
+xorl
+// dest = dest ^ src
+
+negl
+// dest = -dest
+
+sarl
+// dest = dest >> src (arithmetic shift)
+
+shll
+// dest = dest << src
+
+setle dest
+// dest = 1 if less or equal
+
+sete
+// dest = 1 if equal
+
+setg
+// dest = 1 if greater
+
+setge
+// dest = 1 if greater or equal
+
+setl
+// dest = 1 if less
+
+setne
+// dest = 1 if not equal
+
+movb
+movl
+// dest = src
+
+movzbl
+// dest = zero extend low byte of src to 4 bytes long
+
+pushl
+// %esp = %esp - 4
+// Mem[%esp] = src
+
+call label
+// push address of next instruction, jmp label
+
+leave
+// %esp = %ebp
+// pop %ebp
+
+ret
+// %eip = Mem[%esp]
+// %esp = %esp + 4
+
+cmpl src2 src1
+// sets condition codes to src1 - src2
+
+jmp label
+// jump
+
+je label
+// jump if equal
+
+jne label
+// jump if not equal
+
+leal
+// dest = address of src
