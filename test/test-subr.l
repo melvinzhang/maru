@@ -21,3 +21,36 @@
 
 (unit-test "test-cons"
   (unit-assert (equal (cons '1 '(2 3)) '(1 2 3))))
+
+(unit-test "test-string"
+  (unit-assert (= (string-length (string 10)) 10)))
+
+(unit-test "test-array"
+  (unit-assert (= (array-length (array 10)) 10)))
+
+(unit-test "test-type-of"
+  (define <undefined>  0)
+  (define <data>       1)
+  (define <long>       2)
+  (define <double>     3)
+  (define <string>     4)
+  (define <symbol>     5)
+  (define <pair>       6)
+  (define <_array>     7)
+  (define <array>      8)
+  (define <expr>       9)
+  (define <form>      10)
+  (define <fixed>     11)
+  (define <subr>      12)
+  (define <variable>  13)
+  (define <env>       14)
+  (define <context>   15)
+  (unit-assert (= (type-of ()) <undefined>))
+  (unit-assert (= (type-of 1) <long>))
+  (unit-assert (= (type-of "a") <string>))
+  (unit-assert (= (type-of 'a) <symbol>))
+  (unit-assert (= (type-of '(1 . 2)) <pair>))
+  (unit-assert (= (type-of (array 1)) <array>))
+  (unit-assert (= (type-of (lambda (x) (+ x 1))) <expr>))
+  (unit-assert (= (type-of define) <fixed>))
+  (unit-assert (= (type-of type-of) <subr>)))
