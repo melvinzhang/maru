@@ -27,59 +27,62 @@ condition codes:
 addl src dest
 // dest = dest + src
 
-subl
+subl src dest
 // dest = dest - src
 
-mull
+mull src dest
 // dest = dest * src
 
-divl
+divl src dest
 // dest = dest / src
 
-andl
+andl src dest
 // dest = dest & src
 
-orl
+orl src dest
 // dest = dest | src
 
-xorl
+xorl src dest
 // dest = dest ^ src
 
-negl
+negl src dest
 // dest = -dest
 
-sarl
+sarl src dest
 // dest = dest >> src (arithmetic shift)
 
-shll
+shll src dest
 // dest = dest << src
 
 setle dest
 // dest = 1 if less or equal
 
-sete
+sete dest
 // dest = 1 if equal
 
-setg
+setg dest
 // dest = 1 if greater
 
-setge
+setge dest
 // dest = 1 if greater or equal
 
-setl
+setl dest
 // dest = 1 if less
 
-setne
+setne dest
 // dest = 1 if not equal
 
-movb
-movl
+movb src dest
+movl src dest
 // dest = src
 
-movzbl
+movzbl src dest
 // dest = zero extend low byte of src to 4 bytes long
 
-pushl
+leal src dest
+// dest = address of src
+
+pushl src
 // %esp = %esp - 4
 // Mem[%esp] = src
 
@@ -105,6 +108,3 @@ je label
 
 jne label
 // jump if not equal
-
-leal
-// dest = address of src
