@@ -75,6 +75,7 @@ tests: bin/eval \
 	test/test-subr-logical \
 	test/test-subr-relation \
 	test/test-subr-binary \
+	test/test-subr \
 	test/test-fsubr \
 	test/test-basic
 
