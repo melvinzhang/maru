@@ -54,3 +54,29 @@
   (unit-assert (= (type-of (lambda (x) (+ x 1))) <expr>))
   (unit-assert (= (type-of define) <fixed>))
   (unit-assert (= (type-of type-of) <subr>)))
+
+(unit-test "test-string?"
+  (unit-assert (string? "a"))
+  (unit-assert (not (string? 1))))
+
+(unit-test "test-symbol?"
+  (unit-assert (symbol? 'a))
+  (unit-assert (not (symbol? "a"))))
+
+(unit-test "test-pair?"
+  (unit-assert (pair? '(1 . 2)))
+  (unit-assert (pair? '(1 2)))
+  (unit-assert (not (pair? 'a)))
+  (unit-assert (not (pair? 1))))
+
+(unit-test "test-array?"
+  (unit-assert (array? (array 1)))
+  (unit-assert (not (array? "a"))))
+
+(unit-test "test-car"
+  (unit-assert (= (car '(1 2)) 1))
+  (unit-assert (= (car ()) ())))
+
+(unit-test "test-cdr"
+  (unit-assert (equal (cdr '(1 2)) '(2)))
+  (unit-assert (= (cdr "abc") ())))
