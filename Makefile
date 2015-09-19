@@ -77,7 +77,8 @@ tests: bin/eval \
 	test/test-subr-binary \
 	test/test-subr \
 	test/test-fsubr \
-	test/test-basic
+	test/test-boot \
+	test/test-basic 
 
 test-%: test-%.l ${bin}
 	${run} $<
