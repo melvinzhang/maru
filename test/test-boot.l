@@ -35,3 +35,13 @@
     (unit-assert (equal `(,+ ,a ,b) `(,+ 1 2)))
     (unit-assert (equal `(1 ,@c) `(1 2 3 4)))
   ))
+
+(unit-test "test-list-length"
+  (unit-assert (= (list-length ()) 0))
+  (unit-assert (= (list-length '(1 2 3)) 3)))
+
+(unit-test "test-list->array"
+  (let ((a (list->array '(a b c))))
+    (unit-assert (= (array-at a 0) 'a))
+    (unit-assert (= (array-at a 1) 'b))
+    (unit-assert (= (array-at a 2) 'c))))
