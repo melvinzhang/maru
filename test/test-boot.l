@@ -38,3 +38,5 @@
 (let ((arr (array 3)))  
   (expect 'd (array-append arr 'd))
   (expect 'd (array-at arr 3)))
+
+(expect '(1 4 9 16 25 36) (map1 (lambda (x) (* x x)) '(1 2 3 4 5 6)))
