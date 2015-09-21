@@ -33,6 +33,8 @@
 (let ((arr (list->array '(a b c))))
   (expect 'a (array-at arr 0))
   (expect 'b (array-at arr 1))
-  (expect 'c (array-at arr 2))
+  (expect 'c (array-at arr 2)))
+  
+(let ((arr (array 3)))  
   (expect 'd (array-append arr 'd))
   (expect 'd (array-at arr 3)))
