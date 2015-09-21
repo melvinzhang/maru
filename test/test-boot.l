@@ -1,44 +1,34 @@
 (require "test/unit-test.l")
 
-(unit-test "test-list"
-  (unit-assert (equal (list 1 2 3) '(1 2 3))))
+(expect '(1 2 3) (list 1 2 3))
 
-(unit-test "test-memq"
-  (unit-assert (memq 1 '(1 2 3)))
-  (unit-assert (not (memq 'a '(1 2 3))))
-  ; memq tests equality with =
-  (unit-assert (not (memq '(2 3) '(1 (2 3))))))
+(expect (memq 1 '(1 2 3)))
+(expect (not (memq 'a '(1 2 3))))
+; memq tests equality with =
+(expect (not (memq '(2 3) '(1 (2 3)))))
 
-(unit-test "test-assq"
-  (unit-assert (equal (assq 'a '((a 1) (b 2))) '(a 1))))
+(expect '(a 1) (assq 'a '((a 1) (b 2))))
 
-(unit-test "test-concat-list"
-  (unit-assert (equal (concat-list '(1 2 3) '(a b c)) '(1 2 3 a b c))))
+(expect '(1 2 3 a b c) (concat-list '(1 2 3) '(a b c)))
 
-(unit-test "test-concat-string"
-  (unit-assert (equal (concat-string "123" "abc") "123abc")))
+(expect "123abc" (concat-string "123" "abc"))
 
-(unit-test "test-concat-strings"
-  (unit-assert (equal (concat-strings "123" "abc" "456") "123abc456")))
+(expect "123abc456" (concat-strings "123" "abc" "456"))
 
-(unit-test "test-concat-symbol"
-  (unit-assert (equal (concat-symbol 'def 'abc) 'defabc)))
+(expect 'defabc (concat-symbol 'def 'abc))
 
-(unit-test "test-quasiquote"
-  (unit-assert (= (quasiquote abc) 'abc))
-  (unit-assert (= `abc 'abc))
-  (let ((a 1) (b 2) (c '(2 3 4)))
-    (unit-assert (= `,a 1))
-    (unit-assert (equal `(+ a b) '(+ a b)))
-    (unit-assert (equal `(+ ,a b) '(+ 1 b)))
-    (unit-assert (equal `(+ ,a ,b) '(+ 1 2)))
-    (unit-assert (equal `(,+ ,a ,b) `(,+ 1 2)))
-    (unit-assert (equal `(1 ,@c) `(1 2 3 4)))
-  ))
+(expect 'abc (quasiquote abc))
+(expect 'abc `abc)
+(let ((a 1) (b 2) (c '(2 3 4)))
+  (expect 1 `,a)
+  (expect '(+ a b) `(+ a b))
+  (expect '(+ 1 b) `(+ ,a b))
+  (expect '(+ 1 2) `(+ ,a ,b))
+  (expect `(,+ 1 2) `(,+ ,a ,b))
+  (expect '(1 2 3 4) `(1 ,@c)))
 
-(unit-test "test-list-length"
-  (unit-assert (= (list-length ()) 0))
-  (unit-assert (= (list-length '(1 2 3)) 3)))
+(expect 0 (list-length ()))
+(expect 3 (list-length '(1 2 3)))
 
 (let ((arr (list->array '(a b c))))
   (expect 'a (array-at arr 0))
