@@ -19,8 +19,10 @@
   (define inc (lambda (x) (+ x 1)))
   (unit-assert (= (eval '(inc 11)) 12)))
 
-(unit-test "test-cons"
-  (unit-assert (equal (cons '1 '(2 3)) '(1 2 3))))
+(expect '(()) (cons))
+(expect '(1) (cons 1))
+(expect '(1 . 2) (cons 1 2))
+(expect '(1 2 3) (cons '1 '(2 3)))
 
 (unit-test "test-string"
   (unit-assert (= (string-length (string 10)) 10)))
