@@ -12,3 +12,13 @@
   (and unit-testing?
        `(let ((unit-name ,name))
 	  ,@body)))
+
+(define-form expect-fail (expr)
+  `(error "UNIT FAIL: "',expr))
+
+(define-form expect (expr . result)
+  (let ((length (list-length result)))
+    (cond
+      ((= length 0) `(or ,expr (expect-fail ,expr)))
+      ((= length 1) `(or (equal ,expr ,@result) (expect-fail ,expr)))
+      (else (expect-fail "too many arguments to expect")))))
