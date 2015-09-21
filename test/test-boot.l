@@ -41,8 +41,8 @@
   (unit-assert (= (list-length '(1 2 3)) 3)))
 
 (let ((arr (list->array '(a b c))))
-  (expect (array-at arr 0) 'a)
-  (expect (array-at arr 1) 'b)
-  (expect (array-at arr 2) 'c)
-  (expect (array-append arr 'd) 'd)
-  (expect (array-at arr 3) 'd))
+  (expect 'a (array-at arr 0))
+  (expect 'b (array-at arr 1))
+  (expect 'c (array-at arr 2))
+  (expect 'd (array-append arr 'd))
+  (expect 'd (array-at arr 3)))

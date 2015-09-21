@@ -16,9 +16,9 @@
 (define-form expect-fail (expr)
   `(error "UNIT FAIL: "',expr))
 
-(define-form expect (expr . result)
-  (let ((length (list-length result)))
+(define-form expect (expected . rest)
+  (let ((length (list-length rest)))
     (cond
-      ((= length 0) `(or ,expr (expect-fail ,expr)))
-      ((= length 1) `(or (equal ,expr ,@result) (expect-fail ,expr)))
+      ((= length 0) `(or ,expected (expect-fail ,expected)))
+      ((= length 1) `(or (equal ,expected ,@rest) (expect-fail ,@rest)))
       (else (expect-fail "too many arguments to expect")))))
