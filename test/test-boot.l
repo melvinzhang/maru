@@ -50,3 +50,5 @@
 
 ; fails as it tries to compute (mul 4 nil)
 ;(expect '(4 10 18) (map * '(1 2 3 4) '(4 5 6)))
+
+(expect '(-1 -2 -3) (reverse-map - '(1 2 3)))
