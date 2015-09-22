@@ -39,4 +39,14 @@
   (expect 'd (array-append arr 'd))
   (expect 'd (array-at arr 3)))
 
+; base case: implements actual map algorithm
 (expect '(1 4 9 16 25 36) (map1 (lambda (x) (* x x)) '(1 2 3 4 5 6)))
+
+; each list supplies one arg to function
+(expect '(4 10 18) (map * '(1 2 3) '(4 5 6)))
+
+; terminates when first list is empty
+(expect '(4 10 18) (map * '(1 2 3) '(4 5 6 7)))
+
+; fails as it tries to compute (mul 4 nil)
+;(expect '(4 10 18) (map * '(1 2 3 4) '(4 5 6)))
