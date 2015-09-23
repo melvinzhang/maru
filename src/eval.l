@@ -1363,7 +1363,13 @@
 	    (or (k_cadr args)
 		(get <context> env ctx))))
 
-(define-function subr_cons	(args ctx)	(new-<pair> (k_car args) (k_cadr args)))
+(define-function subr_cons (args ctx)
+  (or (= () args)
+      (= () (get_tail args))
+      (= () (get_tail (get_tail args)))
+      (fatal1 "%s: expected at most 2 arguments" "cons"))
+  (new-<pair> (k_car args) (k_cadr args)))
+
 (define-function subr_string	(args ctx)	(_new-<string> (and (is_long (k_car args)) (get_long (get_head args)))))
 (define-function subr_array	(args ctx)	(new-<array> (and (is_long (k_car args)) (get_long (get_head args)))))
 (define-function subr_form	(args ctx)	(new-<form> (k_car args) (k_cadr args)))
