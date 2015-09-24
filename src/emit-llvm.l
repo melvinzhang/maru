@@ -61,7 +61,7 @@
       (let (
           (name  (<variable>-name  (array-at vars index)))
           (value (<variable>-value (array-at vars index))))
-        (println "; defn " name)
+        (println "; define " name)
         (gen-definition value name comp)))
     (for (i 0 (<compiler>-pc comp)) (apply emit (array-at (<compiler>-asm comp) i)))))
 
