@@ -1,11 +1,7 @@
 (define return		(fixed (lambda args (error "(return) encountered in interpreted code"))))
 (define address-of	(fixed (lambda args (error "(address-of) encountered in interpreted code"))))
 
-(define-function gen-definition (value name comp)
-  (println "gen-def-stub"))
-
-(define-function emit (value) 
-  (println "emit-stub"))
+;;; EXTERN
 
 (define-structure <extern> (name stub))
 
@@ -13,6 +9,34 @@
   (let ((self (new <extern>)))
     (set (<extern>-name self) name)
     self))
+
+(define-function extern? (obj) (= <extern> (type-of obj)))
+
+;;; GEN-DEFINITION
+
+(define-selector gen-definition)
+
+(define-method gen-definition <long> (name comp)
+  (println "gen-def-long-stub"))
+
+(define-method gen-definition <string> (name comp)
+  (println "gen-def-string-stub"))
+
+(define-method gen-definition <extern> (name comp)
+  (println "gen-def-extern-stub"))
+
+(define-method gen-definition <form> (name comp)
+  (println "gen-def-form-stub"))
+
+(define-method gen-definition <expr> (name ocomp)
+  (println "gen-def-expr-stub"))
+
+;;; EMIT
+
+(define-function emit (value)
+  (println "emit-stub"))
+
+;;; COMPILER
 
 (define-structure <compiler> (level param-counter arg-counter arg-limit tmp-counter tmp-limit temps epilogue asm pc section))
 
