@@ -1,41 +1,23 @@
 (require "test/unit-test.l")
 
-(unit-test "test-bitand"
-  (unit-assert (= (& 0 1) 0))
-  )
+(expect 0 (& 0 1))
 
-(unit-test "test-bitor"
-  (unit-assert (= (| 0 1) 1))
-  )
+(expect 1 (| 0 1))
 
-(unit-test "test-bitxor"
-  (unit-assert (= (^ 2 10) 8))
-  )
+(expect 8 (^ 2 10))
 
-(unit-test "test-plus"
-  (unit-assert (= (+ 2 10) 12))
-  (unit-assert (= (+ -2 2) 0))
-  )
+(expect 12 (+ 2 10))
+(expect 0 (+ -2 2))
 
-(unit-test "test-minus"
-  (unit-assert (= (- 2 1) 1))
-  (unit-assert (= (- 1 2) -1))
-  )
+(expect 1 (- 2 1))
+(expect -1 (- 1 2))
 
-(unit-test "test-times"
-  (unit-assert (= (* 2 3) 6))
-  )
+(expect 6 (* 2 3))
 
 ; only works with positive numbers
-(unit-test "test-div"
-  (unit-assert (= (/ 10 2) 5))
-  (unit-assert (= (/ 2 10) 0))
-  )
+(expect 5 (/ 10 2))
+(expect 0 (/ 2 10))
 
-(unit-test "test-leftshift"
-  (unit-assert (= (<< 1 3) 8))
-  )
+(expect 8 (<< 1 3))
 
-(unit-test "test-rightshift"
-  (unit-assert (= (>> 8 3) 1))
-  )
+(expect 1 (>> 8 3))
