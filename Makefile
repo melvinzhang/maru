@@ -20,11 +20,23 @@ bin = $(firstword ${${eval}})
 
 run = ${${eval}}
 
+ifeq ($(OS),Windows_NT)
+    OS = win
+else
+    UNAME_S := $(shell uname -s)
+    ifeq ($(UNAME_S),Linux)
+        OS = linux
+    endif
+    ifeq ($(UNAME_S),Darwin)
+        OS = osx
+    endif
+endif
+
 clean:
 	-rm bin/eval bin/mkosdefs src/osdefs.k
 
 bin/eval: 
-	git show master:obj/eval.s | gcc -m32 -x assembler - -o bin/eval
+	git show master:obj/eval.${OS}.s | gcc -m32 -x assembler - -o bin/eval
 
 bin/eval.new: obj/eval.s
 	gcc -m32 $^ -o $@ 
@@ -39,8 +51,11 @@ src/osdefs.k : bin/mkosdefs
 bin/mkosdefs : src/mkosdefs.c
 	gcc -o $@ $^
 
-obj/eval.s: bin/eval src/boot.l src/emit.l src/eval.l src/osdefs.k
-	bin/eval -O src/boot.l src/emit.l src/eval.l > $@
+obj/eval.s: bin/eval src/boot.l src/osdefs.k src/emit.l src/eval.l
+	bin/eval -O $(wordlist 2, 9, $^) > $@
+
+obj/eval.%.s: bin/eval src/boot.l src/osdefs.%.k src/emit.l src/eval.l
+	bin/eval -O $(wordlist 2, 9, $^) > $@
 
 obj/eval.ll: bin/eval src/boot.l src/emit-llvm.l src/eval.l
 	bin/eval -O src/boot.l src/emit-llvm.l src/eval.l > $@
@@ -50,9 +65,9 @@ obj/eval.ll: bin/eval src/boot.l src/emit-llvm.l src/eval.l
 
 %.s: %.l
 	if [ $$(grep -l "compile-begin" $^) ]; then \
-		bin/eval -O src/boot.l src/emit.l $^ > $@; \
+		bin/eval -O src/boot.l src/osdefs.k src/emit.l $^ > $@; \
 	else \
-		bin/eval -O src/boot.l src/emit.l <(echo "(compile-begin)"; cat $^; echo "(compile-end)") > $@; \
+		bin/eval -O src/boot.l src/osdefs.k src/emit.l <(echo "(compile-begin)"; cat $^; echo "(compile-end)") > $@; \
 	fi
 
 %.ll: %.l src/boot.l src/emit-llvm.l
