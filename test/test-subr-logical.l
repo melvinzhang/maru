@@ -1,23 +1,16 @@
 (require "test/unit-test.l")
 
-(unit-test "test-eq"
-  (unit-assert (= "abc" "abc"))
-  (unit-assert (not (= "abc" "def")))
-  (unit-assert (= 5 5))
-  (unit-assert (not (= 4 5)))
-  (unit-assert (not (= 4 "a")))
-  )
+(expect (= "abc" "abc"))
+(expect (not (= "abc" "def")))
+(expect (= 5 5))
+(expect (not (= 4 5)))
+(expect (not (= 4 "a")))
 
-(unit-test "test-neq"
-  (unit-assert (!= "abc" "def"))
-  (unit-assert (not (!= "abc" "abc")))
-  (unit-assert (!= 5 3))
-  (unit-assert (not (!= 3 3)))
-  (unit-assert (!= 5 "a"))
-  )
+(expect (!= "abc" "def"))
+(expect (not (!= "abc" "abc")))
+(expect (!= 5 3))
+(expect (not (!= 3 3)))
+(expect (!= 5 "a"))
 
-
-(unit-test "test-not"
-  (unit-assert (not '()))
-  (unit-assert (not (not 1)))
-  )
+(expect (not '()))
+(expect (not (not 1)))
