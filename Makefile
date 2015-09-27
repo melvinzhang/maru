@@ -97,10 +97,10 @@ tests: bin/eval \
 test-%: test-%.l ${bin}
 	${run} $<
 
-test-bootstrap: src/boot.l src/emit.l src/eval.l
-	bin/eval -O $^ > obj/eval-self.s
-	diff obj/eval.s obj/eval-self.s
-	rm obj/eval-self.s
+test-bootstrap: src/boot.l src/osdefs.${OS}.k src/emit.l src/eval.l
+	bin/eval -O $^ > obj/eval-temp.s
+	diff obj/eval.${OS}.s obj/eval-temp.s
+	rm obj/eval-temp.s
 
 test-pepsi: bin/eval1 bin/eval2 bin/eval3 bin/gceval
 	cd test/pepsi; ../../bin/eval1  repl.l test-pepsi.l > test-pepsi.eval1
