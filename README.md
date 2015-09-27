@@ -20,13 +20,13 @@ maru-in-C interpreter.
 ## Bootstrapping
 eval.s is the interpreter compiled to IA32 assembly, it can be compiled to a binary with gcc via the Makefile
 
-`make eval`
+`make bin/eval`
 
 The binary can regenerate eval.s from source via the Makefile
 
 ```
-rm eval.s
-make eval.s
+rm obj/eval.s
+make obj/eval.s
 ```
 
 The generate eval.s is identical to the version in the repository
