@@ -780,14 +780,21 @@
       (buffer_delete buf)
       result)))
 
-(define k_read) ;; forward
+(define _k_read) ;; forward
+(define-function unexpected_char (c)
+  (fatal1 "unexpected character: %c" c))
+(define-function expected_char (c) DONE)
+(define-function k_read (stream)
+  (_k_read stream unexpected_char))
+(define-function k_read_allow_close (stream)
+  (_k_read stream expected_char))
 
 (define-function read_list (delim stream)
   (let* ((head (new-<pair> () ()))
 	 (tail head)
 	 (elt  ()))
     (gc-protect (head elt)
-      (while (and (!= DONE (set elt (k_read stream))) (!= s_dot elt))
+      (while (and (!= DONE (set elt (k_read_allow_close stream))) (!= s_dot elt))
 	(set elt (new-<pair> elt ()))
 	(set tail (set_tail tail elt)))
       (and (= s_dot elt) (set_tail tail (k_read stream))))
@@ -804,7 +811,7 @@
       (set qobj (new-<pair> prefix qobj))
       qobj)))
 
-(set k_read (lambda (stream)
+(set _k_read (lambda (stream on_close)
   (while 1
     (let ((c (getc stream)))
       (cond
@@ -821,9 +828,9 @@
 				    (ungetc d stream)
 				    (read_quote s_unquote)))))
 	((is_letter c)	(return (read_symbol c stream)))
-	((= ?\( c)	(return (read_list ?\) stream)))	((= ?\) c)	(return (let () (ungetc c stream) DONE)))
-	((= ?\[ c)	(return (read_list ?\] stream)))	((= ?\] c)	(return (let () (ungetc c stream) DONE)))
-	((= ?\{ c)	(return (read_list ?\} stream)))	((= ?\} c)	(return (let () (ungetc c stream) DONE)))
+	((= ?\( c)	(return (read_list ?\) stream)))	((= ?\) c)	(return (let () (ungetc c stream) (on_close c))))
+	((= ?\[ c)	(return (read_list ?\] stream)))	((= ?\] c)	(return (let () (ungetc c stream) (on_close c))))
+	((= ?\{ c)	(return (read_list ?\} stream)))	((= ?\} c)	(return (let () (ungetc c stream) (on_close c))))
 	((is_digit10 c)	(return (read_number c stream)))
 	((= ?\; c)	(while (and (!= ?\n (set c (getc stream)))
 				    (!= ?\r c)

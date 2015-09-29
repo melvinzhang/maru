@@ -106,8 +106,8 @@ test-bootstrap: src/boot.l src/osdefs.${OS}.k src/emit.l src/eval.l
 	rm obj/eval-temp.s
 
 test-unbalanced: bin/eval bin/eval1
-	bin/eval test/test-unbalanced.l
-	bin/eval1 -b test/test-unbalanced.l
+	-bin/eval test/test-unbalanced.l
+	-bin/eval1 -b test/test-unbalanced.l
 
 test-pepsi: bin/eval1 bin/eval2 bin/eval3 bin/gceval
 	cd test/pepsi; ../../bin/eval1  repl.l test-pepsi.l > test-pepsi.eval1
