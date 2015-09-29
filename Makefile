@@ -36,7 +36,7 @@ else
 endif
 
 clean:
-	-rm bin/eval bin/mkosdefs src/osdefs.k
+	-rm bin/* src/osdefs.k 2>/dev/null || true
 
 bin/eval:
 	git show master:obj/eval.${OS}.s | ${GCC} -x assembler - -o bin/eval
