@@ -15054,7 +15054,7 @@ ___L__1142:
 ___L__1143:
 	movl 68(%esp),%eax
 	movl %eax,32(%esp)
-	movl _k__read,%eax
+	movl _k__read__allow__close,%eax
 	movl 32(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
@@ -15153,15 +15153,90 @@ ___L__1147:
 	addl $56,%esp
 	leave
 	ret
-## defn k_read
+## defn k_read_allow_close
 	.text
 ___L__1149:
+## frame 16 8 32 48
+	pushl %ebp
+	movl %esp,%ebp
+	subl $40,%esp
+	movl 48(%esp),%eax
+	movl %eax,16(%esp)
+	movl _expected__char,%eax
+	movl %eax,20(%esp)
+	movl ___k__read,%eax
+	movl 16(%esp),%ecx
+	movl %ecx,0(%esp)
+	movl 20(%esp),%ecx
+	movl %ecx,4(%esp)
+	call *%eax
+	addl $40,%esp
+	leave
+	ret
+## defn k_read
+	.text
+___L__1150:
+## frame 16 8 32 48
+	pushl %ebp
+	movl %esp,%ebp
+	subl $40,%esp
+	movl 48(%esp),%eax
+	movl %eax,16(%esp)
+	movl _unexpected__char,%eax
+	movl %eax,20(%esp)
+	movl ___k__read,%eax
+	movl 16(%esp),%ecx
+	movl %ecx,0(%esp)
+	movl 20(%esp),%ecx
+	movl %ecx,4(%esp)
+	call *%eax
+	addl $40,%esp
+	leave
+	ret
+## defn expected_char
+	.text
+___L__1151:
+## frame 0 0 0 16
+	pushl %ebp
+	movl %esp,%ebp
+	subl $8,%esp
+	movl _DONE,%eax
+	addl $8,%esp
+	leave
+	ret
+## defn unexpected_char
+	.text
+___L__1152:
+## frame 16 8 32 48
+	pushl %ebp
+	movl %esp,%ebp
+	subl $40,%esp
+	.data
+___L__1153:
+	.asciz "unexpected character: %c"
+	.text
+	movl $___L__1153,%eax
+	movl %eax,16(%esp)
+	movl 48(%esp),%eax
+	movl %eax,20(%esp)
+	movl _fatal1,%eax
+	movl 16(%esp),%ecx
+	movl %ecx,0(%esp)
+	movl 20(%esp),%ecx
+	movl %ecx,4(%esp)
+	call *%eax
+	addl $40,%esp
+	leave
+	ret
+## defn _k_read
+	.text
+___L__1154:
 ## frame 16 16 32 48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
-	jmp ___L__1151
-___L__1150:
+	jmp ___L__1156
+___L__1155:
 	movl 48(%esp),%eax
 	movl %eax,16(%esp)
 	movl _getc_24stub,%eax
@@ -15176,10 +15251,10 @@ ___L__1150:
 	movl %ecx,0(%esp)
 	call *%eax
 	cmpl $0,%eax
-	je ___L__1152
+	je ___L__1157
 	movl $0,%eax
-	jmp ___L__1153
-___L__1152:
+	jmp ___L__1158
+___L__1157:
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl $63,%eax
@@ -15187,7 +15262,7 @@ ___L__1152:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1154
+	je ___L__1159
 	movl 48(%esp),%eax
 	movl %eax,20(%esp)
 	movl _getc_24stub,%eax
@@ -15208,9 +15283,9 @@ ___L__1152:
 	movl 24(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-	jmp ___L__1156
-	jmp ___L__1155
-___L__1154:
+	jmp ___L__1161
+	jmp ___L__1160
+___L__1159:
 	movl 16(%esp),%eax
 	movl %eax,24(%esp)
 	movl $45,%eax
@@ -15218,7 +15293,7 @@ ___L__1154:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1157
+	je ___L__1162
 	movl 48(%esp),%eax
 	movl %eax,24(%esp)
 	movl _getc_24stub,%eax
@@ -15240,7 +15315,7 @@ ___L__1154:
 	movl %ecx,0(%esp)
 	call *%eax
 	cmpl $0,%eax
-	je ___L__1159
+	je ___L__1164
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl 48(%esp),%eax
@@ -15251,8 +15326,8 @@ ___L__1154:
 	movl 24(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	jmp ___L__1160
-___L__1159:
+	jmp ___L__1165
+___L__1164:
 	movl 16(%esp),%eax
 	movl %eax,24(%esp)
 	movl 48(%esp),%eax
@@ -15263,10 +15338,10 @@ ___L__1159:
 	movl 20(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-___L__1160:
-	jmp ___L__1156
-	jmp ___L__1158
-___L__1157:
+___L__1165:
+	jmp ___L__1161
+	jmp ___L__1163
+___L__1162:
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl $39,%eax
@@ -15274,7 +15349,7 @@ ___L__1157:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1161
+	je ___L__1166
 	movl _s__quote,%eax
 	movl %eax,20(%esp)
 	movl 48(%esp),%eax
@@ -15285,9 +15360,9 @@ ___L__1157:
 	movl 24(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	jmp ___L__1156
-	jmp ___L__1162
-___L__1161:
+	jmp ___L__1161
+	jmp ___L__1167
+___L__1166:
 	movl 16(%esp),%eax
 	movl %eax,24(%esp)
 	movl $96,%eax
@@ -15295,7 +15370,7 @@ ___L__1161:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1163
+	je ___L__1168
 	movl _s__quasiquote,%eax
 	movl %eax,24(%esp)
 	movl 48(%esp),%eax
@@ -15306,9 +15381,9 @@ ___L__1161:
 	movl 20(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	jmp ___L__1156
-	jmp ___L__1164
-___L__1163:
+	jmp ___L__1161
+	jmp ___L__1169
+___L__1168:
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl $44,%eax
@@ -15316,7 +15391,7 @@ ___L__1163:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1165
+	je ___L__1170
 	movl 48(%esp),%eax
 	movl %eax,20(%esp)
 	movl _getc_24stub,%eax
@@ -15331,7 +15406,7 @@ ___L__1163:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1167
+	je ___L__1172
 	movl _s__unquote__splicing,%eax
 	movl %eax,24(%esp)
 	movl 48(%esp),%eax
@@ -15342,8 +15417,8 @@ ___L__1163:
 	movl 28(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	jmp ___L__1168
-___L__1167:
+	jmp ___L__1173
+___L__1172:
 	movl 20(%esp),%eax
 	movl %eax,28(%esp)
 	movl 48(%esp),%eax
@@ -15360,10 +15435,10 @@ ___L__1167:
 	movl 24(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-___L__1168:
-	jmp ___L__1156
-	jmp ___L__1166
-___L__1165:
+___L__1173:
+	jmp ___L__1161
+	jmp ___L__1171
+___L__1170:
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl _is__letter,%eax
@@ -15371,7 +15446,7 @@ ___L__1165:
 	movl %ecx,0(%esp)
 	call *%eax
 	cmpl $0,%eax
-	je ___L__1169
+	je ___L__1174
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl 48(%esp),%eax
@@ -15382,9 +15457,9 @@ ___L__1165:
 	movl 24(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	jmp ___L__1156
-	jmp ___L__1170
-___L__1169:
+	jmp ___L__1161
+	jmp ___L__1175
+___L__1174:
 	movl 16(%esp),%eax
 	movl %eax,24(%esp)
 	movl $40,%eax
@@ -15392,7 +15467,7 @@ ___L__1169:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1171
+	je ___L__1176
 	movl $41,%eax
 	movl %eax,24(%esp)
 	movl 48(%esp),%eax
@@ -15403,9 +15478,9 @@ ___L__1169:
 	movl 20(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	jmp ___L__1156
-	jmp ___L__1172
-___L__1171:
+	jmp ___L__1161
+	jmp ___L__1177
+___L__1176:
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl $41,%eax
@@ -15413,7 +15488,7 @@ ___L__1171:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1173
+	je ___L__1178
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl 48(%esp),%eax
@@ -15424,10 +15499,15 @@ ___L__1171:
 	movl 24(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	movl _DONE,%eax
-	jmp ___L__1156
-	jmp ___L__1174
-___L__1173:
+	movl 16(%esp),%eax
+	movl %eax,24(%esp)
+	movl 52(%esp),%eax
+	movl 24(%esp),%ecx
+	movl %ecx,0(%esp)
+	call *%eax
+	jmp ___L__1161
+	jmp ___L__1179
+___L__1178:
 	movl 16(%esp),%eax
 	movl %eax,24(%esp)
 	movl $91,%eax
@@ -15435,7 +15515,7 @@ ___L__1173:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1175
+	je ___L__1180
 	movl $93,%eax
 	movl %eax,24(%esp)
 	movl 48(%esp),%eax
@@ -15446,9 +15526,9 @@ ___L__1173:
 	movl 20(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	jmp ___L__1156
-	jmp ___L__1176
-___L__1175:
+	jmp ___L__1161
+	jmp ___L__1181
+___L__1180:
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl $93,%eax
@@ -15456,7 +15536,7 @@ ___L__1175:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1177
+	je ___L__1182
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl 48(%esp),%eax
@@ -15467,10 +15547,15 @@ ___L__1175:
 	movl 24(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	movl _DONE,%eax
-	jmp ___L__1156
-	jmp ___L__1178
-___L__1177:
+	movl 16(%esp),%eax
+	movl %eax,24(%esp)
+	movl 52(%esp),%eax
+	movl 24(%esp),%ecx
+	movl %ecx,0(%esp)
+	call *%eax
+	jmp ___L__1161
+	jmp ___L__1183
+___L__1182:
 	movl 16(%esp),%eax
 	movl %eax,24(%esp)
 	movl $123,%eax
@@ -15478,7 +15563,7 @@ ___L__1177:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1179
+	je ___L__1184
 	movl $125,%eax
 	movl %eax,24(%esp)
 	movl 48(%esp),%eax
@@ -15489,9 +15574,9 @@ ___L__1177:
 	movl 20(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	jmp ___L__1156
-	jmp ___L__1180
-___L__1179:
+	jmp ___L__1161
+	jmp ___L__1185
+___L__1184:
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl $125,%eax
@@ -15499,7 +15584,7 @@ ___L__1179:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1181
+	je ___L__1186
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl 48(%esp),%eax
@@ -15510,10 +15595,15 @@ ___L__1179:
 	movl 24(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	movl _DONE,%eax
-	jmp ___L__1156
-	jmp ___L__1182
-___L__1181:
+	movl 16(%esp),%eax
+	movl %eax,24(%esp)
+	movl 52(%esp),%eax
+	movl 24(%esp),%ecx
+	movl %ecx,0(%esp)
+	call *%eax
+	jmp ___L__1161
+	jmp ___L__1187
+___L__1186:
 	movl 16(%esp),%eax
 	movl %eax,24(%esp)
 	movl _is__digit10,%eax
@@ -15521,7 +15611,7 @@ ___L__1181:
 	movl %ecx,0(%esp)
 	call *%eax
 	cmpl $0,%eax
-	je ___L__1183
+	je ___L__1188
 	movl 16(%esp),%eax
 	movl %eax,24(%esp)
 	movl 48(%esp),%eax
@@ -15532,9 +15622,9 @@ ___L__1181:
 	movl 20(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	jmp ___L__1156
-	jmp ___L__1184
-___L__1183:
+	jmp ___L__1161
+	jmp ___L__1189
+___L__1188:
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl $59,%eax
@@ -15542,10 +15632,10 @@ ___L__1183:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1185
-	jmp ___L__1188
-___L__1187:
-___L__1188:
+	je ___L__1190
+	jmp ___L__1193
+___L__1192:
+___L__1193:
 	movl 48(%esp),%eax
 	movl %eax,20(%esp)
 	movl _getc_24stub,%eax
@@ -15559,7 +15649,7 @@ ___L__1188:
 	setne %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1189
+	je ___L__1194
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl $13,%eax
@@ -15567,18 +15657,18 @@ ___L__1188:
 	setne %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1189
+	je ___L__1194
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl _EOF,%eax
 	cmpl 20(%esp),%eax
 	setne %al
 	movzbl %al,%eax
-___L__1189:
+___L__1194:
 	cmpl $0,%eax
-	jne ___L__1187
-	jmp ___L__1186
-___L__1185:
+	jne ___L__1192
+	jmp ___L__1191
+___L__1190:
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl $34,%eax
@@ -15586,7 +15676,7 @@ ___L__1185:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1190
+	je ___L__1195
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl 48(%esp),%eax
@@ -15597,9 +15687,9 @@ ___L__1185:
 	movl 24(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	jmp ___L__1156
-	jmp ___L__1191
-___L__1190:
+	jmp ___L__1161
+	jmp ___L__1196
+___L__1195:
 	movl $0,%eax
 	movl %eax,24(%esp)
 	movl 16(%esp),%eax
@@ -15607,16 +15697,16 @@ ___L__1190:
 	setl %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1192
+	je ___L__1197
 	movl _DONE,%eax
-	jmp ___L__1156
-	jmp ___L__1193
-___L__1192:
+	jmp ___L__1161
+	jmp ___L__1198
+___L__1197:
 	.data
-___L__1194:
+___L__1199:
 	.asciz "illegal character: %c"
 	.text
-	movl $___L__1194,%eax
+	movl $___L__1199,%eax
 	movl %eax,24(%esp)
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
@@ -15626,34 +15716,34 @@ ___L__1194:
 	movl 20(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-___L__1193:
+___L__1198:
+___L__1196:
 ___L__1191:
-___L__1186:
-___L__1184:
-___L__1182:
-___L__1180:
-___L__1178:
-___L__1176:
-___L__1174:
-___L__1172:
-___L__1170:
-___L__1166:
-___L__1164:
-___L__1162:
+___L__1189:
+___L__1187:
+___L__1185:
+___L__1183:
+___L__1181:
+___L__1179:
+___L__1177:
+___L__1175:
+___L__1171:
+___L__1169:
+___L__1167:
+___L__1163:
+___L__1160:
 ___L__1158:
-___L__1155:
-___L__1153:
-___L__1151:
+___L__1156:
 	movl $1,%eax
 	cmpl $0,%eax
-	jne ___L__1150
-___L__1156:
+	jne ___L__1155
+___L__1161:
 	addl $40,%esp
 	leave
 	ret
 ## defn read_string
 	.text
-___L__1195:
+___L__1200:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -15661,8 +15751,8 @@ ___L__1195:
 	movl _new__buffer,%eax
 	call *%eax
 	movl %eax,16(%esp)
-	jmp ___L__1197
-___L__1196:
+	jmp ___L__1202
+___L__1201:
 	movl 48(%esp),%eax
 	movl %eax,20(%esp)
 	movl 52(%esp),%eax
@@ -15681,18 +15771,18 @@ ___L__1196:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1198
+	je ___L__1203
 	.data
-___L__1199:
+___L__1204:
 	.asciz "unterminated string literal"
 	.text
-	movl $___L__1199,%eax
+	movl $___L__1204,%eax
 	movl %eax,24(%esp)
 	movl _fatal,%eax
 	movl 24(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-___L__1198:
+___L__1203:
 	movl 16(%esp),%eax
 	movl %eax,24(%esp)
 	movl 48(%esp),%eax
@@ -15703,7 +15793,7 @@ ___L__1198:
 	movl 20(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-___L__1197:
+___L__1202:
 	movl 52(%esp),%eax
 	movl %eax,20(%esp)
 	movl _getc_24stub,%eax
@@ -15717,7 +15807,7 @@ ___L__1197:
 	setne %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	jne ___L__1196
+	jne ___L__1201
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl $0,%eax
@@ -15752,7 +15842,7 @@ ___L__1197:
 	ret
 ## defn read_symbol
 	.text
-___L__1200:
+___L__1205:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -15760,8 +15850,8 @@ ___L__1200:
 	movl _new__buffer,%eax
 	call *%eax
 	movl %eax,16(%esp)
-	jmp ___L__1202
-___L__1201:
+	jmp ___L__1207
+___L__1206:
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl 48(%esp),%eax
@@ -15779,7 +15869,7 @@ ___L__1201:
 	movl %ecx,0(%esp)
 	call *%eax
 	movl %eax,48(%esp)
-___L__1202:
+___L__1207:
 	movl 48(%esp),%eax
 	movl %eax,24(%esp)
 	movl _is__letter,%eax
@@ -15787,16 +15877,16 @@ ___L__1202:
 	movl %ecx,0(%esp)
 	call *%eax
 	cmpl $0,%eax
-	jne ___L__1203
+	jne ___L__1208
 	movl 48(%esp),%eax
 	movl %eax,24(%esp)
 	movl _is__digit10,%eax
 	movl 24(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-___L__1203:
+___L__1208:
 	cmpl $0,%eax
-	jne ___L__1201
+	jne ___L__1206
 	movl 48(%esp),%eax
 	movl %eax,24(%esp)
 	movl 52(%esp),%eax
@@ -15841,7 +15931,7 @@ ___L__1203:
 	ret
 ## defn read_number
 	.text
-___L__1204:
+___L__1209:
 ## frame 16 20 48 64
 	pushl %ebp
 	movl %esp,%ebp
@@ -15858,7 +15948,7 @@ ___L__1204:
 	movl %eax,20(%esp)
 	movl 20(%esp),%eax
 	cmpl $0,%eax
-	jne ___L__1205
+	jne ___L__1210
 	movl 16(%esp),%eax
 	movl %eax,24(%esp)
 	movl 64(%esp),%eax
@@ -15869,9 +15959,9 @@ ___L__1204:
 	movl 28(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-___L__1205:
-	jmp ___L__1207
-___L__1206:
+___L__1210:
+	jmp ___L__1212
+___L__1211:
 	movl 16(%esp),%eax
 	movl %eax,28(%esp)
 	movl 64(%esp),%eax
@@ -15882,7 +15972,7 @@ ___L__1206:
 	movl 24(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-___L__1207:
+___L__1212:
 	movl 68(%esp),%eax
 	movl %eax,24(%esp)
 	movl _getc_24stub,%eax
@@ -15896,7 +15986,7 @@ ___L__1207:
 	movl %ecx,0(%esp)
 	call *%eax
 	cmpl $0,%eax
-	jne ___L__1206
+	jne ___L__1211
 	movl 64(%esp),%eax
 	movl %eax,24(%esp)
 	movl $120,%eax
@@ -15904,7 +15994,7 @@ ___L__1207:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1208
+	je ___L__1213
 	movl $2,%eax
 	movl %eax,24(%esp)
 	movl 16(%esp),%eax
@@ -15917,7 +16007,7 @@ ___L__1207:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1208
+	je ___L__1213
 	movl 16(%esp),%eax
 	movl %eax,24(%esp)
 	movl 64(%esp),%eax
@@ -15928,8 +16018,8 @@ ___L__1207:
 	movl 28(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	jmp ___L__1210
-___L__1209:
+	jmp ___L__1215
+___L__1214:
 	movl 16(%esp),%eax
 	movl %eax,28(%esp)
 	movl 64(%esp),%eax
@@ -15940,7 +16030,7 @@ ___L__1209:
 	movl 24(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-___L__1210:
+___L__1215:
 	movl 68(%esp),%eax
 	movl %eax,24(%esp)
 	movl _getc_24stub,%eax
@@ -15954,8 +16044,8 @@ ___L__1210:
 	movl %ecx,0(%esp)
 	call *%eax
 	cmpl $0,%eax
-	jne ___L__1209
-___L__1208:
+	jne ___L__1214
+___L__1213:
 	movl 64(%esp),%eax
 	movl %eax,24(%esp)
 	movl 68(%esp),%eax
@@ -16004,13 +16094,13 @@ ___L__1208:
 	call *%eax
 	movl 20(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1211
+	je ___L__1216
 	movl 32(%esp),%eax
 	negl %eax
-	jmp ___L__1212
-___L__1211:
+	jmp ___L__1217
+___L__1216:
 	movl 32(%esp),%eax
-___L__1212:
+___L__1217:
 	movl %eax,28(%esp)
 	movl _new_2D_3Clong_3E,%eax
 	movl 28(%esp),%ecx
@@ -16021,7 +16111,7 @@ ___L__1212:
 	ret
 ## defn read_char
 	.text
-___L__1213:
+___L__1218:
 ## frame 16 28 48 64
 	pushl %ebp
 	movl %esp,%ebp
@@ -16033,7 +16123,7 @@ ___L__1213:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1214
+	je ___L__1219
 	movl 68(%esp),%eax
 	movl %eax,16(%esp)
 	movl _getc_24stub,%eax
@@ -16048,10 +16138,10 @@ ___L__1213:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1216
+	je ___L__1221
 	movl $7,%eax
-	jmp ___L__1217
-___L__1216:
+	jmp ___L__1222
+___L__1221:
 	movl $98,%eax
 	movl %eax,16(%esp)
 	movl 64(%esp),%eax
@@ -16059,10 +16149,10 @@ ___L__1216:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1218
+	je ___L__1223
 	movl $8,%eax
-	jmp ___L__1219
-___L__1218:
+	jmp ___L__1224
+___L__1223:
 	movl $102,%eax
 	movl %eax,16(%esp)
 	movl 64(%esp),%eax
@@ -16070,10 +16160,10 @@ ___L__1218:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1220
+	je ___L__1225
 	movl $12,%eax
-	jmp ___L__1221
-___L__1220:
+	jmp ___L__1226
+___L__1225:
 	movl $110,%eax
 	movl %eax,16(%esp)
 	movl 64(%esp),%eax
@@ -16081,10 +16171,10 @@ ___L__1220:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1222
+	je ___L__1227
 	movl $10,%eax
-	jmp ___L__1223
-___L__1222:
+	jmp ___L__1228
+___L__1227:
 	movl $114,%eax
 	movl %eax,16(%esp)
 	movl 64(%esp),%eax
@@ -16092,10 +16182,10 @@ ___L__1222:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1224
+	je ___L__1229
 	movl $13,%eax
-	jmp ___L__1225
-___L__1224:
+	jmp ___L__1230
+___L__1229:
 	movl $116,%eax
 	movl %eax,16(%esp)
 	movl 64(%esp),%eax
@@ -16103,10 +16193,10 @@ ___L__1224:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1226
+	je ___L__1231
 	movl $9,%eax
-	jmp ___L__1227
-___L__1226:
+	jmp ___L__1232
+___L__1231:
 	movl $118,%eax
 	movl %eax,16(%esp)
 	movl 64(%esp),%eax
@@ -16114,10 +16204,10 @@ ___L__1226:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1228
+	je ___L__1233
 	movl $11,%eax
-	jmp ___L__1229
-___L__1228:
+	jmp ___L__1234
+___L__1233:
 	movl $117,%eax
 	movl %eax,16(%esp)
 	movl 64(%esp),%eax
@@ -16125,7 +16215,7 @@ ___L__1228:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1230
+	je ___L__1235
 	movl 68(%esp),%eax
 	movl %eax,16(%esp)
 	movl _getc_24stub,%eax
@@ -16196,8 +16286,8 @@ ___L__1228:
 	movl 36(%esp),%ecx
 	shll %cl,%eax
 	addl 32(%esp),%eax
-	jmp ___L__1231
-___L__1230:
+	jmp ___L__1236
+___L__1235:
 	movl $120,%eax
 	movl %eax,28(%esp)
 	movl 64(%esp),%eax
@@ -16205,7 +16295,7 @@ ___L__1230:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1232
+	je ___L__1237
 	movl $0,%eax
 	movl %eax,28(%esp)
 	movl 68(%esp),%eax
@@ -16221,7 +16311,7 @@ ___L__1230:
 	movl %ecx,0(%esp)
 	call *%eax
 	cmpl $0,%eax
-	je ___L__1234
+	je ___L__1239
 	movl 64(%esp),%eax
 	movl %eax,24(%esp)
 	movl _digit__value,%eax
@@ -16242,7 +16332,7 @@ ___L__1230:
 	movl %ecx,0(%esp)
 	call *%eax
 	cmpl $0,%eax
-	je ___L__1236
+	je ___L__1241
 	movl 64(%esp),%eax
 	movl %eax,24(%esp)
 	movl _digit__value,%eax
@@ -16263,12 +16353,12 @@ ___L__1230:
 	movl %ecx,0(%esp)
 	call *%eax
 	movl %eax,64(%esp)
-	jmp ___L__1237
-___L__1236:
-___L__1237:
-	jmp ___L__1235
-___L__1234:
-___L__1235:
+	jmp ___L__1242
+___L__1241:
+___L__1242:
+	jmp ___L__1240
+___L__1239:
+___L__1240:
 	movl 64(%esp),%eax
 	movl %eax,24(%esp)
 	movl 68(%esp),%eax
@@ -16280,8 +16370,8 @@ ___L__1235:
 	movl %ecx,4(%esp)
 	call *%eax
 	movl 28(%esp),%eax
-	jmp ___L__1233
-___L__1232:
+	jmp ___L__1238
+___L__1237:
 	movl 64(%esp),%eax
 	movl %eax,28(%esp)
 	movl $48,%eax
@@ -16289,16 +16379,16 @@ ___L__1232:
 	setle %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1240
+	je ___L__1245
 	movl $55,%eax
 	movl %eax,28(%esp)
 	movl 64(%esp),%eax
 	cmpl 28(%esp),%eax
 	setle %al
 	movzbl %al,%eax
-___L__1240:
+___L__1245:
 	cmpl $0,%eax
-	je ___L__1238
+	je ___L__1243
 	movl 64(%esp),%eax
 	movl %eax,28(%esp)
 	movl _digit__value,%eax
@@ -16319,7 +16409,7 @@ ___L__1240:
 	movl %ecx,0(%esp)
 	call *%eax
 	cmpl $0,%eax
-	je ___L__1241
+	je ___L__1246
 	movl 64(%esp),%eax
 	movl %eax,20(%esp)
 	movl _digit__value,%eax
@@ -16346,7 +16436,7 @@ ___L__1240:
 	movl %ecx,0(%esp)
 	call *%eax
 	cmpl $0,%eax
-	je ___L__1243
+	je ___L__1248
 	movl 64(%esp),%eax
 	movl %eax,20(%esp)
 	movl _digit__value,%eax
@@ -16367,12 +16457,12 @@ ___L__1240:
 	movl %ecx,0(%esp)
 	call *%eax
 	movl %eax,64(%esp)
-	jmp ___L__1244
-___L__1243:
-___L__1244:
-	jmp ___L__1242
-___L__1241:
-___L__1242:
+	jmp ___L__1249
+___L__1248:
+___L__1249:
+	jmp ___L__1247
+___L__1246:
+___L__1247:
 	movl 64(%esp),%eax
 	movl %eax,20(%esp)
 	movl 68(%esp),%eax
@@ -16384,8 +16474,8 @@ ___L__1242:
 	movl %ecx,4(%esp)
 	call *%eax
 	movl 28(%esp),%eax
-	jmp ___L__1239
-___L__1238:
+	jmp ___L__1244
+___L__1243:
 	movl 64(%esp),%eax
 	movl %eax,28(%esp)
 	movl _is__alpha,%eax
@@ -16393,21 +16483,21 @@ ___L__1238:
 	movl %ecx,0(%esp)
 	call *%eax
 	cmpl $0,%eax
-	jne ___L__1247
+	jne ___L__1252
 	movl 64(%esp),%eax
 	movl %eax,28(%esp)
 	movl _is__digit10,%eax
 	movl 28(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-___L__1247:
+___L__1252:
 	cmpl $0,%eax
-	je ___L__1245
+	je ___L__1250
 	.data
-___L__1248:
+___L__1253:
 	.asciz "illegal character escape: \\%c"
 	.text
-	movl $___L__1248,%eax
+	movl $___L__1253,%eax
 	movl %eax,28(%esp)
 	movl 64(%esp),%eax
 	movl %eax,24(%esp)
@@ -16417,30 +16507,30 @@ ___L__1248:
 	movl 24(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	jmp ___L__1246
-___L__1245:
+	jmp ___L__1251
+___L__1250:
 	movl 64(%esp),%eax
-___L__1246:
-___L__1239:
-___L__1233:
-___L__1231:
-___L__1229:
-___L__1227:
-___L__1225:
-___L__1223:
-___L__1221:
+___L__1251:
+___L__1244:
+___L__1238:
+___L__1236:
+___L__1234:
+___L__1232:
+___L__1230:
+___L__1228:
+___L__1226:
+___L__1224:
+___L__1222:
+	jmp ___L__1220
 ___L__1219:
-___L__1217:
-	jmp ___L__1215
-___L__1214:
 	movl 64(%esp),%eax
-___L__1215:
+___L__1220:
 	addl $56,%esp
 	leave
 	ret
 ## defn digit_value
 	.text
-___L__1249:
+___L__1254:
 ## frame 16 4 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -16452,22 +16542,22 @@ ___L__1249:
 	setle %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1252
+	je ___L__1257
 	movl $57,%eax
 	movl %eax,16(%esp)
 	movl 48(%esp),%eax
 	cmpl 16(%esp),%eax
 	setle %al
 	movzbl %al,%eax
-___L__1252:
+___L__1257:
 	cmpl $0,%eax
-	je ___L__1250
+	je ___L__1255
 	movl $48,%eax
 	movl %eax,16(%esp)
 	movl 48(%esp),%eax
 	subl 16(%esp),%eax
-	jmp ___L__1251
-___L__1250:
+	jmp ___L__1256
+___L__1255:
 	movl 48(%esp),%eax
 	movl %eax,16(%esp)
 	movl $97,%eax
@@ -16475,16 +16565,16 @@ ___L__1250:
 	setle %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1255
+	je ___L__1260
 	movl $122,%eax
 	movl %eax,16(%esp)
 	movl 48(%esp),%eax
 	cmpl 16(%esp),%eax
 	setle %al
 	movzbl %al,%eax
-___L__1255:
+___L__1260:
 	cmpl $0,%eax
-	je ___L__1253
+	je ___L__1258
 	movl $10,%eax
 	movl %eax,16(%esp)
 	movl $97,%eax
@@ -16492,8 +16582,8 @@ ___L__1255:
 	movl %eax,16(%esp)
 	movl 48(%esp),%eax
 	subl 16(%esp),%eax
-	jmp ___L__1254
-___L__1253:
+	jmp ___L__1259
+___L__1258:
 	movl 48(%esp),%eax
 	movl %eax,16(%esp)
 	movl $65,%eax
@@ -16501,16 +16591,16 @@ ___L__1253:
 	setle %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1258
+	je ___L__1263
 	movl $90,%eax
 	movl %eax,16(%esp)
 	movl 48(%esp),%eax
 	cmpl 16(%esp),%eax
 	setle %al
 	movzbl %al,%eax
-___L__1258:
+___L__1263:
 	cmpl $0,%eax
-	je ___L__1256
+	je ___L__1261
 	movl $10,%eax
 	movl %eax,16(%esp)
 	movl $65,%eax
@@ -16518,85 +16608,25 @@ ___L__1258:
 	movl %eax,16(%esp)
 	movl 48(%esp),%eax
 	subl 16(%esp),%eax
-	jmp ___L__1257
-___L__1256:
+	jmp ___L__1262
+___L__1261:
 	.data
-___L__1259:
+___L__1264:
 	.asciz "illegal digit in character escape"
 	.text
-	movl $___L__1259,%eax
+	movl $___L__1264,%eax
 	movl %eax,16(%esp)
 	movl _fatal,%eax
 	movl 16(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-___L__1257:
-___L__1254:
-___L__1251:
+___L__1262:
+___L__1259:
+___L__1256:
 	addl $40,%esp
 	leave
 	ret
 ## defn is_hexadecimal
-	.text
-___L__1260:
-## frame 0 4 16 32
-	pushl %ebp
-	movl %esp,%ebp
-	subl $24,%esp
-	movl 32(%esp),%eax
-	movl %eax,0(%esp)
-	movl $48,%eax
-	cmpl 0(%esp),%eax
-	setle %al
-	movzbl %al,%eax
-	cmpl $0,%eax
-	je ___L__1262
-	movl $57,%eax
-	movl %eax,0(%esp)
-	movl 32(%esp),%eax
-	cmpl 0(%esp),%eax
-	setle %al
-	movzbl %al,%eax
-___L__1262:
-	cmpl $0,%eax
-	jne ___L__1261
-	movl 32(%esp),%eax
-	movl %eax,0(%esp)
-	movl $97,%eax
-	cmpl 0(%esp),%eax
-	setle %al
-	movzbl %al,%eax
-	cmpl $0,%eax
-	je ___L__1263
-	movl $102,%eax
-	movl %eax,0(%esp)
-	movl 32(%esp),%eax
-	cmpl 0(%esp),%eax
-	setle %al
-	movzbl %al,%eax
-___L__1263:
-	cmpl $0,%eax
-	jne ___L__1261
-	movl 32(%esp),%eax
-	movl %eax,0(%esp)
-	movl $65,%eax
-	cmpl 0(%esp),%eax
-	setle %al
-	movzbl %al,%eax
-	cmpl $0,%eax
-	je ___L__1264
-	movl $70,%eax
-	movl %eax,0(%esp)
-	movl 32(%esp),%eax
-	cmpl 0(%esp),%eax
-	setle %al
-	movzbl %al,%eax
-___L__1264:
-___L__1261:
-	addl $24,%esp
-	leave
-	ret
-## defn is_octal
 	.text
 ___L__1265:
 ## frame 0 4 16 32
@@ -16610,20 +16640,80 @@ ___L__1265:
 	setle %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1266
+	je ___L__1267
+	movl $57,%eax
+	movl %eax,0(%esp)
+	movl 32(%esp),%eax
+	cmpl 0(%esp),%eax
+	setle %al
+	movzbl %al,%eax
+___L__1267:
+	cmpl $0,%eax
+	jne ___L__1266
+	movl 32(%esp),%eax
+	movl %eax,0(%esp)
+	movl $97,%eax
+	cmpl 0(%esp),%eax
+	setle %al
+	movzbl %al,%eax
+	cmpl $0,%eax
+	je ___L__1268
+	movl $102,%eax
+	movl %eax,0(%esp)
+	movl 32(%esp),%eax
+	cmpl 0(%esp),%eax
+	setle %al
+	movzbl %al,%eax
+___L__1268:
+	cmpl $0,%eax
+	jne ___L__1266
+	movl 32(%esp),%eax
+	movl %eax,0(%esp)
+	movl $65,%eax
+	cmpl 0(%esp),%eax
+	setle %al
+	movzbl %al,%eax
+	cmpl $0,%eax
+	je ___L__1269
+	movl $70,%eax
+	movl %eax,0(%esp)
+	movl 32(%esp),%eax
+	cmpl 0(%esp),%eax
+	setle %al
+	movzbl %al,%eax
+___L__1269:
+___L__1266:
+	addl $24,%esp
+	leave
+	ret
+## defn is_octal
+	.text
+___L__1270:
+## frame 0 4 16 32
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	movl 32(%esp),%eax
+	movl %eax,0(%esp)
+	movl $48,%eax
+	cmpl 0(%esp),%eax
+	setle %al
+	movzbl %al,%eax
+	cmpl $0,%eax
+	je ___L__1271
 	movl $55,%eax
 	movl %eax,0(%esp)
 	movl 32(%esp),%eax
 	cmpl 0(%esp),%eax
 	setle %al
 	movzbl %al,%eax
-___L__1266:
+___L__1271:
 	addl $24,%esp
 	leave
 	ret
 ## defn intern
 	.text
-___L__1267:
+___L__1272:
 ## frame 16 28 48 64
 	pushl %ebp
 	movl %esp,%ebp
@@ -16640,8 +16730,8 @@ ___L__1267:
 	call *%eax
 	subl 20(%esp),%eax
 	movl %eax,20(%esp)
-	jmp ___L__1269
-___L__1268:
+	jmp ___L__1274
+___L__1273:
 	movl $2,%eax
 	movl %eax,24(%esp)
 	movl 20(%esp),%eax
@@ -16688,14 +16778,14 @@ ___L__1268:
 	setl %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1270
+	je ___L__1275
 	movl $1,%eax
 	movl %eax,28(%esp)
 	movl 24(%esp),%eax
 	subl 28(%esp),%eax
 	movl %eax,20(%esp)
-	jmp ___L__1271
-___L__1270:
+	jmp ___L__1276
+___L__1275:
 	movl $0,%eax
 	movl %eax,28(%esp)
 	movl 36(%esp),%eax
@@ -16703,19 +16793,19 @@ ___L__1270:
 	setg %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1272
+	je ___L__1277
 	movl $1,%eax
 	movl %eax,28(%esp)
 	movl 24(%esp),%eax
 	addl 28(%esp),%eax
 	movl %eax,16(%esp)
-	jmp ___L__1273
-___L__1272:
+	jmp ___L__1278
+___L__1277:
 	movl 32(%esp),%eax
-	jmp ___L__1274
-___L__1273:
-___L__1271:
-___L__1269:
+	jmp ___L__1279
+___L__1278:
+___L__1276:
+___L__1274:
 	movl 20(%esp),%eax
 	movl %eax,24(%esp)
 	movl 16(%esp),%eax
@@ -16723,7 +16813,7 @@ ___L__1269:
 	setle %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	jne ___L__1268
+	jne ___L__1273
 	movl 64(%esp),%eax
 	movl %eax,24(%esp)
 	movl _new_2D_3Csymbol_3E,%eax
@@ -16759,13 +16849,13 @@ ___L__1269:
 	movl %ecx,0(%esp)
 	call *%eax
 	movl 28(%esp),%eax
-___L__1274:
+___L__1279:
 	addl $56,%esp
 	leave
 	ret
 ## defn buffer_contents
 	.text
-___L__1275:
+___L__1280:
 ## frame 16 8 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -16808,7 +16898,7 @@ ___L__1275:
 	ret
 ## defn buffer_append_all
 	.text
-___L__1276:
+___L__1281:
 ## frame 16 16 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -16817,8 +16907,8 @@ ___L__1276:
 	movl %eax,16(%esp)
 	movl $0,%eax
 	movl %eax,20(%esp)
-	jmp ___L__1278
-___L__1277:
+	jmp ___L__1283
+___L__1282:
 	movl 48(%esp),%eax
 	movl %eax,24(%esp)
 	movl 20(%esp),%eax
@@ -16834,7 +16924,7 @@ ___L__1277:
 	movl $1,%eax
 	addl 28(%esp),%eax
 	movl %eax,16(%esp)
-___L__1278:
+___L__1283:
 	movl 16(%esp),%eax
 	movl %eax,28(%esp)
 	movl 52(%esp),%eax
@@ -16844,13 +16934,13 @@ ___L__1278:
 	movb (%ecx),%al
 	movl %eax,20(%esp)
 	cmpl $0,%eax
-	jne ___L__1277
+	jne ___L__1282
 	addl $40,%esp
 	leave
 	ret
 ## defn buffer_append
 	.text
-___L__1279:
+___L__1284:
 ## frame 16 16 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -16872,14 +16962,14 @@ ___L__1279:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1280
+	je ___L__1285
 	movl 48(%esp),%eax
 	movl %eax,16(%esp)
 	movl _buffer__grow,%eax
 	movl 16(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-___L__1280:
+___L__1285:
 	movl $2,%eax
 	movl %eax,16(%esp)
 	movl 48(%esp),%eax
@@ -16918,7 +17008,7 @@ ___L__1280:
 	ret
 ## defn buffer_grow
 	.text
-___L__1281:
+___L__1286:
 ## frame 16 20 48 64
 	pushl %ebp
 	movl %esp,%ebp
@@ -16996,7 +17086,7 @@ ___L__1281:
 	ret
 ## defn buffer_delete
 	.text
-___L__1282:
+___L__1287:
 ## frame 16 4 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -17023,7 +17113,7 @@ ___L__1282:
 	ret
 ## defn new_buffer
 	.text
-___L__1283:
+___L__1288:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -17073,7 +17163,7 @@ ___L__1283:
 	ret
 ## defn is_letter
 	.text
-___L__1284:
+___L__1289:
 ## frame 0 4 16 32
 	pushl %ebp
 	movl %esp,%ebp
@@ -17085,7 +17175,7 @@ ___L__1284:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	jne ___L__1285
+	jne ___L__1290
 	movl 32(%esp),%eax
 	movl %eax,0(%esp)
 	movl $35,%eax
@@ -17093,16 +17183,16 @@ ___L__1284:
 	setle %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1286
+	je ___L__1291
 	movl $38,%eax
 	movl %eax,0(%esp)
 	movl 32(%esp),%eax
 	cmpl 0(%esp),%eax
 	setle %al
 	movzbl %al,%eax
-___L__1286:
+___L__1291:
 	cmpl $0,%eax
-	jne ___L__1285
+	jne ___L__1290
 	movl 32(%esp),%eax
 	movl %eax,0(%esp)
 	movl $42,%eax
@@ -17110,124 +17200,8 @@ ___L__1286:
 	setle %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1287
-	movl $47,%eax
-	movl %eax,0(%esp)
-	movl 32(%esp),%eax
-	cmpl 0(%esp),%eax
-	setle %al
-	movzbl %al,%eax
-___L__1287:
-	cmpl $0,%eax
-	jne ___L__1285
-	movl 32(%esp),%eax
-	movl %eax,0(%esp)
-	movl $58,%eax
-	cmpl 0(%esp),%eax
-	sete %al
-	movzbl %al,%eax
-	cmpl $0,%eax
-	jne ___L__1285
-	movl 32(%esp),%eax
-	movl %eax,0(%esp)
-	movl $60,%eax
-	cmpl 0(%esp),%eax
-	setle %al
-	movzbl %al,%eax
-	cmpl $0,%eax
-	je ___L__1288
-	movl $90,%eax
-	movl %eax,0(%esp)
-	movl 32(%esp),%eax
-	cmpl 0(%esp),%eax
-	setle %al
-	movzbl %al,%eax
-___L__1288:
-	cmpl $0,%eax
-	jne ___L__1285
-	movl 32(%esp),%eax
-	movl %eax,0(%esp)
-	movl $92,%eax
-	cmpl 0(%esp),%eax
-	sete %al
-	movzbl %al,%eax
-	cmpl $0,%eax
-	jne ___L__1285
-	movl 32(%esp),%eax
-	movl %eax,0(%esp)
-	movl $94,%eax
-	cmpl 0(%esp),%eax
-	sete %al
-	movzbl %al,%eax
-	cmpl $0,%eax
-	jne ___L__1285
-	movl 32(%esp),%eax
-	movl %eax,0(%esp)
-	movl $95,%eax
-	cmpl 0(%esp),%eax
-	sete %al
-	movzbl %al,%eax
-	cmpl $0,%eax
-	jne ___L__1285
-	movl 32(%esp),%eax
-	movl %eax,0(%esp)
-	movl $97,%eax
-	cmpl 0(%esp),%eax
-	setle %al
-	movzbl %al,%eax
-	cmpl $0,%eax
-	je ___L__1289
-	movl $122,%eax
-	movl %eax,0(%esp)
-	movl 32(%esp),%eax
-	cmpl 0(%esp),%eax
-	setle %al
-	movzbl %al,%eax
-___L__1289:
-	cmpl $0,%eax
-	jne ___L__1285
-	movl 32(%esp),%eax
-	movl %eax,0(%esp)
-	movl $124,%eax
-	cmpl 0(%esp),%eax
-	sete %al
-	movzbl %al,%eax
-	cmpl $0,%eax
-	jne ___L__1285
-	movl 32(%esp),%eax
-	movl %eax,0(%esp)
-	movl $126,%eax
-	cmpl 0(%esp),%eax
-	sete %al
-	movzbl %al,%eax
-	cmpl $0,%eax
-	jne ___L__1285
-	movl 32(%esp),%eax
-	movl %eax,0(%esp)
-	movl $128,%eax
-	cmpl 0(%esp),%eax
-	setle %al
-	movzbl %al,%eax
-___L__1285:
-	addl $24,%esp
-	leave
-	ret
-## defn is_alpha
-	.text
-___L__1290:
-## frame 0 4 16 32
-	pushl %ebp
-	movl %esp,%ebp
-	subl $24,%esp
-	movl 32(%esp),%eax
-	movl %eax,0(%esp)
-	movl $97,%eax
-	cmpl 0(%esp),%eax
-	setle %al
-	movzbl %al,%eax
-	cmpl $0,%eax
 	je ___L__1292
-	movl $122,%eax
+	movl $47,%eax
 	movl %eax,0(%esp)
 	movl 32(%esp),%eax
 	cmpl 0(%esp),%eax
@@ -17235,10 +17209,18 @@ ___L__1290:
 	movzbl %al,%eax
 ___L__1292:
 	cmpl $0,%eax
-	jne ___L__1291
+	jne ___L__1290
 	movl 32(%esp),%eax
 	movl %eax,0(%esp)
-	movl $65,%eax
+	movl $58,%eax
+	cmpl 0(%esp),%eax
+	sete %al
+	movzbl %al,%eax
+	cmpl $0,%eax
+	jne ___L__1290
+	movl 32(%esp),%eax
+	movl %eax,0(%esp)
+	movl $60,%eax
 	cmpl 0(%esp),%eax
 	setle %al
 	movzbl %al,%eax
@@ -17251,34 +17233,82 @@ ___L__1292:
 	setle %al
 	movzbl %al,%eax
 ___L__1293:
-___L__1291:
+	cmpl $0,%eax
+	jne ___L__1290
+	movl 32(%esp),%eax
+	movl %eax,0(%esp)
+	movl $92,%eax
+	cmpl 0(%esp),%eax
+	sete %al
+	movzbl %al,%eax
+	cmpl $0,%eax
+	jne ___L__1290
+	movl 32(%esp),%eax
+	movl %eax,0(%esp)
+	movl $94,%eax
+	cmpl 0(%esp),%eax
+	sete %al
+	movzbl %al,%eax
+	cmpl $0,%eax
+	jne ___L__1290
+	movl 32(%esp),%eax
+	movl %eax,0(%esp)
+	movl $95,%eax
+	cmpl 0(%esp),%eax
+	sete %al
+	movzbl %al,%eax
+	cmpl $0,%eax
+	jne ___L__1290
+	movl 32(%esp),%eax
+	movl %eax,0(%esp)
+	movl $97,%eax
+	cmpl 0(%esp),%eax
+	setle %al
+	movzbl %al,%eax
+	cmpl $0,%eax
+	je ___L__1294
+	movl $122,%eax
+	movl %eax,0(%esp)
+	movl 32(%esp),%eax
+	cmpl 0(%esp),%eax
+	setle %al
+	movzbl %al,%eax
+___L__1294:
+	cmpl $0,%eax
+	jne ___L__1290
+	movl 32(%esp),%eax
+	movl %eax,0(%esp)
+	movl $124,%eax
+	cmpl 0(%esp),%eax
+	sete %al
+	movzbl %al,%eax
+	cmpl $0,%eax
+	jne ___L__1290
+	movl 32(%esp),%eax
+	movl %eax,0(%esp)
+	movl $126,%eax
+	cmpl 0(%esp),%eax
+	sete %al
+	movzbl %al,%eax
+	cmpl $0,%eax
+	jne ___L__1290
+	movl 32(%esp),%eax
+	movl %eax,0(%esp)
+	movl $128,%eax
+	cmpl 0(%esp),%eax
+	setle %al
+	movzbl %al,%eax
+___L__1290:
 	addl $24,%esp
 	leave
 	ret
-## defn is_digit16
+## defn is_alpha
 	.text
-___L__1294:
+___L__1295:
 ## frame 0 4 16 32
 	pushl %ebp
 	movl %esp,%ebp
 	subl $24,%esp
-	movl 32(%esp),%eax
-	movl %eax,0(%esp)
-	movl $48,%eax
-	cmpl 0(%esp),%eax
-	setle %al
-	movzbl %al,%eax
-	cmpl $0,%eax
-	je ___L__1296
-	movl $57,%eax
-	movl %eax,0(%esp)
-	movl 32(%esp),%eax
-	cmpl 0(%esp),%eax
-	setle %al
-	movzbl %al,%eax
-___L__1296:
-	cmpl $0,%eax
-	jne ___L__1295
 	movl 32(%esp),%eax
 	movl %eax,0(%esp)
 	movl $97,%eax
@@ -17287,7 +17317,7 @@ ___L__1296:
 	movzbl %al,%eax
 	cmpl $0,%eax
 	je ___L__1297
-	movl $102,%eax
+	movl $122,%eax
 	movl %eax,0(%esp)
 	movl 32(%esp),%eax
 	cmpl 0(%esp),%eax
@@ -17295,7 +17325,7 @@ ___L__1296:
 	movzbl %al,%eax
 ___L__1297:
 	cmpl $0,%eax
-	jne ___L__1295
+	jne ___L__1296
 	movl 32(%esp),%eax
 	movl %eax,0(%esp)
 	movl $65,%eax
@@ -17304,18 +17334,18 @@ ___L__1297:
 	movzbl %al,%eax
 	cmpl $0,%eax
 	je ___L__1298
-	movl $70,%eax
+	movl $90,%eax
 	movl %eax,0(%esp)
 	movl 32(%esp),%eax
 	cmpl 0(%esp),%eax
 	setle %al
 	movzbl %al,%eax
 ___L__1298:
-___L__1295:
+___L__1296:
 	addl $24,%esp
 	leave
 	ret
-## defn is_digit10
+## defn is_digit16
 	.text
 ___L__1299:
 ## frame 0 4 16 32
@@ -17329,20 +17359,80 @@ ___L__1299:
 	setle %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1300
+	je ___L__1301
 	movl $57,%eax
 	movl %eax,0(%esp)
 	movl 32(%esp),%eax
 	cmpl 0(%esp),%eax
 	setle %al
 	movzbl %al,%eax
+___L__1301:
+	cmpl $0,%eax
+	jne ___L__1300
+	movl 32(%esp),%eax
+	movl %eax,0(%esp)
+	movl $97,%eax
+	cmpl 0(%esp),%eax
+	setle %al
+	movzbl %al,%eax
+	cmpl $0,%eax
+	je ___L__1302
+	movl $102,%eax
+	movl %eax,0(%esp)
+	movl 32(%esp),%eax
+	cmpl 0(%esp),%eax
+	setle %al
+	movzbl %al,%eax
+___L__1302:
+	cmpl $0,%eax
+	jne ___L__1300
+	movl 32(%esp),%eax
+	movl %eax,0(%esp)
+	movl $65,%eax
+	cmpl 0(%esp),%eax
+	setle %al
+	movzbl %al,%eax
+	cmpl $0,%eax
+	je ___L__1303
+	movl $70,%eax
+	movl %eax,0(%esp)
+	movl 32(%esp),%eax
+	cmpl 0(%esp),%eax
+	setle %al
+	movzbl %al,%eax
+___L__1303:
 ___L__1300:
+	addl $24,%esp
+	leave
+	ret
+## defn is_digit10
+	.text
+___L__1304:
+## frame 0 4 16 32
+	pushl %ebp
+	movl %esp,%ebp
+	subl $24,%esp
+	movl 32(%esp),%eax
+	movl %eax,0(%esp)
+	movl $48,%eax
+	cmpl 0(%esp),%eax
+	setle %al
+	movzbl %al,%eax
+	cmpl $0,%eax
+	je ___L__1305
+	movl $57,%eax
+	movl %eax,0(%esp)
+	movl 32(%esp),%eax
+	cmpl 0(%esp),%eax
+	setle %al
+	movzbl %al,%eax
+___L__1305:
 	addl $24,%esp
 	leave
 	ret
 ## defn is_blank
 	.text
-___L__1301:
+___L__1306:
 ## frame 0 4 16 32
 	pushl %ebp
 	movl %esp,%ebp
@@ -17354,7 +17444,7 @@ ___L__1301:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	jne ___L__1302
+	jne ___L__1307
 	movl 32(%esp),%eax
 	movl %eax,0(%esp)
 	movl $9,%eax
@@ -17362,7 +17452,7 @@ ___L__1301:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	jne ___L__1302
+	jne ___L__1307
 	movl 32(%esp),%eax
 	movl %eax,0(%esp)
 	movl $10,%eax
@@ -17370,7 +17460,7 @@ ___L__1301:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	jne ___L__1302
+	jne ___L__1307
 	movl 32(%esp),%eax
 	movl %eax,0(%esp)
 	movl $11,%eax
@@ -17378,7 +17468,7 @@ ___L__1301:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	jne ___L__1302
+	jne ___L__1307
 	movl 32(%esp),%eax
 	movl %eax,0(%esp)
 	movl $12,%eax
@@ -17386,20 +17476,20 @@ ___L__1301:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	jne ___L__1302
+	jne ___L__1307
 	movl 32(%esp),%eax
 	movl %eax,0(%esp)
 	movl $13,%eax
 	cmpl 0(%esp),%eax
 	sete %al
 	movzbl %al,%eax
-___L__1302:
+___L__1307:
 	addl $24,%esp
 	leave
 	ret
 ## defn k_dumpln
 	.text
-___L__1303:
+___L__1308:
 ## frame 16 8 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -17415,10 +17505,10 @@ ___L__1303:
 	movl %ecx,4(%esp)
 	call *%eax
 	.data
-___L__1304:
+___L__1309:
 	.asciz "\012"
 	.text
-	movl $___L__1304,%eax
+	movl $___L__1309,%eax
 	movl %eax,20(%esp)
 	movl _printf_24stub,%eax
 	movl 20(%esp),%ecx
@@ -17429,7 +17519,7 @@ ___L__1304:
 	ret
 ## defn k_dump
 	.text
-___L__1305:
+___L__1310:
 ## frame 16 8 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -17449,7 +17539,7 @@ ___L__1305:
 	ret
 ## defn k_println
 	.text
-___L__1306:
+___L__1311:
 ## frame 16 8 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -17465,10 +17555,10 @@ ___L__1306:
 	movl %ecx,4(%esp)
 	call *%eax
 	.data
-___L__1307:
+___L__1312:
 	.asciz "\012"
 	.text
-	movl $___L__1307,%eax
+	movl $___L__1312,%eax
 	movl %eax,20(%esp)
 	movl _printf_24stub,%eax
 	movl 20(%esp),%ecx
@@ -17479,7 +17569,7 @@ ___L__1307:
 	ret
 ## defn k_print
 	.text
-___L__1308:
+___L__1313:
 ## frame 16 8 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -17499,7 +17589,7 @@ ___L__1308:
 	ret
 ## defn do_print
 	.text
-___L__1309:
+___L__1314:
 ## frame 16 24 48 64
 	pushl %ebp
 	movl %esp,%ebp
@@ -17510,27 +17600,27 @@ ___L__1309:
 	movl $0,%eax
 	movl 16(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1310
+	je ___L__1315
 	movl $1,%eax
 	movl %eax,20(%esp)
 	movl 16(%esp),%eax
 	andl 20(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1312
+	je ___L__1317
 	movl __3Clong_3E,%eax
-	jmp ___L__1313
-___L__1312:
+	jmp ___L__1318
+___L__1317:
 	movl $-1,%eax
 	movl %eax,20(%esp)
 	movl 16(%esp),%eax
 	movl 20(%esp),%ecx
 	leal (%eax,%ecx,4),%ecx
 	movl (%ecx),%eax
-___L__1313:
-	jmp ___L__1311
-___L__1310:
+___L__1318:
+	jmp ___L__1316
+___L__1315:
 	movl __3Cundefined_3E,%eax
-___L__1311:
+___L__1316:
 	movl %eax,16(%esp)
 	movl __3Cundefined_3E,%eax
 	movl %eax,20(%esp)
@@ -17539,19 +17629,19 @@ ___L__1311:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1314
+	je ___L__1319
 	.data
-___L__1316:
+___L__1321:
 	.asciz "nil"
 	.text
-	movl $___L__1316,%eax
+	movl $___L__1321,%eax
 	movl %eax,20(%esp)
 	movl _printf_24stub,%eax
 	movl 20(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-	jmp ___L__1315
-___L__1314:
+	jmp ___L__1320
+___L__1319:
 	movl __3Clong_3E,%eax
 	movl %eax,20(%esp)
 	movl 16(%esp),%eax
@@ -17559,12 +17649,12 @@ ___L__1314:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1317
+	je ___L__1322
 	.data
-___L__1319:
+___L__1324:
 	.asciz "%d"
 	.text
-	movl $___L__1319,%eax
+	movl $___L__1324,%eax
 	movl %eax,20(%esp)
 	movl 64(%esp),%eax
 	movl %eax,24(%esp)
@@ -17582,8 +17672,8 @@ ___L__1319:
 	movl 24(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	jmp ___L__1318
-___L__1317:
+	jmp ___L__1323
+___L__1322:
 	movl __3Cstring_3E,%eax
 	movl %eax,24(%esp)
 	movl 16(%esp),%eax
@@ -17591,7 +17681,7 @@ ___L__1317:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1320
+	je ___L__1325
 	movl 64(%esp),%eax
 	movl %eax,24(%esp)
 	movl $0,%eax
@@ -17607,12 +17697,12 @@ ___L__1317:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1322
+	je ___L__1327
 	.data
-___L__1324:
+___L__1329:
 	.asciz "%s"
 	.text
-	movl $___L__1324,%eax
+	movl $___L__1329,%eax
 	movl %eax,20(%esp)
 	movl 24(%esp),%eax
 	movl %eax,28(%esp)
@@ -17622,54 +17712,17 @@ ___L__1324:
 	movl 28(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	jmp ___L__1323
-___L__1322:
+	jmp ___L__1328
+___L__1327:
 	movl $0,%eax
 	movl %eax,28(%esp)
 	movl $0,%eax
 	movl %eax,20(%esp)
 	.data
-___L__1325:
+___L__1330:
 	.asciz "\""
 	.text
-	movl $___L__1325,%eax
-	movl %eax,32(%esp)
-	movl _printf_24stub,%eax
-	movl 32(%esp),%ecx
-	movl %ecx,0(%esp)
-	call *%eax
-	jmp ___L__1327
-___L__1326:
-	movl 20(%esp),%eax
-	movl %eax,32(%esp)
-	movl $32,%eax
-	cmpl 32(%esp),%eax
-	setle %al
-	movzbl %al,%eax
-	cmpl $0,%eax
-	je ___L__1330
-	movl $126,%eax
-	movl %eax,32(%esp)
-	movl 20(%esp),%eax
-	cmpl 32(%esp),%eax
-	setle %al
-	movzbl %al,%eax
-___L__1330:
-	cmpl $0,%eax
-	je ___L__1328
-	movl $34,%eax
-	movl %eax,32(%esp)
-	movl 20(%esp),%eax
-	cmpl 32(%esp),%eax
-	sete %al
-	movzbl %al,%eax
-	cmpl $0,%eax
-	je ___L__1331
-	.data
-___L__1333:
-	.asciz "\\\""
-	.text
-	movl $___L__1333,%eax
+	movl $___L__1330,%eax
 	movl %eax,32(%esp)
 	movl _printf_24stub,%eax
 	movl 32(%esp),%ecx
@@ -17677,6 +17730,43 @@ ___L__1333:
 	call *%eax
 	jmp ___L__1332
 ___L__1331:
+	movl 20(%esp),%eax
+	movl %eax,32(%esp)
+	movl $32,%eax
+	cmpl 32(%esp),%eax
+	setle %al
+	movzbl %al,%eax
+	cmpl $0,%eax
+	je ___L__1335
+	movl $126,%eax
+	movl %eax,32(%esp)
+	movl 20(%esp),%eax
+	cmpl 32(%esp),%eax
+	setle %al
+	movzbl %al,%eax
+___L__1335:
+	cmpl $0,%eax
+	je ___L__1333
+	movl $34,%eax
+	movl %eax,32(%esp)
+	movl 20(%esp),%eax
+	cmpl 32(%esp),%eax
+	sete %al
+	movzbl %al,%eax
+	cmpl $0,%eax
+	je ___L__1336
+	.data
+___L__1338:
+	.asciz "\\\""
+	.text
+	movl $___L__1338,%eax
+	movl %eax,32(%esp)
+	movl _printf_24stub,%eax
+	movl 32(%esp),%ecx
+	movl %ecx,0(%esp)
+	call *%eax
+	jmp ___L__1337
+___L__1336:
 	movl $92,%eax
 	movl %eax,32(%esp)
 	movl 20(%esp),%eax
@@ -17684,24 +17774,24 @@ ___L__1331:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1334
+	je ___L__1339
 	.data
-___L__1336:
+___L__1341:
 	.asciz "\\\\"
 	.text
-	movl $___L__1336,%eax
+	movl $___L__1341,%eax
 	movl %eax,32(%esp)
 	movl _printf_24stub,%eax
 	movl 32(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-	jmp ___L__1335
-___L__1334:
+	jmp ___L__1340
+___L__1339:
 	.data
-___L__1337:
+___L__1342:
 	.asciz "%c"
 	.text
-	movl $___L__1337,%eax
+	movl $___L__1342,%eax
 	movl %eax,32(%esp)
 	movl 20(%esp),%eax
 	movl %eax,36(%esp)
@@ -17711,15 +17801,15 @@ ___L__1337:
 	movl 36(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-___L__1335:
-___L__1332:
-	jmp ___L__1329
-___L__1328:
+___L__1340:
+___L__1337:
+	jmp ___L__1334
+___L__1333:
 	.data
-___L__1338:
+___L__1343:
 	.asciz "\\%03o"
 	.text
-	movl $___L__1338,%eax
+	movl $___L__1343,%eax
 	movl %eax,36(%esp)
 	movl 20(%esp),%eax
 	movl %eax,32(%esp)
@@ -17729,13 +17819,13 @@ ___L__1338:
 	movl 32(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-___L__1329:
+___L__1334:
 	movl 28(%esp),%eax
 	movl %eax,32(%esp)
 	movl $1,%eax
 	addl 32(%esp),%eax
 	movl %eax,28(%esp)
-___L__1327:
+___L__1332:
 	movl 28(%esp),%eax
 	movl %eax,32(%esp)
 	movl 24(%esp),%eax
@@ -17745,20 +17835,20 @@ ___L__1327:
 	movb (%ecx),%al
 	movl %eax,20(%esp)
 	cmpl $0,%eax
-	jne ___L__1326
+	jne ___L__1331
 	.data
-___L__1339:
+___L__1344:
 	.asciz "\""
 	.text
-	movl $___L__1339,%eax
+	movl $___L__1344,%eax
 	movl %eax,32(%esp)
 	movl _printf_24stub,%eax
 	movl 32(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-___L__1323:
-	jmp ___L__1321
-___L__1320:
+___L__1328:
+	jmp ___L__1326
+___L__1325:
 	movl __3Csymbol_3E,%eax
 	movl %eax,24(%esp)
 	movl 16(%esp),%eax
@@ -17766,12 +17856,12 @@ ___L__1320:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1340
+	je ___L__1345
 	.data
-___L__1342:
+___L__1347:
 	.asciz "%s"
 	.text
-	movl $___L__1342,%eax
+	movl $___L__1347,%eax
 	movl %eax,24(%esp)
 	movl 64(%esp),%eax
 	movl %eax,20(%esp)
@@ -17789,8 +17879,8 @@ ___L__1342:
 	movl 20(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	jmp ___L__1341
-___L__1340:
+	jmp ___L__1346
+___L__1345:
 	movl __3Cpair_3E,%eax
 	movl %eax,20(%esp)
 	movl 16(%esp),%eax
@@ -17798,19 +17888,19 @@ ___L__1340:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1343
+	je ___L__1348
 	.data
-___L__1345:
+___L__1350:
 	.asciz "("
 	.text
-	movl $___L__1345,%eax
+	movl $___L__1350,%eax
 	movl %eax,20(%esp)
 	movl _printf_24stub,%eax
 	movl 20(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-	jmp ___L__1347
-___L__1346:
+	jmp ___L__1352
+___L__1351:
 	movl $0,%eax
 	movl %eax,20(%esp)
 	movl 64(%esp),%eax
@@ -17837,88 +17927,88 @@ ___L__1346:
 	movl $0,%eax
 	movl 24(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1349
+	je ___L__1354
 	movl $1,%eax
 	movl %eax,20(%esp)
 	movl 24(%esp),%eax
 	andl 20(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1351
+	je ___L__1356
 	movl __3Clong_3E,%eax
-	jmp ___L__1352
-___L__1351:
+	jmp ___L__1357
+___L__1356:
 	movl $-1,%eax
 	movl %eax,20(%esp)
 	movl 24(%esp),%eax
 	movl 20(%esp),%ecx
 	leal (%eax,%ecx,4),%ecx
 	movl (%ecx),%eax
-___L__1352:
-	jmp ___L__1350
-___L__1349:
+___L__1357:
+	jmp ___L__1355
+___L__1354:
 	movl __3Cundefined_3E,%eax
-___L__1350:
+___L__1355:
 	movl %eax,24(%esp)
 	movl __3Cpair_3E,%eax
 	cmpl 24(%esp),%eax
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1348
+	je ___L__1353
 	.data
-___L__1353:
+___L__1358:
 	.asciz " "
 	.text
-	movl $___L__1353,%eax
+	movl $___L__1358,%eax
 	movl %eax,24(%esp)
 	movl _printf_24stub,%eax
 	movl 24(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-___L__1348:
-___L__1347:
+___L__1353:
+___L__1352:
 	movl 64(%esp),%eax
 	movl %eax,24(%esp)
 	movl $0,%eax
 	movl 24(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1355
+	je ___L__1360
 	movl $1,%eax
 	movl %eax,20(%esp)
 	movl 24(%esp),%eax
 	andl 20(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1357
+	je ___L__1362
 	movl __3Clong_3E,%eax
-	jmp ___L__1358
-___L__1357:
+	jmp ___L__1363
+___L__1362:
 	movl $-1,%eax
 	movl %eax,20(%esp)
 	movl 24(%esp),%eax
 	movl 20(%esp),%ecx
 	leal (%eax,%ecx,4),%ecx
 	movl (%ecx),%eax
-___L__1358:
-	jmp ___L__1356
-___L__1355:
+___L__1363:
+	jmp ___L__1361
+___L__1360:
 	movl __3Cundefined_3E,%eax
-___L__1356:
+___L__1361:
 	movl %eax,24(%esp)
 	movl __3Cpair_3E,%eax
 	cmpl 24(%esp),%eax
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1354
+	je ___L__1359
 	movl 64(%esp),%eax
 	movl %eax,24(%esp)
 	movl _globals,%eax
 	cmpl 24(%esp),%eax
 	setne %al
 	movzbl %al,%eax
-___L__1354:
+___L__1359:
 	cmpl $0,%eax
-	jne ___L__1346
+	jne ___L__1351
 	movl 64(%esp),%eax
 	movl %eax,24(%esp)
 	movl _globals,%eax
@@ -17926,27 +18016,27 @@ ___L__1354:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1359
+	je ___L__1364
 	.data
-___L__1361:
+___L__1366:
 	.asciz "<globals>"
 	.text
-	movl $___L__1361,%eax
+	movl $___L__1366,%eax
 	movl %eax,24(%esp)
 	movl _printf_24stub,%eax
 	movl 24(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-	jmp ___L__1360
-___L__1359:
+	jmp ___L__1365
+___L__1364:
 	movl 64(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1362
+	je ___L__1367
 	.data
-___L__1363:
+___L__1368:
 	.asciz " . "
 	.text
-	movl $___L__1363,%eax
+	movl $___L__1368,%eax
 	movl %eax,24(%esp)
 	movl _printf_24stub,%eax
 	movl 24(%esp),%ecx
@@ -17962,20 +18052,20 @@ ___L__1363:
 	movl 20(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-___L__1362:
-___L__1360:
+___L__1367:
+___L__1365:
 	.data
-___L__1364:
+___L__1369:
 	.asciz ")"
 	.text
-	movl $___L__1364,%eax
+	movl $___L__1369,%eax
 	movl %eax,20(%esp)
 	movl _printf_24stub,%eax
 	movl 20(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-	jmp ___L__1344
-___L__1343:
+	jmp ___L__1349
+___L__1348:
 	movl __3Carray_3E,%eax
 	movl %eax,20(%esp)
 	movl 16(%esp),%eax
@@ -17983,7 +18073,7 @@ ___L__1343:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1365
+	je ___L__1370
 	movl 64(%esp),%eax
 	movl %eax,20(%esp)
 	movl _k__array__length,%eax
@@ -17992,10 +18082,10 @@ ___L__1343:
 	call *%eax
 	movl %eax,20(%esp)
 	.data
-___L__1367:
+___L__1372:
 	.asciz "Array("
 	.text
-	movl $___L__1367,%eax
+	movl $___L__1372,%eax
 	movl %eax,24(%esp)
 	movl _printf_24stub,%eax
 	movl 24(%esp),%ecx
@@ -18005,22 +18095,22 @@ ___L__1367:
 	movl %eax,24(%esp)
 	movl 20(%esp),%eax
 	movl %eax,28(%esp)
-	jmp ___L__1369
-___L__1368:
+	jmp ___L__1374
+___L__1373:
 	movl 24(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1370
+	je ___L__1375
 	.data
-___L__1371:
+___L__1376:
 	.asciz " "
 	.text
-	movl $___L__1371,%eax
+	movl $___L__1376,%eax
 	movl %eax,32(%esp)
 	movl _printf_24stub,%eax
 	movl 32(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-___L__1370:
+___L__1375:
 	movl 64(%esp),%eax
 	movl %eax,32(%esp)
 	movl 24(%esp),%eax
@@ -18041,7 +18131,7 @@ ___L__1370:
 	movl 24(%esp),%eax
 	addl 36(%esp),%eax
 	movl %eax,24(%esp)
-___L__1369:
+___L__1374:
 	movl 28(%esp),%eax
 	movl %eax,36(%esp)
 	movl 24(%esp),%eax
@@ -18049,19 +18139,19 @@ ___L__1369:
 	setl %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	jne ___L__1368
+	jne ___L__1373
 	.data
-___L__1372:
+___L__1377:
 	.asciz ")"
 	.text
-	movl $___L__1372,%eax
+	movl $___L__1377,%eax
 	movl %eax,28(%esp)
 	movl _printf_24stub,%eax
 	movl 28(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-	jmp ___L__1366
-___L__1365:
+	jmp ___L__1371
+___L__1370:
 	movl __3Cexpr_3E,%eax
 	movl %eax,20(%esp)
 	movl 16(%esp),%eax
@@ -18069,12 +18159,12 @@ ___L__1365:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1373
+	je ___L__1378
 	.data
-___L__1375:
+___L__1380:
 	.asciz "Expr("
 	.text
-	movl $___L__1375,%eax
+	movl $___L__1380,%eax
 	movl %eax,20(%esp)
 	movl _printf_24stub,%eax
 	movl 20(%esp),%ecx
@@ -18104,82 +18194,6 @@ ___L__1375:
 	movl %ecx,4(%esp)
 	call *%eax
 	.data
-___L__1376:
-	.asciz ")"
-	.text
-	movl $___L__1376,%eax
-	movl %eax,28(%esp)
-	movl _printf_24stub,%eax
-	movl 28(%esp),%ecx
-	movl %ecx,0(%esp)
-	call *%eax
-	jmp ___L__1374
-___L__1373:
-	movl __3Cform_3E,%eax
-	movl %eax,28(%esp)
-	movl 16(%esp),%eax
-	cmpl 28(%esp),%eax
-	sete %al
-	movzbl %al,%eax
-	cmpl $0,%eax
-	je ___L__1377
-	.data
-___L__1379:
-	.asciz "Form("
-	.text
-	movl $___L__1379,%eax
-	movl %eax,28(%esp)
-	movl _printf_24stub,%eax
-	movl 28(%esp),%ecx
-	movl %ecx,0(%esp)
-	call *%eax
-	movl 64(%esp),%eax
-	movl %eax,28(%esp)
-	movl $0,%eax
-	movl $0,%eax
-	movl %eax,20(%esp)
-	movl 28(%esp),%eax
-	movl 20(%esp),%ecx
-	leal (%eax,%ecx,4),%ecx
-	movl (%ecx),%eax
-	movl %eax,28(%esp)
-	movl 68(%esp),%eax
-	movl %eax,20(%esp)
-	movl _do__print,%eax
-	movl 28(%esp),%ecx
-	movl %ecx,0(%esp)
-	movl 20(%esp),%ecx
-	movl %ecx,4(%esp)
-	call *%eax
-	.data
-___L__1380:
-	.asciz ","
-	.text
-	movl $___L__1380,%eax
-	movl %eax,20(%esp)
-	movl _printf_24stub,%eax
-	movl 20(%esp),%ecx
-	movl %ecx,0(%esp)
-	call *%eax
-	movl 64(%esp),%eax
-	movl %eax,20(%esp)
-	movl $0,%eax
-	movl $1,%eax
-	movl %eax,28(%esp)
-	movl 20(%esp),%eax
-	movl 28(%esp),%ecx
-	leal (%eax,%ecx,4),%ecx
-	movl (%ecx),%eax
-	movl %eax,20(%esp)
-	movl 68(%esp),%eax
-	movl %eax,28(%esp)
-	movl _do__print,%eax
-	movl 20(%esp),%ecx
-	movl %ecx,0(%esp)
-	movl 28(%esp),%ecx
-	movl %ecx,4(%esp)
-	call *%eax
-	.data
 ___L__1381:
 	.asciz ")"
 	.text
@@ -18189,9 +18203,9 @@ ___L__1381:
 	movl 28(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-	jmp ___L__1378
-___L__1377:
-	movl __3Cfixed_3E,%eax
+	jmp ___L__1379
+___L__1378:
+	movl __3Cform_3E,%eax
 	movl %eax,28(%esp)
 	movl 16(%esp),%eax
 	cmpl 28(%esp),%eax
@@ -18201,7 +18215,7 @@ ___L__1377:
 	je ___L__1382
 	.data
 ___L__1384:
-	.asciz "Fixed("
+	.asciz "Form("
 	.text
 	movl $___L__1384,%eax
 	movl %eax,28(%esp)
@@ -18229,7 +18243,7 @@ ___L__1384:
 	call *%eax
 	.data
 ___L__1385:
-	.asciz ")"
+	.asciz ","
 	.text
 	movl $___L__1385,%eax
 	movl %eax,20(%esp)
@@ -18237,8 +18251,84 @@ ___L__1385:
 	movl 20(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
+	movl 64(%esp),%eax
+	movl %eax,20(%esp)
+	movl $0,%eax
+	movl $1,%eax
+	movl %eax,28(%esp)
+	movl 20(%esp),%eax
+	movl 28(%esp),%ecx
+	leal (%eax,%ecx,4),%ecx
+	movl (%ecx),%eax
+	movl %eax,20(%esp)
+	movl 68(%esp),%eax
+	movl %eax,28(%esp)
+	movl _do__print,%eax
+	movl 20(%esp),%ecx
+	movl %ecx,0(%esp)
+	movl 28(%esp),%ecx
+	movl %ecx,4(%esp)
+	call *%eax
+	.data
+___L__1386:
+	.asciz ")"
+	.text
+	movl $___L__1386,%eax
+	movl %eax,28(%esp)
+	movl _printf_24stub,%eax
+	movl 28(%esp),%ecx
+	movl %ecx,0(%esp)
+	call *%eax
 	jmp ___L__1383
 ___L__1382:
+	movl __3Cfixed_3E,%eax
+	movl %eax,28(%esp)
+	movl 16(%esp),%eax
+	cmpl 28(%esp),%eax
+	sete %al
+	movzbl %al,%eax
+	cmpl $0,%eax
+	je ___L__1387
+	.data
+___L__1389:
+	.asciz "Fixed("
+	.text
+	movl $___L__1389,%eax
+	movl %eax,28(%esp)
+	movl _printf_24stub,%eax
+	movl 28(%esp),%ecx
+	movl %ecx,0(%esp)
+	call *%eax
+	movl 64(%esp),%eax
+	movl %eax,28(%esp)
+	movl $0,%eax
+	movl $0,%eax
+	movl %eax,20(%esp)
+	movl 28(%esp),%eax
+	movl 20(%esp),%ecx
+	leal (%eax,%ecx,4),%ecx
+	movl (%ecx),%eax
+	movl %eax,28(%esp)
+	movl 68(%esp),%eax
+	movl %eax,20(%esp)
+	movl _do__print,%eax
+	movl 28(%esp),%ecx
+	movl %ecx,0(%esp)
+	movl 20(%esp),%ecx
+	movl %ecx,4(%esp)
+	call *%eax
+	.data
+___L__1390:
+	.asciz ")"
+	.text
+	movl $___L__1390,%eax
+	movl %eax,20(%esp)
+	movl _printf_24stub,%eax
+	movl 20(%esp),%ecx
+	movl %ecx,0(%esp)
+	call *%eax
+	jmp ___L__1388
+___L__1387:
 	movl __3Csubr_3E,%eax
 	movl %eax,20(%esp)
 	movl 16(%esp),%eax
@@ -18246,12 +18336,12 @@ ___L__1382:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1386
+	je ___L__1391
 	.data
-___L__1388:
+___L__1393:
 	.asciz "Subr(%s)"
 	.text
-	movl $___L__1388,%eax
+	movl $___L__1393,%eax
 	movl %eax,20(%esp)
 	movl 64(%esp),%eax
 	movl %eax,28(%esp)
@@ -18269,8 +18359,8 @@ ___L__1388:
 	movl 28(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	jmp ___L__1387
-___L__1386:
+	jmp ___L__1392
+___L__1391:
 	movl __3Cvariable_3E,%eax
 	movl %eax,28(%esp)
 	movl 16(%esp),%eax
@@ -18278,7 +18368,7 @@ ___L__1386:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1389
+	je ___L__1394
 	movl 64(%esp),%eax
 	movl %eax,28(%esp)
 	movl $0,%eax
@@ -18305,12 +18395,12 @@ ___L__1386:
 	call *%eax
 	movl 28(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1391
+	je ___L__1396
 	.data
-___L__1392:
+___L__1397:
 	.asciz ".%d+%d"
 	.text
-	movl $___L__1392,%eax
+	movl $___L__1397,%eax
 	movl %eax,20(%esp)
 	movl 64(%esp),%eax
 	movl %eax,24(%esp)
@@ -18364,9 +18454,9 @@ ___L__1392:
 	movl 36(%esp),%ecx
 	movl %ecx,8(%esp)
 	call *%eax
-___L__1391:
-	jmp ___L__1390
-___L__1389:
+___L__1396:
+	jmp ___L__1395
+___L__1394:
 	movl __3Cenv_3E,%eax
 	movl %eax,28(%esp)
 	movl 16(%esp),%eax
@@ -18374,12 +18464,12 @@ ___L__1389:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1393
+	je ___L__1398
 	.data
-___L__1395:
+___L__1400:
 	.asciz "Env<%d>"
 	.text
-	movl $___L__1395,%eax
+	movl $___L__1400,%eax
 	movl %eax,28(%esp)
 	movl 64(%esp),%eax
 	movl %eax,36(%esp)
@@ -18405,8 +18495,8 @@ ___L__1395:
 	movl 36(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-	jmp ___L__1394
-___L__1393:
+	jmp ___L__1399
+___L__1398:
 	movl __3Ccontext_3E,%eax
 	movl %eax,36(%esp)
 	movl 16(%esp),%eax
@@ -18414,24 +18504,24 @@ ___L__1393:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1396
+	je ___L__1401
 	.data
-___L__1398:
+___L__1403:
 	.asciz "Context<>"
 	.text
-	movl $___L__1398,%eax
+	movl $___L__1403,%eax
 	movl %eax,36(%esp)
 	movl _printf_24stub,%eax
 	movl 36(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-	jmp ___L__1397
-___L__1396:
+	jmp ___L__1402
+___L__1401:
 	.data
-___L__1399:
+___L__1404:
 	.asciz "<type:%d>"
 	.text
-	movl $___L__1399,%eax
+	movl $___L__1404,%eax
 	movl %eax,36(%esp)
 	movl 16(%esp),%eax
 	movl %eax,28(%esp)
@@ -18441,25 +18531,25 @@ ___L__1399:
 	movl 28(%esp),%ecx
 	movl %ecx,4(%esp)
 	call *%eax
-___L__1397:
-___L__1394:
-___L__1390:
-___L__1387:
+___L__1402:
+___L__1399:
+___L__1395:
+___L__1392:
+___L__1388:
 ___L__1383:
-___L__1378:
-___L__1374:
-___L__1366:
-___L__1344:
-___L__1341:
-___L__1321:
-___L__1318:
-___L__1315:
+___L__1379:
+___L__1371:
+___L__1349:
+___L__1346:
+___L__1326:
+___L__1323:
+___L__1320:
 	addl $56,%esp
 	leave
 	ret
 ## defn k_array_insert
 	.text
-___L__1400:
+___L__1405:
 ## frame 16 24 48 64
 	pushl %ebp
 	movl %esp,%ebp
@@ -18488,7 +18578,7 @@ ___L__1400:
 	setl %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1401
+	je ___L__1406
 	movl 64(%esp),%eax
 	movl %eax,24(%esp)
 	movl $0,%eax
@@ -18530,7 +18620,7 @@ ___L__1400:
 	movl 36(%esp),%ecx
 	movl %ecx,8(%esp)
 	call *%eax
-___L__1401:
+___L__1406:
 	movl 64(%esp),%eax
 	movl %eax,16(%esp)
 	movl 68(%esp),%eax
@@ -18550,7 +18640,7 @@ ___L__1401:
 	ret
 ## defn k_array_append
 	.text
-___L__1402:
+___L__1407:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -18579,7 +18669,7 @@ ___L__1402:
 	ret
 ## defn k_set_array_at
 	.text
-___L__1403:
+___L__1408:
 ## frame 16 28 48 64
 	pushl %ebp
 	movl %esp,%ebp
@@ -18589,34 +18679,34 @@ ___L__1403:
 	movl $0,%eax
 	movl 16(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1405
+	je ___L__1410
 	movl $1,%eax
 	movl %eax,20(%esp)
 	movl 16(%esp),%eax
 	andl 20(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1407
+	je ___L__1412
 	movl __3Clong_3E,%eax
-	jmp ___L__1408
-___L__1407:
+	jmp ___L__1413
+___L__1412:
 	movl $-1,%eax
 	movl %eax,20(%esp)
 	movl 16(%esp),%eax
 	movl 20(%esp),%ecx
 	leal (%eax,%ecx,4),%ecx
 	movl (%ecx),%eax
-___L__1408:
-	jmp ___L__1406
-___L__1405:
+___L__1413:
+	jmp ___L__1411
+___L__1410:
 	movl __3Cundefined_3E,%eax
-___L__1406:
+___L__1411:
 	movl %eax,16(%esp)
 	movl __3Carray_3E,%eax
 	cmpl 16(%esp),%eax
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1404
+	je ___L__1409
 	movl 64(%esp),%eax
 	movl %eax,16(%esp)
 	movl $0,%eax
@@ -18652,7 +18742,7 @@ ___L__1406:
 	setle %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1409
+	je ___L__1414
 	movl 20(%esp),%eax
 	movl %eax,24(%esp)
 	movl 68(%esp),%eax
@@ -18660,7 +18750,7 @@ ___L__1406:
 	setl %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	jne ___L__1410
+	jne ___L__1415
 	movl $4,%eax
 	movl %eax,24(%esp)
 	movl 16(%esp),%eax
@@ -18672,14 +18762,14 @@ ___L__1406:
 	movl $0,%edx
 	divl 24(%esp)
 	movl %eax,24(%esp)
-	jmp ___L__1412
-___L__1411:
+	jmp ___L__1417
+___L__1416:
 	movl $2,%eax
 	movl %eax,28(%esp)
 	movl 24(%esp),%eax
 	mull 28(%esp)
 	movl %eax,24(%esp)
-___L__1412:
+___L__1417:
 	movl 68(%esp),%eax
 	movl %eax,28(%esp)
 	movl 24(%esp),%eax
@@ -18687,7 +18777,7 @@ ___L__1412:
 	setle %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	jne ___L__1411
+	jne ___L__1416
 	leal 64(%esp),%eax
 	movl %eax,28(%esp)
 	movl _gc__push__root,%eax
@@ -18766,7 +18856,7 @@ ___L__1412:
 	movl %ecx,0(%esp)
 	call *%eax
 	movl 32(%esp),%eax
-___L__1410:
+___L__1415:
 	movl 72(%esp),%eax
 	movl %eax,24(%esp)
 	movl 68(%esp),%eax
@@ -18776,14 +18866,14 @@ ___L__1410:
 	leal (%eax,%ecx,4),%ecx
 	movl 24(%esp),%eax
 	movl %eax,(%ecx)
+___L__1414:
 ___L__1409:
-___L__1404:
 	addl $56,%esp
 	leave
 	ret
 ## defn k_array_at
 	.text
-___L__1413:
+___L__1418:
 ## frame 0 12 16 32
 	pushl %ebp
 	movl %esp,%ebp
@@ -18793,34 +18883,34 @@ ___L__1413:
 	movl $0,%eax
 	movl 0(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1415
+	je ___L__1420
 	movl $1,%eax
 	movl %eax,4(%esp)
 	movl 0(%esp),%eax
 	andl 4(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1417
+	je ___L__1422
 	movl __3Clong_3E,%eax
-	jmp ___L__1418
-___L__1417:
+	jmp ___L__1423
+___L__1422:
 	movl $-1,%eax
 	movl %eax,4(%esp)
 	movl 0(%esp),%eax
 	movl 4(%esp),%ecx
 	leal (%eax,%ecx,4),%ecx
 	movl (%ecx),%eax
-___L__1418:
-	jmp ___L__1416
-___L__1415:
+___L__1423:
+	jmp ___L__1421
+___L__1420:
 	movl __3Cundefined_3E,%eax
-___L__1416:
+___L__1421:
 	movl %eax,0(%esp)
 	movl __3Carray_3E,%eax
 	cmpl 0(%esp),%eax
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1414
+	je ___L__1419
 	movl 32(%esp),%eax
 	movl %eax,0(%esp)
 	movl $0,%eax
@@ -18856,7 +18946,7 @@ ___L__1416:
 	setle %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1419
+	je ___L__1424
 	movl 4(%esp),%eax
 	movl %eax,8(%esp)
 	movl 36(%esp),%eax
@@ -18864,21 +18954,21 @@ ___L__1416:
 	setl %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1419
+	je ___L__1424
 	movl 36(%esp),%eax
 	movl %eax,8(%esp)
 	movl 0(%esp),%eax
 	movl 8(%esp),%ecx
 	leal (%eax,%ecx,4),%ecx
 	movl (%ecx),%eax
+___L__1424:
 ___L__1419:
-___L__1414:
 	addl $24,%esp
 	leave
 	ret
 ## defn k_array_length
 	.text
-___L__1420:
+___L__1425:
 ## frame 0 8 16 32
 	pushl %ebp
 	movl %esp,%ebp
@@ -18905,7 +18995,7 @@ ___L__1420:
 	ret
 ## defn k_concat
 	.text
-___L__1421:
+___L__1426:
 ## frame 16 8 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -18915,34 +19005,34 @@ ___L__1421:
 	movl $0,%eax
 	movl 16(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1424
+	je ___L__1429
 	movl $1,%eax
 	movl %eax,20(%esp)
 	movl 16(%esp),%eax
 	andl 20(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1426
+	je ___L__1431
 	movl __3Clong_3E,%eax
-	jmp ___L__1427
-___L__1426:
+	jmp ___L__1432
+___L__1431:
 	movl $-1,%eax
 	movl %eax,20(%esp)
 	movl 16(%esp),%eax
 	movl 20(%esp),%ecx
 	leal (%eax,%ecx,4),%ecx
 	movl (%ecx),%eax
-___L__1427:
-	jmp ___L__1425
-___L__1424:
+___L__1432:
+	jmp ___L__1430
+___L__1429:
 	movl __3Cundefined_3E,%eax
-___L__1425:
+___L__1430:
 	movl %eax,16(%esp)
 	movl __3Cpair_3E,%eax
 	cmpl 16(%esp),%eax
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1422
+	je ___L__1427
 	movl $1,%eax
 	movl %eax,16(%esp)
 	movl 48(%esp),%eax
@@ -18988,16 +19078,16 @@ ___L__1425:
 	movl %ecx,0(%esp)
 	call *%eax
 	movl 16(%esp),%eax
-	jmp ___L__1423
-___L__1422:
+	jmp ___L__1428
+___L__1427:
 	movl 52(%esp),%eax
-___L__1423:
+___L__1428:
 	addl $40,%esp
 	leave
 	ret
 ## defn k_string_length
 	.text
-___L__1428:
+___L__1433:
 ## frame 0 8 16 32
 	pushl %ebp
 	movl %esp,%ebp
@@ -19024,7 +19114,7 @@ ___L__1428:
 	ret
 ## defn k_caddr
 	.text
-___L__1429:
+___L__1434:
 ## frame 16 4 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -19050,7 +19140,7 @@ ___L__1429:
 	ret
 ## defn k_cddr
 	.text
-___L__1430:
+___L__1435:
 ## frame 16 4 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -19071,7 +19161,7 @@ ___L__1430:
 	ret
 ## defn k_cadr
 	.text
-___L__1431:
+___L__1436:
 ## frame 16 4 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -19092,7 +19182,7 @@ ___L__1431:
 	ret
 ## defn k_caar
 	.text
-___L__1432:
+___L__1437:
 ## frame 16 4 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -19113,7 +19203,7 @@ ___L__1432:
 	ret
 ## defn k_cdr
 	.text
-___L__1433:
+___L__1438:
 ## frame 0 8 16 32
 	pushl %ebp
 	movl %esp,%ebp
@@ -19123,47 +19213,47 @@ ___L__1433:
 	movl $0,%eax
 	movl 0(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1435
+	je ___L__1440
 	movl $1,%eax
 	movl %eax,4(%esp)
 	movl 0(%esp),%eax
 	andl 4(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1437
+	je ___L__1442
 	movl __3Clong_3E,%eax
-	jmp ___L__1438
-___L__1437:
+	jmp ___L__1443
+___L__1442:
 	movl $-1,%eax
 	movl %eax,4(%esp)
 	movl 0(%esp),%eax
 	movl 4(%esp),%ecx
 	leal (%eax,%ecx,4),%ecx
 	movl (%ecx),%eax
-___L__1438:
-	jmp ___L__1436
-___L__1435:
+___L__1443:
+	jmp ___L__1441
+___L__1440:
 	movl __3Cundefined_3E,%eax
-___L__1436:
+___L__1441:
 	movl %eax,0(%esp)
 	movl __3Cpair_3E,%eax
 	cmpl 0(%esp),%eax
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1434
+	je ___L__1439
 	movl $1,%eax
 	movl %eax,0(%esp)
 	movl 32(%esp),%eax
 	movl 0(%esp),%ecx
 	leal (%eax,%ecx,4),%ecx
 	movl (%ecx),%eax
-___L__1434:
+___L__1439:
 	addl $24,%esp
 	leave
 	ret
 ## defn k_car
 	.text
-___L__1439:
+___L__1444:
 ## frame 0 8 16 32
 	pushl %ebp
 	movl %esp,%ebp
@@ -19173,47 +19263,47 @@ ___L__1439:
 	movl $0,%eax
 	movl 0(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1441
+	je ___L__1446
 	movl $1,%eax
 	movl %eax,4(%esp)
 	movl 0(%esp),%eax
 	andl 4(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1443
+	je ___L__1448
 	movl __3Clong_3E,%eax
-	jmp ___L__1444
-___L__1443:
+	jmp ___L__1449
+___L__1448:
 	movl $-1,%eax
 	movl %eax,4(%esp)
 	movl 0(%esp),%eax
 	movl 4(%esp),%ecx
 	leal (%eax,%ecx,4),%ecx
 	movl (%ecx),%eax
-___L__1444:
-	jmp ___L__1442
-___L__1441:
+___L__1449:
+	jmp ___L__1447
+___L__1446:
 	movl __3Cundefined_3E,%eax
-___L__1442:
+___L__1447:
 	movl %eax,0(%esp)
 	movl __3Cpair_3E,%eax
 	cmpl 0(%esp),%eax
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1440
+	je ___L__1445
 	movl $0,%eax
 	movl %eax,0(%esp)
 	movl 32(%esp),%eax
 	movl 0(%esp),%ecx
 	leal (%eax,%ecx,4),%ecx
 	movl (%ecx),%eax
-___L__1440:
+___L__1445:
 	addl $24,%esp
 	leave
 	ret
 ## defn is_global
 	.text
-___L__1445:
+___L__1450:
 ## frame 0 12 16 32
 	pushl %ebp
 	movl %esp,%ebp
@@ -19230,7 +19320,7 @@ ___L__1445:
 	movl %eax,0(%esp)
 	movl 0(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1446
+	je ___L__1451
 	movl 0(%esp),%eax
 	movl %eax,4(%esp)
 	movl $0,%eax
@@ -19253,13 +19343,13 @@ ___L__1445:
 	cmpl 4(%esp),%eax
 	sete %al
 	movzbl %al,%eax
-___L__1446:
+___L__1451:
 	addl $24,%esp
 	leave
 	ret
 ## defn new-<context>
 	.text
-___L__1447:
+___L__1452:
 ## frame 16 16 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -19268,7 +19358,7 @@ ___L__1447:
 	movl %eax,16(%esp)
 	movl 52(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1450
+	je ___L__1455
 	movl 52(%esp),%eax
 	movl %eax,20(%esp)
 	movl $0,%eax
@@ -19279,9 +19369,9 @@ ___L__1447:
 	leal (%eax,%ecx,4),%ecx
 	movl (%ecx),%eax
 	movl %eax,16(%esp)
-___L__1450:
+___L__1455:
 	cmpl $0,%eax
-	je ___L__1448
+	je ___L__1453
 	movl 16(%esp),%eax
 	movl %eax,20(%esp)
 	movl $0,%eax
@@ -19306,8 +19396,8 @@ ___L__1450:
 	leal (%eax,%ecx,4),%ecx
 	movl 24(%esp),%eax
 	movl %eax,(%ecx)
-	jmp ___L__1449
-___L__1448:
+	jmp ___L__1454
+___L__1453:
 	movl 48(%esp),%eax
 	movl %eax,20(%esp)
 	movl 52(%esp),%eax
@@ -19325,7 +19415,7 @@ ___L__1448:
 	movl %eax,16(%esp)
 	movl 52(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1451
+	je ___L__1456
 	movl 52(%esp),%eax
 	movl %eax,28(%esp)
 	movl $0,%eax
@@ -19338,15 +19428,15 @@ ___L__1448:
 	leal (%eax,%ecx,4),%ecx
 	movl 24(%esp),%eax
 	movl %eax,(%ecx)
-___L__1451:
-___L__1449:
+___L__1456:
+___L__1454:
 	movl 16(%esp),%eax
 	addl $40,%esp
 	leave
 	ret
 ## defn new-base-<context>
 	.text
-___L__1452:
+___L__1457:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -19414,7 +19504,7 @@ ___L__1452:
 	ret
 ## defn new-<env>
 	.text
-___L__1453:
+___L__1458:
 ## frame 16 16 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -19447,7 +19537,7 @@ ___L__1453:
 	movl %eax,(%ecx)
 	movl 48(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1454
+	je ___L__1459
 	movl 52(%esp),%eax
 	movl %eax,16(%esp)
 	movl 48(%esp),%eax
@@ -19468,10 +19558,10 @@ ___L__1453:
 	leal (%eax,%ecx,4),%ecx
 	movl (%ecx),%eax
 	addl 16(%esp),%eax
-	jmp ___L__1455
-___L__1454:
+	jmp ___L__1460
+___L__1459:
 	movl $0,%eax
-___L__1455:
+___L__1460:
 	movl %eax,16(%esp)
 	movl _new_2D_3Clong_3E,%eax
 	movl 16(%esp),%ecx
@@ -19535,16 +19625,16 @@ ___L__1455:
 ## defn get
 ## defn type_check_fail
 	.text
-___L__1456:
+___L__1461:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
 	.data
-___L__1457:
+___L__1462:
 	.asciz "illegal type: expected %d got %d"
 	.text
-	movl $___L__1457,%eax
+	movl $___L__1462,%eax
 	movl %eax,16(%esp)
 	movl 48(%esp),%eax
 	movl %eax,20(%esp)
@@ -19565,7 +19655,7 @@ ___L__1457:
 ## defn get-type
 ## defn new-<variable>
 	.text
-___L__1458:
+___L__1463:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -19642,7 +19732,7 @@ ___L__1458:
 	ret
 ## defn new-<subr>
 	.text
-___L__1459:
+___L__1464:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -19696,7 +19786,7 @@ ___L__1459:
 	ret
 ## defn new-<fixed>
 	.text
-___L__1460:
+___L__1465:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -19741,7 +19831,7 @@ ___L__1460:
 	ret
 ## defn new-<form>
 	.text
-___L__1461:
+___L__1466:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -19795,7 +19885,7 @@ ___L__1461:
 	ret
 ## defn new-<expr>
 	.text
-___L__1462:
+___L__1467:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -19835,19 +19925,19 @@ ___L__1462:
 	ret
 ## defn new-<array>
 	.text
-___L__1463:
+___L__1468:
 ## frame 16 16 32 48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
 	movl 48(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1464
+	je ___L__1469
 	movl 48(%esp),%eax
-	jmp ___L__1465
-___L__1464:
+	jmp ___L__1470
+___L__1469:
 	movl $1,%eax
-___L__1465:
+___L__1470:
 	movl %eax,16(%esp)
 	movl __3Carray_3E,%eax
 	movl %eax,20(%esp)
@@ -19915,7 +20005,7 @@ ___L__1465:
 	ret
 ## defn new-<pair>
 	.text
-___L__1466:
+___L__1471:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -19955,7 +20045,7 @@ ___L__1466:
 	ret
 ## defn new-<symbol>
 	.text
-___L__1467:
+___L__1472:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -19991,7 +20081,7 @@ ___L__1467:
 	ret
 ## defn new-<string>
 	.text
-___L__1468:
+___L__1473:
 ## frame 16 20 48 64
 	pushl %ebp
 	movl %esp,%ebp
@@ -20035,7 +20125,7 @@ ___L__1468:
 	ret
 ## defn _new-<string>
 	.text
-___L__1469:
+___L__1474:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -20102,7 +20192,7 @@ ___L__1469:
 	ret
 ## defn new-<long>
 	.text
-___L__1470:
+___L__1475:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -20133,7 +20223,7 @@ ___L__1470:
 	ret
 ## defn new-oops
 	.text
-___L__1471:
+___L__1476:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -20160,7 +20250,7 @@ ___L__1471:
 	ret
 ## defn new-bits
 	.text
-___L__1472:
+___L__1477:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -20244,7 +20334,7 @@ ___L__1472:
 ## defn strlen
 ## defn gc_malloc_atomic
 	.text
-___L__1473:
+___L__1478:
 ## frame 16 16 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -20274,7 +20364,7 @@ ___L__1473:
 	ret
 ## defn gc_malloc
 	.text
-___L__1474:
+___L__1479:
 ## frame 16 32 48 64
 	pushl %ebp
 	movl %esp,%ebp
@@ -20294,10 +20384,10 @@ ___L__1474:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1475
+	je ___L__1480
 	movl _gc__gcollect,%eax
 	call *%eax
-___L__1475:
+___L__1480:
 	movl $2,%eax
 	movl %eax,16(%esp)
 	movl _gc__memory__last,%eax
@@ -20312,11 +20402,11 @@ ___L__1475:
 	movl 64(%esp),%eax
 	addl 24(%esp),%eax
 	movl %eax,24(%esp)
-	jmp ___L__1477
-___L__1476:
-	jmp ___L__1479
-___L__1478:
-___L__1479:
+	jmp ___L__1482
+___L__1481:
+	jmp ___L__1484
+___L__1483:
+___L__1484:
 	movl $0,%eax
 	movl $1,%eax
 	movl %eax,28(%esp)
@@ -20330,7 +20420,7 @@ ___L__1479:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1480
+	je ___L__1485
 	movl $0,%eax
 	movl %eax,28(%esp)
 	movl 20(%esp),%eax
@@ -20338,8 +20428,8 @@ ___L__1479:
 	leal (%eax,%ecx,4),%ecx
 	movl (%ecx),%eax
 	movl %eax,28(%esp)
-	jmp ___L__1483
-___L__1482:
+	jmp ___L__1488
+___L__1487:
 	movl $2,%eax
 	movl %eax,32(%esp)
 	movl 20(%esp),%eax
@@ -20389,11 +20479,11 @@ ___L__1482:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1484
+	je ___L__1489
 	movl 20(%esp),%eax
 	movl %eax,_gc__memory__last
-___L__1484:
-___L__1483:
+___L__1489:
+___L__1488:
 	movl $1,%eax
 	movl %eax,32(%esp)
 	movl $2,%eax
@@ -20411,7 +20501,7 @@ ___L__1483:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1485
+	je ___L__1490
 	movl 28(%esp),%eax
 	movl %eax,32(%esp)
 	movl $16,%eax
@@ -20429,9 +20519,9 @@ ___L__1483:
 	cmpl 32(%esp),%eax
 	sete %al
 	movzbl %al,%eax
-___L__1485:
+___L__1490:
 	cmpl $0,%eax
-	jne ___L__1482
+	jne ___L__1487
 	movl 28(%esp),%eax
 	movl %eax,32(%esp)
 	movl 24(%esp),%eax
@@ -20439,16 +20529,16 @@ ___L__1485:
 	setl %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	jne ___L__1488
+	jne ___L__1493
 	movl 28(%esp),%eax
 	movl %eax,32(%esp)
 	movl 64(%esp),%eax
 	cmpl 32(%esp),%eax
 	sete %al
 	movzbl %al,%eax
-___L__1488:
+___L__1493:
 	cmpl $0,%eax
-	je ___L__1486
+	je ___L__1491
 	movl $0,%eax
 	movl 24(%esp),%eax
 	movl %eax,32(%esp)
@@ -20457,7 +20547,7 @@ ___L__1488:
 	setg %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1489
+	je ___L__1494
 	movl 24(%esp),%eax
 	movl %eax,32(%esp)
 	movl 20(%esp),%eax
@@ -20522,7 +20612,7 @@ ___L__1488:
 	movl %eax,(%ecx)
 	movl 64(%esp),%eax
 	movl %eax,28(%esp)
-___L__1489:
+___L__1494:
 	movl $1,%eax
 	movl %eax,32(%esp)
 	movl $1,%eax
@@ -20560,13 +20650,13 @@ ___L__1489:
 	addl 44(%esp),%eax
 	movl %eax,_gc__alloc__count
 	movl 32(%esp),%eax
-	jmp ___L__1490
-	jmp ___L__1487
+	jmp ___L__1495
+	jmp ___L__1492
+___L__1491:
+___L__1492:
+	jmp ___L__1486
+___L__1485:
 ___L__1486:
-___L__1487:
-	jmp ___L__1481
-___L__1480:
-___L__1481:
 	movl $2,%eax
 	movl %eax,28(%esp)
 	movl 20(%esp),%eax
@@ -20580,7 +20670,7 @@ ___L__1481:
 	setne %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	jne ___L__1478
+	jne ___L__1483
 	movl 64(%esp),%eax
 	movl %eax,28(%esp)
 	movl $16,%eax
@@ -20599,17 +20689,17 @@ ___L__1481:
 	movl 32(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-___L__1477:
+___L__1482:
 	movl $1,%eax
 	cmpl $0,%eax
-	jne ___L__1476
-___L__1490:
+	jne ___L__1481
+___L__1495:
 	addl $56,%esp
 	leave
 	ret
 ## defn gc_gcollect
 	.text
-___L__1491:
+___L__1496:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -20617,8 +20707,8 @@ ___L__1491:
 	movl $0,%eax
 	movl $0,%eax
 	movl %eax,16(%esp)
-	jmp ___L__1493
-___L__1492:
+	jmp ___L__1498
+___L__1497:
 	movl $0,%eax
 	movl $0,%eax
 	movl %eax,20(%esp)
@@ -20641,7 +20731,7 @@ ___L__1492:
 	movl $1,%eax
 	addl 20(%esp),%eax
 	movl %eax,16(%esp)
-___L__1493:
+___L__1498:
 	movl _gc__root__count,%eax
 	movl %eax,20(%esp)
 	movl 16(%esp),%eax
@@ -20649,7 +20739,7 @@ ___L__1493:
 	setl %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	jne ___L__1492
+	jne ___L__1497
 	movl _gc__sweep,%eax
 	call *%eax
 	movl $0,%eax
@@ -20659,14 +20749,14 @@ ___L__1493:
 	ret
 ## defn gc_mark_and_trace
 	.text
-___L__1494:
+___L__1499:
 ## frame 16 16 32 48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
 	movl 48(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1495
+	je ___L__1500
 	movl 48(%esp),%eax
 	movl %eax,16(%esp)
 	movl $1,%eax
@@ -20675,7 +20765,7 @@ ___L__1494:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1495
+	je ___L__1500
 	movl $16,%eax
 	movl %eax,16(%esp)
 	movl 48(%esp),%eax
@@ -20695,7 +20785,7 @@ ___L__1494:
 	movl 20(%esp),%eax
 	andl 24(%esp),%eax
 	cmpl $0,%eax
-	jne ___L__1496
+	jne ___L__1501
 	movl $4,%eax
 	movl %eax,24(%esp)
 	movl 20(%esp),%eax
@@ -20713,7 +20803,7 @@ ___L__1494:
 	movl 20(%esp),%eax
 	andl 24(%esp),%eax
 	cmpl $0,%eax
-	jne ___L__1497
+	jne ___L__1502
 	movl $2,%eax
 	movl %eax,24(%esp)
 	movl $0,%eax
@@ -20726,8 +20816,8 @@ ___L__1494:
 	sarl %cl,%eax
 	movl %eax,24(%esp)
 	movl $0,%eax
-	jmp ___L__1499
-___L__1498:
+	jmp ___L__1504
+___L__1503:
 	movl $1,%eax
 	movl %eax,28(%esp)
 	movl 24(%esp),%eax
@@ -20745,19 +20835,19 @@ ___L__1498:
 	movl 28(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-___L__1499:
+___L__1504:
 	movl 24(%esp),%eax
 	cmpl $0,%eax
-	jne ___L__1498
-___L__1497:
-___L__1496:
-___L__1495:
+	jne ___L__1503
+___L__1502:
+___L__1501:
+___L__1500:
 	addl $40,%esp
 	leave
 	ret
 ## defn gc_sweep
 	.text
-___L__1500:
+___L__1505:
 ## frame 0 28 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -20771,8 +20861,8 @@ ___L__1500:
 	movl %eax,8(%esp)
 	movl $0,%eax
 	movl %eax,12(%esp)
-	jmp ___L__1502
-___L__1501:
+	jmp ___L__1507
+___L__1506:
 	movl $0,%eax
 	movl $1,%eax
 	movl %eax,16(%esp)
@@ -20786,7 +20876,7 @@ ___L__1501:
 	movl 16(%esp),%eax
 	andl 20(%esp),%eax
 	cmpl $0,%eax
-	je ___L__1503
+	je ___L__1508
 	movl $0,%eax
 	movl %eax,20(%esp)
 	movl 0(%esp),%eax
@@ -20814,8 +20904,8 @@ ___L__1501:
 	leal (%eax,%ecx,4),%ecx
 	movl 20(%esp),%eax
 	movl %eax,(%ecx)
-	jmp ___L__1504
-___L__1503:
+	jmp ___L__1509
+___L__1508:
 	movl $0,%eax
 	movl $0,%eax
 	movl %eax,20(%esp)
@@ -20836,7 +20926,7 @@ ___L__1503:
 	leal (%eax,%ecx,4),%ecx
 	movl 20(%esp),%eax
 	movl %eax,(%ecx)
-___L__1504:
+___L__1509:
 	movl $2,%eax
 	movl %eax,16(%esp)
 	movl 0(%esp),%eax
@@ -20850,14 +20940,14 @@ ___L__1504:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1505
+	je ___L__1510
 	movl $0,%eax
 	movl %eax,0(%esp)
-___L__1505:
-___L__1502:
+___L__1510:
+___L__1507:
 	movl 0(%esp),%eax
 	cmpl $0,%eax
-	jne ___L__1501
+	jne ___L__1506
 	movl 4(%esp),%eax
 	movl %eax,_gc__objects__live
 	movl 8(%esp),%eax
@@ -20870,7 +20960,7 @@ ___L__1502:
 	ret
 ## defn gc_size
 	.text
-___L__1506:
+___L__1511:
 ## frame 0 8 16 32
 	pushl %ebp
 	movl %esp,%ebp
@@ -20889,7 +20979,7 @@ ___L__1506:
 	ret
 ## defn gc_grow_memory
 	.text
-___L__1507:
+___L__1512:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -20929,25 +21019,25 @@ ___L__1507:
 	ret
 ## defn gc_pop_root
 	.text
-___L__1508:
+___L__1513:
 ## frame 16 4 32 48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
 	movl _gc__root__count,%eax
 	cmpl $0,%eax
-	jne ___L__1509
+	jne ___L__1514
 	.data
-___L__1510:
+___L__1515:
 	.asciz "root table underflow"
 	.text
-	movl $___L__1510,%eax
+	movl $___L__1515,%eax
 	movl %eax,16(%esp)
 	movl _fatal,%eax
 	movl 16(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-___L__1509:
+___L__1514:
 	movl $1,%eax
 	movl %eax,16(%esp)
 	movl _gc__root__count,%eax
@@ -20966,24 +21056,24 @@ ___L__1509:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	jne ___L__1511
+	jne ___L__1516
 	.data
-___L__1512:
+___L__1517:
 	.asciz "non-lifo root"
 	.text
-	movl $___L__1512,%eax
+	movl $___L__1517,%eax
 	movl %eax,16(%esp)
 	movl _fatal,%eax
 	movl 16(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-___L__1511:
+___L__1516:
 	addl $40,%esp
 	leave
 	ret
 ## defn gc_push_root
 	.text
-___L__1513:
+___L__1518:
 ## frame 16 16 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -20995,7 +21085,7 @@ ___L__1513:
 	sete %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1514
+	je ___L__1519
 	movl $32,%eax
 	movl %eax,16(%esp)
 	movl _gc__root__max,%eax
@@ -21038,17 +21128,17 @@ ___L__1513:
 	call *%eax
 	movl _gc__roots,%eax
 	cmpl $0,%eax
-	je ___L__1515
+	je ___L__1520
 	movl _gc__roots,%eax
 	movl %eax,28(%esp)
 	movl _free_24stub,%eax
 	movl 28(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-___L__1515:
+___L__1520:
 	movl 20(%esp),%eax
 	movl %eax,_gc__roots
-___L__1514:
+___L__1519:
 	movl 48(%esp),%eax
 	movl %eax,20(%esp)
 	movl _gc__root__count,%eax
@@ -21069,7 +21159,7 @@ ___L__1514:
 	ret
 ## defn gc_initialise
 	.text
-___L__1516:
+___L__1521:
 ## frame 16 4 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -21090,7 +21180,7 @@ ___L__1516:
 	ret
 ## defn new_memory_block
 	.text
-___L__1517:
+___L__1522:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
@@ -21104,18 +21194,18 @@ ___L__1517:
 	movl %eax,16(%esp)
 	movl 16(%esp),%eax
 	cmpl $0,%eax
-	jne ___L__1518
+	jne ___L__1523
 	.data
-___L__1519:
+___L__1524:
 	.asciz "out of memory"
 	.text
-	movl $___L__1519,%eax
+	movl $___L__1524,%eax
 	movl %eax,20(%esp)
 	movl _fatal,%eax
 	movl 20(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-___L__1518:
+___L__1523:
 	movl $16,%eax
 	movl %eax,20(%esp)
 	movl 48(%esp),%eax
@@ -21154,16 +21244,16 @@ ___L__1518:
 ## defn k_error
 ## defn fatal2
 	.text
-___L__1520:
+___L__1525:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
 	.data
-___L__1521:
+___L__1526:
 	.asciz "\012eval.k: "
 	.text
-	movl $___L__1521,%eax
+	movl $___L__1526,%eax
 	movl %eax,16(%esp)
 	movl _printf_24stub,%eax
 	movl 16(%esp),%ecx
@@ -21184,10 +21274,10 @@ ___L__1521:
 	movl %ecx,8(%esp)
 	call *%eax
 	.data
-___L__1522:
+___L__1527:
 	.asciz "\012"
 	.text
-	movl $___L__1522,%eax
+	movl $___L__1527,%eax
 	movl %eax,24(%esp)
 	movl _printf_24stub,%eax
 	movl 24(%esp),%ecx
@@ -21200,16 +21290,16 @@ ___L__1522:
 	ret
 ## defn fatal1
 	.text
-___L__1523:
+___L__1528:
 ## frame 16 8 32 48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
 	.data
-___L__1524:
+___L__1529:
 	.asciz "\012eval.k: "
 	.text
-	movl $___L__1524,%eax
+	movl $___L__1529,%eax
 	movl %eax,16(%esp)
 	movl _printf_24stub,%eax
 	movl 16(%esp),%ecx
@@ -21226,10 +21316,10 @@ ___L__1524:
 	movl %ecx,4(%esp)
 	call *%eax
 	.data
-___L__1525:
+___L__1530:
 	.asciz "\012"
 	.text
-	movl $___L__1525,%eax
+	movl $___L__1530,%eax
 	movl %eax,20(%esp)
 	movl _printf_24stub,%eax
 	movl 20(%esp),%ecx
@@ -21242,16 +21332,16 @@ ___L__1525:
 	ret
 ## defn fatal
 	.text
-___L__1526:
+___L__1531:
 ## frame 16 8 32 48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
 	.data
-___L__1527:
+___L__1532:
 	.asciz "\012eval.k: %s\012"
 	.text
-	movl $___L__1527,%eax
+	movl $___L__1532,%eax
 	movl %eax,16(%esp)
 	movl 48(%esp),%eax
 	movl %eax,20(%esp)
@@ -21272,20 +21362,20 @@ ___L__1527:
 	ret
 ## defn die
 	.text
-___L__1528:
+___L__1533:
 ## frame 16 12 32 48
 	pushl %ebp
 	movl %esp,%ebp
 	subl $40,%esp
 	movl _trace__depth,%eax
 	movl %eax,16(%esp)
-	jmp ___L__1530
-___L__1529:
+	jmp ___L__1535
+___L__1534:
 	.data
-___L__1531:
+___L__1536:
 	.asciz "%3d: "
 	.text
-	movl $___L__1531,%eax
+	movl $___L__1536,%eax
 	movl %eax,20(%esp)
 	movl 16(%esp),%eax
 	movl %eax,24(%esp)
@@ -21310,7 +21400,7 @@ ___L__1531:
 	movl 20(%esp),%ecx
 	movl %ecx,0(%esp)
 	call *%eax
-___L__1530:
+___L__1535:
 	movl $1,%eax
 	movl %eax,20(%esp)
 	movl 16(%esp),%eax
@@ -21322,7 +21412,7 @@ ___L__1530:
 	setle %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	jne ___L__1529
+	jne ___L__1534
 	movl $1,%eax
 	movl %eax,16(%esp)
 	movl _exit_24stub,%eax
@@ -21336,7 +21426,7 @@ ___L__1530:
 ## defn trace_stack
 ## defn max
 	.text
-___L__1532:
+___L__1537:
 ## frame 0 4 16 32
 	pushl %ebp
 	movl %esp,%ebp
@@ -21348,12 +21438,12 @@ ___L__1532:
 	setg %al
 	movzbl %al,%eax
 	cmpl $0,%eax
-	je ___L__1533
+	je ___L__1538
 	movl 32(%esp),%eax
-	jmp ___L__1534
-___L__1533:
+	jmp ___L__1539
+___L__1538:
 	movl 36(%esp),%eax
-___L__1534:
+___L__1539:
 	addl $24,%esp
 	leave
 	ret
@@ -21829,214 +21919,234 @@ _read__list:
 	.long ___L__1141
 	.text
 	.data
+	.globl _k__read__allow__close
+_k__read__allow__close:
+	.long ___L__1149
+	.text
+	.data
 	.globl _k__read
 _k__read:
-	.long ___L__1149
+	.long ___L__1150
+	.text
+	.data
+	.globl _expected__char
+_expected__char:
+	.long ___L__1151
+	.text
+	.data
+	.globl _unexpected__char
+_unexpected__char:
+	.long ___L__1152
+	.text
+	.data
+	.globl ___k__read
+___k__read:
+	.long ___L__1154
 	.text
 	.data
 	.globl _read__string
 _read__string:
-	.long ___L__1195
+	.long ___L__1200
 	.text
 	.data
 	.globl _read__symbol
 _read__symbol:
-	.long ___L__1200
+	.long ___L__1205
 	.text
 	.data
 	.globl _read__number
 _read__number:
-	.long ___L__1204
+	.long ___L__1209
 	.text
 	.data
 	.globl _read__char
 _read__char:
-	.long ___L__1213
+	.long ___L__1218
 	.text
 	.data
 	.globl _digit__value
 _digit__value:
-	.long ___L__1249
+	.long ___L__1254
 	.text
 	.data
 	.globl _is__hexadecimal
 _is__hexadecimal:
-	.long ___L__1260
+	.long ___L__1265
 	.text
 	.data
 	.globl _is__octal
 _is__octal:
-	.long ___L__1265
+	.long ___L__1270
 	.text
 	.data
 	.globl _intern
 _intern:
-	.long ___L__1267
+	.long ___L__1272
 	.text
 	.data
 	.globl _buffer__contents
 _buffer__contents:
-	.long ___L__1275
+	.long ___L__1280
 	.text
 	.data
 	.globl _buffer__append__all
 _buffer__append__all:
-	.long ___L__1276
+	.long ___L__1281
 	.text
 	.data
 	.globl _buffer__append
 _buffer__append:
-	.long ___L__1279
+	.long ___L__1284
 	.text
 	.data
 	.globl _buffer__grow
 _buffer__grow:
-	.long ___L__1281
+	.long ___L__1286
 	.text
 	.data
 	.globl _buffer__delete
 _buffer__delete:
-	.long ___L__1282
+	.long ___L__1287
 	.text
 	.data
 	.globl _new__buffer
 _new__buffer:
-	.long ___L__1283
+	.long ___L__1288
 	.text
 	.data
 	.globl _is__letter
 _is__letter:
-	.long ___L__1284
+	.long ___L__1289
 	.text
 	.data
 	.globl _is__alpha
 _is__alpha:
-	.long ___L__1290
+	.long ___L__1295
 	.text
 	.data
 	.globl _is__digit16
 _is__digit16:
-	.long ___L__1294
+	.long ___L__1299
 	.text
 	.data
 	.globl _is__digit10
 _is__digit10:
-	.long ___L__1299
+	.long ___L__1304
 	.text
 	.data
 	.globl _is__blank
 _is__blank:
-	.long ___L__1301
+	.long ___L__1306
 	.text
 	.data
 	.globl _k__dumpln
 _k__dumpln:
-	.long ___L__1303
+	.long ___L__1308
 	.text
 	.data
 	.globl _k__dump
 _k__dump:
-	.long ___L__1305
+	.long ___L__1310
 	.text
 	.data
 	.globl _k__println
 _k__println:
-	.long ___L__1306
+	.long ___L__1311
 	.text
 	.data
 	.globl _k__print
 _k__print:
-	.long ___L__1308
+	.long ___L__1313
 	.text
 	.data
 	.globl _do__print
 _do__print:
-	.long ___L__1309
+	.long ___L__1314
 	.text
 	.data
 	.globl _k__array__insert
 _k__array__insert:
-	.long ___L__1400
+	.long ___L__1405
 	.text
 	.data
 	.globl _k__array__append
 _k__array__append:
-	.long ___L__1402
+	.long ___L__1407
 	.text
 	.data
 	.globl _k__set__array__at
 _k__set__array__at:
-	.long ___L__1403
+	.long ___L__1408
 	.text
 	.data
 	.globl _k__array__at
 _k__array__at:
-	.long ___L__1413
+	.long ___L__1418
 	.text
 	.data
 	.globl _k__array__length
 _k__array__length:
-	.long ___L__1420
+	.long ___L__1425
 	.text
 	.data
 	.globl _k__concat
 _k__concat:
-	.long ___L__1421
+	.long ___L__1426
 	.text
 	.data
 	.globl _k__string__length
 _k__string__length:
-	.long ___L__1428
+	.long ___L__1433
 	.text
 	.data
 	.globl _k__caddr
 _k__caddr:
-	.long ___L__1429
+	.long ___L__1434
 	.text
 	.data
 	.globl _k__cddr
 _k__cddr:
-	.long ___L__1430
+	.long ___L__1435
 	.text
 	.data
 	.globl _k__cadr
 _k__cadr:
-	.long ___L__1431
+	.long ___L__1436
 	.text
 	.data
 	.globl _k__caar
 _k__caar:
-	.long ___L__1432
+	.long ___L__1437
 	.text
 	.data
 	.globl _k__cdr
 _k__cdr:
-	.long ___L__1433
+	.long ___L__1438
 	.text
 	.data
 	.globl _k__car
 _k__car:
-	.long ___L__1439
+	.long ___L__1444
 	.text
 	.data
 	.globl _is__global
 _is__global:
-	.long ___L__1445
+	.long ___L__1450
 	.text
 	.data
 	.globl _new_2D_3Ccontext_3E
 _new_2D_3Ccontext_3E:
-	.long ___L__1447
+	.long ___L__1452
 	.text
 	.data
 	.globl _new_2Dbase_2D_3Ccontext_3E
 _new_2Dbase_2D_3Ccontext_3E:
-	.long ___L__1452
+	.long ___L__1457
 	.text
 	.data
 	.globl _new_2D_3Cenv_3E
 _new_2D_3Cenv_3E:
-	.long ___L__1453
+	.long ___L__1458
 	.text
 ## form set_tail
 ## form set_head
@@ -22049,74 +22159,74 @@ _new_2D_3Cenv_3E:
 	.data
 	.globl _type__check__fail
 _type__check__fail:
-	.long ___L__1456
+	.long ___L__1461
 	.text
 ## form is
 ## form get-type
 	.data
 	.globl _new_2D_3Cvariable_3E
 _new_2D_3Cvariable_3E:
-	.long ___L__1458
+	.long ___L__1463
 	.text
 	.data
 	.globl _new_2D_3Csubr_3E
 _new_2D_3Csubr_3E:
-	.long ___L__1459
+	.long ___L__1464
 	.text
 	.data
 	.globl _new_2D_3Cfixed_3E
 _new_2D_3Cfixed_3E:
-	.long ___L__1460
+	.long ___L__1465
 	.text
 	.data
 	.globl _new_2D_3Cform_3E
 _new_2D_3Cform_3E:
-	.long ___L__1461
+	.long ___L__1466
 	.text
 	.data
 	.globl _new_2D_3Cexpr_3E
 _new_2D_3Cexpr_3E:
-	.long ___L__1462
+	.long ___L__1467
 	.text
 	.data
 	.globl _new_2D_3Carray_3E
 _new_2D_3Carray_3E:
-	.long ___L__1463
+	.long ___L__1468
 	.text
 	.data
 	.globl _new_2D_3Cpair_3E
 _new_2D_3Cpair_3E:
-	.long ___L__1466
+	.long ___L__1471
 	.text
 	.data
 	.globl _new_2D_3Csymbol_3E
 _new_2D_3Csymbol_3E:
-	.long ___L__1467
+	.long ___L__1472
 	.text
 	.data
 	.globl _new_2D_3Cstring_3E
 _new_2D_3Cstring_3E:
-	.long ___L__1468
+	.long ___L__1473
 	.text
 	.data
 	.globl ___new_2D_3Cstring_3E
 ___new_2D_3Cstring_3E:
-	.long ___L__1469
+	.long ___L__1474
 	.text
 	.data
 	.globl _new_2D_3Clong_3E
 _new_2D_3Clong_3E:
-	.long ___L__1470
+	.long ___L__1475
 	.text
 	.data
 	.globl _new_2Doops
 _new_2Doops:
-	.long ___L__1471
+	.long ___L__1476
 	.text
 	.data
 	.globl _new_2Dbits
 _new_2Dbits:
-	.long ___L__1472
+	.long ___L__1477
 	.text
 	.data
 _opt__optimised:
@@ -22361,78 +22471,78 @@ _strlen_24stub:
 	.data
 	.globl _gc__malloc__atomic
 _gc__malloc__atomic:
-	.long ___L__1473
+	.long ___L__1478
 	.text
 	.data
 	.globl _gc__malloc
 _gc__malloc:
-	.long ___L__1474
+	.long ___L__1479
 	.text
 	.data
 	.globl _gc__gcollect
 _gc__gcollect:
-	.long ___L__1491
+	.long ___L__1496
 	.text
 	.data
 	.globl _gc__mark__and__trace
 _gc__mark__and__trace:
-	.long ___L__1494
+	.long ___L__1499
 	.text
 	.data
 	.globl _gc__sweep
 _gc__sweep:
-	.long ___L__1500
+	.long ___L__1505
 	.text
 	.data
 	.globl _gc__size
 _gc__size:
-	.long ___L__1506
+	.long ___L__1511
 	.text
 	.data
 	.globl _gc__grow__memory
 _gc__grow__memory:
-	.long ___L__1507
+	.long ___L__1512
 	.text
 	.data
 	.globl _gc__pop__root
 _gc__pop__root:
-	.long ___L__1508
+	.long ___L__1513
 	.text
 	.data
 	.globl _gc__push__root
 _gc__push__root:
-	.long ___L__1513
+	.long ___L__1518
 	.text
 	.data
 	.globl _gc__initialise
 _gc__initialise:
-	.long ___L__1516
+	.long ___L__1521
 	.text
 	.data
 	.globl _new__memory__block
 _new__memory__block:
-	.long ___L__1517
+	.long ___L__1522
 	.text
 ## form k_error
 	.data
 	.globl _fatal2
 _fatal2:
-	.long ___L__1520
+	.long ___L__1525
 	.text
 	.data
 	.globl _fatal1
 _fatal1:
-	.long ___L__1523
+	.long ___L__1528
 	.text
 	.data
 	.globl _fatal
 _fatal:
-	.long ___L__1526
+	.long ___L__1531
 	.text
 	.data
 	.globl _die
 _die:
-	.long ___L__1528
+	.long ___L__1533
 	.text
 	.data
 _trace__depth:
@@ -22445,7 +22555,7 @@ _trace__stack:
 	.data
 	.globl _max
 _max:
-	.long ___L__1532
+	.long ___L__1537
 	.text
 ## form <header>-flags-used+atom
 ## form <header>-flags-mark
