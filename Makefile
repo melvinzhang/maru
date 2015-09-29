@@ -20,6 +20,8 @@ bin = $(firstword ${${eval}})
 
 run = ${${eval}}
 
+GCC = gcc -m32
+
 ifeq ($(OS),Windows_NT)
     OS = win
 else
@@ -29,17 +31,18 @@ else
     endif
     ifeq ($(UNAME_S),Darwin)
         OS = osx
+        GCC += -Wl,-no_pie
     endif
 endif
 
 clean:
 	-rm bin/eval bin/mkosdefs src/osdefs.k
 
-bin/eval: 
-	git show master:obj/eval.${OS}.s | gcc -m32 -x assembler - -o bin/eval
+bin/eval:
+	git show master:obj/eval.${OS}.s | ${GCC} -x assembler - -o bin/eval
 
 bin/eval.new: obj/eval.s
-	gcc -m32 $^ -o $@ 
+	${GCC} $^ -o $@
 
 promote: bin/eval.new
 	make tests eval=evaln
@@ -78,13 +81,13 @@ obj/eval.ll: bin/eval src/boot.l src/emit-llvm.l src/eval.l
 	fi
 
 %: %.s
-	gcc -m32 $^ -o $@
+	${GCC} $^ -o $@
 
 %.s: %.ll
 	llc-3.4 -march=x86 $^ > $@
 
 %.ll: %.c
-	clang -S -emit-llvm $^ -o $@ 
+	clang -S -emit-llvm $^ -o $@
 
 tests: bin/eval \
 	test/test-subr-logical \
@@ -112,13 +115,13 @@ test-pepsi: bin/eval1 bin/eval2 bin/eval3 bin/gceval
 	cd test/pepsi; ../../bin/eval3  repl.l test-pepsi.l > test-pepsi.eval3
 	cd test/pepsi; ../../bin/gceval repl.l test-pepsi.l > test-pepsi.gceval
 
-test-llvm: 
+test-llvm:
 	make examples/args.ll
 	make obj/eval.ll
 
 stats:
 	cat src/boot.l src/emit.l src/eval.l | sed 's/.*debug.*//;s/;.*//;/^\s*$$/d' | wc -l
-	cat src/boot.l src/emit.l src/eval.l | grep '(' -o | wc -l 
+	cat src/boot.l src/emit.l src/eval.l | grep '(' -o | wc -l
 
 OFLAGS = -O3 -fomit-frame-pointer -DNDEBUG
 CFLAGS = -Wall -Wno-comment -g $(OFLAGS)
