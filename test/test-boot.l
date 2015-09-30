@@ -51,4 +51,23 @@
 ; fails as it tries to compute (mul 4 nil)
 ;(expect '(4 10 18) (map * '(1 2 3 4) '(4 5 6)))
 
+; reverse means tail is processed before head
 (expect '(-1 -2 -3) (reverse-map - '(1 2 3)))
+
+(expect '(0 -1 -2) (reverse-with-map - 1 '(1 2 3)))
+
+(expect '(0 1 2) (reverse-map-with - '(1 2 3) 1))
+
+(expect '(0 1 2) (map-with - '(1 2 3) 1))
+
+(expect '(0 -1 -2) (with-map - 1 '(1 2 3)))
+
+; what is the different between map* and map?
+(expect '(4 10 18) (map* * '(1 2 3) '(4 5 6)))
+
+(expect 6 (foldr + 0 '(1 2 3)))
+
+(let* ((one 1)
+       (two (+ 1 one)))
+  (expect 1 one)
+  (expect 2 two))
