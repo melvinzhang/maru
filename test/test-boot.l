@@ -71,3 +71,7 @@
        (two (+ 1 one)))
   (expect 1 one)
   (expect 2 two))
+
+(expect '<long> (name-of-type <long>))
+(expect '<long> (type-name-of 1))
+
