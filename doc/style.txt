@@ -1,0 +1,57 @@
+taken from http://dept-info.labri.u-bordeaux.fr/~strandh/Teaching/MTP/Common/Strandh-Tutorial/indentation.html
+
+Closing parentheses are never on a line by themselves.
+
+Indent each level by two spaces.
+
+A single semicolon is used for a comment concerning a single line of code, and
+located on the same line as the code.
+
+Two semicolons are used for a comment that cover several lines of code. The
+comment line is lined up the the code lines, and precedes them.
+
+Three semicolons are used for comments that explain a function. Such comments
+always start in column 1.
+
+The if special form in Common Lisp takes exactly three subexpressions. The
+subexpressions should be lined up, like this:
+
+(if (= (f x) 4)
+    (top-level x)
+    (g x))
+
+when and unless both take an arbitrary number of subexpressions, the first of
+which is distinguished as the test. We write the test on the same line as the
+name of the special form, and all the other forms on separate lines, indented
+by two positions.
+
+(when (= (f x) 4)
+  (setf *level-number* 0)
+  (unless *do-not-reinitialize*
+    (reinitialize-global-information x)
+    (reinitialize-local-information))
+  (top-level x))
+
+let and let* both take an arbitrary number of subforms.  The first is a list
+of variable initializations, and the rest are the body of the special form.
+The variable initializations start on the same line as the name of the special
+form, and the initializations is lined up. The body is indented by two
+characters like this:
+
+(let* ((symbols (mapcar #'compute-symbol l))
+       (spaces (mapcar #'compute-space symbols (cdr symbols))))
+  (when (verify-spacing symbols spaces)
+    (make-spacing permanent spaces)))
+
+do and do* both take an arbitrary number of subforms, the first two of which
+are distinguished. The first one contains the loop variables and the
+second is a loop termination form. The rest are the body of the special
+form. Here is an example:
+
+(do ((i 1 (1+ i))
+     (j (length l) (/ j 2)))
+    ((= j 0) i)
+  (iterate i j)
+  (when (= (f x) 4)
+    (setf *level-number* 0)
+    (top-level x)))
