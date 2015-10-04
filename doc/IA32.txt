@@ -9,8 +9,8 @@ condition codes:
   OF = overflow flag
 
 <label>:
-// label is value at the address
-// $label is the address
+// label is content at the address
+// $label is the address of label
 
 .globl <label>
 // indicates label is a global label so that other parts of the program can see it
