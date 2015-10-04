@@ -8,6 +8,10 @@ condition codes:
   SF = sign flag
   OF = overflow flag
 
+memory reference:
+  displacement(base register, offset register, scalar)
+  4(%eax, %edx, 2) = [eax + 4 + edx * 2]
+
 <label>:
 // label is content at the address
 // $label is the address of label
