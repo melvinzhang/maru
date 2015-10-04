@@ -89,6 +89,9 @@ obj/eval.ll: bin/eval src/boot.l src/emit-llvm.l src/eval.l
 %.ll: %.c
 	clang -S -emit-llvm $^ -o $@
 
+%.s: %.c
+	gcc -S -fno-asynchronous-unwind-tables -m32 $^ -o $@
+
 tests: bin/eval \
 	test/test-subr-logical \
 	test/test-subr-relation \
