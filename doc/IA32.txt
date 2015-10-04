@@ -8,21 +8,27 @@ condition codes:
   SF = sign flag
   OF = overflow flag
 
-.globl <label>
 <label>:
+// label is value at the address
+// $label is the address
+
+.globl <label>
 // indicates label is a global label so that other parts of the program can see it
 
 .text
 // declares the start of a section of code
 
 .data
-//  assemble the following statements onto the end of the data subsection 0
+// assemble the following statements onto the end of the data subsection 0
 
 .asciz
-//  assembles each string into consecutive addresses adding a zero byte at the end
+// assembles each string into consecutive addresses adding a zero byte at the end
 
 .long
-// emit a number that, at run time, is the value of that expression.
+// emit a number that, at run time, is the value of that expression
+
+.double
+// 64bit IEEE flonum
 
 addl src dest
 // dest = dest + src
