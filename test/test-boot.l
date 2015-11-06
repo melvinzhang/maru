@@ -77,5 +77,5 @@
 (expect () (cond ((= 1 0) 1)))
 
 (expect '<long> (name-of-type <long>))
-(expect '<long> (type-name-of 1))
+(expect '<long> (type-name-of 129))
 
