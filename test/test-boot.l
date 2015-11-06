@@ -79,3 +79,5 @@
 (expect '<long> (name-of-type <long>))
 (expect '<long> (type-name-of 129))
 
+(expect '(_bits) (fields-of-type <long>))
+
