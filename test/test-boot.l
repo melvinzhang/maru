@@ -72,6 +72,10 @@
   (expect 1 one)
   (expect 2 two))
 
+(expect 1 (cond (else 1)))
+(expect 0 (cond ((= 1 0) 1) ((= 1 1) 0)))
+(expect () (cond ((= 1 0) 1)))
+
 (expect '<long> (name-of-type <long>))
 (expect '<long> (type-name-of 1))
 
