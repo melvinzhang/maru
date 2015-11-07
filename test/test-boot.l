@@ -109,3 +109,8 @@
 
 (expect 5 (multi-add "a" 5))
 (expect 7 (multi-add 7 "b"))
+
+; conversion
+(expect 0 (string->number "0"))
+(expect 54 (string->number "54"))
+(expect -98 (string->number "-98"))
