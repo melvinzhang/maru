@@ -83,3 +83,15 @@
 (expect '(size _bits) (fields-of-type <string>))
 (expect '(size _array) (fields-of-type <array>))
 
+; selector with default
+(define-selector selector1 (arg) 0)
+(define-method selector1 <long> () 11)
+(define-method selector1 <string> () 22)
+
+(expect 0  (selector1 'a))
+(expect 11 (selector1 1))
+(expect 22 (selector1 "a"))
+
+; selector without default
+(define-selector selector2 (arg))
+(expect () (selector2 1))
