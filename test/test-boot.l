@@ -95,3 +95,17 @@
 ; selector without default
 (define-selector selector2 (arg))
 (expect () (selector2 1))
+
+; multimethod
+(define-generic multi-add)
+(define-multimethod multi-add ((<long> a) (<long> b)) (+ a b))
+(define-multimethod multi-add ((<string> a) (<string> b)) (concat-string a b))
+
+(expect 14 (multi-add 5 9))
+(expect "ab" (multi-add "a" "b"))
+
+(define-multimethod multi-add ((<string> a) (<long> b)) b)
+(define-multimethod multi-add ((<long> a) (<string> b)) a)
+
+(expect 5 (multi-add "a" 5))
+(expect 7 (multi-add 7 "b"))
