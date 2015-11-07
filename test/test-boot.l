@@ -80,4 +80,6 @@
 (expect '<long> (type-name-of 129))
 
 (expect '(_bits) (fields-of-type <long>))
+(expect '(size _bits) (fields-of-type <string>))
+(expect '(size _array) (fields-of-type <array>))
 
