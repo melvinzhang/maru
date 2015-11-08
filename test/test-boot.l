@@ -114,3 +114,24 @@
 (expect 0 (string->number "0"))
 (expect 54 (string->number "54"))
 (expect -98 (string->number "-98"))
+
+; list manipulation
+
+; push and pop only works with symbol that maps to list
+(let ((a '(2 3)))
+  (expect '(1 2 3) (push a 1))
+  (expect 1 (pop a)))
+
+(expect 1 (member? 1 '(2 3 4 1)))
+(expect () (member? 5 '(2 3 4 1)))
+
+(let ((a '(1 2 3)))
+  (expect '(3 2 1) (list-reverse! a))
+  (expect '(1) a))
+
+; missing elements are filled in with ()
+(expect '((a 1) (b 2) (c 3)) (zip '(a b c) '(1 2 3)))
+(expect '((a 1) (b 2) (c ()) (d ())) (zip '(a b c d) '(1 2)))
+
+(expect '((a . 1) (b . 2) (c . 3)) (zip-assocs '(a b c) '(1 2 3)))
+(expect '((a . 1) (b . 2) c d) (zip-assocs '(a b c d) '(1 2)))
