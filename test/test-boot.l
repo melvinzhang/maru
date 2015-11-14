@@ -135,3 +135,12 @@
 
 (expect '((a . 1) (b . 2) (c . 3)) (zip-assocs '(a b c) '(1 2 3)))
 (expect '((a . 1) (b . 2) c d) (zip-assocs '(a b c d) '(1 2)))
+
+(let ((a '()))
+  (for (i 1 4) (push a i))
+  (expect '(3 2 1) a))
+
+(let ([a '(1 2 3)]
+      [b '()])
+  (list-do i a (push b i))
+  (expect '(3 2 1) b))
