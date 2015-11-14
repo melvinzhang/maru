@@ -154,3 +154,8 @@
       [b '()])
   (array-do i a (push b i))
   (expect '(3 2 1) b))
+
+(let ([a "abc"]
+      [b '()])
+  (string-do i a (push b i))
+  (expect '(99 98 97) b))
