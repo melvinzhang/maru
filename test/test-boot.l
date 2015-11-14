@@ -144,3 +144,13 @@
       [b '()])
   (list-do i a (push b i))
   (expect '(3 2 1) b))
+
+(let ([a '((a . 1) (b . 2) (c . 3))]
+      [b '()])
+  (alist-do i a (push b i))
+  (expect '(3 2 1) b))
+
+(let ([a (list->array '(1 2 3))]
+      [b '()])
+  (array-do i a (push b i))
+  (expect '(3 2 1) b))
