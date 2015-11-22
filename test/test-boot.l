@@ -159,3 +159,33 @@
       [b '()])
   (string-do i a (push b i))
   (expect '(99 98 97) b))
+
+(let ([a "abc"]
+      [b '()])
+  (for-each a (lambda (i) (push b i)))
+  (expect '(99 98 97) b))
+
+(let ([a 1]
+      [b 2])
+  (incr a)
+  (expect 2 a)
+  (incr a b)
+  (expect 4 a))
+
+(expect 255 (string->number-base "FF" 16))
+(expect 255 (string->number "255"))
+; array->string
+; array->list
+(expect "abc" (list->string '(?a ?b ?c)))
+(expect "z" (character->string ?z))
+; array-append-all
+
+; array-sort
+(expect "abcd" (string-sort "dcba"))
+
+; array-search
+(expect 1 (string-search "abcd" ?b))
+
+(expect 10 (max 10 7 6))
+(expect 6 (min 10 7 6))
+(expect 23 (sum 10 7 6))
