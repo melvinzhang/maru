@@ -195,3 +195,10 @@
 (expect (not (equal '(1 2 3) '(3 2 1))))
 (expect (equal '(1 2 (a b c)) '(1 2 (a b c))))
 (expect (not (equal '(1 2 (a b c)) '(1 2 (a b d)))))
+
+(let ([s "abc"]
+      [a (list->array '(1 2 3))])
+  (expect 3 (length s))
+  (expect 3 (length a))
+  (expect ?b (at s 1))
+  (expect 2  (at a 1)))
