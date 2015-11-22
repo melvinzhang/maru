@@ -189,3 +189,9 @@
 (expect 10 (max 10 7 6))
 (expect 6 (min 10 7 6))
 (expect 23 (sum 10 7 6))
+
+; equal
+(expect (equal '(1 2 3) '(1 2 3)))
+(expect (not (equal '(1 2 3) '(3 2 1))))
+(expect (equal '(1 2 (a b c)) '(1 2 (a b c))))
+(expect (not (equal '(1 2 (a b c)) '(1 2 (a b d)))))
