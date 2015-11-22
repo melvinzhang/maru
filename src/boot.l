@@ -989,14 +989,14 @@
 	(push *loaded* name)
 	(load name))))
 
-(define-method length <string> ()		(string-length self))
-(define-method length <array> ()		(array-length self))
+(define-method length <string> () (string-length self))
+(define-method length <array>  () (array-length self))
 
-(define-method at <string> (index)		(string-at self index))
-(define-method at <array> (index)		(array-at self index))
+(define-method at <string> (index) (string-at self index))
+(define-method at <array>  (index) (array-at self index))
 
-(define-method set-at <string> (index value)	(set-string-at self index value))
-(define-method set-at <array> (index value)	(set-array-at self index value))
+(define-method set-at <string> (index value) (set-string-at self index value))
+(define-method set-at <array>  (index value) (set-array-at self index value))
 
 (define-function contents-to-file-named (string path . options)
   (let ((f (or (open path "w")
