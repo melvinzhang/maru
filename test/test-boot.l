@@ -196,6 +196,15 @@
 (expect (equal '(1 2 (a b c)) '(1 2 (a b c))))
 (expect (not (equal '(1 2 (a b c)) '(1 2 (a b d)))))
 
+; equality on array is reference equality
+(let ([l '(1 2)]
+      [a1 (list->array l)]
+      [a2 (list->array l)])
+  (expect (= a1 a1))
+  (expect (equal a1 a1))
+  (expect (not (equal a1 a2))))
+
+; generic methods for string and arrays
 (let ([s "abc"]
       [a (list->array '(1 2 3))])
   (expect 3 (length s))
