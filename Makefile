@@ -118,6 +118,10 @@ test-pepsi: bin/eval1 bin/eval2 bin/eval3 bin/gceval
 	cd test/pepsi; ../../bin/eval3  repl.l test-pepsi.l > test-pepsi.eval3
 	cd test/pepsi; ../../bin/gceval repl.l test-pepsi.l > test-pepsi.gceval
 
+# fails with "undefined variable: string->double" as eval does not support double values
+test-pepsi-eval: bin/eval
+	cd test/pepsi; ../../bin/eval ../../src/boot.l ../unit-test.l repl.l test-pepsi.l
+
 test-llvm:
 	make examples/args.ll
 	make obj/eval.ll
