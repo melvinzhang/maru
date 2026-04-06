@@ -181,6 +181,89 @@
     (println cont":")
     (set *llvm-terminated* ())))
 
+;;; LLVM -- INSTRUCTIONS: MEMORY ACCESS
+
+(define-emit	(LOAD ICONST)
+  (set *llvm-acc* (long->string (<ICONST>-value $1))))
+
+(define-emit	(LOAD LABEL)
+  (let ((r (llvm-new-reg)))
+    (println "  "r" = ptrtoint ptr @"$1" to i64")
+    (set *llvm-acc* r)))
+
+(define-emit	(LOAD GVAR)
+  (let ((r (llvm-new-reg)))
+    (println "  "r" = load i64, ptr "$1)
+    (set *llvm-acc* r)))
+
+(define-emit	(LOAD REG)
+  (let ((r (llvm-new-reg)))
+    (println "  "r" = load i64, ptr "$1)
+    (set *llvm-acc* r)))
+
+(define-emit	(STORE REG)
+  (println "  store i64 "*llvm-acc*", ptr "$1))
+
+(define-emit	(STORE GVAR)
+  (println "  store i64 "*llvm-acc*", ptr "$1))
+
+(define-emit	(ADDR REG)
+  (let ((r (llvm-new-reg)))
+    (println "  "r" = ptrtoint ptr "$1" to i64")
+    (set *llvm-acc* r)))
+
+(define-emit	(ADDR GVAR)
+  (let ((r (llvm-new-reg)))
+    (println "  "r" = ptrtoint ptr "$1" to i64")
+    (set *llvm-acc* r)))
+
+(define-emit	(MOVE REG REG)
+  (let ((tmp (llvm-new-reg)))
+    (println "  "tmp" = load i64, ptr "$1)
+    (println "  store i64 "tmp", ptr "$2)))
+
+(define-emit	(OOP-AT REG)
+  (let* ((base (llvm-new-reg))
+	 (idx (llvm-load-reg $1))
+	 (gep (llvm-new-reg))
+	 (result (llvm-new-reg)))
+    (println "  "base" = inttoptr i64 "*llvm-acc*" to ptr")
+    (println "  "gep" = getelementptr i64, ptr "base", i64 "idx)
+    (println "  "result" = load i64, ptr "gep)
+    (set *llvm-acc* result)))
+
+(define-emit	(SET-OOP-AT REG REG)
+  (let* ((base (llvm-new-reg))
+	 (idx (llvm-load-reg $1))
+	 (val (llvm-load-reg $2))
+	 (gep (llvm-new-reg)))
+    (println "  "base" = inttoptr i64 "*llvm-acc*" to ptr")
+    (println "  "gep" = getelementptr i64, ptr "base", i64 "idx)
+    (println "  store i64 "val", ptr "gep)))
+
+(define-emit	(CHR-AT REG)
+  (let* ((base (llvm-new-reg))
+	 (idx (llvm-load-reg $1))
+	 (gep (llvm-new-reg))
+	 (byte (llvm-new-reg))
+	 (result (llvm-new-reg)))
+    (println "  "base" = inttoptr i64 "*llvm-acc*" to ptr")
+    (println "  "gep" = getelementptr i8, ptr "base", i64 "idx)
+    (println "  "byte" = load i8, ptr "gep)
+    (println "  "result" = zext i8 "byte" to i64")
+    (set *llvm-acc* result)))
+
+(define-emit	(SET-CHR-AT REG REG)
+  (let* ((base (llvm-new-reg))
+	 (idx (llvm-load-reg $1))
+	 (val (llvm-load-reg $2))
+	 (gep (llvm-new-reg))
+	 (trunc (llvm-new-reg)))
+    (println "  "base" = inttoptr i64 "*llvm-acc*" to ptr")
+    (println "  "gep" = getelementptr i8, ptr "base", i64 "idx)
+    (println "  "trunc" = trunc i64 "val" to i8")
+    (println "  store i8 "trunc", ptr "gep)))
+
 ;;; GEN <variable>
 
 (define-method gen <variable> (comp)
