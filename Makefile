@@ -41,7 +41,7 @@ clean:
 	-rm bin/* src/osdefs.k 2>/dev/null || true
 
 bin/eval:
-	git show master:obj/eval.${OS}.s | ${GCC} -x assembler - -o bin/eval
+	git show master:obj/eval.${OS}.s | ${GCC} -lm -x assembler - -o bin/eval
 
 bin/eval.new: obj/eval.s
 	${GCC} $^ -o $@

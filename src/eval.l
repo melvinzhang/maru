@@ -61,6 +61,11 @@
 (define isatty		(extern	'isatty))
 (define printdouble	(extern 'printdouble))
 (define strtodouble	(extern 'strtodouble))
+(define long2double	(extern 'long2double))
+(define double2long	(extern 'double2long))
+(define doublesin	(extern 'doublesin))
+(define doublecos	(extern 'doublecos))
+(define doublelog	(extern 'doublelog))
 
 (define arguments		0)
 (define input			0)
@@ -1530,6 +1535,51 @@
 	       (free buf)
 	       result))))))
 
+(define-function subr_long_double (args ctx)
+  (let ((arg (k_car args)))
+    (if (is <double> arg)
+	arg
+      (and (is_long arg)
+	   (new-<double> (long2double (get_long arg)))))))
+
+(define-function subr_double_long (args ctx)
+  (let ((arg (k_car args)))
+    (if (is_long arg)
+	arg
+      (and (is <double> arg)
+	   (new-<long> (double2long (<double>-_bits arg)))))))
+
+(define-function subr_string_double (args ctx)
+  (let ((arg (k_car args)))
+    (if (is <double> arg)
+	arg
+      (and (is <string> arg)
+	   (new-<double> (strtodouble (get <string> _bits arg) 0))))))
+
+(define-function subr_sin (args ctx)
+  (let ((arg (k_car args)))
+    (if (is <double> arg)
+	(new-<double> (doublesin (<double>-_bits arg)))
+      (and (is_long arg)
+	   (new-<double> (doublesin (long2double (get_long arg))))))))
+
+(define-function subr_cos (args ctx)
+  (let ((arg (k_car args)))
+    (if (is <double> arg)
+	(new-<double> (doublecos (<double>-_bits arg)))
+      (and (is_long arg)
+	   (new-<double> (doublecos (long2double (get_long arg))))))))
+
+(define-function subr_log (args ctx)
+  (let ((arg (k_car args)))
+    (if (is <double> arg)
+	(new-<double> (doublelog (<double>-_bits arg)))
+      (and (is_long arg)
+	   (new-<double> (doublelog (long2double (get_long arg))))))))
+
+(define-function subr_current_environment (args ctx)
+  (get <context> env ctx))
+
 (define-function subr_verbose (args ctx)
   (let ((arg (k_car args)))
     (if (is_long arg)
@@ -1694,6 +1744,13 @@
   (define-subr  "string->symbol"	subr_string_symbol)
   (define-subr  "symbol->string"	subr_symbol_string)
   (define-subr  "long->string"		subr_long_string)
+  (define-subr  "long->double"		subr_long_double)
+  (define-subr  "double->long"		subr_double_long)
+  (define-subr  "string->double"	subr_string_double)
+  (define-subr  "sin"			subr_sin)
+  (define-subr  "cos"			subr_cos)
+  (define-subr  "log"			subr_log)
+  (define-subr  "current-environment"	subr_current_environment)
   (define-subr  "verbose"		subr_verbose)
   (define-subr  "optimised"		subr_optimised)
   (define-subr  "read"			subr_read)
