@@ -254,7 +254,8 @@
 	 (gep (llvm-new-reg)))
     (println "  "base" = inttoptr i64 "*llvm-acc*" to ptr")
     (println "  "gep" = getelementptr i64, ptr "base", i64 "idx)
-    (println "  store i64 "val", ptr "gep)))
+    (println "  store i64 "val", ptr "gep)
+    (set *llvm-acc* val)))
 
 (define-emit	(CHR-AT REG)
   (let* ((base (llvm-new-reg))
@@ -277,7 +278,8 @@
     (println "  "base" = inttoptr i64 "*llvm-acc*" to ptr")
     (println "  "gep" = getelementptr i8, ptr "base", i64 "idx)
     (println "  "trunc" = trunc i64 "val" to i8")
-    (println "  store i8 "trunc", ptr "gep)))
+    (println "  store i8 "trunc", ptr "gep)
+    (set *llvm-acc* val)))
 
 ;;; LLVM -- INSTRUCTIONS: FUNCTION CALLS
 
