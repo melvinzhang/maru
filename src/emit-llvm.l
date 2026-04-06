@@ -45,11 +45,12 @@
 
 ;;; LLVM -- EMIT STATE
 
-(define *llvm-data-mode*     ())
-(define *llvm-pending-label* ())
-(define *llvm-acc*        "0")
-(define *llvm-next-reg*   0)
-(define *llvm-terminated* ())
+(define *llvm-data-mode*      ())
+(define *llvm-pending-label*  ())
+(define *llvm-acc*            "0")
+(define *llvm-next-reg*       0)
+(define *llvm-terminated*     ())
+(define *llvm-num-arg-slots*  0)
 
 (define-function llvm-escape-string (str)
   (let ((buf (array))
@@ -263,6 +264,49 @@
     (println "  "gep" = getelementptr i8, ptr "base", i64 "idx)
     (println "  "trunc" = trunc i64 "val" to i8")
     (println "  store i8 "trunc", ptr "gep)))
+
+;;; LLVM -- INSTRUCTIONS: FUNCTION CALLS
+
+(define-emit	(CALL LABEL)
+  (let ((result (llvm-new-reg)))
+    (println "  "result" = call i64 @"$1"()")
+    (set *llvm-acc* result)))
+
+(define-emit	(CALL long)
+  (let ((narg $1)
+	(arg-regs (array))
+	(fn (llvm-new-reg)))
+    (for (i 0 narg)
+      (let ((ar (llvm-new-reg)))
+	(println "  "ar" = load i64, ptr %a"i)
+	(set-array-at arg-regs i ar)))
+    (println "  "fn" = inttoptr i64 "*llvm-acc*" to ptr")
+    (let ((result (llvm-new-reg)))
+      (print "  "result" = call i64 "fn"(")
+      (for (i 0 narg)
+	(and (> i 0) (print ", "))
+	(print "i64 "(array-at arg-regs i)))
+      (println ")")
+      (set *llvm-acc* result))))
+
+(define-emit	(ENTER long long)
+  (let ((num-temps $1)
+	(num-params $2))
+    (set *llvm-next-reg* 0)
+    (set *llvm-acc* "0")
+    (set *llvm-terminated* ())
+    (for (i 0 num-params)
+      (println "  %arg"i" = alloca i64")
+      (println "  store i64 %p"i", ptr %arg"i))
+    (for (i 0 num-temps)
+      (println "  %t"i" = alloca i64"))
+    (for (i 0 *llvm-num-arg-slots*)
+      (println "  %a"i" = alloca i64"))))
+
+(define-emit	(LEAVE long)
+  (or *llvm-terminated*
+    (println "  ret i64 "*llvm-acc*))
+  (println "}"))
 
 ;;; GEN <variable>
 
