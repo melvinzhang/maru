@@ -600,6 +600,20 @@
 
 (define-form compile-begin ()	`(set *globals* (environment *globals*)))
 
+(define-function emit-runtime ()
+  (println "	.text")
+  (println "	.globl printdouble")
+  (println "printdouble:")
+  (println "	movq %rdi,%xmm0")
+  (println "	leaq .Lfmt_f(%rip),%rdi")
+  (println "	movl $1,%eax")
+  (println "	jmp printf@PLT")
+  (println "	.data")
+  (println ".Lfmt_f:")
+  (println "	.asciz \"%f\"")
+  (println "	.text"))
+
 (define-form compile-end ()	(let ((env *globals*))
 				  (set *globals* (<env>-parent env))
-				  (gen-env env)))
+				  (gen-env env)
+				  (emit-runtime)))

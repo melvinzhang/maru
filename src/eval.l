@@ -59,6 +59,7 @@
 (define sprintf		(extern	'sprintf))
 (define snprintf	(extern	'snprintf))
 (define isatty		(extern	'isatty))
+(define printdouble	(extern 'printdouble))
 
 (define arguments		0)
 (define input			0)
@@ -327,6 +328,11 @@
       (set (<long>-_bits obj) bits)
       obj)))
 
+(define-function new-<double> (bits)
+  (let ((obj (new-bits <double> (size-of-structure <double>))))
+    (set (<double>-_bits obj) bits)
+    obj))
+
 (define-function _new-<string> (len)
   (let ((str (new-oops <string> (size-of-structure <string>))))
     (gc-protect (str)
@@ -533,6 +539,7 @@
     (cond
       ((= type <undefined>)	(printf "nil"))
       ((= type <long>)		(printf "%d" (get_long obj)))
+      ((= type <double>)	(printdouble (<double>-_bits obj)))
       ((= type <string>)	(let ((bits (get <string> _bits obj)))
 				  (if (not storing)
 				      (printf "%s" bits)
