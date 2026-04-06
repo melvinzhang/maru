@@ -346,11 +346,22 @@
     (println "@"(mangle-label name)
 	     " = global i64 ptrtoint (ptr @"(mangle-label (string->symbol sname))" to i64)")))
 
+(define *llvm-runtime-functions*
+  '(printdouble strtodouble long2double double2long
+    doublesin doublecos doublelog
+    doubleadd doublesub doublemul doublediv doublefmod
+    doublelt doublele doublege doublegt doubleeq))
+
+(define *llvm-declared-externs* ())
+
 (define-method gen-definition <extern> (name comp)
-  (let ((ename (mangle-label (<extern>-name self)))
-	(sname (mangle-label (concat-symbol (<extern>-name self) '$stub))))
-    (println "declare void @"ename"()")
-    (println "@"sname" = global i64 ptrtoint (ptr @"ename" to i64)")))
+  (let ((ename (<extern>-name self))
+	(sname (mangle-label (concat-symbol ename '$stub))))
+    (or (memq ename *llvm-runtime-functions*)
+	(let ()
+	  (println "declare i64 @"(mangle-label ename)"(...)")
+	  (set *llvm-declared-externs* (cons ename *llvm-declared-externs*))))
+    (println "@"sname" = global i64 ptrtoint (ptr @"(mangle-label ename)" to i64)")))
 
 (define-method gen-definition <form> (name comp)
   (emit COMMENT (list "form "name)))
@@ -424,9 +435,97 @@
 	(gen ocomp QUAD tnam)
 	(gen ocomp TEXT)))))
 
+;;; EMIT-RUNTIME — native double support
+
+(define-function emit-llvm-double-unary (name intrinsic)
+  (println "define i64 @"name"(i64 %0) {")
+  (println "  %d = bitcast i64 %0 to double")
+  (println "  %r = call double "intrinsic"(double %d)")
+  (println "  %rv = bitcast double %r to i64")
+  (println "  ret i64 %rv")
+  (println "}"))
+
+(define-function emit-llvm-double-binop (name op)
+  (println "define i64 @"name"(i64 %0, i64 %1) {")
+  (println "  %a = bitcast i64 %0 to double")
+  (println "  %b = bitcast i64 %1 to double")
+  (println "  %r = "op" double %a, %b")
+  (println "  %rv = bitcast double %r to i64")
+  (println "  ret i64 %rv")
+  (println "}"))
+
+(define-function emit-llvm-double-cmp (name cmp)
+  (println "define i64 @"name"(i64 %0, i64 %1) {")
+  (println "  %a = bitcast i64 %0 to double")
+  (println "  %b = bitcast i64 %1 to double")
+  (println "  %c = fcmp "cmp" double %a, %b")
+  (println "  %r = zext i1 %c to i64")
+  (println "  ret i64 %r")
+  (println "}"))
+
+(define-function emit-runtime ()
+  ;; C library declarations (skip if already declared by gen-definition <extern>)
+  (or (memq 'printf *llvm-declared-externs*)
+      (println "declare i64 @printf(...)"))
+  (println "declare double @strtod(ptr, ptr)")
+  (println "declare double @fmod(double, double)")
+  (println "declare double @llvm.sin.f64(double)")
+  (println "declare double @llvm.cos.f64(double)")
+  (println "declare double @llvm.log.f64(double)")
+  (println "@.fmt_f = private constant [3 x i8] c\"%f\\00\"")
+  ;; printdouble: i64 (bitpunned double) → printf "%f"
+  (println "define i64 @printdouble(i64 %0) {")
+  (println "  %d = bitcast i64 %0 to double")
+  (println "  call i64 (...) @printf(ptr @.fmt_f, double %d)")
+  (println "  ret i64 0")
+  (println "}")
+  ;; strtodouble: i64 (string ptr) → strtod → i64 (bitpunned double)
+  (println "define i64 @strtodouble(i64 %0) {")
+  (println "  %s = inttoptr i64 %0 to ptr")
+  (println "  %d = call double @strtod(ptr %s, ptr null)")
+  (println "  %r = bitcast double %d to i64")
+  (println "  ret i64 %r")
+  (println "}")
+  ;; long2double: i64 → sitofp → bitcast → i64
+  (println "define i64 @long2double(i64 %0) {")
+  (println "  %d = sitofp i64 %0 to double")
+  (println "  %r = bitcast double %d to i64")
+  (println "  ret i64 %r")
+  (println "}")
+  ;; double2long: i64 → bitcast → fptosi → i64
+  (println "define i64 @double2long(i64 %0) {")
+  (println "  %d = bitcast i64 %0 to double")
+  (println "  %r = fptosi double %d to i64")
+  (println "  ret i64 %r")
+  (println "}")
+  ;; math: sin, cos, log via LLVM intrinsics
+  (emit-llvm-double-unary "doublesin" "@llvm.sin.f64")
+  (emit-llvm-double-unary "doublecos" "@llvm.cos.f64")
+  (emit-llvm-double-unary "doublelog" "@llvm.log.f64")
+  ;; arithmetic: fadd, fsub, fmul, fdiv
+  (emit-llvm-double-binop "doubleadd" "fadd")
+  (emit-llvm-double-binop "doublesub" "fsub")
+  (emit-llvm-double-binop "doublemul" "fmul")
+  (emit-llvm-double-binop "doublediv" "fdiv")
+  ;; comparisons: fcmp
+  (emit-llvm-double-cmp "doublelt" "olt")
+  (emit-llvm-double-cmp "doublele" "ole")
+  (emit-llvm-double-cmp "doublege" "oge")
+  (emit-llvm-double-cmp "doublegt" "ogt")
+  (emit-llvm-double-cmp "doubleeq" "oeq")
+  ;; fmod
+  (println "define i64 @doublefmod(i64 %0, i64 %1) {")
+  (println "  %a = bitcast i64 %0 to double")
+  (println "  %b = bitcast i64 %1 to double")
+  (println "  %r = call double @fmod(double %a, double %b)")
+  (println "  %rv = bitcast double %r to i64")
+  (println "  ret i64 %rv")
+  (println "}"))
+
 ;;; COMPILE-END
 
 (define-form compile-end ()
   (let ((env *globals*))
     (set *globals* (<env>-parent env))
-    (gen-env env)))
+    (gen-env env)
+    (emit-runtime)))
