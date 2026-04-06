@@ -352,15 +352,12 @@
     doubleadd doublesub doublemul doublediv doublefmod
     doublelt doublele doublege doublegt doubleeq))
 
-(define *llvm-declared-externs* ())
+(define *llvm-externs* ())
 
 (define-method gen-definition <extern> (name comp)
   (let ((ename (<extern>-name self))
 	(sname (mangle-label (concat-symbol ename '$stub))))
-    (or (memq ename *llvm-runtime-functions*)
-	(let ()
-	  (println "declare i64 @"(mangle-label ename)"(...)")
-	  (set *llvm-declared-externs* (cons ename *llvm-declared-externs*))))
+    (set *llvm-externs* (cons ename *llvm-externs*))
     (println "@"sname" = global i64 ptrtoint (ptr @"(mangle-label ename)" to i64)")))
 
 (define-method gen-definition <form> (name comp)
@@ -464,9 +461,12 @@
   (println "}"))
 
 (define-function emit-runtime ()
-  ;; C library declarations (skip if already declared by gen-definition <extern>)
-  (or (memq 'printf *llvm-declared-externs*)
-      (println "declare i64 @printf(...)"))
+  ;; Declare all externs collected by gen-definition <extern>
+  ;; Runtime-defined functions get define'd below; others get declare'd
+  (list-do ext *llvm-externs*
+    (or (memq ext *llvm-runtime-functions*)
+	(println "declare i64 @"(mangle-label ext)"(...)")))
+  ;; C library functions used by runtime (not Maru externs)
   (println "declare double @strtod(ptr, ptr)")
   (println "declare double @fmod(double, double)")
   (println "declare double @llvm.sin.f64(double)")
