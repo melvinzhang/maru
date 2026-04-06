@@ -70,3 +70,81 @@
 
 ;;; Phase 3: current-environment
 (expect <env> (type-of (current-environment)))
+
+;;; Phase 4: Arithmetic with type promotion
+
+; double + double
+(expect 4 (double->long (+ 1.5 2.5)))
+(expect <double> (type-of (+ 1.0 2.0)))
+
+; mixed long + double
+(expect 3 (double->long (+ 1 2.5)))
+(expect 3 (double->long (+ 2.5 1)))
+(expect <double> (type-of (+ 1 2.0)))
+
+; double subtraction
+(expect 6 (double->long (- 10.0 3.5)))
+(expect <double> (type-of (- 1.0 2.0)))
+(expect <double> (type-of (- 1 2.0)))
+
+; unary negation of double
+(expect <double> (type-of (- 3.14)))
+(expect -3 (double->long (- 3.14)))
+
+; double multiplication
+(expect 6 (double->long (* 2.0 3.0)))
+(expect 4 (double->long (* 3 1.5)))
+(expect <double> (type-of (* 2.0 3.0)))
+
+; double division
+(expect 2 (double->long (/ 10.0 4.0)))
+(expect <double> (type-of (/ 10.0 4.0)))
+(expect <double> (type-of (/ 1 2.0)))
+
+; integer arithmetic still works
+(expect 5 (+ 2 3))
+(expect <long> (type-of (+ 2 3)))
+(expect 6 (* 2 3))
+(expect 3 (/ 10 3))
+(expect 7 (- 10 3))
+(expect -5 (- 5))
+
+; modulo
+(expect 1 (% 10 3))
+(expect <long> (type-of (% 10 3)))
+
+;;; Phase 4: Relational operators on doubles
+
+(expect (< 1.0 2.0))
+(expect (not (< 2.0 1.0)))
+(expect (not (< 1.0 1.0)))
+(expect (<= 1.0 1.0))
+(expect (<= 1.0 2.0))
+(expect (not (<= 2.0 1.0)))
+(expect (> 2.0 1.0))
+(expect (not (> 1.0 2.0)))
+(expect (>= 1.0 1.0))
+(expect (>= 2.0 1.0))
+
+; mixed comparisons
+(expect (< 1 2.0))
+(expect (< 1.0 2))
+(expect (> 2.0 1))
+(expect (<= 1 1.0))
+(expect (>= 1.0 1))
+
+; equality on doubles
+(expect (= 1.0 1.0))
+(expect (not (= 1.0 2.0)))
+(expect (= 1 1.0))
+(expect (= 1.0 1))
+(expect (!= 1.0 2.0))
+(expect (not (!= 1.0 1.0)))
+
+; integer relations still work
+(expect (< 1 2))
+(expect (<= 1 1))
+(expect (> 2 1))
+(expect (>= 2 2))
+(expect (= 1 1))
+(expect (!= 1 2))
