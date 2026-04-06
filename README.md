@@ -18,7 +18,7 @@ maru-in-C interpreter.
 * add LLVM support
 
 ## Bootstrapping
-eval.s is the interpreter compiled to IA32 assembly, it can be compiled to a binary with gcc via the Makefile
+eval.s is the interpreter compiled to x86-64 assembly, it can be compiled to a binary with gcc via the Makefile
 
 `make bin/eval`
 
@@ -41,22 +41,3 @@ The `csrc/` directory contains several versions of the Maru evaluator implemente
 - **gceval**: A version of `eval1` (from `eval.c`) compiled to use the Boehm-Demers-Weiser conservative garbage collector (`libgc`) instead of the internal Maru GC.
 
 Note: `bin/eval` (the default binary) is the self-hosted Maru interpreter compiled from `src/eval.l` via `obj/eval.s`. The C-based evaluators are primarily used for bootstrapping and testing.
-
-## Supporting Pepsi in self-hosted `eval.l`
-
-While `csrc/eval3.c` can run the Pepsi Smalltalk environment, the self-hosted `src/eval.l` currently lacks several features required for full compatibility:
-
-1.  **Floating-Point Implementation**:
-    *   **Reader Support**: The reader in `eval.l` needs to recognize floating-point literals (e.g., `1.2`, `1e10`) and instantiate `<double>` objects.
-    *   **Math Subrs**: Implementation of `sin`, `cos`, `log`, and `fmod` (mapped to the `%` operator for doubles).
-    *   **Type Promotion**: Numeric subrs (`+`, `-`, `*`, `/`, `<`, etc.) must be updated to handle mixed `Long` and `Double` arguments, performing type promotion as seen in `eval3.c`.
-    *   **Conversion**: Primitives like `string->double`, `long->double`, and `double->long` are required.
-
-2.  **Missing Operators**:
-    *   **Modulo (`%`)**: The `%` subr is missing from the global environment in `eval.l`.
-
-3.  **Environment Introspection**:
-    *   **`current-environment`**: Pepsi's `boot.l` and `repl.l` rely on accessing the current environment as a first-class object to implement local syntax and namespaces.
-
-4.  **Variadic Subr alignment**:
-    *   Ensuring `apply` and `Subr`/`Fixed` behavior matches the evolved semantics of `eval3` (e.g., handling of variadic arguments in subroutines).
