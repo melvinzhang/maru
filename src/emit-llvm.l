@@ -51,6 +51,7 @@
 (define *llvm-next-reg*       0)
 (define *llvm-terminated*     ())
 (define *llvm-num-arg-slots*  0)
+(define *llvm-function-labels* ())
 
 ;;; LLVM -- HELPERS
 
@@ -312,10 +313,13 @@
 (define-method gen <variable> (comp)
   (let ((value (<variable>-value self)))
     (if (extern? value)
-	(gen comp LOAD (GVAR (concat-symbol (<variable>-name self) '$stub)))
+	(gen comp LOAD (LABEL (<extern>-name value)))
       (if (temp? value)
 	  (gen comp LOAD value)
-	(gen comp LOAD (GVAR (<variable>-name self)))))))
+	(let ((fn-label (cdr (assq (<variable>-name self) *llvm-function-labels*))))
+	  (if fn-label
+	      (gen comp LOAD fn-label)
+	    (gen comp LOAD (GVAR (<variable>-name self)))))))))
 
 ;;; GEN-DEFINITION
 
@@ -339,10 +343,7 @@
 (define *llvm-externs* ())
 
 (define-method gen-definition <extern> (name comp)
-  (let ((ename (<extern>-name self))
-	(sname (mangle-label (concat-symbol ename '$stub))))
-    (set *llvm-externs* (cons ename *llvm-externs*))
-    (println "@"sname" = global i64 ptrtoint (ptr @"(mangle-label ename)" to i64)")))
+  (set *llvm-externs* (cons (<extern>-name self) *llvm-externs*)))
 
 (define-method gen-definition <form> (name comp)
   (emit COMMENT (list "form "name)))
@@ -372,7 +373,7 @@
 	 (defn (<expr>-defn self))
 	 (body (cddr defn))
 	 (comp (compiler (+ 1 (<compiler>-level ocomp))))
-	 (tnam (if main (LABEL name) (LABEL (temp-label-name))))
+	 (tnam (if main (LABEL name) (cdr (assq name *llvm-function-labels*))))
 	 (vnam (if main ()           (LABEL name)))
 	 (params (map-with gen-param (cadr defn) comp))
 	 (nparams (list-length params)))
@@ -489,8 +490,21 @@
 
 ;;; COMPILE-END
 
+(define-function llvm-prescan-functions (env)
+  (let* ((vars (<env>-bindings env))
+	 (index (array-length vars)))
+    (while (<= 0 (set index (- index 1)))
+      (let ((name (<variable>-name (array-at vars index)))
+	    (value (<variable>-value (array-at vars index))))
+	(and (= <expr> (type-of value))
+	     (!= 'main name)
+	     (set *llvm-function-labels*
+		  (cons (cons name (LABEL (temp-label-name)))
+			*llvm-function-labels*)))))))
+
 (define-form compile-end ()
   (let ((env *globals*))
     (set *globals* (<env>-parent env))
+    (llvm-prescan-functions env)
     (gen-env env)
     (emit-runtime)))
