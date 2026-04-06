@@ -14,6 +14,8 @@
 (define-form long-at args `(oop-at ,@args))
 (define-form set-long-at args `(set-oop-at ,@args))
 
+(define-form sign-extend-int (v) `(>> (<< ,v 32) 32))
+
 (define-structure <header> (size flags next type))
 (define-structure <buffer> (contents size position))
 
@@ -80,7 +82,7 @@
 (define gc_alloc_count		0)
 (define gc_collection_count	0)
 
-(define-form size-of-structure (type)	(* 4 (array-at %structure-sizes (eval type))))
+(define-form size-of-structure (type)	(* (oop-size) (array-at %structure-sizes (eval type))))
 
 (define-form <header>-flags-used ()	1)
 (define-form <header>-flags-atom ()	2)
@@ -123,8 +125,8 @@
 
 (define-function gc_push_root (ptr)
   (and (= gc_root_count gc_root_max)
-       (let* ((roots (malloc (* 4 (set gc_root_max (max 32 (* 2 gc_root_max)))))))
-	 (memcpy roots gc_roots (* 4 gc_root_count))
+       (let* ((roots (malloc (* (oop-size) (set gc_root_max (max 32 (* 2 gc_root_max)))))))
+	 (memcpy roots gc_roots (* (oop-size) gc_root_count))
 	 (and gc_roots (free gc_roots))
 	 (set gc_roots roots)))
   (set-oop-at gc_roots gc_root_count ptr)
@@ -180,7 +182,7 @@
 	     (let ()
 	       (set (<header>-flags ptr) (| flags (<header>-flags-mark)))
 	       (or (& flags (<header>-flags-atom))
-		   (let ((size (>> (<header>-size ptr) 2)))
+		   (let ((size (/ (<header>-size ptr) (oop-size))))
 		     (debug (printf "mark %p %d type %d\n" ptr size (<header>-type ptr)))
 		     (while size
 		       (set size (- size 1))
@@ -354,7 +356,7 @@
 	(arr (new-oops <array> (size-of-structure <array>))))
     (gc-protect (arr)
       (set (<array>-size   arr) (new-<long> size))
-      (set (<array>-_array arr) (new-oops <_array> (* 4 cap)))
+      (set (<array>-_array arr) (new-oops <_array> (* (oop-size) cap)))
       arr)))
 
 (define-function new-<expr> (defn ctx)
@@ -504,11 +506,11 @@
 	 (and (<= 0 idx)
 	      (let ()
 		(or (< idx size)
-		    (let ((cap (/ (gc_size elts) 4)))
+		    (let ((cap (/ (gc_size elts) (oop-size))))
 		      (while (<= cap idx) (set cap (* cap 2)))
 		      (gc-protect (obj)
-		        (let ((oops (new-oops <_array> (* 4 cap))))
-			  (memcpy oops elts (* size 4))
+		        (let ((oops (new-oops <_array> (* (oop-size) cap))))
+			  (memcpy oops elts (* size (oop-size)))
 			  (set elts (put <array> _array obj oops)))
 			(put <array> size obj (new-<long> (+ 1 idx))))))
 		(set-oop-at elts idx val))))))
@@ -521,8 +523,8 @@
     (k_array_append obj value)
     (and (< index len)
 	 (let* ((elts (get <array> _array obj))
-		(oops (+ elts (* 4 index))))
-	   (memmove (+ 4 oops) oops (* 4 (- len index))))))
+		(oops (+ elts (* (oop-size) index))))
+	   (memmove (+ (oop-size) oops) oops (* (oop-size) (- len index))))))
   (k_set_array_at obj index value))
 
 (define-function do_print (obj storing)
@@ -677,7 +679,7 @@
     (while (<= lo hi)
       (let* ((m (/ (+ lo hi) 2))
 	     (s (k_array_at symbols m))
-	     (c (strcmp string (get <symbol> _bits s))))
+	     (c (sign-extend-int (strcmp string (get <symbol> _bits s)))))
 	(cond
 	  ((< c 0)	(set hi (- m 1)))
 	  ((> c 0)	(set lo (+ m 1)))
@@ -813,16 +815,16 @@
 
 (set _k_read (lambda (stream on_close)
   (while 1
-    (let ((c (getc stream)))
+    (let ((c (sign-extend-int (getc stream))))
       (cond
 	((is_blank c)	())
-	((= ?? c)	(return (new-<long> (read_char (getc stream) stream))))
-	((= ?- c)	(return (if (is_digit10 (ungetc (getc stream) stream))
+	((= ?? c)	(return (new-<long> (read_char (sign-extend-int (getc stream)) stream))))
+	((= ?- c)	(return (if (is_digit10 (ungetc (sign-extend-int (getc stream)) stream))
 				    (read_number c stream)
 				    (read_symbol c stream))))
 	((= ?\' c)	(return (read_quote s_quote stream)))
 	((= ?\` c)	(return (read_quote s_quasiquote stream)))
-	((= ?\, c)	(return (let ((d (getc stream)))
+	((= ?\, c)	(return (let ((d (sign-extend-int (getc stream))))
 				  (if (= ?@ d)
 				      (read_quote s_unquote_splicing stream)
 				    (ungetc d stream)
@@ -832,7 +834,7 @@
 	((= ?\[ c)	(return (read_list ?\] stream)))	((= ?\] c)	(return (let () (ungetc c stream) (on_close c))))
 	((= ?\{ c)	(return (read_list ?\} stream)))	((= ?\} c)	(return (let () (ungetc c stream) (on_close c))))
 	((is_digit10 c)	(return (read_number c stream)))
-	((= ?\; c)	(while (and (!= ?\n (set c (getc stream)))
+	((= ?\; c)	(while (and (!= ?\n (set c (sign-extend-int (getc stream))))
 				    (!= ?\r c)
 				    (!= EOF c))))
 	((= ?\" c)	(return (read_string c stream)))
@@ -1287,7 +1289,7 @@
   (let ((arg (k_car args)))
     (or arg (set arg (get <variable> value input)))
     (or (is_long arg) (fatal "non-integer stream id in getc"))
-    (let ((c (getc (get_long arg))))
+    (let ((c (sign-extend-int (getc (get_long arg)))))
       (and (>= c 0)
 	   (new-<long> c)))))
 
@@ -1386,7 +1388,7 @@
   (let ((type (get_head args))
 	(size (get_head (get_tail args))))
     (and (is_long type) (is_long size)
-	 (new-oops (get_long type) (* (get_long size) 4)))))
+	 (new-oops (get_long type) (* (get_long size) (oop-size))))))
 
 (define-function subr_type_of	(args ctx)	(and args (new-<long> (get-type (k_car args)))))
 (define-function subr_stringP	(args ctx)	(and (is <string> (k_car args)) s_t))

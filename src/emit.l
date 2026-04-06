@@ -1,3 +1,5 @@
+(define-form oop-size () 4)
+
 (define __PREFIX__ (if (or (defined? '__MACH__) (defined? '__WIN32__)) "_" ""))
 
 (define-function string->type-name (str) (string->symbol (concat-string "<" (concat-string str ">"))))

@@ -1,3 +1,5 @@
+(define-form oop-size () 8)
+
 (define __PREFIX__ (if (or (defined? '__MACH__) (defined? '__WIN32__)) "_" ""))
 
 (define-function string->type-name (str) (string->symbol (concat-string "<" (concat-string str ">"))))
@@ -154,6 +156,12 @@
 (define-emit	(ENTER long)		(println "	pushq %rbp")
 					(println "	movq %rsp,%rbp")
 					(println "	subq $"$1",%rsp"))
+
+(define-emit	(ENTER-MAIN long)	(println "	pushq %rbp")
+					(println "	movq %rsp,%rbp")
+					(println "	subq $"$1",%rsp")
+					(println "	movq %rdi,"(+ $1 16)"(%rsp)")
+					(println "	movq %rsi,"(+ $1 24)"(%rsp)"))
 
 (define-emit	(LEAVE long)		(println "	addq $"$1",%rsp")
 					(println "	leave")
@@ -564,7 +572,9 @@
       (and main (emit GLOBAL tnam))
       (emit DEFLABEL tnam)
       (emit COMMENT (list "frame "arg-size" "(<compiler>-tmp-limit comp)" "tmp-size" "frm-size))
-      (emit ENTER (- frm-size 16))
+      (if main
+	  (emit ENTER-MAIN (- frm-size 16))
+	(emit ENTER (- frm-size 16)))
       (for (i 0 (<compiler>-pc comp)) (apply emit (array-at (<compiler>-asm comp) i)))
       (and (<compiler>-epilogue comp)
 	   (emit DEFLABEL (<compiler>-epilogue comp)))
