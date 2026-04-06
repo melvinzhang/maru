@@ -59,11 +59,11 @@ bin/mkosdefs : src/mkosdefs.c
 obj/eval.s: bin/eval src/boot.l src/osdefs.k src/emit.l src/eval.l
 	bin/eval -O $(wordlist 2, 9, $^) > $@
 
-obj/eval.%.s: bin/eval src/boot.l src/osdefs.%.k src/emit-x64.l src/eval.l
+obj/eval.%.s: bin/eval src/boot.l src/osdefs.%.k src/emit-shared.l src/emit-x64.l src/eval.l
 	bin/eval -O $(wordlist 2, 9, $^) > $@
 
-obj/eval.ll: bin/eval src/boot.l src/emit-llvm.l src/eval.l
-	bin/eval -O src/boot.l src/emit-llvm.l src/eval.l > $@
+obj/eval.ll: bin/eval src/boot.l src/emit-shared.l src/emit-llvm.l src/eval.l
+	bin/eval -O src/boot.l src/emit-shared.l src/emit-llvm.l src/eval.l > $@
 
 %.e: %.l
 	bin/eval src/boot.l $^
@@ -75,11 +75,11 @@ obj/eval.ll: bin/eval src/boot.l src/emit-llvm.l src/eval.l
 		bin/eval -O src/boot.l src/osdefs.k src/emit.l <(echo "(compile-begin)"; cat $^; echo "(compile-end)") > $@; \
 	fi
 
-%.ll: %.l src/boot.l src/emit-llvm.l
+%.ll: %.l src/boot.l src/emit-shared.l src/emit-llvm.l
 	if [ $$(grep -l "compile-begin" $<) ]; then \
-		bin/eval -O src/boot.l src/emit-llvm.l $< > $@; \
+		bin/eval -O src/boot.l src/emit-shared.l src/emit-llvm.l $< > $@; \
 	else \
-		bin/eval -O src/boot.l src/emit-llvm.l <(echo "(compile-begin)"; cat $<; echo "(compile-end)") > $@; \
+		bin/eval -O src/boot.l src/emit-shared.l src/emit-llvm.l <(echo "(compile-begin)"; cat $<; echo "(compile-end)") > $@; \
 	fi
 
 %: %.s

@@ -1,20 +1,29 @@
-(define return		(fixed (lambda args (error "(return) encountered in interpreted code"))))
-(define address-of	(fixed (lambda args (error "(address-of) encountered in interpreted code"))))
+;;; LLVM -- BACKEND INTERFACE
 
-;;; EXTERN
+(define-function temp? (obj)			())
+(define-function make-literal-operand (value)	())
+(define-function make-global-operand (name)	())
 
-(define-structure <extern> (name stub))
+;;; LLVM -- TEMP MANAGEMENT (stubs)
 
-(define-function extern (name)
-  (let ((self (new <extern>)))
-    (set (<extern>-name self) name)
-    self))
+(define-function new-param (comp)		())
+(define-function new-arg (comp)			())
+(define-function free-args (comp args)		())
+(define-function new-temp (comp)		())
+(define-function alloc-temp (comp)		())
+(define-function free-temp (comp temp)		())
+(define-function free-temps (comp temps)	())
 
-(define-function extern? (obj) (= <extern> (type-of obj)))
+;;; LLVM -- INSTRUCTIONS
+
+(define-emit	(COMMENT pair)		(print "; ") (apply println $1))
+
+;;; GEN <variable>
+
+(define-method gen <variable> (comp)
+  (println "gen-variable-stub"))
 
 ;;; GEN-DEFINITION
-
-(define-selector gen-definition)
 
 (define-method gen-definition <long> (name comp)
   (println "gen-def-long-stub"))
@@ -31,45 +40,9 @@
 (define-method gen-definition <expr> (name ocomp)
   (println "gen-def-expr-stub"))
 
-;;; EMIT
-
-(define-function emit (value)
-  (println "emit-stub"))
-
-;;; COMPILER
-
-(define-structure <compiler> (level param-counter arg-counter arg-limit tmp-counter tmp-limit temps epilogue asm pc section))
-
-(define-function compiler (level)
-  (let ((self (new <compiler>)))
-    (set (<compiler>-level         self) level)
-    (set (<compiler>-param-counter self) 0)
-    (set (<compiler>-arg-counter   self) 0)
-    (set (<compiler>-arg-limit     self) 0)
-    (set (<compiler>-tmp-counter   self) 0)
-    (set (<compiler>-tmp-limit     self) 0)
-    (set (<compiler>-asm           self) (array))
-    (set (<compiler>-pc            self) 0)
-    self))
-
-(define-function gen-env (env)
-  (let* (
-      (vars  (<env>-bindings env))
-      (comp  (compiler 0))
-      (index (array-length vars)))
-    (while (<= 0 (set index (- index 1)))
-      (let (
-          (name  (<variable>-name  (array-at vars index)))
-          (value (<variable>-value (array-at vars index))))
-        (println "; define " name)
-        (gen-definition value name comp)))
-    (for (i 0 (<compiler>-pc comp)) (apply emit (array-at (<compiler>-asm comp) i)))))
-
-(define-form compile-begin ()
-  `(set *globals* (environment *globals*)))
+;;; COMPILE-END
 
 (define-form compile-end ()
-  (let (
-      (env *globals*))
-      (set *globals* (<env>-parent env))
+  (let ((env *globals*))
+    (set *globals* (<env>-parent env))
     (gen-env env)))
