@@ -41,7 +41,7 @@ clean:
 	-rm bin/* src/osdefs.k 2>/dev/null || true
 
 bin/eval:
-	git show master:obj/eval.${OS}.s | ${GCC} -lm -x assembler - -o bin/eval
+	git show master:obj/eval.${OS}.s | ${GCC} -x assembler - -o bin/eval -lm
 
 bin/eval.new: obj/eval.s
 	${GCC} $^ -o $@
@@ -115,11 +115,11 @@ test-unbalanced: bin/eval bin/eval1
 	-bin/eval test/test-unbalanced.l
 	-bin/eval1 -b test/test-unbalanced.l
 
-test-pepsi: bin/eval1 bin/eval2 bin/eval3 bin/gceval
+test-pepsi: bin/eval1 bin/eval2 bin/eval3 
 	cd test/pepsi; ../../bin/eval1  repl.l test-pepsi.l > test-pepsi.eval1
 	cd test/pepsi; ../../bin/eval2  repl.l test-pepsi.l > test-pepsi.eval2
 	cd test/pepsi; ../../bin/eval3  repl.l test-pepsi.l > test-pepsi.eval3
-	cd test/pepsi; ../../bin/gceval repl.l test-pepsi.l > test-pepsi.gceval
+	cd test/pepsi; ../../bin/eval ../../src/boot.l ../unit-test.l repl.l test-pepsi.l > test-pepsi.eval
 
 # fails with "undefined variable: string->double" as eval does not support double values
 test-pepsi-eval: bin/eval
