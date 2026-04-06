@@ -153,15 +153,15 @@
 
 (define-emit	(DEFLABEL LABEL)	(println $1":"))
 
-(define-emit	(ENTER long)		(println "	pushq %rbp")
-					(println "	movq %rsp,%rbp")
-					(println "	subq $"$1",%rsp"))
-
-(define-emit	(ENTER-MAIN long)	(println "	pushq %rbp")
+(define-emit	(ENTER long long)	(println "	pushq %rbp")
 					(println "	movq %rsp,%rbp")
 					(println "	subq $"$1",%rsp")
-					(println "	movq %rdi,"(+ $1 16)"(%rsp)")
-					(println "	movq %rsi,"(+ $1 24)"(%rsp)"))
+					(and (>= $2 1) (println "	movq %rdi,"(+ $1 16)"(%rsp)"))
+					(and (>= $2 2) (println "	movq %rsi,"(+ $1 24)"(%rsp)"))
+					(and (>= $2 3) (println "	movq %rdx,"(+ $1 32)"(%rsp)"))
+					(and (>= $2 4) (println "	movq %rcx,"(+ $1 40)"(%rsp)"))
+					(and (>= $2 5) (println "	movq %r8,"(+ $1 48)"(%rsp)"))
+					(and (>= $2 6) (println "	movq %r9,"(+ $1 56)"(%rsp)")))
 
 (define-emit	(LEAVE long)		(println "	addq $"$1",%rsp")
 					(println "	leave")
@@ -227,9 +227,7 @@
 					(println "	jne "$1))
 
 (define-emit	(CALL LABEL)		(println "	call "$1))
-(define-emit	(CALL long)		(println "	call *%rax"))
-
-(define-emit	(CALLEXT long)		(println "	movq %rax,%r11")
+(define-emit	(CALL long)		(println "	movq %rax,%r11")
 					(and (>= $1 1) (println "	movq 0(%rsp),%rdi"))
 					(and (>= $1 2) (println "	movq 8(%rsp),%rsi"))
 					(and (>= $1 3) (println "	movq 16(%rsp),%rdx"))
@@ -508,9 +506,7 @@
 	  (map2-with gen-move tmps args comp)
 	  (free-temps comp tmps)
 	  (free-args  comp args)
-	  (if (and (variable? head) (extern? (<variable>-value head)))
-	      (gen comp CALLEXT narg)
-	    (gen comp CALL narg)))))))
+	  (gen comp CALL narg))))))
 
 ;;; GEN-DEFINITION
 
@@ -572,9 +568,7 @@
       (and main (emit GLOBAL tnam))
       (emit DEFLABEL tnam)
       (emit COMMENT (list "frame "arg-size" "(<compiler>-tmp-limit comp)" "tmp-size" "frm-size))
-      (if main
-	  (emit ENTER-MAIN (- frm-size 16))
-	(emit ENTER (- frm-size 16)))
+      (emit ENTER (- frm-size 16) (list-length params))
       (for (i 0 (<compiler>-pc comp)) (apply emit (array-at (<compiler>-asm comp) i)))
       (and (<compiler>-epilogue comp)
 	   (emit DEFLABEL (<compiler>-epilogue comp)))

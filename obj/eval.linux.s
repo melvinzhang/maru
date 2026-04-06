@@ -66,21 +66,29 @@ __L__3:
 	call *%r11
 	movq %rax,stderr(%rip)
 	movq gc__initialise(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq $0,%rax
 	movq %rax,56(%rsp)
 	movq new_2D_3Carray_3E(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,symbols(%rip)
 	leaq symbols(%rip),%rax
 	movq %rax,56(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__4:
 	.asciz "t"
@@ -90,7 +98,10 @@ __L__4:
 	movq intern(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,s__t(%rip)
 	.data
 __L__5:
@@ -101,7 +112,10 @@ __L__5:
 	movq intern(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,s__dot(%rip)
 	.data
 __L__6:
@@ -112,7 +126,10 @@ __L__6:
 	movq intern(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,s__set(%rip)
 	.data
 __L__7:
@@ -123,7 +140,10 @@ __L__7:
 	movq intern(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,s__define(%rip)
 	.data
 __L__8:
@@ -134,7 +154,10 @@ __L__8:
 	movq intern(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,s__lambda(%rip)
 	.data
 __L__9:
@@ -145,7 +168,10 @@ __L__9:
 	movq intern(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,s__let(%rip)
 	.data
 __L__10:
@@ -156,7 +182,10 @@ __L__10:
 	movq intern(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,s__quote(%rip)
 	.data
 __L__11:
@@ -167,7 +196,10 @@ __L__11:
 	movq intern(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,s__quasiquote(%rip)
 	.data
 __L__12:
@@ -178,7 +210,10 @@ __L__12:
 	movq intern(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,s__unquote(%rip)
 	.data
 __L__13:
@@ -189,14 +224,20 @@ __L__13:
 	movq intern(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,s__unquote__splicing(%rip)
 	leaq globals(%rip),%rax
 	movq %rax,56(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,56(%rsp)
 	movq $0,%rax
@@ -210,7 +251,12 @@ __L__13:
 	movq %rcx,8(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,globals(%rip)
 	movq globals(%rip),%rax
 	movq %rax,64(%rsp)
@@ -223,7 +269,10 @@ __L__14:
 	movq intern(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq globals(%rip),%rax
 	movq %rax,56(%rsp)
@@ -234,7 +283,12 @@ __L__14:
 	movq %rcx,8(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,globals(%rip)
 	movq globals(%rip),%rax
 	movq %rax,56(%rsp)
@@ -255,7 +309,10 @@ __L__15:
 	movq intern(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq $0,%rax
 	movq %rax,64(%rsp)
@@ -266,14 +323,22 @@ __L__15:
 	movq %rcx,8(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,input(%rip)
 	leaq input(%rip),%rax
 	movq %rax,64(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq globals(%rip),%rax
 	movq %rax,64(%rsp)
 	movq $0,%rax
@@ -293,7 +358,10 @@ __L__16:
 	movq intern(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq $0,%rax
 	movq %rax,56(%rsp)
@@ -304,14 +372,22 @@ __L__16:
 	movq %rcx,8(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,expanders(%rip)
 	leaq expanders(%rip),%rax
 	movq %rax,56(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq globals(%rip),%rax
 	movq %rax,56(%rsp)
 	movq $0,%rax
@@ -331,7 +407,10 @@ __L__17:
 	movq intern(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq $0,%rax
 	movq %rax,64(%rsp)
@@ -342,14 +421,22 @@ __L__17:
 	movq %rcx,8(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,encoders(%rip)
 	leaq encoders(%rip),%rax
 	movq %rax,64(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq globals(%rip),%rax
 	movq %rax,64(%rsp)
 	movq $0,%rax
@@ -369,7 +456,10 @@ __L__18:
 	movq intern(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq $0,%rax
 	movq %rax,56(%rsp)
@@ -380,14 +470,22 @@ __L__18:
 	movq %rcx,8(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,evaluators(%rip)
 	leaq evaluators(%rip),%rax
 	movq %rax,56(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq globals(%rip),%rax
 	movq %rax,56(%rsp)
 	movq $0,%rax
@@ -407,7 +505,10 @@ __L__19:
 	movq intern(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq $0,%rax
 	movq %rax,64(%rsp)
@@ -418,14 +519,22 @@ __L__19:
 	movq %rcx,8(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,applicators(%rip)
 	leaq applicators(%rip),%rax
 	movq %rax,64(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__20:
 	.asciz "define"
@@ -439,7 +548,11 @@ __L__20:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__21:
 	.asciz "lambda"
@@ -453,7 +566,11 @@ __L__21:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__22:
 	.asciz "let"
@@ -467,7 +584,11 @@ __L__22:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__23:
 	.asciz "set"
@@ -481,7 +602,11 @@ __L__23:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__24:
 	.asciz "while"
@@ -495,7 +620,11 @@ __L__24:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__25:
 	.asciz "if"
@@ -509,7 +638,11 @@ __L__25:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__26:
 	.asciz "or"
@@ -523,7 +656,11 @@ __L__26:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__27:
 	.asciz "and"
@@ -537,7 +674,11 @@ __L__27:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__28:
 	.asciz "quote"
@@ -551,7 +692,11 @@ __L__28:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__29:
 	.asciz "defined?"
@@ -565,7 +710,11 @@ __L__29:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__30:
 	.asciz "not"
@@ -579,7 +728,11 @@ __L__30:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__31:
 	.asciz "&"
@@ -593,7 +746,11 @@ __L__31:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__32:
 	.asciz "|"
@@ -607,7 +764,11 @@ __L__32:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__33:
 	.asciz "^"
@@ -621,7 +782,11 @@ __L__33:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__34:
 	.asciz "+"
@@ -635,7 +800,11 @@ __L__34:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__35:
 	.asciz "-"
@@ -649,7 +818,11 @@ __L__35:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__36:
 	.asciz "*"
@@ -663,7 +836,11 @@ __L__36:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__37:
 	.asciz "/"
@@ -677,7 +854,11 @@ __L__37:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__38:
 	.asciz "<<"
@@ -691,7 +872,11 @@ __L__38:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__39:
 	.asciz ">>"
@@ -705,7 +890,11 @@ __L__39:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__40:
 	.asciz "<"
@@ -719,7 +908,11 @@ __L__40:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__41:
 	.asciz "<="
@@ -733,7 +926,11 @@ __L__41:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__42:
 	.asciz "!="
@@ -747,7 +944,11 @@ __L__42:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__43:
 	.asciz "="
@@ -761,7 +962,11 @@ __L__43:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__44:
 	.asciz ">="
@@ -775,7 +980,11 @@ __L__44:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__45:
 	.asciz ">"
@@ -789,7 +998,11 @@ __L__45:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__46:
 	.asciz "abort"
@@ -803,7 +1016,11 @@ __L__46:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__47:
 	.asciz "exit"
@@ -817,7 +1034,11 @@ __L__47:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__48:
 	.asciz "format"
@@ -831,7 +1052,11 @@ __L__48:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__49:
 	.asciz "dump"
@@ -845,7 +1070,11 @@ __L__49:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__50:
 	.asciz "print"
@@ -859,7 +1088,11 @@ __L__50:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__51:
 	.asciz "warn"
@@ -873,7 +1106,11 @@ __L__51:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__52:
 	.asciz "apply"
@@ -887,7 +1124,11 @@ __L__52:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__53:
 	.asciz "eval"
@@ -901,7 +1142,11 @@ __L__53:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__54:
 	.asciz "encode"
@@ -915,7 +1160,11 @@ __L__54:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__55:
 	.asciz "expand"
@@ -929,7 +1178,11 @@ __L__55:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__56:
 	.asciz "cons"
@@ -943,7 +1196,11 @@ __L__56:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__57:
 	.asciz "string"
@@ -957,7 +1214,11 @@ __L__57:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__58:
 	.asciz "array"
@@ -971,7 +1232,11 @@ __L__58:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__59:
 	.asciz "form"
@@ -985,7 +1250,11 @@ __L__59:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__60:
 	.asciz "open"
@@ -999,7 +1268,11 @@ __L__60:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__61:
 	.asciz "close"
@@ -1013,7 +1286,11 @@ __L__61:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__62:
 	.asciz "getc"
@@ -1027,7 +1304,11 @@ __L__62:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__63:
 	.asciz "putc"
@@ -1041,7 +1322,11 @@ __L__63:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__64:
 	.asciz "allocate"
@@ -1055,7 +1340,11 @@ __L__64:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__65:
 	.asciz "type-of"
@@ -1069,7 +1358,11 @@ __L__65:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__66:
 	.asciz "string?"
@@ -1083,7 +1376,11 @@ __L__66:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__67:
 	.asciz "symbol?"
@@ -1097,7 +1394,11 @@ __L__67:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__68:
 	.asciz "pair?"
@@ -1111,7 +1412,11 @@ __L__68:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__69:
 	.asciz "array?"
@@ -1125,7 +1430,11 @@ __L__69:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__70:
 	.asciz "car"
@@ -1139,7 +1448,11 @@ __L__70:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__71:
 	.asciz "cdr"
@@ -1153,7 +1466,11 @@ __L__71:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__72:
 	.asciz "set-car"
@@ -1167,7 +1484,11 @@ __L__72:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__73:
 	.asciz "set-cdr"
@@ -1181,7 +1502,11 @@ __L__73:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__74:
 	.asciz "oop-at"
@@ -1195,7 +1520,11 @@ __L__74:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__75:
 	.asciz "set-oop-at"
@@ -1209,7 +1538,11 @@ __L__75:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__76:
 	.asciz "array-length"
@@ -1223,7 +1556,11 @@ __L__76:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__77:
 	.asciz "array-at"
@@ -1237,7 +1574,11 @@ __L__77:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__78:
 	.asciz "set-array-at"
@@ -1251,7 +1592,11 @@ __L__78:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__79:
 	.asciz "string-length"
@@ -1265,7 +1610,11 @@ __L__79:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__80:
 	.asciz "string-at"
@@ -1279,7 +1628,11 @@ __L__80:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__81:
 	.asciz "set-string-at"
@@ -1293,7 +1646,11 @@ __L__81:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__82:
 	.asciz "string->symbol"
@@ -1307,7 +1664,11 @@ __L__82:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__83:
 	.asciz "symbol->string"
@@ -1321,7 +1682,11 @@ __L__83:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__84:
 	.asciz "long->string"
@@ -1335,7 +1700,11 @@ __L__84:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__85:
 	.asciz "verbose"
@@ -1349,7 +1718,11 @@ __L__85:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__86:
 	.asciz "optimised"
@@ -1363,7 +1736,11 @@ __L__86:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__87:
 	.asciz "read"
@@ -1377,7 +1754,11 @@ __L__87:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,64(%rsp)
 	leaq 64(%rsp),%rax
@@ -1385,7 +1766,10 @@ __L__87:
 	movq gc__push__root(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__89
 __L__88:
 	movq $0,%rax
@@ -1397,7 +1781,11 @@ __L__88:
 	movq %rcx,0(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	movq 112(%rsp),%rax
 	movq %rax,56(%rsp)
@@ -1409,7 +1797,10 @@ __L__88:
 	movq new_2D_3Cstring_3E(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,56(%rsp)
 	movq $0,%rax
 	movq %rax,48(%rsp)
@@ -1450,7 +1841,10 @@ __L__90:
 	movq intern(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,72(%rsp)
@@ -1461,7 +1855,12 @@ __L__90:
 	movq %rcx,8(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,arguments(%rip)
 	movq %rax,72(%rsp)
 	leaq 64(%rsp),%rax
@@ -1469,7 +1868,10 @@ __L__90:
 	movq gc__pop__root(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 72(%rsp),%rax
 	movq globals(%rip),%rax
 	movq %rax,64(%rsp)
@@ -1488,14 +1890,21 @@ __L__90:
 	movq %rcx,0(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,f__set(%rip)
 	leaq f__set(%rip),%rax
 	movq %rax,72(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq globals(%rip),%rax
 	movq %rax,72(%rsp)
 	movq $0,%rax
@@ -1513,14 +1922,21 @@ __L__90:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,f__quote(%rip)
 	leaq f__quote(%rip),%rax
 	movq %rax,64(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq globals(%rip),%rax
 	movq %rax,64(%rsp)
 	movq $0,%rax
@@ -1538,14 +1954,21 @@ __L__90:
 	movq %rcx,0(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,f__lambda(%rip)
 	leaq f__lambda(%rip),%rax
 	movq %rax,72(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq globals(%rip),%rax
 	movq %rax,72(%rsp)
 	movq $0,%rax
@@ -1563,14 +1986,21 @@ __L__90:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,f__let(%rip)
 	leaq f__let(%rip),%rax
 	movq %rax,64(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq globals(%rip),%rax
 	movq %rax,64(%rsp)
 	movq $0,%rax
@@ -1588,27 +2018,40 @@ __L__90:
 	movq %rcx,0(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,f__define(%rip)
 	leaq f__define(%rip),%rax
 	movq %rax,72(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq $32,%rax
 	movq %rax,72(%rsp)
 	movq new_2D_3Carray_3E(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,trace__stack(%rip)
 	leaq trace__stack(%rip),%rax
 	movq %rax,72(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq globals(%rip),%rax
 	movq %rax,72(%rsp)
 	movq $0,%rax
@@ -1628,7 +2071,10 @@ __L__91:
 	movq intern(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	movq $0,%rax
 	movq %rax,48(%rsp)
@@ -1639,7 +2085,12 @@ __L__91:
 	movq %rcx,8(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__93
 __L__92:
 	movq arguments(%rip),%rax
@@ -1674,7 +2125,10 @@ __L__92:
 	movq gc__push__root(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq arguments(%rip),%rax
 	movq %rax,56(%rsp)
 	movq $0,%rax
@@ -1780,7 +2234,10 @@ __L__102:
 	movq repl__stream(%rip),%rax
 	movq 80(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__101
 __L__100:
 	movq 72(%rsp),%rax
@@ -1818,14 +2275,21 @@ __L__105:
 	movq %rcx,0(%rsp)
 	movq 88(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__104:
 	movq 56(%rsp),%rax
 	movq %rax,88(%rsp)
 	movq repl__stream(%rip),%rax
 	movq 88(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 56(%rsp),%rax
 	movq %rax,88(%rsp)
 	movq fclose_24stub(%rip),%rax
@@ -1844,7 +2308,10 @@ __L__95:
 	movq gc__pop__root(%rip),%rax
 	movq 88(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 56(%rsp),%rax
 __L__93:
 	movq arguments(%rip),%rax
@@ -1897,7 +2364,9 @@ __L__107:
 	cmpq $0,%rax
 	je __L__110
 	movq gc__gcollect(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__111:
 	.asciz "GC: %d objects in %d bytes, %d free\012"
@@ -1971,6 +2440,8 @@ __L__113:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	movq 88(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq 80(%rsp),%rax
@@ -1980,20 +2451,30 @@ __L__113:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	leaq 40(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 40(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq new_2D_3Cfixed_3E(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq globals(%rip),%rax
 	movq %rax,32(%rsp)
@@ -2010,7 +2491,10 @@ __L__113:
 	movq intern(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq 40(%rsp),%rax
 	movq %rax,56(%rsp)
@@ -2021,14 +2505,22 @@ __L__113:
 	movq %rcx,8(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,56(%rsp)
 	leaq 40(%rsp),%rax
 	movq %rax,48(%rsp)
 	movq gc__pop__root(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 56(%rsp),%rax
 	addq $64,%rsp
 	leave
@@ -2040,6 +2532,8 @@ __L__114:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	movq 88(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq 80(%rsp),%rax
@@ -2049,14 +2543,21 @@ __L__114:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	leaq 40(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq globals(%rip),%rax
 	movq %rax,32(%rsp)
 	movq $0,%rax
@@ -2072,7 +2573,10 @@ __L__114:
 	movq intern(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq 40(%rsp),%rax
 	movq %rax,56(%rsp)
@@ -2083,14 +2587,22 @@ __L__114:
 	movq %rcx,8(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,56(%rsp)
 	leaq 40(%rsp),%rax
 	movq %rax,48(%rsp)
 	movq gc__pop__root(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 56(%rsp),%rax
 	addq $64,%rsp
 	leave
@@ -2102,6 +2614,7 @@ __L__115:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
 	movq input(%rip),%rax
 	movq %rax,32(%rsp)
 	movq $0,%rax
@@ -2110,7 +2623,10 @@ __L__115:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq $1,%rax
 	movq %rax,48(%rsp)
@@ -2126,7 +2642,10 @@ __L__115:
 	movq gc__push__root(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 96(%rsp),%rax
 	movq %rax,40(%rsp)
 	movq stdin(%rip),%rax
@@ -2177,14 +2696,22 @@ __L__118:
 	movq %rcx,8(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,56(%rsp)
 	leaq 56(%rsp),%rax
 	movq %rax,40(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,40(%rsp)
 	movq opt__verbose(%rip),%rax
@@ -2213,7 +2740,10 @@ __L__121:
 	movq k__dumpln(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__120:
 	movq 32(%rsp),%rax
 	movq %rax,40(%rsp)
@@ -2224,7 +2754,11 @@ __L__120:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq $2,%rax
 	movq %rax,48(%rsp)
@@ -2254,7 +2788,10 @@ __L__123:
 	movq k__dumpln(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__122:
 	movq 32(%rsp),%rax
 	movq %rax,48(%rsp)
@@ -2265,7 +2802,11 @@ __L__122:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq $2,%rax
 	movq %rax,40(%rsp)
@@ -2295,7 +2836,10 @@ __L__125:
 	movq k__dumpln(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__124:
 	movq $0,%rax
 	movq %rax,40(%rsp)
@@ -2310,14 +2854,22 @@ __L__124:
 	movq %rcx,8(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	leaq 64(%rsp),%rax
 	movq %rax,48(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 32(%rsp),%rax
 	movq %rax,48(%rsp)
 	movq 64(%rsp),%rax
@@ -2327,7 +2879,11 @@ __L__124:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq $1,%rax
 	movq %rax,40(%rsp)
@@ -2357,7 +2913,10 @@ __L__127:
 	movq k__dumpln(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__126:
 	movq 96(%rsp),%rax
 	movq %rax,40(%rsp)
@@ -2372,7 +2931,10 @@ __L__126:
 	movq k__dumpln(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__129
 __L__128:
 	movq $0,%rax
@@ -2403,7 +2965,10 @@ __L__131:
 	movq k__dumpln(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__130:
 __L__129:
 	movq %rax,40(%rsp)
@@ -2412,7 +2977,10 @@ __L__129:
 	movq gc__pop__root(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 40(%rsp),%rax
 	movq %rax,64(%rsp)
 	leaq 56(%rsp),%rax
@@ -2420,7 +2988,10 @@ __L__129:
 	movq gc__pop__root(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 64(%rsp),%rax
 __L__119:
 	movq 96(%rsp),%rax
@@ -2466,7 +3037,10 @@ __L__132:
 	movq k__read(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq %rax,64(%rsp)
 	movq DONE(%rip),%rax
@@ -2503,7 +3077,10 @@ __L__134:
 	movq gc__pop__root(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 64(%rsp),%rax
 	movq 32(%rsp),%rax
 	addq $80,%rsp
@@ -2516,6 +3093,8 @@ __L__136:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
 	movq 96(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $0,%rax
@@ -2529,7 +3108,10 @@ __L__136:
 	movq k__read(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -2550,7 +3132,10 @@ __L__137:
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -2598,7 +3183,11 @@ __L__145:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__140:
 	movq 16(%rsp),%rax
 	movq %rax,32(%rsp)
@@ -2641,7 +3230,11 @@ __L__146:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -2652,13 +3245,19 @@ __L__146:
 	movq gc__push__root(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	leaq 56(%rsp),%rax
 	movq %rax,64(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__150
 __L__149:
 	movq 56(%rsp),%rax
@@ -2670,7 +3269,11 @@ __L__149:
 	movq %rcx,0(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,72(%rsp)
 	movq $1,%rax
 	movq %rax,64(%rsp)
@@ -2686,7 +3289,10 @@ __L__150:
 	movq k__read(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,56(%rsp)
 	movq %rax,72(%rsp)
 	movq DONE(%rip),%rax
@@ -2701,13 +3307,19 @@ __L__150:
 	movq gc__pop__root(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	leaq 48(%rsp),%rax
 	movq %rax,64(%rsp)
 	movq gc__pop__root(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 72(%rsp),%rax
 	movq 40(%rsp),%rax
 	movq %rax,72(%rsp)
@@ -2739,12 +3351,17 @@ __L__151:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -2796,7 +3413,10 @@ __L__152:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__153:
 	addq $48,%rsp
 	leave
@@ -2808,12 +3428,17 @@ __L__158:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -2865,7 +3490,10 @@ __L__159:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__160:
 	addq $48,%rsp
 	leave
@@ -2877,12 +3505,17 @@ __L__165:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
 	movq 96(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq k__car(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq 32(%rsp),%rax
 	movq %rax,40(%rsp)
@@ -2999,7 +3632,10 @@ __L__177:
 	movq new_2D_3Cstring_3E(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	movq 40(%rsp),%rax
 	movq %rax,56(%rsp)
@@ -3023,12 +3659,17 @@ __L__178:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -3112,7 +3753,10 @@ __L__187:
 	movq new_2D_3Cstring_3E(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__185:
 __L__180:
 	addq $48,%rsp
@@ -3125,12 +3769,17 @@ __L__190:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -3214,7 +3863,10 @@ __L__199:
 	movq intern(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__197:
 __L__192:
 	addq $48,%rsp
@@ -3227,6 +3879,8 @@ __L__202:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
 	.data
 __L__203:
 	.asciz "set-string-at"
@@ -3240,7 +3894,11 @@ __L__203:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,24(%rsp)
 	movq 96(%rsp),%rax
@@ -3366,7 +4024,10 @@ __L__210:
 	movq k__string__length(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq 40(%rsp),%rax
 	cmpq 48(%rsp),%rax
@@ -3412,6 +4073,8 @@ __L__214:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	.data
 __L__215:
 	.asciz "string-at"
@@ -3425,7 +4088,11 @@ __L__215:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,24(%rsp)
 	movq 80(%rsp),%rax
@@ -3501,7 +4168,10 @@ __L__218:
 	movq k__string__length(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq 32(%rsp),%rax
 	cmpq 40(%rsp),%rax
@@ -3528,7 +4198,10 @@ __L__218:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__221:
 __L__216:
 	addq $64,%rsp
@@ -3541,12 +4214,17 @@ __L__222:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -3601,6 +4279,8 @@ __L__228:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
 	.data
 __L__229:
 	.asciz "set-array-at"
@@ -3614,7 +4294,11 @@ __L__229:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,40(%rsp)
 	movq 96(%rsp),%rax
@@ -3705,7 +4389,12 @@ __L__232:
 	movq %rcx,8(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 __L__230:
 	addq $80,%rsp
 	leave
@@ -3717,6 +4406,8 @@ __L__235:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	.data
 __L__236:
 	.asciz "array-at"
@@ -3730,7 +4421,11 @@ __L__236:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,24(%rsp)
 	movq 80(%rsp),%rax
@@ -3800,7 +4495,11 @@ __L__239:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__237:
 	addq $64,%rsp
 	leave
@@ -3812,22 +4511,33 @@ __L__242:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq k__array__length(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	addq $32,%rsp
 	leave
 	ret
@@ -3838,6 +4548,8 @@ __L__243:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	.data
 __L__244:
 	.asciz "set-oop-at"
@@ -3851,7 +4563,11 @@ __L__244:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,24(%rsp)
 	movq 80(%rsp),%rax
@@ -3989,6 +4705,8 @@ __L__254:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	.data
 __L__255:
 	.asciz "oop-at"
@@ -4002,7 +4720,11 @@ __L__255:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,24(%rsp)
 	movq 64(%rsp),%rax
@@ -4119,12 +4841,17 @@ __L__265:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -4167,7 +4894,10 @@ __L__268:
 	movq k__cadr(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq $1,%rax
 	movq %rax,40(%rsp)
@@ -4187,12 +4917,17 @@ __L__271:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -4235,7 +4970,10 @@ __L__274:
 	movq k__cadr(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq $0,%rax
 	movq %rax,40(%rsp)
@@ -4255,17 +4993,25 @@ __L__277:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq k__cdr(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	addq $32,%rsp
 	leave
 	ret
@@ -4276,17 +5022,25 @@ __L__278:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	addq $32,%rsp
 	leave
 	ret
@@ -4297,12 +5051,17 @@ __L__279:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq $0,%rax
 	movq 16(%rsp),%rax
@@ -4347,12 +5106,17 @@ __L__285:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq $0,%rax
 	movq 16(%rsp),%rax
@@ -4397,12 +5161,17 @@ __L__291:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq $0,%rax
 	movq 16(%rsp),%rax
@@ -4447,12 +5216,17 @@ __L__297:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq $0,%rax
 	movq 16(%rsp),%rax
@@ -4497,6 +5271,8 @@ __L__303:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	movq 48(%rsp),%rax
 	cmpq $0,%rax
 	je __L__304
@@ -4505,7 +5281,10 @@ __L__303:
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq $0,%rax
 	movq 16(%rsp),%rax
@@ -4535,7 +5314,10 @@ __L__306:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__304:
 	addq $32,%rsp
 	leave
@@ -4547,6 +5329,8 @@ __L__309:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	.data
 __L__310:
 	.asciz "allocate"
@@ -4560,7 +5344,11 @@ __L__310:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,24(%rsp)
 	movq 80(%rsp),%rax
@@ -4674,7 +5462,11 @@ __L__317:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__311:
 	addq $64,%rsp
 	leave
@@ -4686,26 +5478,38 @@ __L__320:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,24(%rsp)
 	movq k__cadr(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	movq new_2D_3Cform_3E(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	addq $32,%rsp
 	leave
 	ret
@@ -4716,12 +5520,17 @@ __L__321:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq $0,%rax
 	movq 16(%rsp),%rax
@@ -4773,7 +5582,10 @@ __L__322:
 	movq new_2D_3Carray_3E(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	addq $32,%rsp
 	leave
 	ret
@@ -4784,12 +5596,17 @@ __L__327:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq $0,%rax
 	movq 16(%rsp),%rax
@@ -4841,7 +5658,10 @@ __L__328:
 	movq __new_2D_3Cstring_3E(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	addq $32,%rsp
 	leave
 	ret
@@ -4852,6 +5672,8 @@ __L__333:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $0,%rax
@@ -4908,28 +5730,42 @@ __L__336:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__334:
 	movq 48(%rsp),%rax
 	movq %rax,24(%rsp)
 	movq k__car(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__cadr(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq new_2D_3Cpair_3E(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
 	movq 16(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	addq $32,%rsp
 	leave
 	ret
@@ -4940,19 +5776,27 @@ __L__337:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,24(%rsp)
 	movq k__cadr(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	jne __L__338
 	movq 72(%rsp),%rax
@@ -4971,7 +5815,11 @@ __L__338:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	addq $48,%rsp
 	leave
 	ret
@@ -4982,19 +5830,27 @@ __L__339:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,24(%rsp)
 	movq k__cadr(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	jne __L__340
 	movq 72(%rsp),%rax
@@ -5013,7 +5869,11 @@ __L__340:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	addq $48,%rsp
 	leave
 	ret
@@ -5024,19 +5884,27 @@ __L__341:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
 	movq 96(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq k__car(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq 96(%rsp),%rax
 	movq %rax,40(%rsp)
 	movq k__cadr(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	jne __L__342
 	movq globals(%rip),%rax
@@ -5060,7 +5928,12 @@ __L__341:
 	movq %rcx,8(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 __L__342:
 	movq %rax,56(%rsp)
 	leaq 32(%rsp),%rax
@@ -5068,13 +5941,19 @@ __L__342:
 	movq gc__push__root(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	leaq 56(%rsp),%rax
 	movq %rax,48(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,48(%rsp)
 	movq $0,%rax
@@ -5088,14 +5967,22 @@ __L__342:
 	movq %rcx,8(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	leaq 64(%rsp),%rax
 	movq %rax,40(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 32(%rsp),%rax
 	movq %rax,40(%rsp)
 	movq 56(%rsp),%rax
@@ -5105,7 +5992,11 @@ __L__342:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq 32(%rsp),%rax
 	movq %rax,48(%rsp)
@@ -5116,7 +6007,11 @@ __L__342:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq 32(%rsp),%rax
 	movq %rax,40(%rsp)
@@ -5127,14 +6022,21 @@ __L__342:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	leaq 64(%rsp),%rax
 	movq %rax,40(%rsp)
 	movq gc__pop__root(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 48(%rsp),%rax
 	movq %rax,64(%rsp)
 	leaq 56(%rsp),%rax
@@ -5142,13 +6044,19 @@ __L__342:
 	movq gc__pop__root(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	leaq 32(%rsp),%rax
 	movq %rax,48(%rsp)
 	movq gc__pop__root(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 64(%rsp),%rax
 	addq $80,%rsp
 	leave
@@ -5160,19 +6068,27 @@ __L__343:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	movq 80(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq k__car(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq 80(%rsp),%rax
 	movq %rax,40(%rsp)
 	movq k__cadr(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq 88(%rsp),%rax
 	movq %rax,48(%rsp)
@@ -5183,7 +6099,12 @@ __L__343:
 	movq %rcx,8(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	addq $64,%rsp
 	leave
 	ret
@@ -5194,6 +6115,8 @@ __L__344:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
 	jmp __L__346
 __L__345:
 	movq $0,%rax
@@ -5366,6 +6289,8 @@ __L__361:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	jmp __L__363
 __L__362:
 	movq $0,%rax
@@ -5378,7 +6303,10 @@ __L__362:
 	movq k__print(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq $1,%rax
 	movq %rax,16(%rsp)
 	movq 48(%rsp),%rax
@@ -5430,6 +6358,8 @@ __L__368:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	jmp __L__370
 __L__369:
 	movq $0,%rax
@@ -5442,7 +6372,10 @@ __L__369:
 	movq k__dump(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq $1,%rax
 	movq %rax,16(%rsp)
 	movq 48(%rsp),%rax
@@ -5494,6 +6427,8 @@ __L__375:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $128,%rsp
+	movq %rdi,144(%rsp)
+	movq %rsi,152(%rsp)
 	.data
 __L__376:
 	.asciz "format"
@@ -5507,20 +6442,30 @@ __L__376:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq 144(%rsp),%rax
 	movq %rax,40(%rsp)
 	movq k__car(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq 144(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq k__cadr(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq 40(%rsp),%rax
 	movq %rax,48(%rsp)
@@ -5564,7 +6509,10 @@ __L__382:
 	movq fatal(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__377:
 	movq 40(%rsp),%rax
 	movq %rax,48(%rsp)
@@ -5745,7 +6693,10 @@ __L__396:
 	movq new_2D_3Cstring_3E(%rip),%rax
 	movq 112(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,112(%rsp)
 	movq 80(%rsp),%rax
 	movq %rax,104(%rsp)
@@ -5814,19 +6765,27 @@ __L__402:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,24(%rsp)
 	movq k__cadr(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	movq 16(%rsp),%rax
 	cmpq $0,%rax
@@ -5884,7 +6843,10 @@ __L__409:
 	movq fatal(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__404:
 	movq 24(%rsp),%rax
 	movq %rax,32(%rsp)
@@ -5928,7 +6890,10 @@ __L__415:
 	movq fatal(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__410:
 	movq 16(%rsp),%rax
 	movq %rax,32(%rsp)
@@ -5951,7 +6916,10 @@ __L__410:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	addq $48,%rsp
 	leave
 	ret
@@ -5962,12 +6930,17 @@ __L__416:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	movq 80(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 16(%rsp),%rax
 	cmpq $0,%rax
@@ -6025,7 +6998,10 @@ __L__423:
 	movq fatal(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__418:
 	movq $32,%rax
 	movq %rax,24(%rsp)
@@ -6066,7 +7042,10 @@ __L__418:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__424:
 	addq $64,%rsp
 	leave
@@ -6078,12 +7057,17 @@ __L__425:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -6127,7 +7111,10 @@ __L__431:
 	movq fatal(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__426:
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -6157,12 +7144,17 @@ __L__432:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -6206,7 +7198,10 @@ __L__438:
 	movq fatal(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__433:
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -6243,7 +7238,10 @@ __L__439:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__440:
 	addq $48,%rsp
 	leave
@@ -6255,12 +7253,17 @@ __L__441:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq $0,%rax
 	movq 16(%rsp),%rax
@@ -6298,7 +7301,10 @@ __L__444:
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq $0,%rax
 	movq $0,%rax
@@ -6328,6 +7334,8 @@ __L__447:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $0,%rsp
+	movq %rdi,16(%rsp)
+	movq %rsi,24(%rsp)
 	movq abort_24stub(%rip),%rax
 	movq %rax,%r11
 	xorl %eax,%eax
@@ -6342,6 +7350,8 @@ __L__448:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	.data
 __L__449:
 	.asciz "!="
@@ -6355,7 +7365,11 @@ __L__449:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq 48(%rsp),%rax
 	movq %rax,24(%rsp)
 	movq 56(%rsp),%rax
@@ -6365,7 +7379,11 @@ __L__449:
 	movq %rcx,0(%rsp)
 	movq 16(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	sete %al
 	movzbq %al,%rax
@@ -6385,6 +7403,8 @@ __L__452:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	.data
 __L__453:
 	.asciz "="
@@ -6398,7 +7418,11 @@ __L__453:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,24(%rsp)
 	movq 80(%rsp),%rax
@@ -6616,6 +7640,8 @@ __L__473:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	.data
 __L__474:
 	.asciz "gt"
@@ -6629,7 +7655,11 @@ __L__474:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,24(%rsp)
 	movq 80(%rsp),%rax
@@ -6801,7 +7831,10 @@ __L__490:
 	movq k__print(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__491:
 	.asciz " "
@@ -6820,7 +7853,10 @@ __L__491:
 	movq k__print(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__492:
 	.asciz ")"
@@ -6848,7 +7884,9 @@ __L__493:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 __L__476:
 	addq $64,%rsp
 	leave
@@ -6860,6 +7898,8 @@ __L__494:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	.data
 __L__495:
 	.asciz "ge"
@@ -6873,7 +7913,11 @@ __L__495:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,24(%rsp)
 	movq 80(%rsp),%rax
@@ -7045,7 +8089,10 @@ __L__511:
 	movq k__print(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__512:
 	.asciz " "
@@ -7064,7 +8111,10 @@ __L__512:
 	movq k__print(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__513:
 	.asciz ")"
@@ -7092,7 +8142,9 @@ __L__514:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 __L__497:
 	addq $64,%rsp
 	leave
@@ -7104,6 +8156,8 @@ __L__515:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	.data
 __L__516:
 	.asciz "le"
@@ -7117,7 +8171,11 @@ __L__516:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,24(%rsp)
 	movq 80(%rsp),%rax
@@ -7289,7 +8347,10 @@ __L__532:
 	movq k__print(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__533:
 	.asciz " "
@@ -7308,7 +8369,10 @@ __L__533:
 	movq k__print(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__534:
 	.asciz ")"
@@ -7336,7 +8400,9 @@ __L__535:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 __L__518:
 	addq $64,%rsp
 	leave
@@ -7348,6 +8414,8 @@ __L__536:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	.data
 __L__537:
 	.asciz "lt"
@@ -7361,7 +8429,11 @@ __L__537:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,24(%rsp)
 	movq 80(%rsp),%rax
@@ -7533,7 +8605,10 @@ __L__553:
 	movq k__print(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__554:
 	.asciz " "
@@ -7552,7 +8627,10 @@ __L__554:
 	movq k__print(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__555:
 	.asciz ")"
@@ -7580,7 +8658,9 @@ __L__556:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 __L__539:
 	addq $64,%rsp
 	leave
@@ -7593,6 +8673,8 @@ __L__557:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
 	.data
 __L__558:
 	.asciz "shr"
@@ -7606,7 +8688,11 @@ __L__558:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,40(%rsp)
 	movq 96(%rsp),%rax
@@ -7718,7 +8804,10 @@ __L__561:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__560
 __L__559:
 	.data
@@ -7801,7 +8890,10 @@ __L__574:
 	movq k__print(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__575:
 	.asciz " "
@@ -7820,7 +8912,10 @@ __L__575:
 	movq k__print(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__576:
 	.asciz ")"
@@ -7848,7 +8943,9 @@ __L__577:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 __L__560:
 	addq $80,%rsp
 	leave
@@ -7860,6 +8957,8 @@ __L__578:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
 	.data
 __L__579:
 	.asciz "shl"
@@ -7873,7 +8972,11 @@ __L__579:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,40(%rsp)
 	movq 96(%rsp),%rax
@@ -7985,7 +9088,10 @@ __L__582:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__581
 __L__580:
 	.data
@@ -8068,7 +9174,10 @@ __L__595:
 	movq k__print(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__596:
 	.asciz " "
@@ -8087,7 +9196,10 @@ __L__596:
 	movq k__print(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__597:
 	.asciz ")"
@@ -8115,7 +9227,9 @@ __L__598:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 __L__581:
 	addq $80,%rsp
 	leave
@@ -8127,6 +9241,8 @@ __L__599:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
 	.data
 __L__600:
 	.asciz "div"
@@ -8140,7 +9256,11 @@ __L__600:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,40(%rsp)
 	movq 96(%rsp),%rax
@@ -8252,7 +9372,10 @@ __L__603:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__602
 __L__601:
 	.data
@@ -8335,7 +9458,10 @@ __L__616:
 	movq k__print(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__617:
 	.asciz " "
@@ -8354,7 +9480,10 @@ __L__617:
 	movq k__print(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__618:
 	.asciz ")"
@@ -8382,7 +9511,9 @@ __L__619:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 __L__602:
 	addq $80,%rsp
 	leave
@@ -8394,6 +9525,8 @@ __L__620:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
 	.data
 __L__621:
 	.asciz "mul"
@@ -8407,7 +9540,11 @@ __L__621:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,40(%rsp)
 	movq 96(%rsp),%rax
@@ -8518,7 +9655,10 @@ __L__624:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__623
 __L__622:
 	.data
@@ -8601,7 +9741,10 @@ __L__637:
 	movq k__print(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__638:
 	.asciz " "
@@ -8620,7 +9763,10 @@ __L__638:
 	movq k__print(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__639:
 	.asciz ")"
@@ -8648,7 +9794,9 @@ __L__640:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 __L__623:
 	addq $80,%rsp
 	leave
@@ -8660,6 +9808,8 @@ __L__641:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
 	.data
 __L__642:
 	.asciz "add"
@@ -8673,7 +9823,11 @@ __L__642:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,40(%rsp)
 	movq 96(%rsp),%rax
@@ -8784,7 +9938,10 @@ __L__645:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__644
 __L__643:
 	.data
@@ -8867,7 +10024,10 @@ __L__658:
 	movq k__print(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__659:
 	.asciz " "
@@ -8886,7 +10046,10 @@ __L__659:
 	movq k__print(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__660:
 	.asciz ")"
@@ -8914,7 +10077,9 @@ __L__661:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 __L__644:
 	addq $80,%rsp
 	leave
@@ -8926,6 +10091,8 @@ __L__662:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
 	.data
 __L__663:
 	.asciz "bitxor"
@@ -8939,7 +10106,11 @@ __L__663:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,40(%rsp)
 	movq 96(%rsp),%rax
@@ -9050,7 +10221,10 @@ __L__666:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__665
 __L__664:
 	.data
@@ -9133,7 +10307,10 @@ __L__679:
 	movq k__print(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__680:
 	.asciz " "
@@ -9152,7 +10329,10 @@ __L__680:
 	movq k__print(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__681:
 	.asciz ")"
@@ -9180,7 +10360,9 @@ __L__682:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 __L__665:
 	addq $80,%rsp
 	leave
@@ -9192,6 +10374,8 @@ __L__683:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
 	.data
 __L__684:
 	.asciz "bitor"
@@ -9205,7 +10389,11 @@ __L__684:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,40(%rsp)
 	movq 96(%rsp),%rax
@@ -9316,7 +10504,10 @@ __L__687:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__686
 __L__685:
 	.data
@@ -9399,7 +10590,10 @@ __L__700:
 	movq k__print(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__701:
 	.asciz " "
@@ -9418,7 +10612,10 @@ __L__701:
 	movq k__print(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__702:
 	.asciz ")"
@@ -9446,7 +10643,9 @@ __L__703:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 __L__686:
 	addq $80,%rsp
 	leave
@@ -9458,6 +10657,8 @@ __L__704:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
 	.data
 __L__705:
 	.asciz "bitand"
@@ -9471,7 +10672,11 @@ __L__705:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,40(%rsp)
 	movq 96(%rsp),%rax
@@ -9582,7 +10787,10 @@ __L__708:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__707
 __L__706:
 	.data
@@ -9665,7 +10873,10 @@ __L__721:
 	movq k__print(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__722:
 	.asciz " "
@@ -9684,7 +10895,10 @@ __L__722:
 	movq k__print(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__723:
 	.asciz ")"
@@ -9712,7 +10926,9 @@ __L__724:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 __L__707:
 	addq $80,%rsp
 	leave
@@ -9725,6 +10941,8 @@ __L__725:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	movq 80(%rsp),%rax
 	cmpq $0,%rax
 	jne __L__726
@@ -9737,7 +10955,10 @@ __L__727:
 	movq fatal(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__726:
 	movq $0,%rax
 	movq %rax,16(%rsp)
@@ -9885,7 +11106,10 @@ __L__737:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__736
 __L__735:
 	.data
@@ -9919,7 +11143,10 @@ __L__747:
 	movq k__print(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__748:
 	.asciz " "
@@ -9938,7 +11165,10 @@ __L__748:
 	movq k__print(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__749:
 	.asciz ")"
@@ -9966,7 +11196,9 @@ __L__750:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 __L__736:
 	jmp __L__729
 __L__728:
@@ -10018,7 +11250,10 @@ __L__753:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__752
 __L__751:
 	.data
@@ -10052,7 +11287,10 @@ __L__759:
 	movq k__print(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__760:
 	.asciz ")"
@@ -10080,7 +11318,9 @@ __L__761:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 __L__752:
 __L__729:
 	addq $64,%rsp
@@ -10093,6 +11333,8 @@ __L__762:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 72(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $0,%rax
@@ -10244,7 +11486,11 @@ __L__777:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__763:
 	addq $48,%rsp
 	leave
@@ -10256,6 +11502,8 @@ __L__778:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	movq 56(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $0,%rax
@@ -10359,7 +11607,11 @@ __L__789:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__779:
 	addq $32,%rsp
 	leave
@@ -10371,12 +11623,17 @@ __L__790:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	je __L__791
 	movq $0,%rax
@@ -10394,12 +11651,17 @@ __L__793:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	addq $32,%rsp
 	leave
 	ret
@@ -10410,6 +11672,8 @@ __L__794:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq s__t(%rip),%rax
 	movq %rax,16(%rsp)
 	jmp __L__796
@@ -10428,7 +11692,11 @@ __L__795:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	cmpq $0,%rax
 	jne __L__797
@@ -10488,6 +11756,8 @@ __L__803:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq $0,%rax
 	movq %rax,16(%rsp)
 	jmp __L__805
@@ -10506,7 +11776,11 @@ __L__804:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	cmpq $0,%rax
 	je __L__806
@@ -10565,12 +11839,17 @@ __L__812:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 72(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -10579,7 +11858,11 @@ __L__812:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	je __L__813
 	movq 64(%rsp),%rax
@@ -10587,7 +11870,10 @@ __L__812:
 	movq k__cadr(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	movq 72(%rsp),%rax
 	movq %rax,16(%rsp)
@@ -10596,7 +11882,11 @@ __L__812:
 	movq %rcx,0(%rsp)
 	movq 16(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__814
 __L__813:
 	movq $0,%rax
@@ -10606,7 +11896,10 @@ __L__813:
 	movq k__cdr(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	jmp __L__816
 __L__815:
@@ -10624,7 +11917,11 @@ __L__815:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 __L__816:
 	movq 64(%rsp),%rax
@@ -10632,7 +11929,10 @@ __L__816:
 	movq k__cdr(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	movq %rax,32(%rsp)
 	movq $0,%rax
@@ -10678,12 +11978,17 @@ __L__821:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	movq 80(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 80(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -10707,14 +12012,21 @@ __L__824:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__825:
 	movq 32(%rsp),%rax
 	movq %rax,48(%rsp)
 	movq k__cdr(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq %rax,48(%rsp)
 	movq $0,%rax
@@ -10758,7 +12070,11 @@ __L__823:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	jne __L__822
 	addq $64,%rsp
@@ -10771,12 +12087,17 @@ __L__830:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
 	movq 96(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq k__car(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq 32(%rsp),%rax
 	movq %rax,40(%rsp)
@@ -10829,7 +12150,10 @@ __L__836:
 	movq k__dumpln(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__837:
 	.asciz "aborting"
@@ -10839,14 +12163,20 @@ __L__837:
 	movq fatal(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__831:
 	movq 96(%rsp),%rax
 	movq %rax,40(%rsp)
 	movq k__cadr(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq 104(%rsp),%rax
 	movq %rax,48(%rsp)
@@ -10855,14 +12185,21 @@ __L__831:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq 32(%rsp),%rax
 	movq %rax,40(%rsp)
 	movq is__global(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	je __L__838
 	movq 32(%rsp),%rax
@@ -10995,7 +12332,12 @@ __L__841:
 	movq %rcx,8(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 __L__839:
 	addq $80,%rsp
 	leave
@@ -11007,6 +12349,8 @@ __L__842:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $112,%rsp
+	movq %rdi,128(%rsp)
+	movq %rsi,136(%rsp)
 	movq $0,%rax
 	movq %rax,32(%rsp)
 	movq 128(%rsp),%rax
@@ -11014,7 +12358,10 @@ __L__842:
 	movq k__cadr(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq 136(%rsp),%rax
 	movq %rax,48(%rsp)
@@ -11031,14 +12378,20 @@ __L__842:
 	movq k__cddr(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,56(%rsp)
 	leaq 32(%rsp),%rax
 	movq %rax,64(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__844
 __L__843:
 	movq $0,%rax
@@ -11113,7 +12466,11 @@ __L__851:
 	movq %rcx,0(%rsp)
 	movq 96(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq $1,%rax
 	movq %rax,96(%rsp)
@@ -11185,7 +12542,12 @@ __L__854:
 	movq %rcx,8(%rsp)
 	movq 104(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__846
 __L__845:
 __L__846:
@@ -11248,7 +12610,11 @@ __L__861:
 	movq %rcx,0(%rsp)
 	movq 80(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq $1,%rax
 	movq %rax,80(%rsp)
@@ -11297,7 +12663,10 @@ __L__864:
 	movq gc__pop__root(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 80(%rsp),%rax
 	movq 32(%rsp),%rax
 	addq $112,%rsp
@@ -11310,6 +12679,8 @@ __L__867:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq 56(%rsp),%rax
@@ -11319,7 +12690,11 @@ __L__867:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	addq $32,%rsp
 	leave
 	ret
@@ -11330,19 +12705,27 @@ __L__868:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,24(%rsp)
 	movq k__cadr(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	jne __L__869
 	movq globals(%rip),%rax
@@ -11365,7 +12748,11 @@ __L__869:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	addq $48,%rsp
 	leave
 	ret
@@ -11376,12 +12763,17 @@ __L__870:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	movq 80(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -11434,7 +12826,10 @@ __L__876:
 	movq k__dumpln(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__877:
 	.asciz "aborting"
@@ -11444,14 +12839,20 @@ __L__877:
 	movq fatal(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__871:
 	movq 80(%rsp),%rax
 	movq %rax,24(%rsp)
 	movq k__cadr(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	movq 88(%rsp),%rax
 	movq %rax,32(%rsp)
@@ -11460,7 +12861,11 @@ __L__871:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -11484,6 +12889,8 @@ __L__878:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $0,%rax
@@ -11531,14 +12938,21 @@ __L__882:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	leaq 24(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq $1,%rax
 	movq %rax,16(%rsp)
 	movq 64(%rsp),%rax
@@ -11553,14 +12967,21 @@ __L__882:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	leaq 32(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 24(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq 32(%rsp),%rax
@@ -11570,14 +12991,21 @@ __L__882:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	leaq 32(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq gc__pop__root(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 40(%rsp),%rax
 	movq %rax,32(%rsp)
 	leaq 24(%rsp),%rax
@@ -11585,7 +13013,10 @@ __L__882:
 	movq gc__pop__root(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 32(%rsp),%rax
 	jmp __L__880
 __L__879:
@@ -11601,6 +13032,8 @@ __L__885:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $96,%rsp
+	movq %rdi,112(%rsp)
+	movq %rsi,120(%rsp)
 	movq 112(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq $0,%rax
@@ -11648,7 +13081,11 @@ __L__889:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq $1,%rax
 	movq %rax,32(%rsp)
@@ -11662,13 +13099,19 @@ __L__889:
 	movq gc__push__root(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	leaq 32(%rsp),%rax
 	movq %rax,48(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq f__let(%rip),%rax
 	movq %rax,48(%rsp)
 	movq 40(%rsp),%rax
@@ -11682,14 +13125,20 @@ __L__889:
 	movq k__cadr(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	leaq 120(%rsp),%rax
 	movq %rax,56(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 120(%rsp),%rax
 	movq %rax,56(%rsp)
 	movq $0,%rax
@@ -11719,7 +13168,12 @@ __L__889:
 	movq %rcx,8(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,120(%rsp)
 	jmp __L__895
 __L__894:
@@ -11784,7 +13238,12 @@ __L__896:
 	movq %rcx,8(%rsp)
 	movq 80(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq $1,%rax
 	movq %rax,80(%rsp)
 	movq 48(%rsp),%rax
@@ -11835,7 +13294,11 @@ __L__902:
 	movq %rcx,0(%rsp)
 	movq 80(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq 120(%rsp),%rax
 	movq %rax,80(%rsp)
@@ -11846,7 +13309,11 @@ __L__902:
 	movq %rcx,0(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq %rax,72(%rsp)
 	leaq 120(%rsp),%rax
@@ -11854,7 +13321,10 @@ __L__902:
 	movq gc__pop__root(%rip),%rax
 	movq 80(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 72(%rsp),%rax
 	jmp __L__893
 __L__892:
@@ -11871,14 +13341,20 @@ __L__892:
 	movq k__cadr(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	leaq 120(%rsp),%rax
 	movq %rax,72(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 120(%rsp),%rax
 	movq %rax,72(%rsp)
 	movq $1,%rax
@@ -11892,7 +13368,12 @@ __L__892:
 	movq %rcx,8(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,120(%rsp)
 	jmp __L__908
 __L__907:
@@ -11914,7 +13395,12 @@ __L__907:
 	movq %rcx,8(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq $1,%rax
 	movq %rax,72(%rsp)
 	movq 48(%rsp),%rax
@@ -11972,7 +13458,12 @@ __L__910:
 	movq %rcx,8(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 __L__913:
 	movq 32(%rsp),%rax
 	movq %rax,56(%rsp)
@@ -11983,7 +13474,11 @@ __L__913:
 	movq %rcx,0(%rsp)
 	movq 80(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq 120(%rsp),%rax
 	movq %rax,80(%rsp)
@@ -11994,7 +13489,11 @@ __L__913:
 	movq %rcx,0(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq %rax,56(%rsp)
 	leaq 120(%rsp),%rax
@@ -12002,7 +13501,10 @@ __L__913:
 	movq gc__pop__root(%rip),%rax
 	movq 80(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 56(%rsp),%rax
 	jmp __L__906
 __L__905:
@@ -12029,7 +13531,10 @@ __L__905:
 	movq k__car(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,56(%rsp)
 	movq $0,%rax
 	movq %rax,80(%rsp)
@@ -12040,14 +13545,22 @@ __L__905:
 	movq %rcx,8(%rsp)
 	movq 80(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,80(%rsp)
 	movq 32(%rsp),%rax
 	movq %rax,56(%rsp)
 	movq k__cdr(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,56(%rsp)
 	movq 120(%rsp),%rax
 	movq %rax,48(%rsp)
@@ -12056,7 +13569,11 @@ __L__905:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq 80(%rsp),%rax
 	movq %rax,48(%rsp)
@@ -12067,7 +13584,11 @@ __L__905:
 	movq %rcx,0(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	jmp __L__915
 __L__914:
@@ -12086,14 +13607,21 @@ __L__914:
 	movq k__car(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,56(%rsp)
 	movq k__env__find__variable(%rip),%rax
 	movq 80(%rsp),%rcx
 	movq %rcx,0(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,56(%rsp)
 	movq 56(%rsp),%rax
 	cmpq $0,%rax
@@ -12109,7 +13637,10 @@ __L__919:
 	movq k__car(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq $0,%rax
 	movq $0,%rax
@@ -12124,14 +13655,21 @@ __L__919:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__918:
 	movq 32(%rsp),%rax
 	movq %rax,48(%rsp)
 	movq k__cdr(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq 120(%rsp),%rax
 	movq %rax,80(%rsp)
@@ -12140,7 +13678,11 @@ __L__918:
 	movq %rcx,0(%rsp)
 	movq 80(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq 56(%rsp),%rax
 	movq %rax,80(%rsp)
@@ -12151,7 +13693,11 @@ __L__918:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	jmp __L__917
 __L__916:
@@ -12172,7 +13718,11 @@ __L__916:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	jmp __L__921
 __L__920:
@@ -12191,7 +13741,11 @@ __L__893:
 	movq %rcx,0(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,112(%rsp)
 	movq %rax,56(%rsp)
 	leaq 32(%rsp),%rax
@@ -12199,13 +13753,19 @@ __L__893:
 	movq gc__pop__root(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	leaq 40(%rsp),%rax
 	movq %rax,48(%rsp)
 	movq gc__pop__root(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 56(%rsp),%rax
 	jmp __L__887
 __L__886:
@@ -12251,7 +13811,11 @@ __L__925:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq 40(%rsp),%rax
 	cmpq $0,%rax
@@ -12277,7 +13841,11 @@ __L__929:
 	movq %rcx,0(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__928:
 	movq 40(%rsp),%rax
 	movq %rax,112(%rsp)
@@ -12286,7 +13854,10 @@ __L__928:
 	movq is__global(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	je __L__930
 	movq 112(%rsp),%rax
@@ -12479,7 +14050,11 @@ __L__944:
 	movq %rcx,0(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,56(%rsp)
 	movq 56(%rsp),%rax
 	cmpq $0,%rax
@@ -12495,7 +14070,10 @@ __L__948:
 	movq k__println(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq $1,%rax
 	movq %rax,48(%rsp)
@@ -12525,14 +14103,21 @@ __L__947:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	leaq 32(%rsp),%rax
 	movq %rax,48(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 112(%rsp),%rax
 	movq %rax,48(%rsp)
 	movq 32(%rsp),%rax
@@ -12542,7 +14127,11 @@ __L__947:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	.data
 __L__950:
@@ -12562,7 +14151,10 @@ __L__950:
 	movq k__print(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__951:
 	.asciz " "
@@ -12581,7 +14173,10 @@ __L__951:
 	movq k__print(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__952:
 	.asciz " "
@@ -12600,7 +14195,10 @@ __L__952:
 	movq k__println(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 56(%rsp),%rax
 	movq %rax,40(%rsp)
 	movq 32(%rsp),%rax
@@ -12614,7 +14212,12 @@ __L__952:
 	movq %rcx,8(%rsp)
 	movq 80(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,112(%rsp)
 	movq %rax,80(%rsp)
 	leaq 32(%rsp),%rax
@@ -12622,7 +14225,10 @@ __L__952:
 	movq gc__pop__root(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 80(%rsp),%rax
 __L__949:
 __L__923:
@@ -12638,6 +14244,8 @@ __L__953:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $0,%rax
@@ -12685,14 +14293,21 @@ __L__957:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	leaq 24(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq $1,%rax
 	movq %rax,16(%rsp)
 	movq 64(%rsp),%rax
@@ -12707,14 +14322,21 @@ __L__957:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	leaq 32(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 24(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq 32(%rsp),%rax
@@ -12724,14 +14346,21 @@ __L__957:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	leaq 32(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq gc__pop__root(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 40(%rsp),%rax
 	movq %rax,32(%rsp)
 	leaq 24(%rsp),%rax
@@ -12739,7 +14368,10 @@ __L__957:
 	movq gc__pop__root(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 32(%rsp),%rax
 	jmp __L__955
 __L__954:
@@ -12752,7 +14384,11 @@ __L__954:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__955:
 	addq $48,%rsp
 	leave
@@ -12764,6 +14400,8 @@ __L__960:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $96,%rsp
+	movq %rdi,112(%rsp)
+	movq %rsi,120(%rsp)
 	movq 112(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq $0,%rax
@@ -12811,14 +14449,21 @@ __L__964:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	leaq 40(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 40(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq $0,%rax
@@ -12861,7 +14506,11 @@ __L__970:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,32(%rsp)
@@ -12967,14 +14616,21 @@ __L__980:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	leaq 64(%rsp),%rax
 	movq %rax,56(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 32(%rsp),%rax
 	movq %rax,56(%rsp)
 	movq 64(%rsp),%rax
@@ -12988,7 +14644,12 @@ __L__980:
 	movq %rcx,8(%rsp)
 	movq 80(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq 40(%rsp),%rax
 	movq %rax,80(%rsp)
@@ -12999,7 +14660,11 @@ __L__980:
 	movq %rcx,0(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq %rax,72(%rsp)
 	leaq 64(%rsp),%rax
@@ -13007,14 +14672,20 @@ __L__980:
 	movq gc__pop__root(%rip),%rax
 	movq 80(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 72(%rsp),%rax
 	leaq 40(%rsp),%rax
 	movq %rax,72(%rsp)
 	movq gc__pop__root(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 40(%rsp),%rax
 	jmp __L__984
 __L__983:
@@ -13034,7 +14705,10 @@ __L__968:
 	movq gc__push__root(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq s__quote(%rip),%rax
 	movq %rax,32(%rsp)
 	movq 40(%rsp),%rax
@@ -13052,7 +14726,11 @@ __L__968:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 __L__985:
 	movq 40(%rsp),%rax
@@ -13068,7 +14746,10 @@ __L__985:
 	movq k__car(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	movq $0,%rax
 	movq 64(%rsp),%rax
@@ -13106,7 +14787,10 @@ __L__988:
 	movq k__caar(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	movq $0,%rax
 	movq 64(%rsp),%rax
@@ -13140,7 +14824,9 @@ __L__992:
 	cmpq $0,%rax
 	je __L__986
 	movq new__buffer(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,32(%rsp)
@@ -13155,7 +14841,11 @@ __L__995:
 	movq %rcx,0(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq 64(%rsp),%rax
 	movq %rax,72(%rsp)
 	movq $0,%rax
@@ -13183,18 +14873,28 @@ __L__995:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq 64(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq buffer__contents(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq intern(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq $1,%rax
 	movq %rax,32(%rsp)
@@ -13220,7 +14920,11 @@ __L__995:
 	movq %rcx,0(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 __L__986:
 	movq 40(%rsp),%rax
@@ -13232,20 +14936,30 @@ __L__986:
 	movq %rcx,0(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,112(%rsp)
 	leaq 48(%rsp),%rax
 	movq %rax,72(%rsp)
 	movq gc__pop__root(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	leaq 40(%rsp),%rax
 	movq %rax,72(%rsp)
 	movq gc__pop__root(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__962
 __L__961:
 	movq 112(%rsp),%rax
@@ -13290,7 +15004,11 @@ __L__999:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,40(%rsp)
@@ -13391,14 +15109,21 @@ __L__1009:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	leaq 64(%rsp),%rax
 	movq %rax,72(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 120(%rsp),%rax
 	movq %rax,72(%rsp)
 	movq 64(%rsp),%rax
@@ -13408,7 +15133,11 @@ __L__1009:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	movq 40(%rsp),%rax
 	movq %rax,32(%rsp)
@@ -13423,7 +15152,12 @@ __L__1009:
 	movq %rcx,8(%rsp)
 	movq 80(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,80(%rsp)
@@ -13434,7 +15168,11 @@ __L__1009:
 	movq %rcx,0(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,112(%rsp)
 	movq %rax,72(%rsp)
 	leaq 64(%rsp),%rax
@@ -13442,7 +15180,10 @@ __L__1009:
 	movq gc__pop__root(%rip),%rax
 	movq 80(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 72(%rsp),%rax
 __L__1012:
 __L__1007:
@@ -13490,7 +15231,11 @@ __L__1014:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq 40(%rsp),%rax
 	cmpq $0,%rax
@@ -13504,14 +15249,21 @@ __L__1014:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	leaq 64(%rsp),%rax
 	movq %rax,48(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 40(%rsp),%rax
 	movq %rax,48(%rsp)
 	movq 64(%rsp),%rax
@@ -13525,7 +15277,12 @@ __L__1014:
 	movq %rcx,8(%rsp)
 	movq 80(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,112(%rsp)
 	movq %rax,80(%rsp)
 	leaq 64(%rsp),%rax
@@ -13533,7 +15290,10 @@ __L__1014:
 	movq gc__pop__root(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 80(%rsp),%rax
 __L__1017:
 __L__997:
@@ -13550,6 +15310,8 @@ __L__1018:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $0,%rax
@@ -13597,14 +15359,21 @@ __L__1022:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	leaq 24(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq $1,%rax
 	movq %rax,16(%rsp)
 	movq 64(%rsp),%rax
@@ -13619,14 +15388,21 @@ __L__1022:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	leaq 32(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 24(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq 32(%rsp),%rax
@@ -13636,14 +15412,21 @@ __L__1022:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	leaq 32(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq gc__pop__root(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 40(%rsp),%rax
 	movq %rax,32(%rsp)
 	leaq 24(%rsp),%rax
@@ -13651,7 +15434,10 @@ __L__1022:
 	movq gc__pop__root(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 32(%rsp),%rax
 	jmp __L__1020
 __L__1019:
@@ -13664,7 +15450,11 @@ __L__1019:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__1020:
 	addq $48,%rsp
 	leave
@@ -13676,6 +15466,9 @@ __L__1025:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
+	movq %rdx,112(%rsp)
 	movq 96(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq $0,%rax
@@ -13724,7 +15517,12 @@ __L__1027:
 	movq %rcx,8(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1031
 __L__1030:
 	movq _3Cfixed_3E(%rip),%rax
@@ -13756,7 +15554,12 @@ __L__1030:
 	movq %rcx,8(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1033
 __L__1032:
 	movq _3Csubr_3E(%rip),%rax
@@ -13784,7 +15587,11 @@ __L__1032:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1035
 __L__1034:
 	movq applicators(%rip),%rax
@@ -13829,7 +15636,11 @@ __L__1037:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq 40(%rsp),%rax
 	cmpq $0,%rax
@@ -13841,7 +15652,10 @@ __L__1037:
 	movq gc__push__root(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 96(%rsp),%rax
 	movq %rax,56(%rsp)
 	movq 48(%rsp),%rax
@@ -13851,7 +15665,11 @@ __L__1037:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq 40(%rsp),%rax
 	movq %rax,64(%rsp)
@@ -13866,14 +15684,22 @@ __L__1037:
 	movq %rcx,8(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,72(%rsp)
 	leaq 48(%rsp),%rax
 	movq %rax,56(%rsp)
 	movq gc__pop__root(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 72(%rsp),%rax
 	jmp __L__1041
 __L__1040:
@@ -13908,7 +15734,10 @@ __L__1043:
 	movq k__print(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__1044:
 	.asciz "\012"
@@ -13923,7 +15752,9 @@ __L__1044:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 __L__1041:
 __L__1035:
 __L__1033:
@@ -13939,6 +15770,9 @@ __L__1045:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $96,%rsp
+	movq %rdi,112(%rsp)
+	movq %rsi,120(%rsp)
+	movq %rdx,128(%rsp)
 	movq opt__verbose(%rip),%rax
 	movq %rax,32(%rsp)
 	movq $2,%rax
@@ -13965,7 +15799,10 @@ __L__1047:
 	movq k__dump(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__1048:
 	.asciz " "
@@ -13984,7 +15821,10 @@ __L__1048:
 	movq k__dump(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__1049:
 	.asciz " "
@@ -14003,7 +15843,10 @@ __L__1049:
 	movq k__dumpln(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq stdout(%rip),%rax
 	movq %rax,32(%rsp)
 	movq fflush_24stub(%rip),%rax
@@ -14031,14 +15874,20 @@ __L__1046:
 	movq k__car(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq 40(%rsp),%rax
 	movq %rax,56(%rsp)
 	movq k__cadr(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,56(%rsp)
 	movq 112(%rsp),%rax
 	movq %rax,64(%rsp)
@@ -14061,7 +15910,12 @@ __L__1046:
 	movq %rcx,8(%rsp)
 	movq 80(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,128(%rsp)
 	movq 128(%rsp),%rax
 	movq %rax,80(%rsp)
@@ -14078,13 +15932,19 @@ __L__1046:
 	movq gc__push__root(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	leaq 128(%rsp),%rax
 	movq %rax,72(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1051
 __L__1050:
 	movq 32(%rsp),%rax
@@ -14151,7 +16011,10 @@ __L__1058:
 	movq k__print(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__1059:
 	.asciz " "
@@ -14170,7 +16033,10 @@ __L__1059:
 	movq k__print(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__1060:
 	.asciz ")"
@@ -14198,7 +16064,9 @@ __L__1061:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 __L__1052:
 	movq 80(%rsp),%rax
 	movq %rax,72(%rsp)
@@ -14239,7 +16107,12 @@ __L__1052:
 	movq %rcx,8(%rsp)
 	movq 88(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq $1,%rax
 	movq %rax,88(%rsp)
 	movq 56(%rsp),%rax
@@ -14350,7 +16223,12 @@ __L__1068:
 	movq %rcx,8(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,32(%rsp)
 __L__1066:
@@ -14388,7 +16266,10 @@ __L__1073:
 	movq k__print(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__1074:
 	.asciz " "
@@ -14407,7 +16288,10 @@ __L__1074:
 	movq k__print(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__1075:
 	.asciz ")"
@@ -14435,7 +16319,9 @@ __L__1076:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 __L__1071:
 	movq $1,%rax
 	movq %rax,72(%rsp)
@@ -14465,7 +16351,11 @@ __L__1077:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq $1,%rax
 	movq %rax,64(%rsp)
@@ -14539,13 +16429,19 @@ __L__1083:
 	movq gc__pop__root(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	leaq 40(%rsp),%rax
 	movq %rax,72(%rsp)
 	movq gc__pop__root(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 64(%rsp),%rax
 	addq $96,%rsp
 	leave
@@ -14557,6 +16453,8 @@ __L__1084:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
 	movq opt__verbose(%rip),%rax
 	movq %rax,32(%rsp)
 	movq $2,%rax
@@ -14583,7 +16481,10 @@ __L__1086:
 	movq k__dump(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__1087:
 	.asciz " "
@@ -14602,7 +16503,10 @@ __L__1087:
 	movq k__dumpln(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq stdout(%rip),%rax
 	movq %rax,32(%rsp)
 	movq fflush_24stub(%rip),%rax
@@ -14686,7 +16590,10 @@ __L__1096:
 	movq is__global(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	je __L__1100
 	movq 96(%rsp),%rax
@@ -14812,7 +16719,11 @@ __L__1103:
 	movq %rcx,0(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__1101:
 	jmp __L__1099
 __L__1098:
@@ -14838,14 +16749,21 @@ __L__1098:
 	movq %rcx,0(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,56(%rsp)
 	leaq 56(%rsp),%rax
 	movq %rax,40(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq trace__stack(%rip),%rax
 	movq %rax,40(%rsp)
 	movq trace__depth(%rip),%rax
@@ -14859,7 +16777,12 @@ __L__1098:
 	movq %rcx,8(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq $1,%rax
 	movq %rax,64(%rsp)
 	movq trace__depth(%rip),%rax
@@ -14924,7 +16847,12 @@ __L__1109:
 	movq %rcx,8(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1107
 __L__1106:
 	movq $1,%rax
@@ -14941,14 +16869,21 @@ __L__1106:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	leaq 48(%rsp),%rax
 	movq %rax,40(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 56(%rsp),%rax
 	movq %rax,40(%rsp)
 	movq 48(%rsp),%rax
@@ -14962,14 +16897,22 @@ __L__1106:
 	movq %rcx,8(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,72(%rsp)
 	leaq 48(%rsp),%rax
 	movq %rax,64(%rsp)
 	movq gc__pop__root(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 72(%rsp),%rax
 __L__1107:
 	movq %rax,56(%rsp)
@@ -14985,7 +16928,10 @@ __L__1107:
 	movq gc__pop__root(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 48(%rsp),%rax
 	jmp __L__1105
 __L__1104:
@@ -15037,7 +16983,9 @@ __L__1116:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1113
 __L__1112:
 	movq evaluators(%rip),%rax
@@ -15082,7 +17030,11 @@ __L__1118:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq 48(%rsp),%rax
 	cmpq $0,%rax
@@ -15096,14 +17048,21 @@ __L__1118:
 	movq %rcx,0(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,72(%rsp)
 	leaq 72(%rsp),%rax
 	movq %rax,56(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq trace__stack(%rip),%rax
 	movq %rax,56(%rsp)
 	movq trace__depth(%rip),%rax
@@ -15117,7 +17076,12 @@ __L__1118:
 	movq %rcx,8(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq $1,%rax
 	movq %rax,40(%rsp)
 	movq trace__depth(%rip),%rax
@@ -15136,7 +17100,12 @@ __L__1118:
 	movq %rcx,8(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,96(%rsp)
 	movq $1,%rax
 	movq %rax,56(%rsp)
@@ -15149,7 +17118,10 @@ __L__1118:
 	movq gc__pop__root(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 56(%rsp),%rax
 __L__1121:
 	movq 96(%rsp),%rax
@@ -15169,6 +17141,9 @@ __L__1122:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $96,%rsp
+	movq %rdi,112(%rsp)
+	movq %rsi,120(%rsp)
+	movq %rdx,128(%rsp)
 	movq 112(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq $0,%rax
@@ -15184,7 +17159,10 @@ __L__1122:
 	movq k__array__length(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	jmp __L__1124
 __L__1123:
@@ -15197,7 +17175,11 @@ __L__1123:
 	movq %rcx,0(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,56(%rsp)
 	movq 56(%rsp),%rax
 	movq %rax,48(%rsp)
@@ -15278,14 +17260,23 @@ __L__1124:
 	movq %rcx,16(%rsp)
 	movq 80(%rsp),%rcx
 	movq %rcx,24(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	movq 24(%rsp),%rcx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,80(%rsp)
 	leaq 80(%rsp),%rax
 	movq %rax,72(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 112(%rsp),%rax
 	movq %rax,72(%rsp)
 	movq $0,%rax
@@ -15297,7 +17288,10 @@ __L__1124:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	movq $2,%rax
 	movq %rax,48(%rsp)
@@ -15315,14 +17309,21 @@ __L__1124:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	leaq 80(%rsp),%rax
 	movq %rax,72(%rsp)
 	movq gc__pop__root(%rip),%rax
 	movq 72(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 64(%rsp),%rax
 __L__1126:
 	addq $96,%rsp
@@ -15335,6 +17336,8 @@ __L__1127:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq 72(%rsp),%rax
@@ -15344,7 +17347,11 @@ __L__1127:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	movq 24(%rsp),%rax
 	cmpq $0,%rax
@@ -15381,7 +17388,11 @@ __L__1130:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__1129:
 	addq $48,%rsp
 	leave
@@ -15393,6 +17404,8 @@ __L__1131:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	jmp __L__1133
 __L__1132:
 	movq 80(%rsp),%rax
@@ -15410,7 +17423,10 @@ __L__1132:
 	movq k__array__length(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	movq 16(%rsp),%rax
 	movq %rax,32(%rsp)
@@ -15488,12 +17504,17 @@ __L__1138:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 72(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__read(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -15512,14 +17533,20 @@ __L__1140:
 	movq fatal(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__1139:
 	leaq 16(%rsp),%rax
 	movq %rax,24(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
 	movq $0,%rax
@@ -15529,7 +17556,11 @@ __L__1139:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,32(%rsp)
@@ -15540,7 +17571,11 @@ __L__1139:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -15549,7 +17584,10 @@ __L__1139:
 	movq gc__pop__root(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 24(%rsp),%rax
 	addq $48,%rsp
 	leave
@@ -15561,6 +17599,8 @@ __L__1141:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	movq $0,%rax
 	movq %rax,16(%rsp)
 	movq $0,%rax
@@ -15570,7 +17610,11 @@ __L__1141:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	movq 24(%rsp),%rax
 	movq %rax,16(%rsp)
@@ -15581,13 +17625,19 @@ __L__1141:
 	movq gc__push__root(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	leaq 32(%rsp),%rax
 	movq %rax,40(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1143
 __L__1142:
 	movq 32(%rsp),%rax
@@ -15599,7 +17649,11 @@ __L__1142:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq 32(%rsp),%rax
 	movq %rax,48(%rsp)
@@ -15617,7 +17671,10 @@ __L__1143:
 	movq k__read__allow__close(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq %rax,48(%rsp)
 	movq DONE(%rip),%rax
@@ -15648,7 +17705,10 @@ __L__1144:
 	movq k__read(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq $1,%rax
 	movq %rax,40(%rsp)
@@ -15664,13 +17724,19 @@ __L__1145:
 	movq gc__pop__root(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	leaq 24(%rsp),%rax
 	movq %rax,40(%rsp)
 	movq gc__pop__root(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 48(%rsp),%rax
 	movq 88(%rsp),%rax
 	movq %rax,48(%rsp)
@@ -15711,7 +17777,11 @@ __L__1148:
 	movq %rcx,0(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__1147:
 	addq $64,%rsp
 	leave
@@ -15723,6 +17793,7 @@ __L__1149:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq expected__char(%rip),%rax
@@ -15732,7 +17803,11 @@ __L__1149:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	addq $32,%rsp
 	leave
 	ret
@@ -15743,6 +17818,7 @@ __L__1150:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq unexpected__char(%rip),%rax
@@ -15752,7 +17828,11 @@ __L__1150:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	addq $32,%rsp
 	leave
 	ret
@@ -15763,6 +17843,7 @@ __L__1151:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $0,%rsp
+	movq %rdi,16(%rsp)
 	movq DONE(%rip),%rax
 	addq $0,%rsp
 	leave
@@ -15774,6 +17855,7 @@ __L__1152:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
 	.data
 __L__1153:
 	.asciz "unexpected character: %c"
@@ -15787,7 +17869,11 @@ __L__1153:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	addq $32,%rsp
 	leave
 	ret
@@ -15798,6 +17884,8 @@ __L__1154:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	jmp __L__1156
 __L__1155:
 	movq $32,%rax
@@ -15823,7 +17911,10 @@ __L__1155:
 	movq is__blank(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	je __L__1157
 	movq $0,%rax
@@ -15862,12 +17953,19 @@ __L__1157:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1161
 	jmp __L__1160
 __L__1159:
@@ -15913,7 +18011,10 @@ __L__1159:
 	movq is__digit10(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	je __L__1164
 	movq 16(%rsp),%rax
@@ -15925,7 +18026,11 @@ __L__1159:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1165
 __L__1164:
 	movq 16(%rsp),%rax
@@ -15937,7 +18042,11 @@ __L__1164:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__1165:
 	jmp __L__1161
 	jmp __L__1163
@@ -15959,7 +18068,11 @@ __L__1162:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1161
 	jmp __L__1167
 __L__1166:
@@ -15980,7 +18093,11 @@ __L__1166:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1161
 	jmp __L__1169
 __L__1168:
@@ -16027,7 +18144,11 @@ __L__1168:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1173
 __L__1172:
 	movq 24(%rsp),%rax
@@ -16053,7 +18174,11 @@ __L__1172:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__1173:
 	jmp __L__1161
 	jmp __L__1171
@@ -16063,7 +18188,10 @@ __L__1170:
 	movq is__letter(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	je __L__1174
 	movq 16(%rsp),%rax
@@ -16075,7 +18203,11 @@ __L__1170:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1161
 	jmp __L__1175
 __L__1174:
@@ -16096,7 +18228,11 @@ __L__1174:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1161
 	jmp __L__1177
 __L__1176:
@@ -16127,7 +18263,10 @@ __L__1176:
 	movq 72(%rsp),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1161
 	jmp __L__1179
 __L__1178:
@@ -16148,7 +18287,11 @@ __L__1178:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1161
 	jmp __L__1181
 __L__1180:
@@ -16179,7 +18322,10 @@ __L__1180:
 	movq 72(%rsp),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1161
 	jmp __L__1183
 __L__1182:
@@ -16200,7 +18346,11 @@ __L__1182:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1161
 	jmp __L__1185
 __L__1184:
@@ -16231,7 +18381,10 @@ __L__1184:
 	movq 72(%rsp),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1161
 	jmp __L__1187
 __L__1186:
@@ -16240,7 +18393,10 @@ __L__1186:
 	movq is__digit10(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	je __L__1188
 	movq 16(%rsp),%rax
@@ -16252,7 +18408,11 @@ __L__1186:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1161
 	jmp __L__1189
 __L__1188:
@@ -16328,7 +18488,11 @@ __L__1190:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1161
 	jmp __L__1196
 __L__1195:
@@ -16357,7 +18521,11 @@ __L__1199:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__1198:
 __L__1196:
 __L__1191:
@@ -16390,8 +18558,12 @@ __L__1200:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq new__buffer(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	jmp __L__1202
 __L__1201:
@@ -16404,7 +18576,11 @@ __L__1201:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,32(%rsp)
@@ -16423,7 +18599,10 @@ __L__1204:
 	movq fatal(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__1203:
 	movq 16(%rsp),%rax
 	movq %rax,32(%rsp)
@@ -16434,7 +18613,11 @@ __L__1203:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__1202:
 	movq 72(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -16462,7 +18645,11 @@ __L__1202:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,32(%rsp)
 	movq 16(%rsp),%rax
@@ -16473,14 +18660,20 @@ __L__1202:
 	movq new_2D_3Cstring_3E(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
 	movq buffer__delete(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 32(%rsp),%rax
 	addq $48,%rsp
 	leave
@@ -16492,8 +18685,12 @@ __L__1205:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq new__buffer(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	jmp __L__1207
 __L__1206:
@@ -16506,7 +18703,11 @@ __L__1206:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq 72(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq getc_24stub(%rip),%rax
@@ -16523,7 +18724,10 @@ __L__1207:
 	movq is__letter(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	jne __L__1208
 	movq 64(%rsp),%rax
@@ -16531,7 +18735,10 @@ __L__1207:
 	movq is__digit10(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__1208:
 	cmpq $0,%rax
 	jne __L__1206
@@ -16558,7 +18765,11 @@ __L__1208:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,32(%rsp)
 	movq 16(%rsp),%rax
@@ -16569,14 +18780,20 @@ __L__1208:
 	movq intern(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
 	movq buffer__delete(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 32(%rsp),%rax
 	addq $48,%rsp
 	leave
@@ -16588,8 +18805,12 @@ __L__1209:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
 	movq new__buffer(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq 96(%rsp),%rax
 	movq %rax,40(%rsp)
@@ -16610,7 +18831,11 @@ __L__1209:
 	movq %rcx,0(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__1210:
 	jmp __L__1212
 __L__1211:
@@ -16623,7 +18848,11 @@ __L__1211:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__1212:
 	movq 104(%rsp),%rax
 	movq %rax,48(%rsp)
@@ -16639,7 +18868,10 @@ __L__1212:
 	movq is__digit10(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	jne __L__1211
 	movq 96(%rsp),%rax
@@ -16672,7 +18904,11 @@ __L__1212:
 	movq %rcx,0(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1215
 __L__1214:
 	movq 32(%rsp),%rax
@@ -16684,7 +18920,11 @@ __L__1214:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__1215:
 	movq 104(%rsp),%rax
 	movq %rax,48(%rsp)
@@ -16700,7 +18940,10 @@ __L__1215:
 	movq is__digit16(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	jne __L__1214
 __L__1213:
@@ -16727,7 +18970,11 @@ __L__1213:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,48(%rsp)
 	movq 32(%rsp),%rax
@@ -16758,7 +19005,10 @@ __L__1213:
 	movq buffer__delete(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 40(%rsp),%rax
 	cmpq $0,%rax
 	je __L__1216
@@ -16772,7 +19022,10 @@ __L__1217:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	addq $80,%rsp
 	leave
 	ret
@@ -16783,6 +19036,8 @@ __L__1218:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
 	movq 96(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $92,%rax
@@ -16931,7 +19186,10 @@ __L__1233:
 	movq digit__value(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	movq $8,%rax
 	movq %rax,56(%rsp)
@@ -16940,7 +19198,10 @@ __L__1233:
 	movq digit__value(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 56(%rsp),%rcx
 	shlq %cl,%rax
 	addq 48(%rsp),%rax
@@ -16952,7 +19213,10 @@ __L__1233:
 	movq digit__value(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 56(%rsp),%rcx
 	shlq %cl,%rax
 	addq 48(%rsp),%rax
@@ -16964,7 +19228,10 @@ __L__1233:
 	movq digit__value(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 56(%rsp),%rcx
 	shlq %cl,%rax
 	addq 48(%rsp),%rax
@@ -16994,7 +19261,10 @@ __L__1235:
 	movq is__hexadecimal(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	je __L__1239
 	movq 96(%rsp),%rax
@@ -17002,7 +19272,10 @@ __L__1235:
 	movq digit__value(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq 104(%rsp),%rax
 	movq %rax,32(%rsp)
@@ -17018,7 +19291,10 @@ __L__1235:
 	movq is__hexadecimal(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	je __L__1241
 	movq 96(%rsp),%rax
@@ -17026,7 +19302,10 @@ __L__1235:
 	movq digit__value(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq $16,%rax
 	movq %rax,24(%rsp)
@@ -17089,7 +19368,10 @@ __L__1245:
 	movq digit__value(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq 104(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -17105,7 +19387,10 @@ __L__1245:
 	movq is__octal(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	je __L__1246
 	movq 96(%rsp),%rax
@@ -17113,7 +19398,10 @@ __L__1245:
 	movq digit__value(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	movq $8,%rax
 	movq %rax,32(%rsp)
@@ -17135,7 +19423,10 @@ __L__1245:
 	movq is__octal(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	je __L__1248
 	movq 96(%rsp),%rax
@@ -17143,7 +19434,10 @@ __L__1245:
 	movq digit__value(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	movq $8,%rax
 	movq %rax,32(%rsp)
@@ -17189,7 +19483,10 @@ __L__1243:
 	movq is__alpha(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	cmpq $0,%rax
 	jne __L__1252
 	movq 96(%rsp),%rax
@@ -17197,7 +19494,10 @@ __L__1243:
 	movq is__digit10(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__1252:
 	cmpq $0,%rax
 	je __L__1250
@@ -17214,7 +19514,11 @@ __L__1253:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	jmp __L__1251
 __L__1250:
 	movq 96(%rsp),%rax
@@ -17243,6 +19547,7 @@ __L__1254:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $48,%rax
@@ -17327,7 +19632,10 @@ __L__1264:
 	movq fatal(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__1262:
 __L__1259:
 __L__1256:
@@ -17341,6 +19649,7 @@ __L__1265:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $16,%rsp
+	movq %rdi,32(%rsp)
 	movq 32(%rsp),%rax
 	movq %rax,0(%rsp)
 	movq $48,%rax
@@ -17401,6 +19710,7 @@ __L__1270:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $16,%rsp
+	movq %rdi,32(%rsp)
 	movq 32(%rsp),%rax
 	movq %rax,0(%rsp)
 	movq $48,%rax
@@ -17426,6 +19736,7 @@ __L__1272:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $112,%rsp
+	movq %rdi,128(%rsp)
 	movq $0,%rax
 	movq %rax,32(%rsp)
 	movq $1,%rax
@@ -17435,7 +19746,10 @@ __L__1272:
 	movq k__array__length(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	subq 40(%rsp),%rax
 	movq %rax,40(%rsp)
 	jmp __L__1274
@@ -17458,7 +19772,11 @@ __L__1273:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	movq $32,%rax
 	movq %rax,56(%rsp)
@@ -17539,14 +19857,20 @@ __L__1274:
 	movq new_2D_3Csymbol_3E(%rip),%rax
 	movq 48(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,48(%rsp)
 	leaq 48(%rsp),%rax
 	movq %rax,64(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq symbols(%rip),%rax
 	movq %rax,64(%rsp)
 	movq 32(%rsp),%rax
@@ -17560,14 +19884,22 @@ __L__1274:
 	movq %rcx,8(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,72(%rsp)
 	leaq 48(%rsp),%rax
 	movq %rax,56(%rsp)
 	movq gc__pop__root(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 72(%rsp),%rax
 __L__1279:
 	addq $112,%rsp
@@ -17580,6 +19912,7 @@ __L__1280:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $0,%rax
@@ -17589,7 +19922,11 @@ __L__1280:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $1,%rax
 	movq %rax,24(%rsp)
 	movq $2,%rax
@@ -17623,6 +19960,8 @@ __L__1281:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq $0,%rax
 	movq %rax,16(%rsp)
 	movq $0,%rax
@@ -17638,7 +19977,11 @@ __L__1282:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq 16(%rsp),%rax
 	movq %rax,40(%rsp)
 	movq $1,%rax
@@ -17665,6 +20008,8 @@ __L__1284:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq $1,%rax
 	movq %rax,16(%rsp)
 	movq 64(%rsp),%rax
@@ -17688,7 +20033,10 @@ __L__1284:
 	movq buffer__grow(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__1285:
 	movq $2,%rax
 	movq %rax,16(%rsp)
@@ -17733,6 +20081,7 @@ __L__1286:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
 	movq $1,%rax
 	movq %rax,32(%rsp)
 	movq 96(%rsp),%rax
@@ -17822,6 +20171,7 @@ __L__1287:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
 	movq $0,%rax
 	movq %rax,16(%rsp)
 	movq 48(%rsp),%rax
@@ -17911,6 +20261,7 @@ __L__1289:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $16,%rsp
+	movq %rdi,32(%rsp)
 	movq 32(%rsp),%rax
 	movq %rax,0(%rsp)
 	movq $33,%rax
@@ -18052,6 +20403,7 @@ __L__1295:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $16,%rsp
+	movq %rdi,32(%rsp)
 	movq 32(%rsp),%rax
 	movq %rax,0(%rsp)
 	movq $97,%rax
@@ -18095,6 +20447,7 @@ __L__1299:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $16,%rsp
+	movq %rdi,32(%rsp)
 	movq 32(%rsp),%rax
 	movq %rax,0(%rsp)
 	movq $48,%rax
@@ -18155,6 +20508,7 @@ __L__1304:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $16,%rsp
+	movq %rdi,32(%rsp)
 	movq 32(%rsp),%rax
 	movq %rax,0(%rsp)
 	movq $48,%rax
@@ -18180,6 +20534,7 @@ __L__1306:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $16,%rsp
+	movq %rdi,32(%rsp)
 	movq 32(%rsp),%rax
 	movq %rax,0(%rsp)
 	movq $32,%rax
@@ -18237,6 +20592,7 @@ __L__1308:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $1,%rax
@@ -18246,7 +20602,11 @@ __L__1308:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__1309:
 	.asciz "\012"
@@ -18270,6 +20630,7 @@ __L__1310:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $1,%rax
@@ -18279,7 +20640,11 @@ __L__1310:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	addq $32,%rsp
 	leave
 	ret
@@ -18290,6 +20655,7 @@ __L__1311:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $0,%rax
@@ -18299,7 +20665,11 @@ __L__1311:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__1312:
 	.asciz "\012"
@@ -18323,6 +20693,7 @@ __L__1313:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $0,%rax
@@ -18332,7 +20703,11 @@ __L__1313:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	addq $32,%rsp
 	leave
 	ret
@@ -18343,6 +20718,8 @@ __L__1314:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
 	movq $0,%rax
 	movq 96(%rsp),%rax
 	movq %rax,32(%rsp)
@@ -18702,7 +21079,11 @@ __L__1351:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $1,%rax
 	movq %rax,48(%rsp)
 	movq 96(%rsp),%rax
@@ -18847,7 +21228,11 @@ __L__1368:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 __L__1367:
 __L__1365:
 	.data
@@ -18878,7 +21263,10 @@ __L__1348:
 	movq k__array__length(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	.data
 __L__1372:
@@ -18925,7 +21313,11 @@ __L__1375:
 	movq %rcx,0(%rsp)
 	movq 72(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,72(%rsp)
 	movq 104(%rsp),%rax
 	movq %rax,64(%rsp)
@@ -18934,7 +21326,11 @@ __L__1375:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq $1,%rax
 	movq %rax,64(%rsp)
 	movq 48(%rsp),%rax
@@ -18998,7 +21394,10 @@ __L__1380:
 	movq k__car(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq 104(%rsp),%rax
 	movq %rax,56(%rsp)
@@ -19007,7 +21406,11 @@ __L__1380:
 	movq %rcx,0(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__1381:
 	.asciz ")"
@@ -19061,7 +21464,11 @@ __L__1384:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__1385:
 	.asciz ","
@@ -19092,7 +21499,11 @@ __L__1385:
 	movq %rcx,0(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__1386:
 	.asciz ")"
@@ -19146,7 +21557,11 @@ __L__1389:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	.data
 __L__1390:
 	.asciz ")"
@@ -19229,7 +21644,10 @@ __L__1391:
 	movq do__print(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 56(%rsp),%rax
 	cmpq $0,%rax
 	je __L__1396
@@ -19407,12 +21825,18 @@ __L__1405:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
+	movq %rsi,104(%rsp)
+	movq %rdx,112(%rsp)
 	movq 96(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq k__array__length(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq 96(%rsp),%rax
 	movq %rax,40(%rsp)
@@ -19423,7 +21847,11 @@ __L__1405:
 	movq %rcx,0(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq 32(%rsp),%rax
 	movq %rax,48(%rsp)
 	movq 104(%rsp),%rax
@@ -19492,7 +21920,12 @@ __L__1406:
 	movq %rcx,8(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	addq $80,%rsp
 	leave
 	ret
@@ -19503,6 +21936,8 @@ __L__1407:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	movq 80(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq 80(%rsp),%rax
@@ -19510,7 +21945,10 @@ __L__1407:
 	movq k__array__length(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq 88(%rsp),%rax
 	movq %rax,48(%rsp)
@@ -19521,7 +21959,12 @@ __L__1407:
 	movq %rcx,8(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	addq $64,%rsp
 	leave
 	ret
@@ -19532,6 +21975,9 @@ __L__1408:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $96,%rsp
+	movq %rdi,112(%rsp)
+	movq %rsi,120(%rsp)
+	movq %rdx,128(%rsp)
 	movq 112(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq $0,%rax
@@ -19616,7 +22062,10 @@ __L__1411:
 	movq gc__size(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rdx
 	divq 48(%rsp)
 	movq %rax,48(%rsp)
@@ -19641,7 +22090,10 @@ __L__1417:
 	movq gc__push__root(%rip),%rax
 	movq 56(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq _3C__array_3E(%rip),%rax
 	movq %rax,56(%rsp)
 	movq 48(%rsp),%rax
@@ -19654,7 +22106,11 @@ __L__1417:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,56(%rsp)
@@ -19702,7 +22158,10 @@ __L__1417:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 80(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,80(%rsp)
 	movq $0,%rax
 	movq %rax,72(%rsp)
@@ -19717,7 +22176,10 @@ __L__1417:
 	movq gc__pop__root(%rip),%rax
 	movq 80(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 64(%rsp),%rax
 __L__1415:
 	movq 128(%rsp),%rax
@@ -19741,6 +22203,8 @@ __L__1418:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,0(%rsp)
 	movq $0,%rax
@@ -19836,6 +22300,7 @@ __L__1425:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $16,%rsp
+	movq %rdi,32(%rsp)
 	movq 32(%rsp),%rax
 	movq %rax,0(%rsp)
 	movq $0,%rax
@@ -19863,6 +22328,8 @@ __L__1426:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $0,%rax
@@ -19910,14 +22377,21 @@ __L__1430:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,56(%rsp)
 	leaq 56(%rsp),%rax
 	movq %rax,24(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,24(%rsp)
 	movq 48(%rsp),%rax
@@ -19932,14 +22406,21 @@ __L__1430:
 	movq %rcx,0(%rsp)
 	movq 16(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	leaq 56(%rsp),%rax
 	movq %rax,24(%rsp)
 	movq gc__pop__root(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 16(%rsp),%rax
 	jmp __L__1428
 __L__1427:
@@ -19955,6 +22436,7 @@ __L__1433:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $16,%rsp
+	movq %rdi,32(%rsp)
 	movq 32(%rsp),%rax
 	movq %rax,0(%rsp)
 	movq $0,%rax
@@ -19982,22 +22464,32 @@ __L__1434:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__cdr(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq k__cdr(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	addq $32,%rsp
 	leave
 	ret
@@ -20008,17 +22500,24 @@ __L__1435:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__cdr(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq k__cdr(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	addq $32,%rsp
 	leave
 	ret
@@ -20029,17 +22528,24 @@ __L__1436:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__cdr(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	addq $32,%rsp
 	leave
 	ret
@@ -20050,17 +22556,24 @@ __L__1437:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq k__car(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	addq $32,%rsp
 	leave
 	ret
@@ -20071,6 +22584,7 @@ __L__1438:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $16,%rsp
+	movq %rdi,32(%rsp)
 	movq 32(%rsp),%rax
 	movq %rax,0(%rsp)
 	movq $0,%rax
@@ -20121,6 +22635,7 @@ __L__1444:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $16,%rsp
+	movq %rdi,32(%rsp)
 	movq 32(%rsp),%rax
 	movq %rax,0(%rsp)
 	movq $0,%rax
@@ -20171,6 +22686,7 @@ __L__1450:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
 	movq 48(%rsp),%rax
 	movq %rax,0(%rsp)
 	movq $0,%rax
@@ -20217,6 +22733,9 @@ __L__1452:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
+	movq %rdx,96(%rsp)
 	movq $0,%rax
 	movq %rax,32(%rsp)
 	movq 88(%rsp),%rax
@@ -20274,7 +22793,12 @@ __L__1453:
 	movq %rcx,8(%rsp)
 	movq 56(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	movq 88(%rsp),%rax
 	cmpq $0,%rax
@@ -20304,6 +22828,9 @@ __L__1457:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
+	movq %rdx,80(%rsp)
 	movq _3Ccontext_3E(%rip),%rax
 	movq %rax,16(%rsp)
 	movq $40,%rax
@@ -20313,14 +22840,21 @@ __L__1457:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	leaq 24(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $0,%rax
@@ -20344,7 +22878,10 @@ __L__1457:
 	movq new_2D_3Carray_3E(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq $2,%rax
 	movq %rax,32(%rsp)
@@ -20360,7 +22897,10 @@ __L__1457:
 	movq gc__pop__root(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 16(%rsp),%rax
 	addq $48,%rsp
 	leave
@@ -20372,6 +22912,9 @@ __L__1458:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
+	movq %rdx,80(%rsp)
 	movq _3Cenv_3E(%rip),%rax
 	movq %rax,16(%rsp)
 	movq $40,%rax
@@ -20381,14 +22924,21 @@ __L__1458:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	leaq 24(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $0,%rax
@@ -20429,7 +22979,10 @@ __L__1460:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq $1,%rax
 	movq %rax,32(%rsp)
@@ -20443,7 +22996,10 @@ __L__1460:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq $2,%rax
 	movq %rax,32(%rsp)
@@ -20457,7 +23013,10 @@ __L__1460:
 	movq new_2D_3Carray_3E(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq $3,%rax
 	movq %rax,32(%rsp)
@@ -20473,7 +23032,10 @@ __L__1460:
 	movq gc__pop__root(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 16(%rsp),%rax
 	addq $48,%rsp
 	leave
@@ -20493,6 +23055,8 @@ __L__1461:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
 	.data
 __L__1462:
 	.asciz "illegal type: expected %d got %d"
@@ -20510,7 +23074,12 @@ __L__1462:
 	movq %rcx,8(%rsp)
 	movq 48(%rsp),%rcx
 	movq %rcx,16(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	movq 16(%rsp),%rdx
+	xorl %eax,%eax
+	call *%r11
 	addq $64,%rsp
 	leave
 	ret
@@ -20523,6 +23092,10 @@ __L__1463:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
+	movq %rdx,80(%rsp)
+	movq %rcx,88(%rsp)
 	movq _3Cvariable_3E(%rip),%rax
 	movq %rax,16(%rsp)
 	movq $40,%rax
@@ -20532,14 +23105,21 @@ __L__1463:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	leaq 24(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $0,%rax
@@ -20572,7 +23152,10 @@ __L__1463:
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq $3,%rax
 	movq %rax,32(%rsp)
@@ -20588,7 +23171,10 @@ __L__1463:
 	movq gc__pop__root(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 16(%rsp),%rax
 	addq $48,%rsp
 	leave
@@ -20600,6 +23186,8 @@ __L__1464:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq _3Csubr_3E(%rip),%rax
 	movq %rax,16(%rsp)
 	movq $32,%rax
@@ -20609,14 +23197,21 @@ __L__1464:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	leaq 24(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $1,%rax
@@ -20642,7 +23237,10 @@ __L__1464:
 	movq gc__pop__root(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 16(%rsp),%rax
 	addq $48,%rsp
 	leave
@@ -20654,6 +23252,7 @@ __L__1465:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
 	movq _3Cfixed_3E(%rip),%rax
 	movq %rax,16(%rsp)
 	movq $8,%rax
@@ -20663,14 +23262,21 @@ __L__1465:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	leaq 24(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $0,%rax
@@ -20687,7 +23293,10 @@ __L__1465:
 	movq gc__pop__root(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 16(%rsp),%rax
 	addq $48,%rsp
 	leave
@@ -20699,6 +23308,8 @@ __L__1466:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq _3Cform_3E(%rip),%rax
 	movq %rax,16(%rsp)
 	movq $16,%rax
@@ -20708,14 +23319,21 @@ __L__1466:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	leaq 24(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq $0,%rax
@@ -20741,7 +23359,10 @@ __L__1466:
 	movq gc__pop__root(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 16(%rsp),%rax
 	addq $48,%rsp
 	leave
@@ -20753,6 +23374,8 @@ __L__1467:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq _3Cexpr_3E(%rip),%rax
 	movq %rax,16(%rsp)
 	movq $32,%rax
@@ -20762,7 +23385,11 @@ __L__1467:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
@@ -20793,6 +23420,7 @@ __L__1468:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
 	movq 64(%rsp),%rax
 	cmpq $0,%rax
 	je __L__1469
@@ -20811,20 +23439,30 @@ __L__1470:
 	movq %rcx,0(%rsp)
 	movq 32(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,32(%rsp)
 	leaq 32(%rsp),%rax
 	movq %rax,24(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 64(%rsp),%rax
 	movq %rax,24(%rsp)
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	movq $0,%rax
 	movq %rax,40(%rsp)
@@ -20845,7 +23483,11 @@ __L__1470:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq $1,%rax
 	movq %rax,24(%rsp)
@@ -20861,7 +23503,10 @@ __L__1470:
 	movq gc__pop__root(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 40(%rsp),%rax
 	addq $48,%rsp
 	leave
@@ -20873,6 +23518,8 @@ __L__1471:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq _3Cpair_3E(%rip),%rax
 	movq %rax,16(%rsp)
 	movq $24,%rax
@@ -20882,7 +23529,11 @@ __L__1471:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
@@ -20913,6 +23564,7 @@ __L__1472:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
 	movq _3Csymbol_3E(%rip),%rax
 	movq %rax,16(%rsp)
 	movq $8,%rax
@@ -20922,7 +23574,11 @@ __L__1472:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
@@ -20952,6 +23608,7 @@ __L__1473:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $80,%rsp
+	movq %rdi,96(%rsp)
 	movq 96(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq strlen_24stub(%rip),%rax
@@ -20967,7 +23624,10 @@ __L__1473:
 	movq __new_2D_3Cstring_3E(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,40(%rsp)
 	movq $1,%rax
 	movq %rax,48(%rsp)
@@ -21004,6 +23664,7 @@ __L__1474:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
 	movq _3Cstring_3E(%rip),%rax
 	movq %rax,16(%rsp)
 	movq $16,%rax
@@ -21013,20 +23674,30 @@ __L__1474:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	leaq 24(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq gc__push__root(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq new_2D_3Clong_3E(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq $0,%rax
 	movq %rax,32(%rsp)
@@ -21043,7 +23714,10 @@ __L__1474:
 	movq gc__malloc__atomic(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq $1,%rax
 	movq %rax,32(%rsp)
@@ -21059,7 +23733,10 @@ __L__1474:
 	movq gc__pop__root(%rip),%rax
 	movq 32(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 16(%rsp),%rax
 	addq $48,%rsp
 	leave
@@ -21071,6 +23748,7 @@ __L__1475:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
 	movq _3Clong_3E(%rip),%rax
 	movq %rax,16(%rsp)
 	movq $8,%rax
@@ -21080,7 +23758,11 @@ __L__1475:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
@@ -21102,12 +23784,17 @@ __L__1476:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 72(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq gc__malloc(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -21129,12 +23816,17 @@ __L__1477:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
+	movq %rsi,72(%rsp)
 	movq 72(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq gc__malloc__atomic(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,24(%rsp)
@@ -21213,12 +23905,16 @@ __L__1478:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq gc__malloc(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq $3,%rax
 	movq %rax,24(%rsp)
@@ -21243,6 +23939,7 @@ __L__1479:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $96,%rsp
+	movq %rdi,112(%rsp)
 	movq 112(%rsp),%rax
 	movq %rax,32(%rsp)
 	movq $3,%rax
@@ -21260,7 +23957,9 @@ __L__1479:
 	cmpq $0,%rax
 	je __L__1480
 	movq gc__gcollect(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 __L__1480:
 	movq $2,%rax
 	movq %rax,32(%rsp)
@@ -21562,12 +24261,19 @@ __L__1486:
 	movq %rcx,0(%rsp)
 	movq 64(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,64(%rsp)
 	movq gc__grow__memory(%rip),%rax
 	movq 64(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__1482:
 	movq $1,%rax
 	cmpq $0,%rax
@@ -21604,7 +24310,10 @@ __L__1497:
 	movq gc__mark__and__trace(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq 16(%rsp),%rax
 	movq %rax,24(%rsp)
 	movq $1,%rax
@@ -21620,7 +24329,9 @@ __L__1498:
 	cmpq $0,%rax
 	jne __L__1497
 	movq gc__sweep(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 	movq $0,%rax
 	movq %rax,gc__alloc__count(%rip)
 	addq $48,%rsp
@@ -21633,6 +24344,7 @@ __L__1499:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
 	movq 64(%rsp),%rax
 	cmpq $0,%rax
 	je __L__1500
@@ -21713,7 +24425,10 @@ __L__1503:
 	movq gc__mark__and__trace(%rip),%rax
 	movq 40(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__1504:
 	movq 32(%rsp),%rax
 	cmpq $0,%rax
@@ -21844,6 +24559,7 @@ __L__1511:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $16,%rsp
+	movq %rdi,32(%rsp)
 	movq $0,%rax
 	movq %rax,0(%rsp)
 	movq $32,%rax
@@ -21863,12 +24579,16 @@ __L__1512:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq new__memory__block(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq $2,%rax
 	movq %rax,24(%rsp)
@@ -21903,6 +24623,7 @@ __L__1513:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
 	movq gc__root__count(%rip),%rax
 	cmpq $0,%rax
 	jne __L__1514
@@ -21915,7 +24636,10 @@ __L__1515:
 	movq fatal(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__1514:
 	movq $1,%rax
 	movq %rax,16(%rsp)
@@ -21945,7 +24669,10 @@ __L__1517:
 	movq fatal(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__1516:
 	addq $32,%rsp
 	leave
@@ -21957,6 +24684,7 @@ __L__1518:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
 	movq gc__root__max(%rip),%rax
 	movq %rax,32(%rsp)
 	movq gc__root__count(%rip),%rax
@@ -21977,7 +24705,11 @@ __L__1518:
 	movq %rcx,0(%rsp)
 	movq 40(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,gc__root__max(%rip)
 	movq %rax,40(%rsp)
 	movq $8,%rax
@@ -22059,7 +24791,10 @@ __L__1521:
 	movq new__memory__block(%rip),%rax
 	movq 16(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,16(%rsp)
 	movq 16(%rsp),%rax
 	movq %rax,gc__memory__base(%rip)
@@ -22075,6 +24810,7 @@ __L__1522:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $48,%rsp
+	movq %rdi,64(%rsp)
 	movq 64(%rsp),%rax
 	movq %rax,16(%rsp)
 	movq malloc_24stub(%rip),%rax
@@ -22097,7 +24833,10 @@ __L__1524:
 	movq fatal(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__1523:
 	movq $32,%rax
 	movq %rax,24(%rsp)
@@ -22142,6 +24881,9 @@ __L__1525:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $64,%rsp
+	movq %rdi,80(%rsp)
+	movq %rsi,88(%rsp)
+	movq %rdx,96(%rsp)
 	.data
 __L__1526:
 	.asciz "\012eval.k: "
@@ -22188,7 +24930,9 @@ __L__1527:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 	addq $64,%rsp
 	leave
 	ret
@@ -22199,6 +24943,8 @@ __L__1528:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
+	movq %rsi,56(%rsp)
 	.data
 __L__1529:
 	.asciz "\012eval.k: "
@@ -22240,7 +24986,9 @@ __L__1530:
 	xorl %eax,%eax
 	call *%r11
 	movq die(%rip),%rax
-	call *%rax
+	movq %rax,%r11
+	xorl %eax,%eax
+	call *%r11
 	addq $32,%rsp
 	leave
 	ret
@@ -22251,6 +24999,7 @@ __L__1531:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $32,%rsp
+	movq %rdi,48(%rsp)
 	.data
 __L__1532:
 	.asciz "\012eval.k: %s\012"
@@ -22319,12 +25068,19 @@ __L__1536:
 	movq %rcx,0(%rsp)
 	movq 24(%rsp),%rcx
 	movq %rcx,8(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	movq 8(%rsp),%rsi
+	xorl %eax,%eax
+	call *%r11
 	movq %rax,24(%rsp)
 	movq k__dumpln(%rip),%rax
 	movq 24(%rsp),%rcx
 	movq %rcx,0(%rsp)
-	call *%rax
+	movq %rax,%r11
+	movq 0(%rsp),%rdi
+	xorl %eax,%eax
+	call *%r11
 __L__1535:
 	movq $1,%rax
 	movq %rax,24(%rsp)
@@ -22359,6 +25115,8 @@ __L__1537:
 	pushq %rbp
 	movq %rsp,%rbp
 	subq $16,%rsp
+	movq %rdi,32(%rsp)
+	movq %rsi,40(%rsp)
 	movq 40(%rsp),%rax
 	movq %rax,0(%rsp)
 	movq 32(%rsp),%rax
