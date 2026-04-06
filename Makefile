@@ -100,7 +100,8 @@ tests: bin/eval \
 	test/test-subr-binary \
 	test/test-subr \
 	test/test-fsubr \
-	test/test-boot
+	test/test-boot \
+	test/test-double
 
 test-%: test-%.l ${bin}
 	${run} $<
