@@ -11,25 +11,25 @@ maru-in-C interpreter.
 ## Objective
 * src/eval.l to have the same features as csrc/eval.c
   * able to run test-pepsi example
+* add LLVM support
 
 ## Other improvements
 * write tests for eval
 * document the maru language
-* add LLVM support
 
 ## Bootstrapping
-eval.s is the interpreter compiled to x86-64 assembly, it can be compiled to a binary with gcc via the Makefile
+eval.ll is the interpreter compiled to LLVM IR, it can be compiled to a binary with clang via the Makefile
 
-`make bin/eval`
+`make bin/evall`
 
-The binary can regenerate eval.s from source via the Makefile
+The binary can regenerate eval.ll from source via the Makefile
 
 ```
-rm obj/eval.s
-make obj/eval.s
+rm obj/eval.ll
+make obj/eval.ll
 ```
 
-The generate eval.s is identical to the version in the repository
+The generate eval.ll is identical to the version in the repository
 
 ## C-based Evaluators (csrc/)
 
@@ -39,5 +39,3 @@ The `csrc/` directory contains several versions of the Maru evaluator implemente
 - **eval2 (`eval2.c`)**: A simplified and evolved version. It removes the specialized `Env`, `Variable`, and `Context` structures in favor of using basic `Pair` (linked list) structures for environments. It also introduces a global variable cache for improved performance.
 - **eval3 (`eval3.c`)**: Built upon `eval2`, it ensures 64-bit integer precision by defining `long_t` as `int64_t` (from `<stdint.h>`), making it more portable across architectures with different native `long` sizes.
 - **gceval**: A version of `eval1` (from `eval.c`) compiled to use the Boehm-Demers-Weiser conservative garbage collector (`libgc`) instead of the internal Maru GC.
-
-Note: `bin/eval` (the default binary) is the self-hosted Maru interpreter compiled from `src/eval.l` via `obj/eval.s`. The C-based evaluators are primarily used for bootstrapping and testing.
