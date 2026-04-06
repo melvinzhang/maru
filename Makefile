@@ -20,7 +20,9 @@ bin = $(firstword ${${eval}})
 
 run = ${${eval}}
 
-GCC = gcc -m32
+GCC32 = gcc -m32 -no-pie
+
+GCC = gcc
 
 ifeq ($(OS),Windows_NT)
     OS = win
@@ -57,7 +59,7 @@ bin/mkosdefs : src/mkosdefs.c
 obj/eval.s: bin/eval src/boot.l src/osdefs.k src/emit.l src/eval.l
 	bin/eval -O $(wordlist 2, 9, $^) > $@
 
-obj/eval.%.s: bin/eval src/boot.l src/osdefs.%.k src/emit.l src/eval.l
+obj/eval.%.s: bin/eval src/boot.l src/osdefs.%.k src/emit-x64.l src/eval.l
 	bin/eval -O $(wordlist 2, 9, $^) > $@
 
 obj/eval.ll: bin/eval src/boot.l src/emit-llvm.l src/eval.l
