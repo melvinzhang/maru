@@ -52,6 +52,8 @@
 (define *llvm-terminated*     ())
 (define *llvm-num-arg-slots*  0)
 
+;;; LLVM -- HELPERS
+
 (define-function llvm-escape-string (str)
   (let ((buf (array))
 	(i 0)
@@ -73,6 +75,38 @@
       (set i (+ i 1)))
     (array->string buf)))
 
+(define-function llvm-new-reg ()
+  (let ((r (concat-string "%r" (long->string *llvm-next-reg*))))
+    (set *llvm-next-reg* (+ *llvm-next-reg* 1))
+    r))
+
+(define-function llvm-save-acc ()
+  (println "  store i64 "*llvm-acc*", ptr %acc.ptr"))
+
+(define-function llvm-reload-acc ()
+  (let ((r (llvm-new-reg)))
+    (println "  "r" = load i64, ptr %acc.ptr")
+    (set *llvm-acc* r)))
+
+(define-function llvm-load-reg (reg)
+  (let ((r (llvm-new-reg)))
+    (println "  "r" = load i64, ptr %"(<REG>-id reg))
+    r))
+
+(define-function llvm-binop (op reg)
+  (let* ((rhs (llvm-load-reg reg))
+	 (result (llvm-new-reg)))
+    (println "  "result" = "op" i64 "*llvm-acc*", "rhs)
+    (set *llvm-acc* result)))
+
+(define-function llvm-cmpop (cmp reg)
+  (let* ((rhs (llvm-load-reg reg))
+	 (cmp-result (llvm-new-reg))
+	 (result (llvm-new-reg)))
+    (println "  "cmp-result" = icmp "cmp" i64 "*llvm-acc*", "rhs)
+    (println "  "result" = zext i1 "cmp-result" to i64")
+    (set *llvm-acc* result)))
+
 (define-emit	(TEXT)			(set *llvm-data-mode* ()))
 (define-emit	(DATA)			(set *llvm-data-mode* 1))
 (define-emit	(SECTION string)	())
@@ -84,9 +118,11 @@
   (if *llvm-data-mode*
     (set *llvm-pending-label* $1)
     (let ()
-      (and (not *llvm-terminated*) (println "  br label %"$1))
+      (and (not *llvm-terminated*)
+	   (let () (llvm-save-acc) (println "  br label %"$1)))
       (println $1":")
-      (set *llvm-terminated* ()))))
+      (set *llvm-terminated* ())
+      (llvm-reload-acc))))
 
 (define-emit	(ASCIZ string)
   (let ((len (+ 1 (string-length $1))))
@@ -99,24 +135,6 @@
   (println "@"*llvm-pending-label*" = global i64 ptrtoint (ptr @"$1" to i64)"))
 
 (define-emit	(COMMENT pair)		(print "; ") (apply println $1))
-
-;;; LLVM -- SSA HELPERS
-
-(define-function llvm-new-reg ()
-  (let ((r (concat-string "%r" (long->string *llvm-next-reg*))))
-    (set *llvm-next-reg* (+ *llvm-next-reg* 1))
-    r))
-
-(define-function llvm-load-reg (reg)
-  (let ((r (llvm-new-reg)))
-    (println "  "r" = load i64, ptr %"(<REG>-id reg))
-    r))
-
-(define-function llvm-binop (op reg)
-  (let* ((rhs (llvm-load-reg reg))
-	 (result (llvm-new-reg)))
-    (println "  "result" = "op" i64 "*llvm-acc*", "rhs)
-    (set *llvm-acc* result)))
 
 ;;; LLVM -- INSTRUCTIONS: ARITHMETIC & LOGIC
 
@@ -144,14 +162,6 @@
 
 ;;; LLVM -- INSTRUCTIONS: COMPARISONS & BRANCHES
 
-(define-function llvm-cmpop (cmp reg)
-  (let* ((rhs (llvm-load-reg reg))
-	 (cmp-result (llvm-new-reg))
-	 (result (llvm-new-reg)))
-    (println "  "cmp-result" = icmp "cmp" i64 "*llvm-acc*", "rhs)
-    (println "  "result" = zext i1 "cmp-result" to i64")
-    (set *llvm-acc* result)))
-
 (define-emit	(LT REG)	(llvm-cmpop "slt" $1))
 (define-emit	(LE REG)	(llvm-cmpop "sle" $1))
 (define-emit	(EQ REG)	(llvm-cmpop "eq" $1))
@@ -161,26 +171,30 @@
 
 (define-emit	(BR LABEL)
   (or *llvm-terminated*
-    (println "  br label %"$1))
+    (let () (llvm-save-acc) (println "  br label %"$1)))
   (set *llvm-terminated* 1))
 
 (define-emit	(BF LABEL)
   (let ((creg (llvm-new-reg))
 	(cont (concat-string "cont." (long->string *llvm-next-reg*))))
     (set *llvm-next-reg* (+ *llvm-next-reg* 1))
+    (llvm-save-acc)
     (println "  "creg" = icmp ne i64 "*llvm-acc*", 0")
     (println "  br i1 "creg", label %"cont", label %"$1)
     (println cont":")
-    (set *llvm-terminated* ())))
+    (set *llvm-terminated* ())
+    (llvm-reload-acc)))
 
 (define-emit	(BT LABEL)
   (let ((creg (llvm-new-reg))
 	(cont (concat-string "cont." (long->string *llvm-next-reg*))))
     (set *llvm-next-reg* (+ *llvm-next-reg* 1))
+    (llvm-save-acc)
     (println "  "creg" = icmp ne i64 "*llvm-acc*", 0")
     (println "  br i1 "creg", label %"$1", label %"cont)
     (println cont":")
-    (set *llvm-terminated* ())))
+    (set *llvm-terminated* ())
+    (llvm-reload-acc)))
 
 ;;; LLVM -- INSTRUCTIONS: MEMORY ACCESS
 
@@ -295,6 +309,7 @@
     (set *llvm-next-reg* 0)
     (set *llvm-acc* "0")
     (set *llvm-terminated* ())
+    (println "  %acc.ptr = alloca i64")
     (for (i 0 num-params)
       (println "  %arg"i" = alloca i64")
       (println "  store i64 %p"i", ptr %arg"i))
@@ -312,26 +327,102 @@
 
 (define-method gen <variable> (comp)
   (let ((value (<variable>-value self)))
-    (if (temp? value)
-	(gen comp LOAD value)
-      (gen comp LOAD (GVAR (<variable>-name self))))))
+    (if (extern? value)
+	(gen comp LOAD (GVAR (concat-symbol (<variable>-name self) '$stub)))
+      (if (temp? value)
+	  (gen comp LOAD value)
+	(gen comp LOAD (GVAR (<variable>-name self)))))))
 
 ;;; GEN-DEFINITION
 
 (define-method gen-definition <long> (name comp)
-  (println "gen-def-long-stub"))
+  (println "@"(mangle-label name)" = global i64 "self))
 
 (define-method gen-definition <string> (name comp)
-  (println "gen-def-string-stub"))
+  (let ((sname (temp-label-name)))
+    (println "@"(mangle-label (string->symbol sname))
+	     " = private constant ["(+ 1 (string-length self))" x i8] c\""
+	     (llvm-escape-string self)"\\00\"")
+    (println "@"(mangle-label name)
+	     " = global i64 ptrtoint (ptr @"(mangle-label (string->symbol sname))" to i64)")))
 
 (define-method gen-definition <extern> (name comp)
-  (println "gen-def-extern-stub"))
+  (let ((ename (mangle-label (<extern>-name self)))
+	(sname (mangle-label (concat-symbol (<extern>-name self) '$stub))))
+    (println "declare void @"ename"()")
+    (println "@"sname" = global i64 ptrtoint (ptr @"ename" to i64)")))
 
 (define-method gen-definition <form> (name comp)
-  (println "gen-def-form-stub"))
+  (emit COMMENT (list "form "name)))
+
+(define-function gen-param (var comp)
+  (set (<variable>-value var) (new-param comp)))
+
+(define-function llvm-emit-hoisted-data (comp)
+  (let ((i 0)
+	(pc (<compiler>-pc comp)))
+    (while (< i pc)
+      (let ((insn (array-at (<compiler>-asm comp) i)))
+	(if (= DATA (car insn))
+	  (let ()
+	    (emit DATA)
+	    (set i (+ i 1))
+	    (while (and (< i pc) (!= TEXT (car (array-at (<compiler>-asm comp) i))))
+	      (apply emit (array-at (<compiler>-asm comp) i))
+	      (set i (+ i 1)))
+	    (and (< i pc) (let () (emit TEXT) (set i (+ i 1)))))
+	  (set i (+ i 1)))))))
+
+(define-function llvm-emit-body (comp)
+  (let ((i 0)
+	(pc (<compiler>-pc comp)))
+    (while (< i pc)
+      (let ((insn (array-at (<compiler>-asm comp) i)))
+	(if (= DATA (car insn))
+	  (let ()
+	    (set i (+ i 1))
+	    (while (and (< i pc) (!= TEXT (car (array-at (<compiler>-asm comp) i))))
+	      (set i (+ i 1)))
+	    (and (< i pc) (set i (+ i 1))))
+	  (let ()
+	    (apply emit insn)
+	    (set i (+ i 1))))))))
 
 (define-method gen-definition <expr> (name ocomp)
-  (println "gen-def-expr-stub"))
+  (let* ((main (= 'main name))
+	 (defn (<expr>-defn self))
+	 (body (cddr defn))
+	 (comp (compiler (+ 1 (<compiler>-level ocomp))))
+	 (tnam (if main (LABEL name) (LABEL (temp-label-name))))
+	 (vnam (if main ()           (LABEL name)))
+	 (params (map-with gen-param (cadr defn) comp))
+	 (nparams (list-length params)))
+    (list-do e body (gen e comp))
+    ;; Hoist string constants out of the function body
+    (llvm-emit-hoisted-data comp)
+    ;; Emit function header
+    (print "define i64 @"tnam"(")
+    (for (i 0 nparams)
+      (and (> i 0) (print ", "))
+      (print "i64 %p"i))
+    (println ") {")
+    (println "entry:")
+    ;; Prologue: allocas and param stores
+    (set *llvm-num-arg-slots* (<compiler>-arg-limit comp))
+    (emit ENTER (<compiler>-tmp-limit comp) nparams)
+    ;; Emit body instructions (skip data blocks)
+    (llvm-emit-body comp)
+    ;; Epilogue
+    (and (<compiler>-epilogue comp)
+	 (emit DEFLABEL (<compiler>-epilogue comp)))
+    (emit LEAVE 0)
+    ;; For non-main: create global pointer to function
+    (or main
+      (let ()
+	(gen ocomp DATA)
+	(gen ocomp DEFLABEL vnam)
+	(gen ocomp QUAD tnam)
+	(gen ocomp TEXT)))))
 
 ;;; COMPILE-END
 
