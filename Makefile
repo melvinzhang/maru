@@ -56,7 +56,7 @@ src/osdefs.k : bin/mkosdefs
 bin/mkosdefs : src/mkosdefs.c
 	gcc -o $@ $^
 
-obj/eval.s: bin/eval src/boot.l src/osdefs.k src/emit.l src/eval.l
+obj/eval.s: bin/eval src/boot.l src/osdefs.k src/emit-shared.l src/emit-ia32.l src/eval.l
 	bin/eval -O $(wordlist 2, 9, $^) > $@
 
 obj/eval.%.s: bin/eval src/boot.l src/osdefs.%.k src/emit-shared.l src/emit-x64.l src/eval.l
@@ -73,9 +73,9 @@ bin/evall: obj/eval.ll
 
 %.s: %.l
 	if [ $$(grep -l "compile-begin" $^) ]; then \
-		bin/eval -O src/boot.l src/osdefs.k src/emit.l $^ > $@; \
+		bin/eval -O src/boot.l src/osdefs.k src/emit-shared.l src/emit-ia32.l $^ > $@; \
 	else \
-		bin/eval -O src/boot.l src/osdefs.k src/emit.l <(echo "(compile-begin)"; cat $^; echo "(compile-end)") > $@; \
+		bin/eval -O src/boot.l src/osdefs.k src/emit-shared.l src/emit-ia32.l <(echo "(compile-begin)"; cat $^; echo "(compile-end)") > $@; \
 	fi
 
 %.ll: %.l src/boot.l src/emit-shared.l src/emit-llvm.l
@@ -109,7 +109,7 @@ tests: bin/eval \
 test-%: test-%.l ${bin}
 	${run} $<
 
-test-bootstrap: src/boot.l src/osdefs.${OS}.k src/emit.l src/eval.l
+test-bootstrap: src/boot.l src/osdefs.${OS}.k src/emit-shared.l src/emit-ia32.l src/eval.l
 	bin/eval -O $^ > obj/eval-temp.s
 	diff obj/eval.${OS}.s obj/eval-temp.s
 	rm obj/eval-temp.s
@@ -130,8 +130,8 @@ test-llvm:
 	make obj/eval.ll
 
 stats:
-	cat src/boot.l src/emit.l src/eval.l | sed 's/.*debug.*//;s/;.*//;/^\s*$$/d' | wc -l
-	cat src/boot.l src/emit.l src/eval.l | grep '(' -o | wc -l
+	cat src/boot.l src/emit-shared.l src/emit-ia32.l src/eval.l | sed 's/.*debug.*//;s/;.*//;/^\s*$$/d' | wc -l
+	cat src/boot.l src/emit-shared.l src/emit-ia32.l src/eval.l | grep '(' -o | wc -l
 
 OFLAGS = -O3 -fomit-frame-pointer -DNDEBUG
 CFLAGS = -Wall -Wno-comment -g $(OFLAGS)
