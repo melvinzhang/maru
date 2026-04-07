@@ -115,12 +115,12 @@ test-unbalanced: bin/eval bin/eval1
 	-bin/eval test/test-unbalanced.l
 	-bin/eval1 -b test/test-unbalanced.l
 
-test-pepsi: bin/eval1 bin/eval2 bin/eval3 bin/eval bin/evall
-	cd test/pepsi; time ../../bin/eval1  repl.l test-pepsi.l > test-pepsi.eval1
-	cd test/pepsi; time ../../bin/eval2  repl.l test-pepsi.l > test-pepsi.eval2
-	cd test/pepsi; time ../../bin/eval3  repl.l test-pepsi.l > test-pepsi.eval3
-	cd test/pepsi; time ../../bin/eval ../../src/boot.l ../unit-test.l repl.l test-pepsi.l > test-pepsi.eval
-	cd test/pepsi; time ../../bin/evall ../../src/boot.l ../unit-test.l repl.l test-pepsi.l > test-pepsi.evall
+test-pepsi: bin/eval1 bin/eval2 bin/eval3 bin/gceval bin/eval bin/evall
+	cd test/pepsi; for e in eval1 eval2 eval3 gceval; do \
+		time ../../bin/$$e repl.l test-pepsi.l > test-pepsi.$$e; \
+	done; for e in eval evall; do \
+		time ../../bin/$$e ../../src/boot.l ../unit-test.l repl.l test-pepsi.l > test-pepsi.$$e; \
+	done
 
 test-llvm:
 	make examples/args.ll
