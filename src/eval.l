@@ -9,7 +9,7 @@
 (define-form safe prog ())
 ;;(define-form safe prog `(let () ,@prog))
 
-(define-form if-tagged-int (a b) b)
+(define-form if-tagged-int (a b) a)
 
 (define-form long-at args `(oop-at ,@args))
 (define-form set-long-at args `(set-oop-at ,@args))
@@ -339,7 +339,11 @@
 
 (define-function new-<long> (bits)
   (if-tagged-int
-    (| (<< bits 1) 1)
+    (if (< (^ bits (<< bits 1)) 0)
+	(let ((obj (new-bits <long> (size-of-structure <long>))))
+	  (set (<long>-_bits obj) bits)
+	  obj)
+      (| (<< bits 1) 1))
     (let ((obj (new-bits <long> (size-of-structure <long>))))
       (set (<long>-_bits obj) bits)
       obj)))
