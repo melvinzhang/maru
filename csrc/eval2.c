@@ -445,7 +445,7 @@ static oop findVariable2(oop env, oop name)
     return nil;
 }
 
-#define GLOBAL_CACHE_SIZE 2003 // 257 // 1021 // 7919
+#define GLOBAL_CACHE_SIZE 4007 // 257 // 1021 // 2003 // 7919
 
 static oop _globalCache= 0;
 
