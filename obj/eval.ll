@@ -103,7 +103,7 @@
 @__L__285 = private constant [17 x i8] c"no such file: %s\00"
 @__L__291 = private constant [37 x i8] c"GC: %d objects in %d bytes, %d free\0A\00"
 @__L__292 = private constant [33 x i8] c"%d objects in %d bytes, %d free\0A\00"
-define i64 @main(i64 %p0, i64 %p1) {
+define i64 @main(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -630,7 +630,7 @@ entry:
   %r131 = load i64, ptr %t26
   %r133 = load i64, ptr %t27
   %r132 = inttoptr i64 %r131 to ptr
-  %r134 = getelementptr i64, ptr %r132, i64 %r133
+  %r134 = getelementptr inbounds i64, ptr %r132, i64 %r133
   %r135 = load i64, ptr %r134
   store i64 %r135, ptr %t28
   %r136 = ptrtoint ptr @__L__187 to i64
@@ -670,7 +670,7 @@ entry:
   %r158 = load i64, ptr %t33
   %r160 = load i64, ptr %t34
   %r159 = inttoptr i64 %r158 to ptr
-  %r161 = getelementptr i64, ptr %r159, i64 %r160
+  %r161 = getelementptr inbounds i64, ptr %r159, i64 %r160
   %r162 = load i64, ptr %r161
   store i64 %r162, ptr %t35
   %r163 = ptrtoint ptr @__L__188 to i64
@@ -710,7 +710,7 @@ entry:
   %r185 = load i64, ptr %t40
   %r187 = load i64, ptr %t41
   %r186 = inttoptr i64 %r185 to ptr
-  %r188 = getelementptr i64, ptr %r186, i64 %r187
+  %r188 = getelementptr inbounds i64, ptr %r186, i64 %r187
   %r189 = load i64, ptr %r188
   store i64 %r189, ptr %t42
   %r190 = ptrtoint ptr @__L__189 to i64
@@ -750,7 +750,7 @@ entry:
   %r212 = load i64, ptr %t47
   %r214 = load i64, ptr %t48
   %r213 = inttoptr i64 %r212 to ptr
-  %r215 = getelementptr i64, ptr %r213, i64 %r214
+  %r215 = getelementptr inbounds i64, ptr %r213, i64 %r214
   %r216 = load i64, ptr %r215
   store i64 %r216, ptr %t49
   %r217 = ptrtoint ptr @__L__190 to i64
@@ -790,7 +790,7 @@ entry:
   %r239 = load i64, ptr %t54
   %r241 = load i64, ptr %t55
   %r240 = inttoptr i64 %r239 to ptr
-  %r242 = getelementptr i64, ptr %r240, i64 %r241
+  %r242 = getelementptr inbounds i64, ptr %r240, i64 %r241
   %r243 = load i64, ptr %r242
   store i64 %r243, ptr %t56
   %r244 = ptrtoint ptr @__L__191 to i64
@@ -1843,7 +1843,7 @@ __L__268:
   %r965 = load i64, ptr %arg1
   %r967 = load i64, ptr %t217
   %r966 = inttoptr i64 %r965 to ptr
-  %r968 = getelementptr i64, ptr %r966, i64 %r967
+  %r968 = getelementptr inbounds i64, ptr %r966, i64 %r967
   %r969 = load i64, ptr %r968
   store i64 %r969, ptr %t218
   %r970 = ptrtoint ptr @__L__151 to i64
@@ -1858,7 +1858,7 @@ __L__268:
   %r976 = load i64, ptr %t219
   %r978 = load i64, ptr %t220
   %r977 = inttoptr i64 %r975 to ptr
-  %r979 = getelementptr i64, ptr %r977, i64 %r978
+  %r979 = getelementptr inbounds i64, ptr %r977, i64 %r978
   store i64 %r976, ptr %r979
   store i64 %r976, ptr %acc.ptr
   br label %__L__269
@@ -1884,7 +1884,7 @@ cont.988:
   %r991 = load i64, ptr %t223
   %r993 = load i64, ptr %t224
   %r992 = inttoptr i64 %r991 to ptr
-  %r994 = getelementptr i64, ptr %r992, i64 %r993
+  %r994 = getelementptr inbounds i64, ptr %r992, i64 %r993
   %r995 = load i64, ptr %r994
   store i64 %r995, ptr %t225
   %r996 = ptrtoint ptr @__L__270 to i64
@@ -1927,7 +1927,7 @@ cont.988:
   %r1020 = load i64, ptr %t231
   %r1022 = load i64, ptr %t232
   %r1021 = inttoptr i64 %r1020 to ptr
-  %r1023 = getelementptr i64, ptr %r1021, i64 %r1022
+  %r1023 = getelementptr inbounds i64, ptr %r1021, i64 %r1022
   %r1024 = load i64, ptr %r1023
   store i64 %r1024, ptr %t233
   %r1025 = load i64, ptr @s__set
@@ -1956,7 +1956,7 @@ cont.988:
   %r1040 = load i64, ptr %t236
   %r1042 = load i64, ptr %t237
   %r1041 = inttoptr i64 %r1040 to ptr
-  %r1043 = getelementptr i64, ptr %r1041, i64 %r1042
+  %r1043 = getelementptr inbounds i64, ptr %r1041, i64 %r1042
   %r1044 = load i64, ptr %r1043
   store i64 %r1044, ptr %t238
   %r1045 = load i64, ptr @s__quote
@@ -1985,7 +1985,7 @@ cont.988:
   %r1060 = load i64, ptr %t241
   %r1062 = load i64, ptr %t242
   %r1061 = inttoptr i64 %r1060 to ptr
-  %r1063 = getelementptr i64, ptr %r1061, i64 %r1062
+  %r1063 = getelementptr inbounds i64, ptr %r1061, i64 %r1062
   %r1064 = load i64, ptr %r1063
   store i64 %r1064, ptr %t243
   %r1065 = load i64, ptr @s__lambda
@@ -2014,7 +2014,7 @@ cont.988:
   %r1080 = load i64, ptr %t246
   %r1082 = load i64, ptr %t247
   %r1081 = inttoptr i64 %r1080 to ptr
-  %r1083 = getelementptr i64, ptr %r1081, i64 %r1082
+  %r1083 = getelementptr inbounds i64, ptr %r1081, i64 %r1082
   %r1084 = load i64, ptr %r1083
   store i64 %r1084, ptr %t248
   %r1085 = load i64, ptr @s__let
@@ -2043,7 +2043,7 @@ cont.988:
   %r1100 = load i64, ptr %t251
   %r1102 = load i64, ptr %t252
   %r1101 = inttoptr i64 %r1100 to ptr
-  %r1103 = getelementptr i64, ptr %r1101, i64 %r1102
+  %r1103 = getelementptr inbounds i64, ptr %r1101, i64 %r1102
   %r1104 = load i64, ptr %r1103
   store i64 %r1104, ptr %t253
   %r1105 = load i64, ptr @s__define
@@ -2088,7 +2088,7 @@ cont.988:
   %r1131 = load i64, ptr %t258
   %r1133 = load i64, ptr %t259
   %r1132 = inttoptr i64 %r1131 to ptr
-  %r1134 = getelementptr i64, ptr %r1132, i64 %r1133
+  %r1134 = getelementptr inbounds i64, ptr %r1132, i64 %r1133
   %r1135 = load i64, ptr %r1134
   store i64 %r1135, ptr %t260
   %r1136 = ptrtoint ptr @__L__271 to i64
@@ -2123,14 +2123,14 @@ __L__272:
   %r1153 = load i64, ptr %t264
   %r1155 = load i64, ptr %t265
   %r1154 = inttoptr i64 %r1153 to ptr
-  %r1156 = getelementptr i64, ptr %r1154, i64 %r1155
+  %r1156 = getelementptr inbounds i64, ptr %r1154, i64 %r1155
   %r1157 = load i64, ptr %r1156
   store i64 %r1157, ptr %t266
   store i64 0, ptr %t267
   %r1158 = load i64, ptr %t266
   %r1160 = load i64, ptr %t267
   %r1159 = inttoptr i64 %r1158 to ptr
-  %r1161 = getelementptr i64, ptr %r1159, i64 %r1160
+  %r1161 = getelementptr inbounds i64, ptr %r1159, i64 %r1160
   %r1162 = load i64, ptr %r1161
   store i64 %r1162, ptr %t268
   %r1163 = load i64, ptr %t268
@@ -2139,7 +2139,7 @@ __L__272:
   %r1164 = load i64, ptr %t269
   %r1166 = load i64, ptr %t270
   %r1165 = inttoptr i64 %r1164 to ptr
-  %r1167 = getelementptr i64, ptr %r1165, i64 %r1166
+  %r1167 = getelementptr inbounds i64, ptr %r1165, i64 %r1166
   %r1168 = load i64, ptr %r1167
   store i64 %r1168, ptr %t271
   %r1169 = ptrtoint ptr %t268 to i64
@@ -2156,7 +2156,7 @@ __L__272:
   %r1176 = load i64, ptr %t266
   %r1178 = load i64, ptr %t274
   %r1177 = inttoptr i64 %r1176 to ptr
-  %r1179 = getelementptr i64, ptr %r1177, i64 %r1178
+  %r1179 = getelementptr inbounds i64, ptr %r1177, i64 %r1178
   %r1180 = load i64, ptr %r1179
   store i64 %r1180, ptr %t275
   store i64 1, ptr %t276
@@ -2164,7 +2164,7 @@ __L__272:
   %r1182 = load i64, ptr %t275
   %r1184 = load i64, ptr %t276
   %r1183 = inttoptr i64 %r1181 to ptr
-  %r1185 = getelementptr i64, ptr %r1183, i64 %r1184
+  %r1185 = getelementptr inbounds i64, ptr %r1183, i64 %r1184
   store i64 %r1182, ptr %r1185
   %r1186 = load i64, ptr %t271
   store i64 %r1186, ptr %t277
@@ -2341,7 +2341,7 @@ __L__273:
   %r1290 = load i64, ptr %t295
   %r1292 = load i64, ptr %t296
   %r1291 = inttoptr i64 %r1290 to ptr
-  %r1293 = getelementptr i64, ptr %r1291, i64 %r1292
+  %r1293 = getelementptr inbounds i64, ptr %r1291, i64 %r1292
   %r1294 = load i64, ptr %r1293
   store i64 %r1294, ptr %t297
   %r1295 = load i64, ptr %t297
@@ -2368,7 +2368,7 @@ __L__288:
   %r1307 = load i64, ptr %t297
   %r1309 = load i64, ptr %t299
   %r1308 = inttoptr i64 %r1307 to ptr
-  %r1310 = getelementptr i64, ptr %r1308, i64 %r1309
+  %r1310 = getelementptr inbounds i64, ptr %r1308, i64 %r1309
   %r1311 = load i64, ptr %r1310
   store i64 %r1311, ptr %acc.ptr
   br label %__L__289
@@ -2464,7 +2464,7 @@ __L__290:
   ret i64 0
 }
 ; defn define-fsubr
-define i64 @__L__1(i64 %p0, i64 %p1) {
+define i64 @__L__1(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -2524,7 +2524,7 @@ entry:
   %r22 = load i64, ptr %t5
   %r24 = load i64, ptr %t6
   %r23 = inttoptr i64 %r22 to ptr
-  %r25 = getelementptr i64, ptr %r23, i64 %r24
+  %r25 = getelementptr inbounds i64, ptr %r23, i64 %r24
   %r26 = load i64, ptr %r25
   store i64 %r26, ptr %t7
   %r27 = load i64, ptr %arg0
@@ -2563,7 +2563,7 @@ entry:
   ret i64 %r49
 }
 ; defn define-subr
-define i64 @__L__2(i64 %p0, i64 %p1) {
+define i64 @__L__2(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -2613,7 +2613,7 @@ entry:
   %r16 = load i64, ptr %t4
   %r18 = load i64, ptr %t5
   %r17 = inttoptr i64 %r16 to ptr
-  %r19 = getelementptr i64, ptr %r17, i64 %r18
+  %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   %r20 = load i64, ptr %r19
   store i64 %r20, ptr %t6
   %r21 = load i64, ptr %arg0
@@ -2660,7 +2660,7 @@ entry:
 @__L__308 = private constant [8 x i8] c";;; => \00"
 @__L__310 = private constant [2 x i8] c".\00"
 @__L__312 = private constant [23 x i8] c"\0Amorituri te salutant\0A\00"
-define i64 @__L__3(i64 %p0) {
+define i64 @__L__3(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -2742,7 +2742,7 @@ entry:
   %r8 = load i64, ptr %t2
   %r10 = load i64, ptr %t3
   %r9 = inttoptr i64 %r7 to ptr
-  %r11 = getelementptr i64, ptr %r9, i64 %r10
+  %r11 = getelementptr inbounds i64, ptr %r9, i64 %r10
   store i64 %r8, ptr %r11
   store i64 0, ptr %t4
   %r12 = ptrtoint ptr %t4 to i64
@@ -2791,7 +2791,7 @@ __L__295:
   %r38 = load i64, ptr %t9
   %r40 = load i64, ptr %t10
   %r39 = inttoptr i64 %r38 to ptr
-  %r41 = getelementptr i64, ptr %r39, i64 %r40
+  %r41 = getelementptr inbounds i64, ptr %r39, i64 %r40
   %r42 = load i64, ptr %r41
   store i64 %r42, ptr %t11
   store i64 1, ptr %t12
@@ -3209,7 +3209,7 @@ __L__311:
 ; defn subr_read
 @__L__321 = private constant [28 x i8] c"read: non-String argument: \00"
 @__L__322 = private constant [2 x i8] c"r\00"
-define i64 @__L__4(i64 %p0, i64 %p1) {
+define i64 @__L__4(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -3329,7 +3329,7 @@ __L__319:
   %r43 = load i64, ptr %t6
   %r45 = load i64, ptr %t8
   %r44 = inttoptr i64 %r43 to ptr
-  %r46 = getelementptr i64, ptr %r44, i64 %r45
+  %r46 = getelementptr inbounds i64, ptr %r44, i64 %r45
   %r47 = load i64, ptr %r46
   store i64 %r47, ptr %acc.ptr
   br label %__L__320
@@ -3377,7 +3377,7 @@ __L__316:
   %r70 = load i64, ptr %t12
   %r72 = load i64, ptr %t13
   %r71 = inttoptr i64 %r70 to ptr
-  %r73 = getelementptr i64, ptr %r71, i64 %r72
+  %r73 = getelementptr inbounds i64, ptr %r71, i64 %r72
   %r74 = load i64, ptr %r73
   store i64 %r74, ptr %t14
   %r75 = load i64, ptr %t14
@@ -3453,7 +3453,7 @@ __L__325:
   %r118 = load i64, ptr %t27
   %r120 = load i64, ptr %t28
   %r119 = inttoptr i64 %r117 to ptr
-  %r121 = getelementptr i64, ptr %r119, i64 %r120
+  %r121 = getelementptr inbounds i64, ptr %r119, i64 %r120
   store i64 %r118, ptr %r121
   store i64 %r118, ptr %t21
   store i64 %r118, ptr %acc.ptr
@@ -3509,7 +3509,7 @@ cont.134:
   %r155 = load i64, ptr %t20
   %r157 = load i64, ptr %t35
   %r156 = inttoptr i64 %r155 to ptr
-  %r158 = getelementptr i64, ptr %r156, i64 %r157
+  %r158 = getelementptr inbounds i64, ptr %r156, i64 %r157
   %r159 = load i64, ptr %r158
   store i64 %r159, ptr %acc.ptr
   br label %__L__324
@@ -3526,7 +3526,7 @@ __L__314:
   ret i64 %r162
 }
 ; defn subr_optimised
-define i64 @__L__5(i64 %p0, i64 %p1) {
+define i64 @__L__5(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -3578,7 +3578,7 @@ __L__331:
   %r19 = load i64, ptr %t2
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
   br label %__L__332
@@ -3609,7 +3609,7 @@ cont.33:
   %r36 = load i64, ptr %t6
   %r38 = load i64, ptr %t7
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr @opt__optimised
   store i64 %r40, ptr %acc.ptr
@@ -3631,7 +3631,7 @@ __L__328:
   ret i64 %r48
 }
 ; defn subr_verbose
-define i64 @__L__6(i64 %p0, i64 %p1) {
+define i64 @__L__6(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -3683,7 +3683,7 @@ __L__337:
   %r19 = load i64, ptr %t2
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
   br label %__L__338
@@ -3714,7 +3714,7 @@ cont.33:
   %r36 = load i64, ptr %t6
   %r38 = load i64, ptr %t7
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr @opt__verbose
   store i64 %r40, ptr %acc.ptr
@@ -3736,7 +3736,7 @@ __L__334:
   ret i64 %r48
 }
 ; defn subr_current_environment
-define i64 @__L__7(i64 %p0, i64 %p1) {
+define i64 @__L__7(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -3751,12 +3751,12 @@ entry:
   %r1 = load i64, ptr %t0
   %r3 = load i64, ptr %t1
   %r2 = inttoptr i64 %r1 to ptr
-  %r4 = getelementptr i64, ptr %r2, i64 %r3
+  %r4 = getelementptr inbounds i64, ptr %r2, i64 %r3
   %r5 = load i64, ptr %r4
   ret i64 %r5
 }
 ; defn subr_log
-define i64 @__L__8(i64 %p0, i64 %p1) {
+define i64 @__L__8(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -3817,7 +3817,7 @@ __L__343:
   %r19 = load i64, ptr %t2
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
   br label %__L__344
@@ -3846,7 +3846,7 @@ cont.33:
   %r35 = load i64, ptr %t1
   %r37 = load i64, ptr %t6
   %r36 = inttoptr i64 %r35 to ptr
-  %r38 = getelementptr i64, ptr %r36, i64 %r37
+  %r38 = getelementptr inbounds i64, ptr %r36, i64 %r37
   %r39 = load i64, ptr %r38
   store i64 %r39, ptr %t7
   %r40 = ptrtoint ptr @doublelog to i64
@@ -3892,7 +3892,7 @@ __L__348:
   %r64 = load i64, ptr %t9
   %r66 = load i64, ptr %t11
   %r65 = inttoptr i64 %r64 to ptr
-  %r67 = getelementptr i64, ptr %r65, i64 %r66
+  %r67 = getelementptr inbounds i64, ptr %r65, i64 %r66
   %r68 = load i64, ptr %r67
   store i64 %r68, ptr %acc.ptr
   br label %__L__349
@@ -3923,7 +3923,7 @@ cont.78:
   %r81 = load i64, ptr %t13
   %r83 = load i64, ptr %t14
   %r82 = inttoptr i64 %r81 to ptr
-  %r84 = getelementptr i64, ptr %r82, i64 %r83
+  %r84 = getelementptr inbounds i64, ptr %r82, i64 %r83
   %r85 = load i64, ptr %r84
   store i64 %r85, ptr %t15
   %r86 = ptrtoint ptr @long2double to i64
@@ -3957,7 +3957,7 @@ __L__340:
   ret i64 %r102
 }
 ; defn subr_cos
-define i64 @__L__9(i64 %p0, i64 %p1) {
+define i64 @__L__9(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -4018,7 +4018,7 @@ __L__354:
   %r19 = load i64, ptr %t2
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
   br label %__L__355
@@ -4047,7 +4047,7 @@ cont.33:
   %r35 = load i64, ptr %t1
   %r37 = load i64, ptr %t6
   %r36 = inttoptr i64 %r35 to ptr
-  %r38 = getelementptr i64, ptr %r36, i64 %r37
+  %r38 = getelementptr inbounds i64, ptr %r36, i64 %r37
   %r39 = load i64, ptr %r38
   store i64 %r39, ptr %t7
   %r40 = ptrtoint ptr @doublecos to i64
@@ -4093,7 +4093,7 @@ __L__359:
   %r64 = load i64, ptr %t9
   %r66 = load i64, ptr %t11
   %r65 = inttoptr i64 %r64 to ptr
-  %r67 = getelementptr i64, ptr %r65, i64 %r66
+  %r67 = getelementptr inbounds i64, ptr %r65, i64 %r66
   %r68 = load i64, ptr %r67
   store i64 %r68, ptr %acc.ptr
   br label %__L__360
@@ -4124,7 +4124,7 @@ cont.78:
   %r81 = load i64, ptr %t13
   %r83 = load i64, ptr %t14
   %r82 = inttoptr i64 %r81 to ptr
-  %r84 = getelementptr i64, ptr %r82, i64 %r83
+  %r84 = getelementptr inbounds i64, ptr %r82, i64 %r83
   %r85 = load i64, ptr %r84
   store i64 %r85, ptr %t15
   %r86 = ptrtoint ptr @long2double to i64
@@ -4158,7 +4158,7 @@ __L__351:
   ret i64 %r102
 }
 ; defn subr_sin
-define i64 @__L__10(i64 %p0, i64 %p1) {
+define i64 @__L__10(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -4219,7 +4219,7 @@ __L__365:
   %r19 = load i64, ptr %t2
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
   br label %__L__366
@@ -4248,7 +4248,7 @@ cont.33:
   %r35 = load i64, ptr %t1
   %r37 = load i64, ptr %t6
   %r36 = inttoptr i64 %r35 to ptr
-  %r38 = getelementptr i64, ptr %r36, i64 %r37
+  %r38 = getelementptr inbounds i64, ptr %r36, i64 %r37
   %r39 = load i64, ptr %r38
   store i64 %r39, ptr %t7
   %r40 = ptrtoint ptr @doublesin to i64
@@ -4294,7 +4294,7 @@ __L__370:
   %r64 = load i64, ptr %t9
   %r66 = load i64, ptr %t11
   %r65 = inttoptr i64 %r64 to ptr
-  %r67 = getelementptr i64, ptr %r65, i64 %r66
+  %r67 = getelementptr inbounds i64, ptr %r65, i64 %r66
   %r68 = load i64, ptr %r67
   store i64 %r68, ptr %acc.ptr
   br label %__L__371
@@ -4325,7 +4325,7 @@ cont.78:
   %r81 = load i64, ptr %t13
   %r83 = load i64, ptr %t14
   %r82 = inttoptr i64 %r81 to ptr
-  %r84 = getelementptr i64, ptr %r82, i64 %r83
+  %r84 = getelementptr inbounds i64, ptr %r82, i64 %r83
   %r85 = load i64, ptr %r84
   store i64 %r85, ptr %t15
   %r86 = ptrtoint ptr @long2double to i64
@@ -4359,7 +4359,7 @@ __L__362:
   ret i64 %r102
 }
 ; defn subr_string_double
-define i64 @__L__11(i64 %p0, i64 %p1) {
+define i64 @__L__11(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -4418,7 +4418,7 @@ __L__376:
   %r19 = load i64, ptr %t2
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
   br label %__L__377
@@ -4474,7 +4474,7 @@ __L__381:
   %r50 = load i64, ptr %t6
   %r52 = load i64, ptr %t8
   %r51 = inttoptr i64 %r50 to ptr
-  %r53 = getelementptr i64, ptr %r51, i64 %r52
+  %r53 = getelementptr inbounds i64, ptr %r51, i64 %r52
   %r54 = load i64, ptr %r53
   store i64 %r54, ptr %acc.ptr
   br label %__L__382
@@ -4505,7 +4505,7 @@ cont.64:
   %r67 = load i64, ptr %t10
   %r69 = load i64, ptr %t11
   %r68 = inttoptr i64 %r67 to ptr
-  %r70 = getelementptr i64, ptr %r68, i64 %r69
+  %r70 = getelementptr inbounds i64, ptr %r68, i64 %r69
   %r71 = load i64, ptr %r70
   store i64 %r71, ptr %t12
   store i64 0, ptr %t13
@@ -4536,7 +4536,7 @@ __L__373:
   ret i64 %r85
 }
 ; defn subr_double_long
-define i64 @__L__12(i64 %p0, i64 %p1) {
+define i64 @__L__12(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -4592,7 +4592,7 @@ __L__387:
   %r19 = load i64, ptr %t2
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
   br label %__L__388
@@ -4648,7 +4648,7 @@ __L__392:
   %r50 = load i64, ptr %t6
   %r52 = load i64, ptr %t8
   %r51 = inttoptr i64 %r50 to ptr
-  %r53 = getelementptr i64, ptr %r51, i64 %r52
+  %r53 = getelementptr inbounds i64, ptr %r51, i64 %r52
   %r54 = load i64, ptr %r53
   store i64 %r54, ptr %acc.ptr
   br label %__L__393
@@ -4677,7 +4677,7 @@ cont.64:
   %r66 = load i64, ptr %t1
   %r68 = load i64, ptr %t10
   %r67 = inttoptr i64 %r66 to ptr
-  %r69 = getelementptr i64, ptr %r67, i64 %r68
+  %r69 = getelementptr inbounds i64, ptr %r67, i64 %r68
   %r70 = load i64, ptr %r69
   store i64 %r70, ptr %t11
   %r71 = ptrtoint ptr @double2long to i64
@@ -4704,7 +4704,7 @@ __L__384:
   ret i64 %r82
 }
 ; defn subr_long_double
-define i64 @__L__13(i64 %p0, i64 %p1) {
+define i64 @__L__13(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -4761,7 +4761,7 @@ __L__398:
   %r19 = load i64, ptr %t2
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
   br label %__L__399
@@ -4817,7 +4817,7 @@ __L__403:
   %r50 = load i64, ptr %t6
   %r52 = load i64, ptr %t8
   %r51 = inttoptr i64 %r50 to ptr
-  %r53 = getelementptr i64, ptr %r51, i64 %r52
+  %r53 = getelementptr inbounds i64, ptr %r51, i64 %r52
   %r54 = load i64, ptr %r53
   store i64 %r54, ptr %acc.ptr
   br label %__L__404
@@ -4848,7 +4848,7 @@ cont.64:
   %r67 = load i64, ptr %t10
   %r69 = load i64, ptr %t11
   %r68 = inttoptr i64 %r67 to ptr
-  %r70 = getelementptr i64, ptr %r68, i64 %r69
+  %r70 = getelementptr inbounds i64, ptr %r68, i64 %r69
   %r71 = load i64, ptr %r70
   store i64 %r71, ptr %t12
   %r72 = ptrtoint ptr @long2double to i64
@@ -4876,7 +4876,7 @@ __L__395:
 }
 ; defn subr_long_string
 @__L__416 = private constant [4 x i8] c"%ld\00"
-define i64 @__L__14(i64 %p0, i64 %p1) {
+define i64 @__L__14(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -4941,7 +4941,7 @@ __L__409:
   %r19 = load i64, ptr %t2
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
   br label %__L__410
@@ -4997,7 +4997,7 @@ __L__414:
   %r50 = load i64, ptr %t6
   %r52 = load i64, ptr %t8
   %r51 = inttoptr i64 %r50 to ptr
-  %r53 = getelementptr i64, ptr %r51, i64 %r52
+  %r53 = getelementptr inbounds i64, ptr %r51, i64 %r52
   %r54 = load i64, ptr %r53
   store i64 %r54, ptr %acc.ptr
   br label %__L__415
@@ -5040,7 +5040,7 @@ cont.64:
   %r74 = load i64, ptr %t14
   %r76 = load i64, ptr %t15
   %r75 = inttoptr i64 %r74 to ptr
-  %r77 = getelementptr i64, ptr %r75, i64 %r76
+  %r77 = getelementptr inbounds i64, ptr %r75, i64 %r76
   %r78 = load i64, ptr %r77
   store i64 %r78, ptr %t16
   %r79 = ptrtoint ptr @sprintf to i64
@@ -5084,7 +5084,7 @@ __L__406:
   ret i64 %r102
 }
 ; defn subr_symbol_string
-define i64 @__L__15(i64 %p0, i64 %p1) {
+define i64 @__L__15(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -5140,7 +5140,7 @@ __L__421:
   %r19 = load i64, ptr %t2
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
   br label %__L__422
@@ -5196,7 +5196,7 @@ __L__426:
   %r50 = load i64, ptr %t6
   %r52 = load i64, ptr %t8
   %r51 = inttoptr i64 %r50 to ptr
-  %r53 = getelementptr i64, ptr %r51, i64 %r52
+  %r53 = getelementptr inbounds i64, ptr %r51, i64 %r52
   %r54 = load i64, ptr %r53
   store i64 %r54, ptr %acc.ptr
   br label %__L__427
@@ -5227,7 +5227,7 @@ cont.64:
   %r67 = load i64, ptr %t10
   %r69 = load i64, ptr %t11
   %r68 = inttoptr i64 %r67 to ptr
-  %r70 = getelementptr i64, ptr %r68, i64 %r69
+  %r70 = getelementptr inbounds i64, ptr %r68, i64 %r69
   %r71 = load i64, ptr %r70
   store i64 %r71, ptr %t12
   %r72 = ptrtoint ptr @__L__151 to i64
@@ -5247,7 +5247,7 @@ __L__418:
   ret i64 %r78
 }
 ; defn subr_string_symbol
-define i64 @__L__16(i64 %p0, i64 %p1) {
+define i64 @__L__16(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -5303,7 +5303,7 @@ __L__432:
   %r19 = load i64, ptr %t2
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
   br label %__L__433
@@ -5359,7 +5359,7 @@ __L__437:
   %r50 = load i64, ptr %t6
   %r52 = load i64, ptr %t8
   %r51 = inttoptr i64 %r50 to ptr
-  %r53 = getelementptr i64, ptr %r51, i64 %r52
+  %r53 = getelementptr inbounds i64, ptr %r51, i64 %r52
   %r54 = load i64, ptr %r53
   store i64 %r54, ptr %acc.ptr
   br label %__L__438
@@ -5390,7 +5390,7 @@ cont.64:
   %r67 = load i64, ptr %t10
   %r69 = load i64, ptr %t11
   %r68 = inttoptr i64 %r67 to ptr
-  %r70 = getelementptr i64, ptr %r68, i64 %r69
+  %r70 = getelementptr inbounds i64, ptr %r68, i64 %r69
   %r71 = load i64, ptr %r70
   store i64 %r71, ptr %t12
   %r72 = ptrtoint ptr @__L__108 to i64
@@ -5411,7 +5411,7 @@ __L__429:
 }
 ; defn subr_set_string_at
 @__L__439 = private constant [14 x i8] c"set-string-at\00"
-define i64 @__L__17(i64 %p0, i64 %p1) {
+define i64 @__L__17(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -5468,7 +5468,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -5476,11 +5476,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   store i64 0, ptr %t7
@@ -5489,15 +5489,15 @@ entry:
   %r23 = load i64, ptr %arg0
   %r25 = load i64, ptr %t9
   %r24 = inttoptr i64 %r23 to ptr
-  %r26 = getelementptr i64, ptr %r24, i64 %r25
+  %r26 = getelementptr inbounds i64, ptr %r24, i64 %r25
   %r27 = load i64, ptr %r26
   %r29 = load i64, ptr %t8
   %r28 = inttoptr i64 %r27 to ptr
-  %r30 = getelementptr i64, ptr %r28, i64 %r29
+  %r30 = getelementptr inbounds i64, ptr %r28, i64 %r29
   %r31 = load i64, ptr %r30
   %r33 = load i64, ptr %t7
   %r32 = inttoptr i64 %r31 to ptr
-  %r34 = getelementptr i64, ptr %r32, i64 %r33
+  %r34 = getelementptr inbounds i64, ptr %r32, i64 %r33
   %r35 = load i64, ptr %r34
   store i64 %r35, ptr %t10
   %r36 = load i64, ptr %t6
@@ -5526,7 +5526,7 @@ __L__443:
   %r49 = load i64, ptr %t11
   %r51 = load i64, ptr %t13
   %r50 = inttoptr i64 %r49 to ptr
-  %r52 = getelementptr i64, ptr %r50, i64 %r51
+  %r52 = getelementptr inbounds i64, ptr %r50, i64 %r51
   %r53 = load i64, ptr %r52
   store i64 %r53, ptr %acc.ptr
   br label %__L__444
@@ -5577,7 +5577,7 @@ __L__447:
   %r78 = load i64, ptr %t15
   %r80 = load i64, ptr %t17
   %r79 = inttoptr i64 %r78 to ptr
-  %r81 = getelementptr i64, ptr %r79, i64 %r80
+  %r81 = getelementptr inbounds i64, ptr %r79, i64 %r80
   %r82 = load i64, ptr %r81
   store i64 %r82, ptr %acc.ptr
   br label %__L__448
@@ -5608,7 +5608,7 @@ cont.92:
   %r95 = load i64, ptr %t19
   %r97 = load i64, ptr %t20
   %r96 = inttoptr i64 %r95 to ptr
-  %r98 = getelementptr i64, ptr %r96, i64 %r97
+  %r98 = getelementptr inbounds i64, ptr %r96, i64 %r97
   %r99 = load i64, ptr %r98
   store i64 %r99, ptr %t21
   %r100 = load i64, ptr %t21
@@ -5645,7 +5645,7 @@ cont.118:
   %r121 = load i64, ptr %t25
   %r123 = load i64, ptr %t26
   %r122 = inttoptr i64 %r121 to ptr
-  %r124 = getelementptr i64, ptr %r122, i64 %r123
+  %r124 = getelementptr inbounds i64, ptr %r122, i64 %r123
   %r125 = load i64, ptr %r124
   store i64 %r125, ptr %t27
   %r126 = load i64, ptr %t21
@@ -5656,12 +5656,12 @@ cont.118:
   %r128 = load i64, ptr %t29
   %r130 = load i64, ptr %t30
   %r129 = inttoptr i64 %r128 to ptr
-  %r131 = getelementptr i64, ptr %r129, i64 %r130
+  %r131 = getelementptr inbounds i64, ptr %r129, i64 %r130
   %r132 = load i64, ptr %r131
   %r133 = load i64, ptr %t27
   %r135 = load i64, ptr %t28
   %r134 = inttoptr i64 %r132 to ptr
-  %r136 = getelementptr i8, ptr %r134, i64 %r135
+  %r136 = getelementptr inbounds i8, ptr %r134, i64 %r135
   %r137 = trunc i64 %r133 to i8
   store i8 %r137, ptr %r136
   %r138 = load i64, ptr %t10
@@ -5677,7 +5677,7 @@ __L__440:
 }
 ; defn subr_string_at
 @__L__450 = private constant [10 x i8] c"string-at\00"
-define i64 @__L__18(i64 %p0, i64 %p1) {
+define i64 @__L__18(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -5724,7 +5724,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -5732,11 +5732,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   %r23 = load i64, ptr %t6
@@ -5765,7 +5765,7 @@ __L__454:
   %r36 = load i64, ptr %t7
   %r38 = load i64, ptr %t9
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %acc.ptr
   br label %__L__455
@@ -5796,7 +5796,7 @@ cont.50:
   %r53 = load i64, ptr %t11
   %r55 = load i64, ptr %t12
   %r54 = inttoptr i64 %r53 to ptr
-  %r56 = getelementptr i64, ptr %r54, i64 %r55
+  %r56 = getelementptr inbounds i64, ptr %r54, i64 %r55
   %r57 = load i64, ptr %r56
   store i64 %r57, ptr %t13
   %r58 = load i64, ptr %t13
@@ -5835,11 +5835,11 @@ cont.76:
   %r80 = load i64, ptr %t18
   %r82 = load i64, ptr %t19
   %r81 = inttoptr i64 %r80 to ptr
-  %r83 = getelementptr i64, ptr %r81, i64 %r82
+  %r83 = getelementptr inbounds i64, ptr %r81, i64 %r82
   %r84 = load i64, ptr %r83
   %r86 = load i64, ptr %t17
   %r85 = inttoptr i64 %r84 to ptr
-  %r87 = getelementptr i8, ptr %r85, i64 %r86
+  %r87 = getelementptr inbounds i8, ptr %r85, i64 %r86
   %r88 = load i8, ptr %r87
   %r89 = zext i8 %r88 to i64
   store i64 %r89, ptr %t20
@@ -5860,7 +5860,7 @@ __L__451:
   ret i64 %r96
 }
 ; defn subr_string_length
-define i64 @__L__19(i64 %p0, i64 %p1) {
+define i64 @__L__19(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -5911,7 +5911,7 @@ __L__460:
   %r19 = load i64, ptr %t2
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
   br label %__L__461
@@ -5942,7 +5942,7 @@ cont.33:
   %r36 = load i64, ptr %t6
   %r38 = load i64, ptr %t7
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %acc.ptr
   br label %__L__457
@@ -5952,7 +5952,7 @@ __L__457:
 }
 ; defn subr_set_array_at
 @__L__462 = private constant [13 x i8] c"set-array-at\00"
-define i64 @__L__20(i64 %p0, i64 %p1) {
+define i64 @__L__20(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -5999,7 +5999,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -6007,11 +6007,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   store i64 0, ptr %t7
@@ -6020,15 +6020,15 @@ entry:
   %r23 = load i64, ptr %arg0
   %r25 = load i64, ptr %t9
   %r24 = inttoptr i64 %r23 to ptr
-  %r26 = getelementptr i64, ptr %r24, i64 %r25
+  %r26 = getelementptr inbounds i64, ptr %r24, i64 %r25
   %r27 = load i64, ptr %r26
   %r29 = load i64, ptr %t8
   %r28 = inttoptr i64 %r27 to ptr
-  %r30 = getelementptr i64, ptr %r28, i64 %r29
+  %r30 = getelementptr inbounds i64, ptr %r28, i64 %r29
   %r31 = load i64, ptr %r30
   %r33 = load i64, ptr %t7
   %r32 = inttoptr i64 %r31 to ptr
-  %r34 = getelementptr i64, ptr %r32, i64 %r33
+  %r34 = getelementptr inbounds i64, ptr %r32, i64 %r33
   %r35 = load i64, ptr %r34
   store i64 %r35, ptr %t10
   %r36 = load i64, ptr %t6
@@ -6057,7 +6057,7 @@ __L__466:
   %r49 = load i64, ptr %t11
   %r51 = load i64, ptr %t13
   %r50 = inttoptr i64 %r49 to ptr
-  %r52 = getelementptr i64, ptr %r50, i64 %r51
+  %r52 = getelementptr inbounds i64, ptr %r50, i64 %r51
   %r53 = load i64, ptr %r52
   store i64 %r53, ptr %acc.ptr
   br label %__L__467
@@ -6090,7 +6090,7 @@ cont.63:
   %r67 = load i64, ptr %t16
   %r69 = load i64, ptr %t17
   %r68 = inttoptr i64 %r67 to ptr
-  %r70 = getelementptr i64, ptr %r68, i64 %r69
+  %r70 = getelementptr inbounds i64, ptr %r68, i64 %r69
   %r71 = load i64, ptr %r70
   store i64 %r71, ptr %t18
   %r72 = load i64, ptr %t10
@@ -6115,7 +6115,7 @@ __L__463:
 }
 ; defn subr_array_at
 @__L__468 = private constant [9 x i8] c"array-at\00"
-define i64 @__L__21(i64 %p0, i64 %p1) {
+define i64 @__L__21(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -6156,7 +6156,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -6164,11 +6164,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   %r23 = load i64, ptr %t6
@@ -6197,7 +6197,7 @@ __L__472:
   %r36 = load i64, ptr %t7
   %r38 = load i64, ptr %t9
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %acc.ptr
   br label %__L__473
@@ -6230,7 +6230,7 @@ cont.50:
   %r54 = load i64, ptr %t12
   %r56 = load i64, ptr %t13
   %r55 = inttoptr i64 %r54 to ptr
-  %r57 = getelementptr i64, ptr %r55, i64 %r56
+  %r57 = getelementptr inbounds i64, ptr %r55, i64 %r56
   %r58 = load i64, ptr %r57
   store i64 %r58, ptr %t14
   %r59 = ptrtoint ptr @__L__128 to i64
@@ -6249,7 +6249,7 @@ __L__469:
   ret i64 %r66
 }
 ; defn subr_array_length
-define i64 @__L__22(i64 %p0, i64 %p1) {
+define i64 @__L__22(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -6286,7 +6286,7 @@ entry:
 }
 ; defn subr_set_oop_at
 @__L__474 = private constant [11 x i8] c"set-oop-at\00"
-define i64 @__L__23(i64 %p0, i64 %p1) {
+define i64 @__L__23(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -6335,7 +6335,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -6343,11 +6343,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   store i64 0, ptr %t7
@@ -6356,15 +6356,15 @@ entry:
   %r23 = load i64, ptr %arg0
   %r25 = load i64, ptr %t9
   %r24 = inttoptr i64 %r23 to ptr
-  %r26 = getelementptr i64, ptr %r24, i64 %r25
+  %r26 = getelementptr inbounds i64, ptr %r24, i64 %r25
   %r27 = load i64, ptr %r26
   %r29 = load i64, ptr %t8
   %r28 = inttoptr i64 %r27 to ptr
-  %r30 = getelementptr i64, ptr %r28, i64 %r29
+  %r30 = getelementptr inbounds i64, ptr %r28, i64 %r29
   %r31 = load i64, ptr %r30
   %r33 = load i64, ptr %t7
   %r32 = inttoptr i64 %r31 to ptr
-  %r34 = getelementptr i64, ptr %r32, i64 %r33
+  %r34 = getelementptr inbounds i64, ptr %r32, i64 %r33
   %r35 = load i64, ptr %r34
   store i64 %r35, ptr %t10
   %r36 = load i64, ptr %t3
@@ -6399,7 +6399,7 @@ __L__478:
   %r53 = load i64, ptr %t11
   %r55 = load i64, ptr %t13
   %r54 = inttoptr i64 %r53 to ptr
-  %r56 = getelementptr i64, ptr %r54, i64 %r55
+  %r56 = getelementptr inbounds i64, ptr %r54, i64 %r55
   %r57 = load i64, ptr %r56
   store i64 %r57, ptr %acc.ptr
   br label %__L__479
@@ -6452,7 +6452,7 @@ __L__482:
   %r84 = load i64, ptr %t15
   %r86 = load i64, ptr %t17
   %r85 = inttoptr i64 %r84 to ptr
-  %r87 = getelementptr i64, ptr %r85, i64 %r86
+  %r87 = getelementptr inbounds i64, ptr %r85, i64 %r86
   %r88 = load i64, ptr %r87
   store i64 %r88, ptr %acc.ptr
   br label %__L__483
@@ -6485,14 +6485,14 @@ cont.98:
   %r102 = load i64, ptr %t20
   %r104 = load i64, ptr %t21
   %r103 = inttoptr i64 %r102 to ptr
-  %r105 = getelementptr i64, ptr %r103, i64 %r104
+  %r105 = getelementptr inbounds i64, ptr %r103, i64 %r104
   %r106 = load i64, ptr %r105
   store i64 %r106, ptr %t22
   %r107 = load i64, ptr %t3
   %r108 = load i64, ptr %t19
   %r110 = load i64, ptr %t22
   %r109 = inttoptr i64 %r107 to ptr
-  %r111 = getelementptr i64, ptr %r109, i64 %r110
+  %r111 = getelementptr inbounds i64, ptr %r109, i64 %r110
   store i64 %r108, ptr %r111
   store i64 %r108, ptr %acc.ptr
   br label %__L__475
@@ -6503,7 +6503,7 @@ __L__475:
 }
 ; defn subr_oop_at
 @__L__484 = private constant [7 x i8] c"oop-at\00"
-define i64 @__L__24(i64 %p0, i64 %p1) {
+define i64 @__L__24(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -6547,7 +6547,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -6555,11 +6555,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   %r23 = load i64, ptr %t3
@@ -6594,7 +6594,7 @@ __L__488:
   %r40 = load i64, ptr %t7
   %r42 = load i64, ptr %t9
   %r41 = inttoptr i64 %r40 to ptr
-  %r43 = getelementptr i64, ptr %r41, i64 %r42
+  %r43 = getelementptr inbounds i64, ptr %r41, i64 %r42
   %r44 = load i64, ptr %r43
   store i64 %r44, ptr %acc.ptr
   br label %__L__489
@@ -6647,7 +6647,7 @@ __L__492:
   %r71 = load i64, ptr %t11
   %r73 = load i64, ptr %t13
   %r72 = inttoptr i64 %r71 to ptr
-  %r74 = getelementptr i64, ptr %r72, i64 %r73
+  %r74 = getelementptr inbounds i64, ptr %r72, i64 %r73
   %r75 = load i64, ptr %r74
   store i64 %r75, ptr %acc.ptr
   br label %__L__493
@@ -6678,13 +6678,13 @@ cont.85:
   %r88 = load i64, ptr %t15
   %r90 = load i64, ptr %t16
   %r89 = inttoptr i64 %r88 to ptr
-  %r91 = getelementptr i64, ptr %r89, i64 %r90
+  %r91 = getelementptr inbounds i64, ptr %r89, i64 %r90
   %r92 = load i64, ptr %r91
   store i64 %r92, ptr %t17
   %r93 = load i64, ptr %t3
   %r95 = load i64, ptr %t17
   %r94 = inttoptr i64 %r93 to ptr
-  %r96 = getelementptr i64, ptr %r94, i64 %r95
+  %r96 = getelementptr inbounds i64, ptr %r94, i64 %r95
   %r97 = load i64, ptr %r96
   store i64 %r97, ptr %acc.ptr
   br label %__L__485
@@ -6693,7 +6693,7 @@ __L__485:
   ret i64 %r98
 }
 ; defn subr_set_cdr
-define i64 @__L__25(i64 %p0, i64 %p1) {
+define i64 @__L__25(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -6746,7 +6746,7 @@ __L__497:
   %r19 = load i64, ptr %t2
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
   br label %__L__498
@@ -6787,7 +6787,7 @@ cont.33:
   %r43 = load i64, ptr %t8
   %r45 = load i64, ptr %t9
   %r44 = inttoptr i64 %r42 to ptr
-  %r46 = getelementptr i64, ptr %r44, i64 %r45
+  %r46 = getelementptr inbounds i64, ptr %r44, i64 %r45
   store i64 %r43, ptr %r46
   store i64 %r43, ptr %acc.ptr
   br label %__L__494
@@ -6796,7 +6796,7 @@ __L__494:
   ret i64 %r47
 }
 ; defn subr_set_car
-define i64 @__L__26(i64 %p0, i64 %p1) {
+define i64 @__L__26(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -6849,7 +6849,7 @@ __L__502:
   %r19 = load i64, ptr %t2
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
   br label %__L__503
@@ -6890,7 +6890,7 @@ cont.33:
   %r43 = load i64, ptr %t8
   %r45 = load i64, ptr %t9
   %r44 = inttoptr i64 %r42 to ptr
-  %r46 = getelementptr i64, ptr %r44, i64 %r45
+  %r46 = getelementptr inbounds i64, ptr %r44, i64 %r45
   store i64 %r43, ptr %r46
   store i64 %r43, ptr %acc.ptr
   br label %__L__499
@@ -6899,7 +6899,7 @@ __L__499:
   ret i64 %r47
 }
 ; defn subr_cdr
-define i64 @__L__27(i64 %p0, i64 %p1) {
+define i64 @__L__27(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -6927,7 +6927,7 @@ entry:
   ret i64 %r10
 }
 ; defn subr_car
-define i64 @__L__28(i64 %p0, i64 %p1) {
+define i64 @__L__28(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -6955,7 +6955,7 @@ entry:
   ret i64 %r10
 }
 ; defn subr_arrayP
-define i64 @__L__29(i64 %p0, i64 %p1) {
+define i64 @__L__29(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -7001,7 +7001,7 @@ __L__507:
   %r18 = load i64, ptr %t1
   %r20 = load i64, ptr %t3
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %acc.ptr
   br label %__L__508
@@ -7034,7 +7034,7 @@ __L__504:
   ret i64 %r35
 }
 ; defn subr_pairP
-define i64 @__L__30(i64 %p0, i64 %p1) {
+define i64 @__L__30(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -7080,7 +7080,7 @@ __L__512:
   %r18 = load i64, ptr %t1
   %r20 = load i64, ptr %t3
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %acc.ptr
   br label %__L__513
@@ -7113,7 +7113,7 @@ __L__509:
   ret i64 %r35
 }
 ; defn subr_symbolP
-define i64 @__L__31(i64 %p0, i64 %p1) {
+define i64 @__L__31(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -7159,7 +7159,7 @@ __L__517:
   %r18 = load i64, ptr %t1
   %r20 = load i64, ptr %t3
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %acc.ptr
   br label %__L__518
@@ -7192,7 +7192,7 @@ __L__514:
   ret i64 %r35
 }
 ; defn subr_stringP
-define i64 @__L__32(i64 %p0, i64 %p1) {
+define i64 @__L__32(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -7238,7 +7238,7 @@ __L__522:
   %r18 = load i64, ptr %t1
   %r20 = load i64, ptr %t3
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %acc.ptr
   br label %__L__523
@@ -7271,7 +7271,7 @@ __L__519:
   ret i64 %r35
 }
 ; defn subr_type_of
-define i64 @__L__33(i64 %p0, i64 %p1) {
+define i64 @__L__33(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -7323,7 +7323,7 @@ __L__527:
   %r22 = load i64, ptr %t1
   %r24 = load i64, ptr %t3
   %r23 = inttoptr i64 %r22 to ptr
-  %r25 = getelementptr i64, ptr %r23, i64 %r24
+  %r25 = getelementptr inbounds i64, ptr %r23, i64 %r24
   %r26 = load i64, ptr %r25
   store i64 %r26, ptr %acc.ptr
   br label %__L__528
@@ -7353,7 +7353,7 @@ __L__524:
 }
 ; defn subr_allocate
 @__L__529 = private constant [9 x i8] c"allocate\00"
-define i64 @__L__34(i64 %p0, i64 %p1) {
+define i64 @__L__34(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -7401,7 +7401,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -7409,11 +7409,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   %r23 = load i64, ptr %t3
@@ -7442,7 +7442,7 @@ __L__533:
   %r36 = load i64, ptr %t7
   %r38 = load i64, ptr %t9
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %acc.ptr
   br label %__L__534
@@ -7493,7 +7493,7 @@ __L__537:
   %r65 = load i64, ptr %t11
   %r67 = load i64, ptr %t13
   %r66 = inttoptr i64 %r65 to ptr
-  %r68 = getelementptr i64, ptr %r66, i64 %r67
+  %r68 = getelementptr inbounds i64, ptr %r66, i64 %r67
   %r69 = load i64, ptr %r68
   store i64 %r69, ptr %acc.ptr
   br label %__L__538
@@ -7524,7 +7524,7 @@ cont.79:
   %r82 = load i64, ptr %t15
   %r84 = load i64, ptr %t16
   %r83 = inttoptr i64 %r82 to ptr
-  %r85 = getelementptr i64, ptr %r83, i64 %r84
+  %r85 = getelementptr inbounds i64, ptr %r83, i64 %r84
   %r86 = load i64, ptr %r85
   store i64 %r86, ptr %t17
   store i64 8, ptr %t18
@@ -7534,7 +7534,7 @@ cont.79:
   %r88 = load i64, ptr %t19
   %r90 = load i64, ptr %t20
   %r89 = inttoptr i64 %r88 to ptr
-  %r91 = getelementptr i64, ptr %r89, i64 %r90
+  %r91 = getelementptr inbounds i64, ptr %r89, i64 %r90
   %r92 = load i64, ptr %r91
   %r93 = load i64, ptr %t18
   %r94 = mul i64 %r92, %r93
@@ -7555,7 +7555,7 @@ __L__530:
   ret i64 %r102
 }
 ; defn subr_form
-define i64 @__L__35(i64 %p0, i64 %p1) {
+define i64 @__L__35(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -7598,7 +7598,7 @@ entry:
   ret i64 %r18
 }
 ; defn subr_array
-define i64 @__L__36(i64 %p0, i64 %p1) {
+define i64 @__L__36(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -7648,7 +7648,7 @@ __L__542:
   %r18 = load i64, ptr %t1
   %r20 = load i64, ptr %t3
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %acc.ptr
   br label %__L__543
@@ -7677,14 +7677,14 @@ cont.32:
   %r34 = load i64, ptr %arg0
   %r36 = load i64, ptr %t5
   %r35 = inttoptr i64 %r34 to ptr
-  %r37 = getelementptr i64, ptr %r35, i64 %r36
+  %r37 = getelementptr inbounds i64, ptr %r35, i64 %r36
   %r38 = load i64, ptr %r37
   store i64 %r38, ptr %t6
   store i64 0, ptr %t7
   %r39 = load i64, ptr %t6
   %r41 = load i64, ptr %t7
   %r40 = inttoptr i64 %r39 to ptr
-  %r42 = getelementptr i64, ptr %r40, i64 %r41
+  %r42 = getelementptr inbounds i64, ptr %r40, i64 %r41
   %r43 = load i64, ptr %r42
   store i64 %r43, ptr %acc.ptr
   br label %__L__539
@@ -7700,7 +7700,7 @@ __L__539:
   ret i64 %r49
 }
 ; defn subr_string
-define i64 @__L__37(i64 %p0, i64 %p1) {
+define i64 @__L__37(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -7750,7 +7750,7 @@ __L__547:
   %r18 = load i64, ptr %t1
   %r20 = load i64, ptr %t3
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %acc.ptr
   br label %__L__548
@@ -7779,14 +7779,14 @@ cont.32:
   %r34 = load i64, ptr %arg0
   %r36 = load i64, ptr %t5
   %r35 = inttoptr i64 %r34 to ptr
-  %r37 = getelementptr i64, ptr %r35, i64 %r36
+  %r37 = getelementptr inbounds i64, ptr %r35, i64 %r36
   %r38 = load i64, ptr %r37
   store i64 %r38, ptr %t6
   store i64 0, ptr %t7
   %r39 = load i64, ptr %t6
   %r41 = load i64, ptr %t7
   %r40 = inttoptr i64 %r39 to ptr
-  %r42 = getelementptr i64, ptr %r40, i64 %r41
+  %r42 = getelementptr inbounds i64, ptr %r40, i64 %r41
   %r43 = load i64, ptr %r42
   store i64 %r43, ptr %acc.ptr
   br label %__L__544
@@ -7804,7 +7804,7 @@ __L__544:
 ; defn subr_cons
 @__L__550 = private constant [33 x i8] c"%s: expected at most 2 arguments\00"
 @__L__551 = private constant [5 x i8] c"cons\00"
-define i64 @__L__38(i64 %p0, i64 %p1) {
+define i64 @__L__38(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -7839,7 +7839,7 @@ cont.5:
   %r7 = load i64, ptr %arg0
   %r9 = load i64, ptr %t1
   %r8 = inttoptr i64 %r7 to ptr
-  %r10 = getelementptr i64, ptr %r8, i64 %r9
+  %r10 = getelementptr inbounds i64, ptr %r8, i64 %r9
   %r11 = load i64, ptr %r10
   store i64 %r11, ptr %t2
   %r12 = load i64, ptr %t2
@@ -7855,11 +7855,11 @@ cont.16:
   %r18 = load i64, ptr %arg0
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   %r24 = load i64, ptr %t3
   %r23 = inttoptr i64 %r22 to ptr
-  %r25 = getelementptr i64, ptr %r23, i64 %r24
+  %r25 = getelementptr inbounds i64, ptr %r23, i64 %r24
   %r26 = load i64, ptr %r25
   store i64 %r26, ptr %t5
   %r27 = load i64, ptr %t5
@@ -7917,7 +7917,7 @@ __L__549:
   ret i64 %r61
 }
 ; defn subr_expand
-define i64 @__L__39(i64 %p0, i64 %p1) {
+define i64 @__L__39(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -7960,7 +7960,7 @@ cont.13:
   %r16 = load i64, ptr %t3
   %r18 = load i64, ptr %t4
   %r17 = inttoptr i64 %r16 to ptr
-  %r19 = getelementptr i64, ptr %r17, i64 %r18
+  %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   %r20 = load i64, ptr %r19
   store i64 %r20, ptr %acc.ptr
   br label %__L__552
@@ -7979,7 +7979,7 @@ __L__552:
   ret i64 %r28
 }
 ; defn subr_encode
-define i64 @__L__40(i64 %p0, i64 %p1) {
+define i64 @__L__40(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -8022,7 +8022,7 @@ cont.13:
   %r16 = load i64, ptr %t3
   %r18 = load i64, ptr %t4
   %r17 = inttoptr i64 %r16 to ptr
-  %r19 = getelementptr i64, ptr %r17, i64 %r18
+  %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   %r20 = load i64, ptr %r19
   store i64 %r20, ptr %acc.ptr
   br label %__L__553
@@ -8041,7 +8041,7 @@ __L__553:
   ret i64 %r28
 }
 ; defn subr_eval
-define i64 @__L__41(i64 %p0, i64 %p1) {
+define i64 @__L__41(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -8106,7 +8106,7 @@ cont.13:
   %r16 = load i64, ptr %t3
   %r18 = load i64, ptr %t4
   %r17 = inttoptr i64 %r16 to ptr
-  %r19 = getelementptr i64, ptr %r17, i64 %r18
+  %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   %r20 = load i64, ptr %r19
   store i64 %r20, ptr %t5
   store i64 1, ptr %t6
@@ -8241,7 +8241,7 @@ __L__554:
   ret i64 %r105
 }
 ; defn subr_apply
-define i64 @__L__42(i64 %p0, i64 %p1) {
+define i64 @__L__42(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -8293,7 +8293,7 @@ entry:
 ; defn subr_warn
 @__L__563 = private constant [3 x i8] c"%s\00"
 @__L__566 = private constant [3 x i8] c"%s\00"
-define i64 @__L__43(i64 %p0, i64 %p1) {
+define i64 @__L__43(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -8334,7 +8334,7 @@ __L__555:
   %r1 = load i64, ptr %arg0
   %r3 = load i64, ptr %t0
   %r2 = inttoptr i64 %r1 to ptr
-  %r4 = getelementptr i64, ptr %r2, i64 %r3
+  %r4 = getelementptr inbounds i64, ptr %r2, i64 %r3
   %r5 = load i64, ptr %r4
   store i64 %r5, ptr %t1
   %r6 = load i64, ptr %t1
@@ -8363,7 +8363,7 @@ __L__559:
   %r19 = load i64, ptr %t2
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
   br label %__L__560
@@ -8400,7 +8400,7 @@ cont.34:
   %r39 = load i64, ptr %t9
   %r41 = load i64, ptr %t10
   %r40 = inttoptr i64 %r39 to ptr
-  %r42 = getelementptr i64, ptr %r40, i64 %r41
+  %r42 = getelementptr inbounds i64, ptr %r40, i64 %r41
   %r43 = load i64, ptr %r42
   store i64 %r43, ptr %t11
   %r44 = ptrtoint ptr @fprintf to i64
@@ -8440,7 +8440,7 @@ cont.60:
   %r65 = load i64, ptr %t15
   %r67 = load i64, ptr %t16
   %r66 = inttoptr i64 %r65 to ptr
-  %r68 = getelementptr i64, ptr %r66, i64 %r67
+  %r68 = getelementptr inbounds i64, ptr %r66, i64 %r67
   %r69 = load i64, ptr %r68
   store i64 %r69, ptr %t17
   %r70 = ptrtoint ptr @fprintf to i64
@@ -8471,7 +8471,7 @@ __L__562:
   %r82 = load i64, ptr %arg0
   %r84 = load i64, ptr %t18
   %r83 = inttoptr i64 %r82 to ptr
-  %r85 = getelementptr i64, ptr %r83, i64 %r84
+  %r85 = getelementptr inbounds i64, ptr %r83, i64 %r84
   %r86 = load i64, ptr %r85
   store i64 %r86, ptr %arg0
   store i64 %r86, ptr %acc.ptr
@@ -8504,7 +8504,7 @@ __L__569:
   %r101 = load i64, ptr %t19
   %r103 = load i64, ptr %t21
   %r102 = inttoptr i64 %r101 to ptr
-  %r104 = getelementptr i64, ptr %r102, i64 %r103
+  %r104 = getelementptr inbounds i64, ptr %r102, i64 %r103
   %r105 = load i64, ptr %r104
   store i64 %r105, ptr %acc.ptr
   br label %__L__570
@@ -8532,7 +8532,7 @@ cont.115:
   ret i64 %r116
 }
 ; defn subr_print
-define i64 @__L__44(i64 %p0, i64 %p1) {
+define i64 @__L__44(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -8555,7 +8555,7 @@ __L__571:
   %r1 = load i64, ptr %arg0
   %r3 = load i64, ptr %t0
   %r2 = inttoptr i64 %r1 to ptr
-  %r4 = getelementptr i64, ptr %r2, i64 %r3
+  %r4 = getelementptr inbounds i64, ptr %r2, i64 %r3
   %r5 = load i64, ptr %r4
   store i64 %r5, ptr %t1
   %r6 = ptrtoint ptr @__L__123 to i64
@@ -8568,7 +8568,7 @@ __L__571:
   %r11 = load i64, ptr %arg0
   %r13 = load i64, ptr %t2
   %r12 = inttoptr i64 %r11 to ptr
-  %r14 = getelementptr i64, ptr %r12, i64 %r13
+  %r14 = getelementptr inbounds i64, ptr %r12, i64 %r13
   %r15 = load i64, ptr %r14
   store i64 %r15, ptr %arg0
   store i64 %r15, ptr %acc.ptr
@@ -8601,7 +8601,7 @@ __L__575:
   %r30 = load i64, ptr %t3
   %r32 = load i64, ptr %t5
   %r31 = inttoptr i64 %r30 to ptr
-  %r33 = getelementptr i64, ptr %r31, i64 %r32
+  %r33 = getelementptr inbounds i64, ptr %r31, i64 %r32
   %r34 = load i64, ptr %r33
   store i64 %r34, ptr %acc.ptr
   br label %__L__576
@@ -8629,7 +8629,7 @@ cont.44:
   ret i64 %r45
 }
 ; defn subr_dump
-define i64 @__L__45(i64 %p0, i64 %p1) {
+define i64 @__L__45(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -8652,7 +8652,7 @@ __L__577:
   %r1 = load i64, ptr %arg0
   %r3 = load i64, ptr %t0
   %r2 = inttoptr i64 %r1 to ptr
-  %r4 = getelementptr i64, ptr %r2, i64 %r3
+  %r4 = getelementptr inbounds i64, ptr %r2, i64 %r3
   %r5 = load i64, ptr %r4
   store i64 %r5, ptr %t1
   %r6 = ptrtoint ptr @__L__121 to i64
@@ -8665,7 +8665,7 @@ __L__577:
   %r11 = load i64, ptr %arg0
   %r13 = load i64, ptr %t2
   %r12 = inttoptr i64 %r11 to ptr
-  %r14 = getelementptr i64, ptr %r12, i64 %r13
+  %r14 = getelementptr inbounds i64, ptr %r12, i64 %r13
   %r15 = load i64, ptr %r14
   store i64 %r15, ptr %arg0
   store i64 %r15, ptr %acc.ptr
@@ -8698,7 +8698,7 @@ __L__581:
   %r30 = load i64, ptr %t3
   %r32 = load i64, ptr %t5
   %r31 = inttoptr i64 %r30 to ptr
-  %r33 = getelementptr i64, ptr %r31, i64 %r32
+  %r33 = getelementptr inbounds i64, ptr %r31, i64 %r32
   %r34 = load i64, ptr %r33
   store i64 %r34, ptr %acc.ptr
   br label %__L__582
@@ -8729,7 +8729,7 @@ cont.44:
 @__L__583 = private constant [7 x i8] c"format\00"
 @__L__589 = private constant [18 x i8] c"non-string format\00"
 @__L__608 = private constant [14 x i8] c"out of memory\00"
-define i64 @__L__46(i64 %p0, i64 %p1) {
+define i64 @__L__46(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -8844,7 +8844,7 @@ __L__587:
   %r34 = load i64, ptr %t6
   %r36 = load i64, ptr %t8
   %r35 = inttoptr i64 %r34 to ptr
-  %r37 = getelementptr i64, ptr %r35, i64 %r36
+  %r37 = getelementptr inbounds i64, ptr %r35, i64 %r36
   %r38 = load i64, ptr %r37
   store i64 %r38, ptr %acc.ptr
   br label %__L__588
@@ -8887,7 +8887,7 @@ __L__584:
   %r58 = load i64, ptr %t11
   %r60 = load i64, ptr %t12
   %r59 = inttoptr i64 %r58 to ptr
-  %r61 = getelementptr i64, ptr %r59, i64 %r60
+  %r61 = getelementptr inbounds i64, ptr %r59, i64 %r60
   %r62 = load i64, ptr %r61
   store i64 %r62, ptr %t13
   %r63 = load i64, ptr %t5
@@ -8916,7 +8916,7 @@ __L__592:
   %r76 = load i64, ptr %t14
   %r78 = load i64, ptr %t16
   %r77 = inttoptr i64 %r76 to ptr
-  %r79 = getelementptr i64, ptr %r77, i64 %r78
+  %r79 = getelementptr inbounds i64, ptr %r77, i64 %r78
   %r80 = load i64, ptr %r79
   store i64 %r80, ptr %acc.ptr
   br label %__L__593
@@ -8965,7 +8965,7 @@ cont.100:
   %r103 = load i64, ptr %t21
   %r105 = load i64, ptr %t22
   %r104 = inttoptr i64 %r103 to ptr
-  %r106 = getelementptr i64, ptr %r104, i64 %r105
+  %r106 = getelementptr inbounds i64, ptr %r104, i64 %r105
   %r107 = load i64, ptr %r106
   store i64 %r107, ptr %t18
   store i64 %r107, ptr %acc.ptr
@@ -8989,7 +8989,7 @@ cont.115:
   %r118 = load i64, ptr %t24
   %r120 = load i64, ptr %t25
   %r119 = inttoptr i64 %r118 to ptr
-  %r121 = getelementptr i64, ptr %r119, i64 %r120
+  %r121 = getelementptr inbounds i64, ptr %r119, i64 %r120
   %r122 = load i64, ptr %r121
   store i64 %r122, ptr %t18
   store i64 %r122, ptr %acc.ptr
@@ -9013,7 +9013,7 @@ cont.130:
   %r133 = load i64, ptr %t27
   %r135 = load i64, ptr %t28
   %r134 = inttoptr i64 %r133 to ptr
-  %r136 = getelementptr i64, ptr %r134, i64 %r135
+  %r136 = getelementptr inbounds i64, ptr %r134, i64 %r135
   %r137 = load i64, ptr %r136
   store i64 %r137, ptr %t18
   store i64 %r137, ptr %acc.ptr
@@ -9182,7 +9182,7 @@ __L__606:
 ; defn subr_putc
 @__L__615 = private constant [30 x i8] c"non-integer stream id in putc\00"
 @__L__621 = private constant [30 x i8] c"non-integer character in putc\00"
-define i64 @__L__47(i64 %p0, i64 %p1) {
+define i64 @__L__47(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -9240,7 +9240,7 @@ cont.14:
   %r17 = load i64, ptr %t4
   %r19 = load i64, ptr %t5
   %r18 = inttoptr i64 %r17 to ptr
-  %r20 = getelementptr i64, ptr %r18, i64 %r19
+  %r20 = getelementptr inbounds i64, ptr %r18, i64 %r19
   %r21 = load i64, ptr %r20
   store i64 %r21, ptr %t1
   store i64 %r21, ptr %acc.ptr
@@ -9273,7 +9273,7 @@ __L__613:
   %r36 = load i64, ptr %t6
   %r38 = load i64, ptr %t8
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %acc.ptr
   br label %__L__614
@@ -9336,7 +9336,7 @@ __L__619:
   %r72 = load i64, ptr %t11
   %r74 = load i64, ptr %t13
   %r73 = inttoptr i64 %r72 to ptr
-  %r75 = getelementptr i64, ptr %r73, i64 %r74
+  %r75 = getelementptr inbounds i64, ptr %r73, i64 %r74
   %r76 = load i64, ptr %r75
   store i64 %r76, ptr %acc.ptr
   br label %__L__620
@@ -9379,7 +9379,7 @@ __L__616:
   %r96 = load i64, ptr %t16
   %r98 = load i64, ptr %t17
   %r97 = inttoptr i64 %r96 to ptr
-  %r99 = getelementptr i64, ptr %r97, i64 %r98
+  %r99 = getelementptr inbounds i64, ptr %r97, i64 %r98
   %r100 = load i64, ptr %r99
   store i64 %r100, ptr %t18
   %r101 = ptrtoint ptr @putc to i64
@@ -9399,7 +9399,7 @@ __L__616:
 }
 ; defn subr_getc
 @__L__628 = private constant [30 x i8] c"non-integer stream id in getc\00"
-define i64 @__L__48(i64 %p0, i64 %p1) {
+define i64 @__L__48(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -9445,7 +9445,7 @@ cont.8:
   %r11 = load i64, ptr %t2
   %r13 = load i64, ptr %t3
   %r12 = inttoptr i64 %r11 to ptr
-  %r14 = getelementptr i64, ptr %r12, i64 %r13
+  %r14 = getelementptr inbounds i64, ptr %r12, i64 %r13
   %r15 = load i64, ptr %r14
   store i64 %r15, ptr %t1
   store i64 %r15, ptr %acc.ptr
@@ -9478,7 +9478,7 @@ __L__626:
   %r30 = load i64, ptr %t4
   %r32 = load i64, ptr %t6
   %r31 = inttoptr i64 %r30 to ptr
-  %r33 = getelementptr i64, ptr %r31, i64 %r32
+  %r33 = getelementptr inbounds i64, ptr %r31, i64 %r32
   %r34 = load i64, ptr %r33
   store i64 %r34, ptr %acc.ptr
   br label %__L__627
@@ -9523,7 +9523,7 @@ __L__623:
   %r54 = load i64, ptr %t11
   %r56 = load i64, ptr %t12
   %r55 = inttoptr i64 %r54 to ptr
-  %r57 = getelementptr i64, ptr %r55, i64 %r56
+  %r57 = getelementptr inbounds i64, ptr %r55, i64 %r56
   %r58 = load i64, ptr %r57
   store i64 %r58, ptr %t13
   %r59 = ptrtoint ptr @getc to i64
@@ -9563,7 +9563,7 @@ __L__629:
 }
 ; defn subr_close
 @__L__635 = private constant [30 x i8] c"non-integer argument in close\00"
-define i64 @__L__49(i64 %p0, i64 %p1) {
+define i64 @__L__49(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -9616,7 +9616,7 @@ __L__633:
   %r19 = load i64, ptr %t2
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
   br label %__L__634
@@ -9659,7 +9659,7 @@ __L__630:
   %r43 = load i64, ptr %t7
   %r45 = load i64, ptr %t8
   %r44 = inttoptr i64 %r43 to ptr
-  %r46 = getelementptr i64, ptr %r44, i64 %r45
+  %r46 = getelementptr inbounds i64, ptr %r44, i64 %r45
   %r47 = load i64, ptr %r46
   store i64 %r47, ptr %t9
   %r48 = ptrtoint ptr @fclose to i64
@@ -9674,7 +9674,7 @@ __L__630:
 ; defn subr_open
 @__L__641 = private constant [28 x i8] c"non-string argument in open\00"
 @__L__642 = private constant [3 x i8] c"rb\00"
-define i64 @__L__50(i64 %p0, i64 %p1) {
+define i64 @__L__50(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -9731,7 +9731,7 @@ __L__639:
   %r19 = load i64, ptr %t2
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
   br label %__L__640
@@ -9774,7 +9774,7 @@ __L__636:
   %r43 = load i64, ptr %t7
   %r45 = load i64, ptr %t8
   %r44 = inttoptr i64 %r43 to ptr
-  %r46 = getelementptr i64, ptr %r44, i64 %r45
+  %r46 = getelementptr inbounds i64, ptr %r44, i64 %r45
   %r47 = load i64, ptr %r46
   store i64 %r47, ptr %t9
   %r48 = ptrtoint ptr @__L__642 to i64
@@ -9810,7 +9810,7 @@ __L__643:
   ret i64 %r66
 }
 ; defn subr_exit
-define i64 @__L__51(i64 %p0, i64 %p1) {
+define i64 @__L__51(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -9861,7 +9861,7 @@ __L__647:
   %r18 = load i64, ptr %t1
   %r20 = load i64, ptr %t3
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %acc.ptr
   br label %__L__648
@@ -9899,7 +9899,7 @@ cont.32:
   %r40 = load i64, ptr %t6
   %r42 = load i64, ptr %t7
   %r41 = inttoptr i64 %r40 to ptr
-  %r43 = getelementptr i64, ptr %r41, i64 %r42
+  %r43 = getelementptr inbounds i64, ptr %r41, i64 %r42
   %r44 = load i64, ptr %r43
   store i64 %r44, ptr %acc.ptr
   br label %__L__644
@@ -9917,7 +9917,7 @@ __L__644:
   ret i64 %r51
 }
 ; defn subr_abort
-define i64 @__L__52(i64 %p0, i64 %p1) {
+define i64 @__L__52(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -9931,7 +9931,7 @@ entry:
 }
 ; defn subr_ne
 @__L__649 = private constant [3 x i8] c"!=\00"
-define i64 @__L__53(i64 %p0, i64 %p1) {
+define i64 @__L__53(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -9990,7 +9990,7 @@ __L__651:
 }
 ; defn subr_eq
 @__L__652 = private constant [2 x i8] c"=\00"
-define i64 @__L__54(i64 %p0, i64 %p1) {
+define i64 @__L__54(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -10078,7 +10078,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -10086,11 +10086,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   %r23 = load i64, ptr %t3
@@ -10119,7 +10119,7 @@ __L__655:
   %r36 = load i64, ptr %t7
   %r38 = load i64, ptr %t9
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %acc.ptr
   br label %__L__656
@@ -10172,7 +10172,7 @@ __L__663:
   %r66 = load i64, ptr %t12
   %r68 = load i64, ptr %t14
   %r67 = inttoptr i64 %r66 to ptr
-  %r69 = getelementptr i64, ptr %r67, i64 %r68
+  %r69 = getelementptr inbounds i64, ptr %r67, i64 %r68
   %r70 = load i64, ptr %r69
   store i64 %r70, ptr %acc.ptr
   br label %__L__664
@@ -10203,7 +10203,7 @@ cont.80:
   %r83 = load i64, ptr %t16
   %r85 = load i64, ptr %t17
   %r84 = inttoptr i64 %r83 to ptr
-  %r86 = getelementptr i64, ptr %r84, i64 %r85
+  %r86 = getelementptr inbounds i64, ptr %r84, i64 %r85
   %r87 = load i64, ptr %r86
   store i64 %r87, ptr %t18
   %r88 = load i64, ptr %t3
@@ -10212,7 +10212,7 @@ cont.80:
   %r89 = load i64, ptr %t19
   %r91 = load i64, ptr %t20
   %r90 = inttoptr i64 %r89 to ptr
-  %r92 = getelementptr i64, ptr %r90, i64 %r91
+  %r92 = getelementptr inbounds i64, ptr %r90, i64 %r91
   %r93 = load i64, ptr %r92
   %r94 = load i64, ptr %t18
   %r95 = icmp eq i64 %r93, %r94
@@ -10257,7 +10257,7 @@ __L__669:
   %r116 = load i64, ptr %t21
   %r118 = load i64, ptr %t23
   %r117 = inttoptr i64 %r116 to ptr
-  %r119 = getelementptr i64, ptr %r117, i64 %r118
+  %r119 = getelementptr inbounds i64, ptr %r117, i64 %r118
   %r120 = load i64, ptr %r119
   store i64 %r120, ptr %acc.ptr
   br label %__L__670
@@ -10288,7 +10288,7 @@ cont.130:
   %r133 = load i64, ptr %t25
   %r135 = load i64, ptr %t26
   %r134 = inttoptr i64 %r133 to ptr
-  %r136 = getelementptr i64, ptr %r134, i64 %r135
+  %r136 = getelementptr inbounds i64, ptr %r134, i64 %r135
   %r137 = load i64, ptr %r136
   store i64 %r137, ptr %t27
   %r138 = ptrtoint ptr @long2double to i64
@@ -10302,7 +10302,7 @@ cont.130:
   %r143 = load i64, ptr %t6
   %r145 = load i64, ptr %t29
   %r144 = inttoptr i64 %r143 to ptr
-  %r146 = getelementptr i64, ptr %r144, i64 %r145
+  %r146 = getelementptr inbounds i64, ptr %r144, i64 %r145
   %r147 = load i64, ptr %r146
   store i64 %r147, ptr %t30
   %r148 = ptrtoint ptr @doubleeq to i64
@@ -10369,7 +10369,7 @@ __L__677:
   %r183 = load i64, ptr %t32
   %r185 = load i64, ptr %t34
   %r184 = inttoptr i64 %r183 to ptr
-  %r186 = getelementptr i64, ptr %r184, i64 %r185
+  %r186 = getelementptr inbounds i64, ptr %r184, i64 %r185
   %r187 = load i64, ptr %r186
   store i64 %r187, ptr %acc.ptr
   br label %__L__678
@@ -10398,14 +10398,14 @@ cont.197:
   %r199 = load i64, ptr %t3
   %r201 = load i64, ptr %t36
   %r200 = inttoptr i64 %r199 to ptr
-  %r202 = getelementptr i64, ptr %r200, i64 %r201
+  %r202 = getelementptr inbounds i64, ptr %r200, i64 %r201
   %r203 = load i64, ptr %r202
   store i64 %r203, ptr %t37
   store i64 0, ptr %t38
   %r204 = load i64, ptr %t6
   %r206 = load i64, ptr %t38
   %r205 = inttoptr i64 %r204 to ptr
-  %r207 = getelementptr i64, ptr %r205, i64 %r206
+  %r207 = getelementptr inbounds i64, ptr %r205, i64 %r206
   %r208 = load i64, ptr %r207
   store i64 %r208, ptr %t39
   %r209 = ptrtoint ptr @doubleeq to i64
@@ -10457,7 +10457,7 @@ __L__683:
   %r235 = load i64, ptr %t40
   %r237 = load i64, ptr %t42
   %r236 = inttoptr i64 %r235 to ptr
-  %r238 = getelementptr i64, ptr %r236, i64 %r237
+  %r238 = getelementptr inbounds i64, ptr %r236, i64 %r237
   %r239 = load i64, ptr %r238
   store i64 %r239, ptr %acc.ptr
   br label %__L__684
@@ -10486,7 +10486,7 @@ cont.249:
   %r251 = load i64, ptr %t3
   %r253 = load i64, ptr %t44
   %r252 = inttoptr i64 %r251 to ptr
-  %r254 = getelementptr i64, ptr %r252, i64 %r253
+  %r254 = getelementptr inbounds i64, ptr %r252, i64 %r253
   %r255 = load i64, ptr %r254
   store i64 %r255, ptr %t45
   %r256 = load i64, ptr %t6
@@ -10495,7 +10495,7 @@ cont.249:
   %r257 = load i64, ptr %t46
   %r259 = load i64, ptr %t47
   %r258 = inttoptr i64 %r257 to ptr
-  %r260 = getelementptr i64, ptr %r258, i64 %r259
+  %r260 = getelementptr inbounds i64, ptr %r258, i64 %r259
   %r261 = load i64, ptr %r260
   store i64 %r261, ptr %t48
   %r262 = ptrtoint ptr @long2double to i64
@@ -10569,7 +10569,7 @@ __L__690:
   %r302 = load i64, ptr %t51
   %r304 = load i64, ptr %t53
   %r303 = inttoptr i64 %r302 to ptr
-  %r305 = getelementptr i64, ptr %r303, i64 %r304
+  %r305 = getelementptr inbounds i64, ptr %r303, i64 %r304
   %r306 = load i64, ptr %r305
   store i64 %r306, ptr %acc.ptr
   br label %__L__691
@@ -10600,7 +10600,7 @@ cont.316:
   %r319 = load i64, ptr %t55
   %r321 = load i64, ptr %t56
   %r320 = inttoptr i64 %r319 to ptr
-  %r322 = getelementptr i64, ptr %r320, i64 %r321
+  %r322 = getelementptr inbounds i64, ptr %r320, i64 %r321
   %r323 = load i64, ptr %r322
   store i64 %r323, ptr %t57
   %r324 = load i64, ptr %t6
@@ -10609,7 +10609,7 @@ cont.316:
   %r325 = load i64, ptr %t58
   %r327 = load i64, ptr %t59
   %r326 = inttoptr i64 %r325 to ptr
-  %r328 = getelementptr i64, ptr %r326, i64 %r327
+  %r328 = getelementptr inbounds i64, ptr %r326, i64 %r327
   %r329 = load i64, ptr %r328
   store i64 %r329, ptr %t60
   %r330 = ptrtoint ptr @strcmp to i64
@@ -10674,7 +10674,7 @@ __L__658:
 @__L__720 = private constant [2 x i8] c" \00"
 @__L__721 = private constant [2 x i8] c")\00"
 @__L__722 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__55(i64 %p0, i64 %p1) {
+define i64 @__L__55(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -10739,7 +10739,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -10747,11 +10747,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   %r23 = load i64, ptr %t3
@@ -10780,7 +10780,7 @@ __L__699:
   %r36 = load i64, ptr %t7
   %r38 = load i64, ptr %t9
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %acc.ptr
   br label %__L__700
@@ -10831,7 +10831,7 @@ __L__703:
   %r65 = load i64, ptr %t11
   %r67 = load i64, ptr %t13
   %r66 = inttoptr i64 %r65 to ptr
-  %r68 = getelementptr i64, ptr %r66, i64 %r67
+  %r68 = getelementptr inbounds i64, ptr %r66, i64 %r67
   %r69 = load i64, ptr %r68
   store i64 %r69, ptr %acc.ptr
   br label %__L__704
@@ -10866,7 +10866,7 @@ cont.80:
   %r83 = load i64, ptr %t15
   %r85 = load i64, ptr %t16
   %r84 = inttoptr i64 %r83 to ptr
-  %r86 = getelementptr i64, ptr %r84, i64 %r85
+  %r86 = getelementptr inbounds i64, ptr %r84, i64 %r85
   %r87 = load i64, ptr %r86
   store i64 %r87, ptr %t17
   %r88 = load i64, ptr %t3
@@ -10875,7 +10875,7 @@ cont.80:
   %r89 = load i64, ptr %t18
   %r91 = load i64, ptr %t19
   %r90 = inttoptr i64 %r89 to ptr
-  %r92 = getelementptr i64, ptr %r90, i64 %r91
+  %r92 = getelementptr inbounds i64, ptr %r90, i64 %r91
   %r93 = load i64, ptr %r92
   %r94 = load i64, ptr %t17
   %r95 = icmp sgt i64 %r93, %r94
@@ -10920,7 +10920,7 @@ __L__711:
   %r116 = load i64, ptr %t20
   %r118 = load i64, ptr %t22
   %r117 = inttoptr i64 %r116 to ptr
-  %r119 = getelementptr i64, ptr %r117, i64 %r118
+  %r119 = getelementptr inbounds i64, ptr %r117, i64 %r118
   %r120 = load i64, ptr %r119
   store i64 %r120, ptr %acc.ptr
   br label %__L__712
@@ -10971,7 +10971,7 @@ __L__715:
   %r145 = load i64, ptr %t24
   %r147 = load i64, ptr %t26
   %r146 = inttoptr i64 %r145 to ptr
-  %r148 = getelementptr i64, ptr %r146, i64 %r147
+  %r148 = getelementptr inbounds i64, ptr %r146, i64 %r147
   %r149 = load i64, ptr %r148
   store i64 %r149, ptr %acc.ptr
   br label %__L__716
@@ -11117,7 +11117,7 @@ __L__695:
 @__L__750 = private constant [2 x i8] c" \00"
 @__L__751 = private constant [2 x i8] c")\00"
 @__L__752 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__56(i64 %p0, i64 %p1) {
+define i64 @__L__56(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -11182,7 +11182,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -11190,11 +11190,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   %r23 = load i64, ptr %t3
@@ -11223,7 +11223,7 @@ __L__729:
   %r36 = load i64, ptr %t7
   %r38 = load i64, ptr %t9
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %acc.ptr
   br label %__L__730
@@ -11274,7 +11274,7 @@ __L__733:
   %r65 = load i64, ptr %t11
   %r67 = load i64, ptr %t13
   %r66 = inttoptr i64 %r65 to ptr
-  %r68 = getelementptr i64, ptr %r66, i64 %r67
+  %r68 = getelementptr inbounds i64, ptr %r66, i64 %r67
   %r69 = load i64, ptr %r68
   store i64 %r69, ptr %acc.ptr
   br label %__L__734
@@ -11309,7 +11309,7 @@ cont.80:
   %r83 = load i64, ptr %t15
   %r85 = load i64, ptr %t16
   %r84 = inttoptr i64 %r83 to ptr
-  %r86 = getelementptr i64, ptr %r84, i64 %r85
+  %r86 = getelementptr inbounds i64, ptr %r84, i64 %r85
   %r87 = load i64, ptr %r86
   store i64 %r87, ptr %t17
   %r88 = load i64, ptr %t3
@@ -11318,7 +11318,7 @@ cont.80:
   %r89 = load i64, ptr %t18
   %r91 = load i64, ptr %t19
   %r90 = inttoptr i64 %r89 to ptr
-  %r92 = getelementptr i64, ptr %r90, i64 %r91
+  %r92 = getelementptr inbounds i64, ptr %r90, i64 %r91
   %r93 = load i64, ptr %r92
   %r94 = load i64, ptr %t17
   %r95 = icmp sge i64 %r93, %r94
@@ -11363,7 +11363,7 @@ __L__741:
   %r116 = load i64, ptr %t20
   %r118 = load i64, ptr %t22
   %r117 = inttoptr i64 %r116 to ptr
-  %r119 = getelementptr i64, ptr %r117, i64 %r118
+  %r119 = getelementptr inbounds i64, ptr %r117, i64 %r118
   %r120 = load i64, ptr %r119
   store i64 %r120, ptr %acc.ptr
   br label %__L__742
@@ -11414,7 +11414,7 @@ __L__745:
   %r145 = load i64, ptr %t24
   %r147 = load i64, ptr %t26
   %r146 = inttoptr i64 %r145 to ptr
-  %r148 = getelementptr i64, ptr %r146, i64 %r147
+  %r148 = getelementptr inbounds i64, ptr %r146, i64 %r147
   %r149 = load i64, ptr %r148
   store i64 %r149, ptr %acc.ptr
   br label %__L__746
@@ -11560,7 +11560,7 @@ __L__725:
 @__L__780 = private constant [2 x i8] c" \00"
 @__L__781 = private constant [2 x i8] c")\00"
 @__L__782 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__57(i64 %p0, i64 %p1) {
+define i64 @__L__57(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -11625,7 +11625,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -11633,11 +11633,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   %r23 = load i64, ptr %t3
@@ -11666,7 +11666,7 @@ __L__759:
   %r36 = load i64, ptr %t7
   %r38 = load i64, ptr %t9
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %acc.ptr
   br label %__L__760
@@ -11717,7 +11717,7 @@ __L__763:
   %r65 = load i64, ptr %t11
   %r67 = load i64, ptr %t13
   %r66 = inttoptr i64 %r65 to ptr
-  %r68 = getelementptr i64, ptr %r66, i64 %r67
+  %r68 = getelementptr inbounds i64, ptr %r66, i64 %r67
   %r69 = load i64, ptr %r68
   store i64 %r69, ptr %acc.ptr
   br label %__L__764
@@ -11752,7 +11752,7 @@ cont.80:
   %r83 = load i64, ptr %t15
   %r85 = load i64, ptr %t16
   %r84 = inttoptr i64 %r83 to ptr
-  %r86 = getelementptr i64, ptr %r84, i64 %r85
+  %r86 = getelementptr inbounds i64, ptr %r84, i64 %r85
   %r87 = load i64, ptr %r86
   store i64 %r87, ptr %t17
   %r88 = load i64, ptr %t3
@@ -11761,7 +11761,7 @@ cont.80:
   %r89 = load i64, ptr %t18
   %r91 = load i64, ptr %t19
   %r90 = inttoptr i64 %r89 to ptr
-  %r92 = getelementptr i64, ptr %r90, i64 %r91
+  %r92 = getelementptr inbounds i64, ptr %r90, i64 %r91
   %r93 = load i64, ptr %r92
   %r94 = load i64, ptr %t17
   %r95 = icmp sle i64 %r93, %r94
@@ -11806,7 +11806,7 @@ __L__771:
   %r116 = load i64, ptr %t20
   %r118 = load i64, ptr %t22
   %r117 = inttoptr i64 %r116 to ptr
-  %r119 = getelementptr i64, ptr %r117, i64 %r118
+  %r119 = getelementptr inbounds i64, ptr %r117, i64 %r118
   %r120 = load i64, ptr %r119
   store i64 %r120, ptr %acc.ptr
   br label %__L__772
@@ -11857,7 +11857,7 @@ __L__775:
   %r145 = load i64, ptr %t24
   %r147 = load i64, ptr %t26
   %r146 = inttoptr i64 %r145 to ptr
-  %r148 = getelementptr i64, ptr %r146, i64 %r147
+  %r148 = getelementptr inbounds i64, ptr %r146, i64 %r147
   %r149 = load i64, ptr %r148
   store i64 %r149, ptr %acc.ptr
   br label %__L__776
@@ -12003,7 +12003,7 @@ __L__755:
 @__L__810 = private constant [2 x i8] c" \00"
 @__L__811 = private constant [2 x i8] c")\00"
 @__L__812 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__58(i64 %p0, i64 %p1) {
+define i64 @__L__58(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -12068,7 +12068,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -12076,11 +12076,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   %r23 = load i64, ptr %t3
@@ -12109,7 +12109,7 @@ __L__789:
   %r36 = load i64, ptr %t7
   %r38 = load i64, ptr %t9
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %acc.ptr
   br label %__L__790
@@ -12160,7 +12160,7 @@ __L__793:
   %r65 = load i64, ptr %t11
   %r67 = load i64, ptr %t13
   %r66 = inttoptr i64 %r65 to ptr
-  %r68 = getelementptr i64, ptr %r66, i64 %r67
+  %r68 = getelementptr inbounds i64, ptr %r66, i64 %r67
   %r69 = load i64, ptr %r68
   store i64 %r69, ptr %acc.ptr
   br label %__L__794
@@ -12195,7 +12195,7 @@ cont.80:
   %r83 = load i64, ptr %t15
   %r85 = load i64, ptr %t16
   %r84 = inttoptr i64 %r83 to ptr
-  %r86 = getelementptr i64, ptr %r84, i64 %r85
+  %r86 = getelementptr inbounds i64, ptr %r84, i64 %r85
   %r87 = load i64, ptr %r86
   store i64 %r87, ptr %t17
   %r88 = load i64, ptr %t3
@@ -12204,7 +12204,7 @@ cont.80:
   %r89 = load i64, ptr %t18
   %r91 = load i64, ptr %t19
   %r90 = inttoptr i64 %r89 to ptr
-  %r92 = getelementptr i64, ptr %r90, i64 %r91
+  %r92 = getelementptr inbounds i64, ptr %r90, i64 %r91
   %r93 = load i64, ptr %r92
   %r94 = load i64, ptr %t17
   %r95 = icmp slt i64 %r93, %r94
@@ -12249,7 +12249,7 @@ __L__801:
   %r116 = load i64, ptr %t20
   %r118 = load i64, ptr %t22
   %r117 = inttoptr i64 %r116 to ptr
-  %r119 = getelementptr i64, ptr %r117, i64 %r118
+  %r119 = getelementptr inbounds i64, ptr %r117, i64 %r118
   %r120 = load i64, ptr %r119
   store i64 %r120, ptr %acc.ptr
   br label %__L__802
@@ -12300,7 +12300,7 @@ __L__805:
   %r145 = load i64, ptr %t24
   %r147 = load i64, ptr %t26
   %r146 = inttoptr i64 %r145 to ptr
-  %r148 = getelementptr i64, ptr %r146, i64 %r147
+  %r148 = getelementptr inbounds i64, ptr %r146, i64 %r147
   %r149 = load i64, ptr %r148
   store i64 %r149, ptr %acc.ptr
   br label %__L__806
@@ -12448,7 +12448,7 @@ __L__785:
 @__L__838 = private constant [2 x i8] c" \00"
 @__L__839 = private constant [2 x i8] c")\00"
 @__L__840 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__59(i64 %p0, i64 %p1) {
+define i64 @__L__59(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -12521,7 +12521,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -12529,11 +12529,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   %r23 = load i64, ptr %t3
@@ -12562,7 +12562,7 @@ __L__819:
   %r36 = load i64, ptr %t7
   %r38 = load i64, ptr %t9
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %acc.ptr
   br label %__L__820
@@ -12613,7 +12613,7 @@ __L__823:
   %r65 = load i64, ptr %t11
   %r67 = load i64, ptr %t13
   %r66 = inttoptr i64 %r65 to ptr
-  %r68 = getelementptr i64, ptr %r66, i64 %r67
+  %r68 = getelementptr inbounds i64, ptr %r66, i64 %r67
   %r69 = load i64, ptr %r68
   store i64 %r69, ptr %acc.ptr
   br label %__L__824
@@ -12648,7 +12648,7 @@ cont.80:
   %r83 = load i64, ptr %t15
   %r85 = load i64, ptr %t16
   %r84 = inttoptr i64 %r83 to ptr
-  %r86 = getelementptr i64, ptr %r84, i64 %r85
+  %r86 = getelementptr inbounds i64, ptr %r84, i64 %r85
   %r87 = load i64, ptr %r86
   store i64 %r87, ptr %t17
   %r88 = load i64, ptr %t3
@@ -12657,7 +12657,7 @@ cont.80:
   %r89 = load i64, ptr %t18
   %r91 = load i64, ptr %t19
   %r90 = inttoptr i64 %r89 to ptr
-  %r92 = getelementptr i64, ptr %r90, i64 %r91
+  %r92 = getelementptr inbounds i64, ptr %r90, i64 %r91
   %r93 = load i64, ptr %r92
   %r94 = load i64, ptr %t17
   %r95 = sdiv i64 %r93, %r94
@@ -12668,7 +12668,7 @@ cont.80:
   %r97 = load i64, ptr %t21
   %r99 = load i64, ptr %t22
   %r98 = inttoptr i64 %r97 to ptr
-  %r100 = getelementptr i64, ptr %r98, i64 %r99
+  %r100 = getelementptr inbounds i64, ptr %r98, i64 %r99
   %r101 = load i64, ptr %r100
   %r102 = load i64, ptr %t20
   %r103 = mul i64 %r101, %r102
@@ -12679,7 +12679,7 @@ cont.80:
   %r105 = load i64, ptr %t24
   %r107 = load i64, ptr %t25
   %r106 = inttoptr i64 %r105 to ptr
-  %r108 = getelementptr i64, ptr %r106, i64 %r107
+  %r108 = getelementptr inbounds i64, ptr %r106, i64 %r107
   %r109 = load i64, ptr %r108
   %r110 = load i64, ptr %t23
   %r111 = sub i64 %r109, %r110
@@ -12720,7 +12720,7 @@ __L__830:
   %r131 = load i64, ptr %t27
   %r133 = load i64, ptr %t29
   %r132 = inttoptr i64 %r131 to ptr
-  %r134 = getelementptr i64, ptr %r132, i64 %r133
+  %r134 = getelementptr inbounds i64, ptr %r132, i64 %r133
   %r135 = load i64, ptr %r134
   store i64 %r135, ptr %acc.ptr
   br label %__L__831
@@ -12771,7 +12771,7 @@ __L__834:
   %r160 = load i64, ptr %t31
   %r162 = load i64, ptr %t33
   %r161 = inttoptr i64 %r160 to ptr
-  %r163 = getelementptr i64, ptr %r161, i64 %r162
+  %r163 = getelementptr inbounds i64, ptr %r161, i64 %r162
   %r164 = load i64, ptr %r163
   store i64 %r164, ptr %acc.ptr
   br label %__L__835
@@ -12914,7 +12914,7 @@ __L__815:
 @__L__866 = private constant [2 x i8] c" \00"
 @__L__867 = private constant [2 x i8] c")\00"
 @__L__868 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__60(i64 %p0, i64 %p1) {
+define i64 @__L__60(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -12981,7 +12981,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -12989,11 +12989,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   %r23 = load i64, ptr %t3
@@ -13022,7 +13022,7 @@ __L__847:
   %r36 = load i64, ptr %t7
   %r38 = load i64, ptr %t9
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %acc.ptr
   br label %__L__848
@@ -13073,7 +13073,7 @@ __L__851:
   %r65 = load i64, ptr %t11
   %r67 = load i64, ptr %t13
   %r66 = inttoptr i64 %r65 to ptr
-  %r68 = getelementptr i64, ptr %r66, i64 %r67
+  %r68 = getelementptr inbounds i64, ptr %r66, i64 %r67
   %r69 = load i64, ptr %r68
   store i64 %r69, ptr %acc.ptr
   br label %__L__852
@@ -13108,7 +13108,7 @@ cont.80:
   %r83 = load i64, ptr %t15
   %r85 = load i64, ptr %t16
   %r84 = inttoptr i64 %r83 to ptr
-  %r86 = getelementptr i64, ptr %r84, i64 %r85
+  %r86 = getelementptr inbounds i64, ptr %r84, i64 %r85
   %r87 = load i64, ptr %r86
   store i64 %r87, ptr %t17
   %r88 = load i64, ptr %t3
@@ -13117,7 +13117,7 @@ cont.80:
   %r89 = load i64, ptr %t18
   %r91 = load i64, ptr %t19
   %r90 = inttoptr i64 %r89 to ptr
-  %r92 = getelementptr i64, ptr %r90, i64 %r91
+  %r92 = getelementptr inbounds i64, ptr %r90, i64 %r91
   %r93 = load i64, ptr %r92
   %r94 = load i64, ptr %t17
   %r95 = sdiv i64 %r93, %r94
@@ -13158,7 +13158,7 @@ __L__858:
   %r115 = load i64, ptr %t21
   %r117 = load i64, ptr %t23
   %r116 = inttoptr i64 %r115 to ptr
-  %r118 = getelementptr i64, ptr %r116, i64 %r117
+  %r118 = getelementptr inbounds i64, ptr %r116, i64 %r117
   %r119 = load i64, ptr %r118
   store i64 %r119, ptr %acc.ptr
   br label %__L__859
@@ -13209,7 +13209,7 @@ __L__862:
   %r144 = load i64, ptr %t25
   %r146 = load i64, ptr %t27
   %r145 = inttoptr i64 %r144 to ptr
-  %r147 = getelementptr i64, ptr %r145, i64 %r146
+  %r147 = getelementptr inbounds i64, ptr %r145, i64 %r146
   %r148 = load i64, ptr %r147
   store i64 %r148, ptr %acc.ptr
   br label %__L__863
@@ -13352,7 +13352,7 @@ __L__843:
 @__L__894 = private constant [2 x i8] c" \00"
 @__L__895 = private constant [2 x i8] c")\00"
 @__L__896 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__61(i64 %p0, i64 %p1) {
+define i64 @__L__61(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -13419,7 +13419,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -13427,11 +13427,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   %r23 = load i64, ptr %t3
@@ -13460,7 +13460,7 @@ __L__875:
   %r36 = load i64, ptr %t7
   %r38 = load i64, ptr %t9
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %acc.ptr
   br label %__L__876
@@ -13511,7 +13511,7 @@ __L__879:
   %r65 = load i64, ptr %t11
   %r67 = load i64, ptr %t13
   %r66 = inttoptr i64 %r65 to ptr
-  %r68 = getelementptr i64, ptr %r66, i64 %r67
+  %r68 = getelementptr inbounds i64, ptr %r66, i64 %r67
   %r69 = load i64, ptr %r68
   store i64 %r69, ptr %acc.ptr
   br label %__L__880
@@ -13546,7 +13546,7 @@ cont.80:
   %r83 = load i64, ptr %t15
   %r85 = load i64, ptr %t16
   %r84 = inttoptr i64 %r83 to ptr
-  %r86 = getelementptr i64, ptr %r84, i64 %r85
+  %r86 = getelementptr inbounds i64, ptr %r84, i64 %r85
   %r87 = load i64, ptr %r86
   store i64 %r87, ptr %t17
   %r88 = load i64, ptr %t3
@@ -13555,7 +13555,7 @@ cont.80:
   %r89 = load i64, ptr %t18
   %r91 = load i64, ptr %t19
   %r90 = inttoptr i64 %r89 to ptr
-  %r92 = getelementptr i64, ptr %r90, i64 %r91
+  %r92 = getelementptr inbounds i64, ptr %r90, i64 %r91
   %r93 = load i64, ptr %r92
   %r94 = load i64, ptr %t17
   %r95 = mul i64 %r93, %r94
@@ -13596,7 +13596,7 @@ __L__886:
   %r115 = load i64, ptr %t21
   %r117 = load i64, ptr %t23
   %r116 = inttoptr i64 %r115 to ptr
-  %r118 = getelementptr i64, ptr %r116, i64 %r117
+  %r118 = getelementptr inbounds i64, ptr %r116, i64 %r117
   %r119 = load i64, ptr %r118
   store i64 %r119, ptr %acc.ptr
   br label %__L__887
@@ -13647,7 +13647,7 @@ __L__890:
   %r144 = load i64, ptr %t25
   %r146 = load i64, ptr %t27
   %r145 = inttoptr i64 %r144 to ptr
-  %r147 = getelementptr i64, ptr %r145, i64 %r146
+  %r147 = getelementptr inbounds i64, ptr %r145, i64 %r146
   %r148 = load i64, ptr %r147
   store i64 %r148, ptr %acc.ptr
   br label %__L__891
@@ -13790,7 +13790,7 @@ __L__871:
 @__L__922 = private constant [2 x i8] c" \00"
 @__L__923 = private constant [2 x i8] c")\00"
 @__L__924 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__62(i64 %p0, i64 %p1) {
+define i64 @__L__62(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -13857,7 +13857,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -13865,11 +13865,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   %r23 = load i64, ptr %t3
@@ -13898,7 +13898,7 @@ __L__903:
   %r36 = load i64, ptr %t7
   %r38 = load i64, ptr %t9
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %acc.ptr
   br label %__L__904
@@ -13949,7 +13949,7 @@ __L__907:
   %r65 = load i64, ptr %t11
   %r67 = load i64, ptr %t13
   %r66 = inttoptr i64 %r65 to ptr
-  %r68 = getelementptr i64, ptr %r66, i64 %r67
+  %r68 = getelementptr inbounds i64, ptr %r66, i64 %r67
   %r69 = load i64, ptr %r68
   store i64 %r69, ptr %acc.ptr
   br label %__L__908
@@ -13984,7 +13984,7 @@ cont.80:
   %r83 = load i64, ptr %t15
   %r85 = load i64, ptr %t16
   %r84 = inttoptr i64 %r83 to ptr
-  %r86 = getelementptr i64, ptr %r84, i64 %r85
+  %r86 = getelementptr inbounds i64, ptr %r84, i64 %r85
   %r87 = load i64, ptr %r86
   store i64 %r87, ptr %t17
   %r88 = load i64, ptr %t3
@@ -13993,7 +13993,7 @@ cont.80:
   %r89 = load i64, ptr %t18
   %r91 = load i64, ptr %t19
   %r90 = inttoptr i64 %r89 to ptr
-  %r92 = getelementptr i64, ptr %r90, i64 %r91
+  %r92 = getelementptr inbounds i64, ptr %r90, i64 %r91
   %r93 = load i64, ptr %r92
   %r94 = load i64, ptr %t17
   %r95 = add i64 %r93, %r94
@@ -14034,7 +14034,7 @@ __L__914:
   %r115 = load i64, ptr %t21
   %r117 = load i64, ptr %t23
   %r116 = inttoptr i64 %r115 to ptr
-  %r118 = getelementptr i64, ptr %r116, i64 %r117
+  %r118 = getelementptr inbounds i64, ptr %r116, i64 %r117
   %r119 = load i64, ptr %r118
   store i64 %r119, ptr %acc.ptr
   br label %__L__915
@@ -14085,7 +14085,7 @@ __L__918:
   %r144 = load i64, ptr %t25
   %r146 = load i64, ptr %t27
   %r145 = inttoptr i64 %r144 to ptr
-  %r147 = getelementptr i64, ptr %r145, i64 %r146
+  %r147 = getelementptr inbounds i64, ptr %r145, i64 %r146
   %r148 = load i64, ptr %r147
   store i64 %r148, ptr %acc.ptr
   br label %__L__919
@@ -14231,7 +14231,7 @@ __L__899:
 @__L__942 = private constant [2 x i8] c" \00"
 @__L__943 = private constant [2 x i8] c")\00"
 @__L__944 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__63(i64 %p0, i64 %p1) {
+define i64 @__L__63(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -14291,7 +14291,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -14299,11 +14299,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   %r23 = load i64, ptr %t3
@@ -14332,7 +14332,7 @@ __L__931:
   %r36 = load i64, ptr %t7
   %r38 = load i64, ptr %t9
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %acc.ptr
   br label %__L__932
@@ -14383,7 +14383,7 @@ __L__935:
   %r65 = load i64, ptr %t11
   %r67 = load i64, ptr %t13
   %r66 = inttoptr i64 %r65 to ptr
-  %r68 = getelementptr i64, ptr %r66, i64 %r67
+  %r68 = getelementptr inbounds i64, ptr %r66, i64 %r67
   %r69 = load i64, ptr %r68
   store i64 %r69, ptr %acc.ptr
   br label %__L__936
@@ -14418,7 +14418,7 @@ cont.80:
   %r83 = load i64, ptr %t15
   %r85 = load i64, ptr %t16
   %r84 = inttoptr i64 %r83 to ptr
-  %r86 = getelementptr i64, ptr %r84, i64 %r85
+  %r86 = getelementptr inbounds i64, ptr %r84, i64 %r85
   %r87 = load i64, ptr %r86
   store i64 %r87, ptr %t17
   %r88 = load i64, ptr %t3
@@ -14427,7 +14427,7 @@ cont.80:
   %r89 = load i64, ptr %t18
   %r91 = load i64, ptr %t19
   %r90 = inttoptr i64 %r89 to ptr
-  %r92 = getelementptr i64, ptr %r90, i64 %r91
+  %r92 = getelementptr inbounds i64, ptr %r90, i64 %r91
   %r93 = load i64, ptr %r92
   %r94 = load i64, ptr %t17
   %r95 = ashr i64 %r93, %r94
@@ -14551,7 +14551,7 @@ __L__927:
 @__L__962 = private constant [2 x i8] c" \00"
 @__L__963 = private constant [2 x i8] c")\00"
 @__L__964 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__64(i64 %p0, i64 %p1) {
+define i64 @__L__64(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -14611,7 +14611,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -14619,11 +14619,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   %r23 = load i64, ptr %t3
@@ -14652,7 +14652,7 @@ __L__951:
   %r36 = load i64, ptr %t7
   %r38 = load i64, ptr %t9
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %acc.ptr
   br label %__L__952
@@ -14703,7 +14703,7 @@ __L__955:
   %r65 = load i64, ptr %t11
   %r67 = load i64, ptr %t13
   %r66 = inttoptr i64 %r65 to ptr
-  %r68 = getelementptr i64, ptr %r66, i64 %r67
+  %r68 = getelementptr inbounds i64, ptr %r66, i64 %r67
   %r69 = load i64, ptr %r68
   store i64 %r69, ptr %acc.ptr
   br label %__L__956
@@ -14738,7 +14738,7 @@ cont.80:
   %r83 = load i64, ptr %t15
   %r85 = load i64, ptr %t16
   %r84 = inttoptr i64 %r83 to ptr
-  %r86 = getelementptr i64, ptr %r84, i64 %r85
+  %r86 = getelementptr inbounds i64, ptr %r84, i64 %r85
   %r87 = load i64, ptr %r86
   store i64 %r87, ptr %t17
   %r88 = load i64, ptr %t3
@@ -14747,7 +14747,7 @@ cont.80:
   %r89 = load i64, ptr %t18
   %r91 = load i64, ptr %t19
   %r90 = inttoptr i64 %r89 to ptr
-  %r92 = getelementptr i64, ptr %r90, i64 %r91
+  %r92 = getelementptr inbounds i64, ptr %r90, i64 %r91
   %r93 = load i64, ptr %r92
   %r94 = load i64, ptr %t17
   %r95 = shl i64 %r93, %r94
@@ -14871,7 +14871,7 @@ __L__947:
 @__L__982 = private constant [2 x i8] c" \00"
 @__L__983 = private constant [2 x i8] c")\00"
 @__L__984 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__65(i64 %p0, i64 %p1) {
+define i64 @__L__65(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -14931,7 +14931,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -14939,11 +14939,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   %r23 = load i64, ptr %t3
@@ -14972,7 +14972,7 @@ __L__971:
   %r36 = load i64, ptr %t7
   %r38 = load i64, ptr %t9
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %acc.ptr
   br label %__L__972
@@ -15023,7 +15023,7 @@ __L__975:
   %r65 = load i64, ptr %t11
   %r67 = load i64, ptr %t13
   %r66 = inttoptr i64 %r65 to ptr
-  %r68 = getelementptr i64, ptr %r66, i64 %r67
+  %r68 = getelementptr inbounds i64, ptr %r66, i64 %r67
   %r69 = load i64, ptr %r68
   store i64 %r69, ptr %acc.ptr
   br label %__L__976
@@ -15058,7 +15058,7 @@ cont.80:
   %r83 = load i64, ptr %t15
   %r85 = load i64, ptr %t16
   %r84 = inttoptr i64 %r83 to ptr
-  %r86 = getelementptr i64, ptr %r84, i64 %r85
+  %r86 = getelementptr inbounds i64, ptr %r84, i64 %r85
   %r87 = load i64, ptr %r86
   store i64 %r87, ptr %t17
   %r88 = load i64, ptr %t3
@@ -15067,7 +15067,7 @@ cont.80:
   %r89 = load i64, ptr %t18
   %r91 = load i64, ptr %t19
   %r90 = inttoptr i64 %r89 to ptr
-  %r92 = getelementptr i64, ptr %r90, i64 %r91
+  %r92 = getelementptr inbounds i64, ptr %r90, i64 %r91
   %r93 = load i64, ptr %r92
   %r94 = load i64, ptr %t17
   %r95 = xor i64 %r93, %r94
@@ -15191,7 +15191,7 @@ __L__967:
 @__L__1002 = private constant [2 x i8] c" \00"
 @__L__1003 = private constant [2 x i8] c")\00"
 @__L__1004 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__66(i64 %p0, i64 %p1) {
+define i64 @__L__66(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -15251,7 +15251,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -15259,11 +15259,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   %r23 = load i64, ptr %t3
@@ -15292,7 +15292,7 @@ __L__991:
   %r36 = load i64, ptr %t7
   %r38 = load i64, ptr %t9
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %acc.ptr
   br label %__L__992
@@ -15343,7 +15343,7 @@ __L__995:
   %r65 = load i64, ptr %t11
   %r67 = load i64, ptr %t13
   %r66 = inttoptr i64 %r65 to ptr
-  %r68 = getelementptr i64, ptr %r66, i64 %r67
+  %r68 = getelementptr inbounds i64, ptr %r66, i64 %r67
   %r69 = load i64, ptr %r68
   store i64 %r69, ptr %acc.ptr
   br label %__L__996
@@ -15378,7 +15378,7 @@ cont.80:
   %r83 = load i64, ptr %t15
   %r85 = load i64, ptr %t16
   %r84 = inttoptr i64 %r83 to ptr
-  %r86 = getelementptr i64, ptr %r84, i64 %r85
+  %r86 = getelementptr inbounds i64, ptr %r84, i64 %r85
   %r87 = load i64, ptr %r86
   store i64 %r87, ptr %t17
   %r88 = load i64, ptr %t3
@@ -15387,7 +15387,7 @@ cont.80:
   %r89 = load i64, ptr %t18
   %r91 = load i64, ptr %t19
   %r90 = inttoptr i64 %r89 to ptr
-  %r92 = getelementptr i64, ptr %r90, i64 %r91
+  %r92 = getelementptr inbounds i64, ptr %r90, i64 %r91
   %r93 = load i64, ptr %r92
   %r94 = load i64, ptr %t17
   %r95 = or i64 %r93, %r94
@@ -15511,7 +15511,7 @@ __L__987:
 @__L__1022 = private constant [2 x i8] c" \00"
 @__L__1023 = private constant [2 x i8] c")\00"
 @__L__1024 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__67(i64 %p0, i64 %p1) {
+define i64 @__L__67(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -15571,7 +15571,7 @@ entry:
   %r9 = load i64, ptr %arg0
   %r11 = load i64, ptr %t2
   %r10 = inttoptr i64 %r9 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   %r13 = load i64, ptr %r12
   store i64 %r13, ptr %t3
   store i64 0, ptr %t4
@@ -15579,11 +15579,11 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t5
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   %r20 = load i64, ptr %t4
   %r19 = inttoptr i64 %r18 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   %r22 = load i64, ptr %r21
   store i64 %r22, ptr %t6
   %r23 = load i64, ptr %t3
@@ -15612,7 +15612,7 @@ __L__1011:
   %r36 = load i64, ptr %t7
   %r38 = load i64, ptr %t9
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %acc.ptr
   br label %__L__1012
@@ -15663,7 +15663,7 @@ __L__1015:
   %r65 = load i64, ptr %t11
   %r67 = load i64, ptr %t13
   %r66 = inttoptr i64 %r65 to ptr
-  %r68 = getelementptr i64, ptr %r66, i64 %r67
+  %r68 = getelementptr inbounds i64, ptr %r66, i64 %r67
   %r69 = load i64, ptr %r68
   store i64 %r69, ptr %acc.ptr
   br label %__L__1016
@@ -15698,7 +15698,7 @@ cont.80:
   %r83 = load i64, ptr %t15
   %r85 = load i64, ptr %t16
   %r84 = inttoptr i64 %r83 to ptr
-  %r86 = getelementptr i64, ptr %r84, i64 %r85
+  %r86 = getelementptr inbounds i64, ptr %r84, i64 %r85
   %r87 = load i64, ptr %r86
   store i64 %r87, ptr %t17
   %r88 = load i64, ptr %t3
@@ -15707,7 +15707,7 @@ cont.80:
   %r89 = load i64, ptr %t18
   %r91 = load i64, ptr %t19
   %r90 = inttoptr i64 %r89 to ptr
-  %r92 = getelementptr i64, ptr %r90, i64 %r91
+  %r92 = getelementptr inbounds i64, ptr %r90, i64 %r91
   %r93 = load i64, ptr %r92
   %r94 = load i64, ptr %t17
   %r95 = and i64 %r93, %r94
@@ -15834,7 +15834,7 @@ __L__1007:
 @__L__1073 = private constant [26 x i8] c"non-numeric argument: (- \00"
 @__L__1074 = private constant [2 x i8] c")\00"
 @__L__1075 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__68(i64 %p0, i64 %p1) {
+define i64 @__L__68(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -15930,14 +15930,14 @@ __L__1025:
   %r11 = load i64, ptr %arg0
   %r13 = load i64, ptr %t1
   %r12 = inttoptr i64 %r11 to ptr
-  %r14 = getelementptr i64, ptr %r12, i64 %r13
+  %r14 = getelementptr inbounds i64, ptr %r12, i64 %r13
   %r15 = load i64, ptr %r14
   store i64 %r15, ptr %t2
   store i64 1, ptr %t3
   %r16 = load i64, ptr %arg0
   %r18 = load i64, ptr %t3
   %r17 = inttoptr i64 %r16 to ptr
-  %r19 = getelementptr i64, ptr %r17, i64 %r18
+  %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   %r20 = load i64, ptr %r19
   store i64 %r20, ptr %t4
   %r21 = load i64, ptr %t4
@@ -15966,7 +15966,7 @@ __L__1031:
   %r34 = load i64, ptr %t5
   %r36 = load i64, ptr %t7
   %r35 = inttoptr i64 %r34 to ptr
-  %r37 = getelementptr i64, ptr %r35, i64 %r36
+  %r37 = getelementptr inbounds i64, ptr %r35, i64 %r36
   %r38 = load i64, ptr %r37
   store i64 %r38, ptr %acc.ptr
   br label %__L__1032
@@ -15995,7 +15995,7 @@ cont.48:
   %r50 = load i64, ptr %t4
   %r52 = load i64, ptr %t9
   %r51 = inttoptr i64 %r50 to ptr
-  %r53 = getelementptr i64, ptr %r51, i64 %r52
+  %r53 = getelementptr inbounds i64, ptr %r51, i64 %r52
   %r54 = load i64, ptr %r53
   store i64 %r54, ptr %t4
   %r55 = load i64, ptr %t2
@@ -16024,7 +16024,7 @@ __L__1038:
   %r68 = load i64, ptr %t10
   %r70 = load i64, ptr %t12
   %r69 = inttoptr i64 %r68 to ptr
-  %r71 = getelementptr i64, ptr %r69, i64 %r70
+  %r71 = getelementptr inbounds i64, ptr %r69, i64 %r70
   %r72 = load i64, ptr %r71
   store i64 %r72, ptr %acc.ptr
   br label %__L__1039
@@ -16075,7 +16075,7 @@ __L__1042:
   %r97 = load i64, ptr %t14
   %r99 = load i64, ptr %t16
   %r98 = inttoptr i64 %r97 to ptr
-  %r100 = getelementptr i64, ptr %r98, i64 %r99
+  %r100 = getelementptr inbounds i64, ptr %r98, i64 %r99
   %r101 = load i64, ptr %r100
   store i64 %r101, ptr %acc.ptr
   br label %__L__1043
@@ -16110,7 +16110,7 @@ cont.112:
   %r115 = load i64, ptr %t18
   %r117 = load i64, ptr %t19
   %r116 = inttoptr i64 %r115 to ptr
-  %r118 = getelementptr i64, ptr %r116, i64 %r117
+  %r118 = getelementptr inbounds i64, ptr %r116, i64 %r117
   %r119 = load i64, ptr %r118
   store i64 %r119, ptr %t20
   %r120 = load i64, ptr %t2
@@ -16119,7 +16119,7 @@ cont.112:
   %r121 = load i64, ptr %t21
   %r123 = load i64, ptr %t22
   %r122 = inttoptr i64 %r121 to ptr
-  %r124 = getelementptr i64, ptr %r122, i64 %r123
+  %r124 = getelementptr inbounds i64, ptr %r122, i64 %r123
   %r125 = load i64, ptr %r124
   %r126 = load i64, ptr %t20
   %r127 = sub i64 %r125, %r126
@@ -16160,7 +16160,7 @@ __L__1049:
   %r147 = load i64, ptr %t24
   %r149 = load i64, ptr %t26
   %r148 = inttoptr i64 %r147 to ptr
-  %r150 = getelementptr i64, ptr %r148, i64 %r149
+  %r150 = getelementptr inbounds i64, ptr %r148, i64 %r149
   %r151 = load i64, ptr %r150
   store i64 %r151, ptr %acc.ptr
   br label %__L__1050
@@ -16211,7 +16211,7 @@ __L__1053:
   %r176 = load i64, ptr %t28
   %r178 = load i64, ptr %t30
   %r177 = inttoptr i64 %r176 to ptr
-  %r179 = getelementptr i64, ptr %r177, i64 %r178
+  %r179 = getelementptr inbounds i64, ptr %r177, i64 %r178
   %r180 = load i64, ptr %r179
   store i64 %r180, ptr %acc.ptr
   br label %__L__1054
@@ -16375,7 +16375,7 @@ __L__1064:
   %r279 = load i64, ptr %t44
   %r281 = load i64, ptr %t46
   %r280 = inttoptr i64 %r279 to ptr
-  %r282 = getelementptr i64, ptr %r280, i64 %r281
+  %r282 = getelementptr inbounds i64, ptr %r280, i64 %r281
   %r283 = load i64, ptr %r282
   store i64 %r283, ptr %acc.ptr
   br label %__L__1065
@@ -16406,7 +16406,7 @@ cont.293:
   %r296 = load i64, ptr %t48
   %r298 = load i64, ptr %t49
   %r297 = inttoptr i64 %r296 to ptr
-  %r299 = getelementptr i64, ptr %r297, i64 %r298
+  %r299 = getelementptr inbounds i64, ptr %r297, i64 %r298
   %r300 = load i64, ptr %r299
   %r301 = sub i64 0, %r300
   store i64 %r301, ptr %t50
@@ -16446,7 +16446,7 @@ __L__1070:
   %r321 = load i64, ptr %t51
   %r323 = load i64, ptr %t53
   %r322 = inttoptr i64 %r321 to ptr
-  %r324 = getelementptr i64, ptr %r322, i64 %r323
+  %r324 = getelementptr inbounds i64, ptr %r322, i64 %r323
   %r325 = load i64, ptr %r324
   store i64 %r325, ptr %acc.ptr
   br label %__L__1071
@@ -16483,7 +16483,7 @@ cont.335:
   %r342 = load i64, ptr %t2
   %r344 = load i64, ptr %t57
   %r343 = inttoptr i64 %r342 to ptr
-  %r345 = getelementptr i64, ptr %r343, i64 %r344
+  %r345 = getelementptr inbounds i64, ptr %r343, i64 %r344
   %r346 = load i64, ptr %r345
   store i64 %r346, ptr %t58
   %r347 = ptrtoint ptr @doublesub to i64
@@ -16564,7 +16564,7 @@ __L__1028:
   ret i64 %r395
 }
 ; defn to-double-bits
-define i64 @__L__69(i64 %p0) {
+define i64 @__L__69(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -16604,7 +16604,7 @@ __L__1080:
   %r13 = load i64, ptr %t0
   %r15 = load i64, ptr %t2
   %r14 = inttoptr i64 %r13 to ptr
-  %r16 = getelementptr i64, ptr %r14, i64 %r15
+  %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
   br label %__L__1081
@@ -16633,7 +16633,7 @@ cont.27:
   %r29 = load i64, ptr %arg0
   %r31 = load i64, ptr %t4
   %r30 = inttoptr i64 %r29 to ptr
-  %r32 = getelementptr i64, ptr %r30, i64 %r31
+  %r32 = getelementptr inbounds i64, ptr %r30, i64 %r31
   %r33 = load i64, ptr %r32
   store i64 %r33, ptr %acc.ptr
   br label %__L__1077
@@ -16645,7 +16645,7 @@ __L__1076:
   %r36 = load i64, ptr %t5
   %r38 = load i64, ptr %t6
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %t7
   %r41 = ptrtoint ptr @long2double to i64
@@ -16662,7 +16662,7 @@ __L__1077:
 }
 ; defn arity3
 @__L__1096 = private constant [25 x i8] c"%s: expected 3 arguments\00"
-define i64 @__L__70(i64 %p0, i64 %p1) {
+define i64 @__L__70(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -16718,7 +16718,7 @@ __L__1086:
   %r13 = load i64, ptr %t0
   %r15 = load i64, ptr %t2
   %r14 = inttoptr i64 %r13 to ptr
-  %r16 = getelementptr i64, ptr %r14, i64 %r15
+  %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
   br label %__L__1087
@@ -16747,7 +16747,7 @@ cont.27:
   %r29 = load i64, ptr %arg1
   %r31 = load i64, ptr %t4
   %r30 = inttoptr i64 %r29 to ptr
-  %r32 = getelementptr i64, ptr %r30, i64 %r31
+  %r32 = getelementptr inbounds i64, ptr %r30, i64 %r31
   %r33 = load i64, ptr %r32
   store i64 %r33, ptr %t5
   %r34 = load i64, ptr %t5
@@ -16774,7 +16774,7 @@ __L__1090:
   %r46 = load i64, ptr %t5
   %r48 = load i64, ptr %t7
   %r47 = inttoptr i64 %r46 to ptr
-  %r49 = getelementptr i64, ptr %r47, i64 %r48
+  %r49 = getelementptr inbounds i64, ptr %r47, i64 %r48
   %r50 = load i64, ptr %r49
   store i64 %r50, ptr %acc.ptr
   br label %__L__1091
@@ -16804,11 +16804,11 @@ cont.60:
   %r62 = load i64, ptr %arg1
   %r64 = load i64, ptr %t10
   %r63 = inttoptr i64 %r62 to ptr
-  %r65 = getelementptr i64, ptr %r63, i64 %r64
+  %r65 = getelementptr inbounds i64, ptr %r63, i64 %r64
   %r66 = load i64, ptr %r65
   %r68 = load i64, ptr %t9
   %r67 = inttoptr i64 %r66 to ptr
-  %r69 = getelementptr i64, ptr %r67, i64 %r68
+  %r69 = getelementptr inbounds i64, ptr %r67, i64 %r68
   %r70 = load i64, ptr %r69
   store i64 %r70, ptr %t11
   %r71 = load i64, ptr %t11
@@ -16835,7 +16835,7 @@ __L__1094:
   %r83 = load i64, ptr %t11
   %r85 = load i64, ptr %t13
   %r84 = inttoptr i64 %r83 to ptr
-  %r86 = getelementptr i64, ptr %r84, i64 %r85
+  %r86 = getelementptr inbounds i64, ptr %r84, i64 %r85
   %r87 = load i64, ptr %r86
   store i64 %r87, ptr %acc.ptr
   br label %__L__1095
@@ -16866,15 +16866,15 @@ cont.97:
   %r99 = load i64, ptr %arg1
   %r101 = load i64, ptr %t17
   %r100 = inttoptr i64 %r99 to ptr
-  %r102 = getelementptr i64, ptr %r100, i64 %r101
+  %r102 = getelementptr inbounds i64, ptr %r100, i64 %r101
   %r103 = load i64, ptr %r102
   %r105 = load i64, ptr %t16
   %r104 = inttoptr i64 %r103 to ptr
-  %r106 = getelementptr i64, ptr %r104, i64 %r105
+  %r106 = getelementptr inbounds i64, ptr %r104, i64 %r105
   %r107 = load i64, ptr %r106
   %r109 = load i64, ptr %t15
   %r108 = inttoptr i64 %r107 to ptr
-  %r110 = getelementptr i64, ptr %r108, i64 %r109
+  %r110 = getelementptr inbounds i64, ptr %r108, i64 %r109
   %r111 = load i64, ptr %r110
   store i64 %r111, ptr %t18
   %r112 = load i64, ptr %t18
@@ -16910,7 +16910,7 @@ __L__1082:
 }
 ; defn arity2
 @__L__1107 = private constant [25 x i8] c"%s: expected 2 arguments\00"
-define i64 @__L__71(i64 %p0, i64 %p1) {
+define i64 @__L__71(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -16959,7 +16959,7 @@ __L__1101:
   %r13 = load i64, ptr %t0
   %r15 = load i64, ptr %t2
   %r14 = inttoptr i64 %r13 to ptr
-  %r16 = getelementptr i64, ptr %r14, i64 %r15
+  %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
   br label %__L__1102
@@ -16988,7 +16988,7 @@ cont.27:
   %r29 = load i64, ptr %arg1
   %r31 = load i64, ptr %t4
   %r30 = inttoptr i64 %r29 to ptr
-  %r32 = getelementptr i64, ptr %r30, i64 %r31
+  %r32 = getelementptr inbounds i64, ptr %r30, i64 %r31
   %r33 = load i64, ptr %r32
   store i64 %r33, ptr %t5
   %r34 = load i64, ptr %t5
@@ -17015,7 +17015,7 @@ __L__1105:
   %r46 = load i64, ptr %t5
   %r48 = load i64, ptr %t7
   %r47 = inttoptr i64 %r46 to ptr
-  %r49 = getelementptr i64, ptr %r47, i64 %r48
+  %r49 = getelementptr inbounds i64, ptr %r47, i64 %r48
   %r50 = load i64, ptr %r49
   store i64 %r50, ptr %acc.ptr
   br label %__L__1106
@@ -17045,11 +17045,11 @@ cont.60:
   %r62 = load i64, ptr %arg1
   %r64 = load i64, ptr %t10
   %r63 = inttoptr i64 %r62 to ptr
-  %r65 = getelementptr i64, ptr %r63, i64 %r64
+  %r65 = getelementptr inbounds i64, ptr %r63, i64 %r64
   %r66 = load i64, ptr %r65
   %r68 = load i64, ptr %t9
   %r67 = inttoptr i64 %r66 to ptr
-  %r69 = getelementptr i64, ptr %r67, i64 %r68
+  %r69 = getelementptr inbounds i64, ptr %r67, i64 %r68
   %r70 = load i64, ptr %r69
   store i64 %r70, ptr %t11
   %r71 = load i64, ptr %t11
@@ -17084,7 +17084,7 @@ __L__1097:
   ret i64 %r87
 }
 ; defn subr_not
-define i64 @__L__72(i64 %p0, i64 %p1) {
+define i64 @__L__72(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -17118,7 +17118,7 @@ __L__1109:
   ret i64 %r11
 }
 ; defn subr_quote
-define i64 @__L__73(i64 %p0, i64 %p1) {
+define i64 @__L__73(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -17138,7 +17138,7 @@ entry:
   ret i64 %r5
 }
 ; defn subr_and
-define i64 @__L__74(i64 %p0, i64 %p1) {
+define i64 @__L__74(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -17166,7 +17166,7 @@ __L__1110:
   %r2 = load i64, ptr %arg0
   %r4 = load i64, ptr %t1
   %r3 = inttoptr i64 %r2 to ptr
-  %r5 = getelementptr i64, ptr %r3, i64 %r4
+  %r5 = getelementptr inbounds i64, ptr %r3, i64 %r4
   %r6 = load i64, ptr %r5
   store i64 %r6, ptr %t2
   %r7 = load i64, ptr %arg1
@@ -17194,7 +17194,7 @@ __L__1112:
   %r19 = load i64, ptr %arg0
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %arg0
   store i64 %r23, ptr %acc.ptr
@@ -17227,7 +17227,7 @@ __L__1116:
   %r38 = load i64, ptr %t5
   %r40 = load i64, ptr %t7
   %r39 = inttoptr i64 %r38 to ptr
-  %r41 = getelementptr i64, ptr %r39, i64 %r40
+  %r41 = getelementptr inbounds i64, ptr %r39, i64 %r40
   %r42 = load i64, ptr %r41
   store i64 %r42, ptr %acc.ptr
   br label %__L__1117
@@ -17260,7 +17260,7 @@ __L__1113:
   ret i64 %r55
 }
 ; defn subr_or
-define i64 @__L__75(i64 %p0, i64 %p1) {
+define i64 @__L__75(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -17287,7 +17287,7 @@ __L__1118:
   %r1 = load i64, ptr %arg0
   %r3 = load i64, ptr %t1
   %r2 = inttoptr i64 %r1 to ptr
-  %r4 = getelementptr i64, ptr %r2, i64 %r3
+  %r4 = getelementptr inbounds i64, ptr %r2, i64 %r3
   %r5 = load i64, ptr %r4
   store i64 %r5, ptr %t2
   %r6 = load i64, ptr %arg1
@@ -17316,7 +17316,7 @@ __L__1120:
   %r19 = load i64, ptr %arg0
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %arg0
   store i64 %r23, ptr %acc.ptr
@@ -17349,7 +17349,7 @@ __L__1124:
   %r38 = load i64, ptr %t5
   %r40 = load i64, ptr %t7
   %r39 = inttoptr i64 %r38 to ptr
-  %r41 = getelementptr i64, ptr %r39, i64 %r40
+  %r41 = getelementptr inbounds i64, ptr %r39, i64 %r40
   %r42 = load i64, ptr %r41
   store i64 %r42, ptr %acc.ptr
   br label %__L__1125
@@ -17381,7 +17381,7 @@ __L__1121:
   ret i64 %r54
 }
 ; defn subr_if
-define i64 @__L__76(i64 %p0, i64 %p1) {
+define i64 @__L__76(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -17473,7 +17473,7 @@ __L__1128:
   %r39 = load i64, ptr %arg0
   %r41 = load i64, ptr %t8
   %r40 = inttoptr i64 %r39 to ptr
-  %r42 = getelementptr i64, ptr %r40, i64 %r41
+  %r42 = getelementptr inbounds i64, ptr %r40, i64 %r41
   %r43 = load i64, ptr %r42
   store i64 %r43, ptr %t9
   %r44 = load i64, ptr %arg1
@@ -17526,7 +17526,7 @@ __L__1132:
   %r71 = load i64, ptr %t12
   %r73 = load i64, ptr %t14
   %r72 = inttoptr i64 %r71 to ptr
-  %r74 = getelementptr i64, ptr %r72, i64 %r73
+  %r74 = getelementptr inbounds i64, ptr %r72, i64 %r73
   %r75 = load i64, ptr %r74
   store i64 %r75, ptr %acc.ptr
   br label %__L__1133
@@ -17559,7 +17559,7 @@ __L__1127:
   ret i64 %r88
 }
 ; defn subr_while
-define i64 @__L__77(i64 %p0, i64 %p1) {
+define i64 @__L__77(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -17607,7 +17607,7 @@ __L__1136:
   %r10 = load i64, ptr %t3
   %r12 = load i64, ptr %t4
   %r11 = inttoptr i64 %r10 to ptr
-  %r13 = getelementptr i64, ptr %r11, i64 %r12
+  %r13 = getelementptr inbounds i64, ptr %r11, i64 %r12
   %r14 = load i64, ptr %r13
   store i64 %r14, ptr %t5
   %r15 = load i64, ptr %arg1
@@ -17659,7 +17659,7 @@ __L__1140:
   %r42 = load i64, ptr %t8
   %r44 = load i64, ptr %t10
   %r43 = inttoptr i64 %r42 to ptr
-  %r45 = getelementptr i64, ptr %r43, i64 %r44
+  %r45 = getelementptr inbounds i64, ptr %r43, i64 %r44
   %r46 = load i64, ptr %r45
   store i64 %r46, ptr %acc.ptr
   br label %__L__1141
@@ -17711,7 +17711,7 @@ cont.69:
 ; defn subr_set
 @__L__1147 = private constant [33 x i8] c"\0Acannot set undefined variable: \00"
 @__L__1148 = private constant [9 x i8] c"aborting\00"
-define i64 @__L__78(i64 %p0, i64 %p1) {
+define i64 @__L__78(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -17800,7 +17800,7 @@ __L__1145:
   %r19 = load i64, ptr %t2
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
   br label %__L__1146
@@ -17896,7 +17896,7 @@ cont.75:
   %r80 = load i64, ptr %t15
   %r82 = load i64, ptr %t16
   %r81 = inttoptr i64 %r79 to ptr
-  %r83 = getelementptr i64, ptr %r81, i64 %r82
+  %r83 = getelementptr inbounds i64, ptr %r81, i64 %r82
   store i64 %r80, ptr %r83
   store i64 %r80, ptr %acc.ptr
   br label %__L__1150
@@ -17908,21 +17908,21 @@ __L__1149:
   %r86 = load i64, ptr %t17
   %r88 = load i64, ptr %t18
   %r87 = inttoptr i64 %r86 to ptr
-  %r89 = getelementptr i64, ptr %r87, i64 %r88
+  %r89 = getelementptr inbounds i64, ptr %r87, i64 %r88
   %r90 = load i64, ptr %r89
   store i64 %r90, ptr %t19
   store i64 1, ptr %t20
   %r91 = load i64, ptr %t19
   %r93 = load i64, ptr %t20
   %r92 = inttoptr i64 %r91 to ptr
-  %r94 = getelementptr i64, ptr %r92, i64 %r93
+  %r94 = getelementptr inbounds i64, ptr %r92, i64 %r93
   %r95 = load i64, ptr %r94
   store i64 %r95, ptr %t21
   store i64 0, ptr %t22
   %r96 = load i64, ptr %t21
   %r98 = load i64, ptr %t22
   %r97 = inttoptr i64 %r96 to ptr
-  %r99 = getelementptr i64, ptr %r97, i64 %r98
+  %r99 = getelementptr inbounds i64, ptr %r97, i64 %r98
   %r100 = load i64, ptr %r99
   store i64 %r100, ptr %t23
   %r101 = load i64, ptr %arg1
@@ -17931,21 +17931,21 @@ __L__1149:
   %r102 = load i64, ptr %t24
   %r104 = load i64, ptr %t25
   %r103 = inttoptr i64 %r102 to ptr
-  %r105 = getelementptr i64, ptr %r103, i64 %r104
+  %r105 = getelementptr inbounds i64, ptr %r103, i64 %r104
   %r106 = load i64, ptr %r105
   store i64 %r106, ptr %t26
   store i64 1, ptr %t27
   %r107 = load i64, ptr %t26
   %r109 = load i64, ptr %t27
   %r108 = inttoptr i64 %r107 to ptr
-  %r110 = getelementptr i64, ptr %r108, i64 %r109
+  %r110 = getelementptr inbounds i64, ptr %r108, i64 %r109
   %r111 = load i64, ptr %r110
   store i64 %r111, ptr %t28
   store i64 0, ptr %t29
   %r112 = load i64, ptr %t28
   %r114 = load i64, ptr %t29
   %r113 = inttoptr i64 %r112 to ptr
-  %r115 = getelementptr i64, ptr %r113, i64 %r114
+  %r115 = getelementptr inbounds i64, ptr %r113, i64 %r114
   %r116 = load i64, ptr %r115
   %r117 = load i64, ptr %t23
   %r118 = sub i64 %r116, %r117
@@ -17960,7 +17960,7 @@ __L__1151:
   %r121 = load i64, ptr %t31
   %r123 = load i64, ptr %t32
   %r122 = inttoptr i64 %r121 to ptr
-  %r124 = getelementptr i64, ptr %r122, i64 %r123
+  %r124 = getelementptr inbounds i64, ptr %r122, i64 %r123
   %r125 = load i64, ptr %r124
   store i64 %r125, ptr %arg1
   store i64 1, ptr %t33
@@ -17988,7 +17988,7 @@ cont.135:
   %r138 = load i64, ptr %t35
   %r140 = load i64, ptr %t36
   %r139 = inttoptr i64 %r138 to ptr
-  %r141 = getelementptr i64, ptr %r139, i64 %r140
+  %r141 = getelementptr inbounds i64, ptr %r139, i64 %r140
   %r142 = load i64, ptr %r141
   store i64 %r142, ptr %t37
   %r143 = load i64, ptr %t1
@@ -17997,14 +17997,14 @@ cont.135:
   %r144 = load i64, ptr %t38
   %r146 = load i64, ptr %t39
   %r145 = inttoptr i64 %r144 to ptr
-  %r147 = getelementptr i64, ptr %r145, i64 %r146
+  %r147 = getelementptr inbounds i64, ptr %r145, i64 %r146
   %r148 = load i64, ptr %r147
   store i64 %r148, ptr %t40
   store i64 0, ptr %t41
   %r149 = load i64, ptr %t40
   %r151 = load i64, ptr %t41
   %r150 = inttoptr i64 %r149 to ptr
-  %r152 = getelementptr i64, ptr %r150, i64 %r151
+  %r152 = getelementptr inbounds i64, ptr %r150, i64 %r151
   %r153 = load i64, ptr %r152
   store i64 %r153, ptr %t42
   %r154 = load i64, ptr %t12
@@ -18028,7 +18028,7 @@ __L__1150:
   ret i64 %r164
 }
 ; defn subr_let
-define i64 @__L__79(i64 %p0, i64 %p1) {
+define i64 @__L__79(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -18103,7 +18103,7 @@ entry:
   %r7 = load i64, ptr %t3
   %r9 = load i64, ptr %t4
   %r8 = inttoptr i64 %r7 to ptr
-  %r10 = getelementptr i64, ptr %r8, i64 %r9
+  %r10 = getelementptr inbounds i64, ptr %r8, i64 %r9
   %r11 = load i64, ptr %r10
   store i64 %r11, ptr %t5
   %r12 = load i64, ptr %arg0
@@ -18131,7 +18131,7 @@ __L__1153:
   %r25 = load i64, ptr %t2
   %r27 = load i64, ptr %t9
   %r26 = inttoptr i64 %r25 to ptr
-  %r28 = getelementptr i64, ptr %r26, i64 %r27
+  %r28 = getelementptr inbounds i64, ptr %r26, i64 %r27
   %r29 = load i64, ptr %r28
   store i64 %r29, ptr %t10
   %r30 = load i64, ptr %t10
@@ -18160,7 +18160,7 @@ __L__1159:
   %r43 = load i64, ptr %t11
   %r45 = load i64, ptr %t13
   %r44 = inttoptr i64 %r43 to ptr
-  %r46 = getelementptr i64, ptr %r44, i64 %r45
+  %r46 = getelementptr inbounds i64, ptr %r44, i64 %r45
   %r47 = load i64, ptr %r46
   store i64 %r47, ptr %acc.ptr
   br label %__L__1160
@@ -18189,14 +18189,14 @@ cont.57:
   %r59 = load i64, ptr %t10
   %r61 = load i64, ptr %t15
   %r60 = inttoptr i64 %r59 to ptr
-  %r62 = getelementptr i64, ptr %r60, i64 %r61
+  %r62 = getelementptr inbounds i64, ptr %r60, i64 %r61
   %r63 = load i64, ptr %r62
   store i64 %r63, ptr %t16
   store i64 1, ptr %t17
   %r64 = load i64, ptr %t10
   %r66 = load i64, ptr %t17
   %r65 = inttoptr i64 %r64 to ptr
-  %r67 = getelementptr i64, ptr %r65, i64 %r66
+  %r67 = getelementptr inbounds i64, ptr %r65, i64 %r66
   %r68 = load i64, ptr %r67
   store i64 %r68, ptr %t18
   store i64 0, ptr %t0
@@ -18208,7 +18208,7 @@ __L__1161:
   %r70 = load i64, ptr %t18
   %r72 = load i64, ptr %t19
   %r71 = inttoptr i64 %r70 to ptr
-  %r73 = getelementptr i64, ptr %r71, i64 %r72
+  %r73 = getelementptr inbounds i64, ptr %r71, i64 %r72
   %r74 = load i64, ptr %r73
   store i64 %r74, ptr %t20
   %r75 = load i64, ptr %arg1
@@ -18227,7 +18227,7 @@ __L__1161:
   %r83 = load i64, ptr %t18
   %r85 = load i64, ptr %t22
   %r84 = inttoptr i64 %r83 to ptr
-  %r86 = getelementptr i64, ptr %r84, i64 %r85
+  %r86 = getelementptr inbounds i64, ptr %r84, i64 %r85
   %r87 = load i64, ptr %r86
   store i64 %r87, ptr %t18
   store i64 %r87, ptr %acc.ptr
@@ -18260,7 +18260,7 @@ __L__1165:
   %r102 = load i64, ptr %t23
   %r104 = load i64, ptr %t25
   %r103 = inttoptr i64 %r102 to ptr
-  %r105 = getelementptr i64, ptr %r103, i64 %r104
+  %r105 = getelementptr inbounds i64, ptr %r103, i64 %r104
   %r106 = load i64, ptr %r105
   store i64 %r106, ptr %acc.ptr
   br label %__L__1166
@@ -18293,14 +18293,14 @@ cont.116:
   %r120 = load i64, ptr %t28
   %r122 = load i64, ptr %t29
   %r121 = inttoptr i64 %r120 to ptr
-  %r123 = getelementptr i64, ptr %r121, i64 %r122
+  %r123 = getelementptr inbounds i64, ptr %r121, i64 %r122
   %r124 = load i64, ptr %r123
   store i64 %r124, ptr %t30
   store i64 0, ptr %t31
   %r125 = load i64, ptr %t30
   %r127 = load i64, ptr %t31
   %r126 = inttoptr i64 %r125 to ptr
-  %r128 = getelementptr i64, ptr %r126, i64 %r127
+  %r128 = getelementptr inbounds i64, ptr %r126, i64 %r127
   %r129 = load i64, ptr %r128
   store i64 %r129, ptr %t32
   %r130 = load i64, ptr %t0
@@ -18329,7 +18329,7 @@ __L__1156:
   %r142 = load i64, ptr %t2
   %r144 = load i64, ptr %t34
   %r143 = inttoptr i64 %r142 to ptr
-  %r145 = getelementptr i64, ptr %r143, i64 %r144
+  %r145 = getelementptr inbounds i64, ptr %r143, i64 %r144
   %r146 = load i64, ptr %r145
   store i64 %r146, ptr %t2
   store i64 %r146, ptr %acc.ptr
@@ -18362,7 +18362,7 @@ __L__1169:
   %r161 = load i64, ptr %t35
   %r163 = load i64, ptr %t37
   %r162 = inttoptr i64 %r161 to ptr
-  %r164 = getelementptr i64, ptr %r162, i64 %r163
+  %r164 = getelementptr inbounds i64, ptr %r162, i64 %r163
   %r165 = load i64, ptr %r164
   store i64 %r165, ptr %acc.ptr
   br label %__L__1170
@@ -18396,7 +18396,7 @@ __L__1171:
   %r178 = load i64, ptr %t7
   %r180 = load i64, ptr %t39
   %r179 = inttoptr i64 %r178 to ptr
-  %r181 = getelementptr i64, ptr %r179, i64 %r180
+  %r181 = getelementptr inbounds i64, ptr %r179, i64 %r180
   %r182 = load i64, ptr %r181
   store i64 %r182, ptr %t40
   %r183 = load i64, ptr %arg1
@@ -18415,7 +18415,7 @@ __L__1171:
   %r191 = load i64, ptr %t7
   %r193 = load i64, ptr %t42
   %r192 = inttoptr i64 %r191 to ptr
-  %r194 = getelementptr i64, ptr %r192, i64 %r193
+  %r194 = getelementptr inbounds i64, ptr %r192, i64 %r193
   %r195 = load i64, ptr %r194
   store i64 %r195, ptr %t7
   store i64 %r195, ptr %acc.ptr
@@ -18448,7 +18448,7 @@ __L__1175:
   %r210 = load i64, ptr %t43
   %r212 = load i64, ptr %t45
   %r211 = inttoptr i64 %r210 to ptr
-  %r213 = getelementptr i64, ptr %r211, i64 %r212
+  %r213 = getelementptr inbounds i64, ptr %r211, i64 %r212
   %r214 = load i64, ptr %r213
   store i64 %r214, ptr %acc.ptr
   br label %__L__1176
@@ -18487,7 +18487,7 @@ cont.224:
   ret i64 %r233
 }
 ; defn subr_lambda
-define i64 @__L__80(i64 %p0, i64 %p1) {
+define i64 @__L__80(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -18514,7 +18514,7 @@ entry:
   ret i64 %r8
 }
 ; defn subr_definedP
-define i64 @__L__81(i64 %p0, i64 %p1) {
+define i64 @__L__81(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -18559,7 +18559,7 @@ cont.13:
   %r16 = load i64, ptr %t3
   %r18 = load i64, ptr %t4
   %r17 = inttoptr i64 %r16 to ptr
-  %r19 = getelementptr i64, ptr %r17, i64 %r18
+  %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   %r20 = load i64, ptr %r19
   store i64 %r20, ptr %acc.ptr
   br label %__L__1177
@@ -18584,7 +18584,7 @@ __L__1177:
 ; defn subr_define
 @__L__1183 = private constant [33 x i8] c"\0Aerror: non-variable in define: \00"
 @__L__1184 = private constant [9 x i8] c"aborting\00"
-define i64 @__L__82(i64 %p0, i64 %p1) {
+define i64 @__L__82(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -18644,7 +18644,7 @@ __L__1181:
   %r19 = load i64, ptr %t2
   %r21 = load i64, ptr %t4
   %r20 = inttoptr i64 %r19 to ptr
-  %r22 = getelementptr i64, ptr %r20, i64 %r21
+  %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
   br label %__L__1182
@@ -18727,12 +18727,12 @@ __L__1178:
   %r71 = load i64, ptr %t14
   %r73 = load i64, ptr %t15
   %r72 = inttoptr i64 %r70 to ptr
-  %r74 = getelementptr i64, ptr %r72, i64 %r73
+  %r74 = getelementptr inbounds i64, ptr %r72, i64 %r73
   store i64 %r71, ptr %r74
   ret i64 %r71
 }
 ; defn evlist
-define i64 @__L__83(i64 %p0, i64 %p1) {
+define i64 @__L__83(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -18787,7 +18787,7 @@ __L__1189:
   %r13 = load i64, ptr %t0
   %r15 = load i64, ptr %t2
   %r14 = inttoptr i64 %r13 to ptr
-  %r16 = getelementptr i64, ptr %r14, i64 %r15
+  %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
   br label %__L__1190
@@ -18816,7 +18816,7 @@ cont.27:
   %r29 = load i64, ptr %arg0
   %r31 = load i64, ptr %t4
   %r30 = inttoptr i64 %r29 to ptr
-  %r32 = getelementptr i64, ptr %r30, i64 %r31
+  %r32 = getelementptr inbounds i64, ptr %r30, i64 %r31
   %r33 = load i64, ptr %r32
   store i64 %r33, ptr %t5
   %r34 = load i64, ptr %arg1
@@ -18843,7 +18843,7 @@ cont.27:
   %r48 = load i64, ptr %arg0
   %r50 = load i64, ptr %t9
   %r49 = inttoptr i64 %r48 to ptr
-  %r51 = getelementptr i64, ptr %r49, i64 %r50
+  %r51 = getelementptr inbounds i64, ptr %r49, i64 %r50
   %r52 = load i64, ptr %r51
   store i64 %r52, ptr %t10
   %r53 = load i64, ptr %arg1
@@ -18917,7 +18917,7 @@ __L__1186:
 @__L__1255 = private constant [19 x i8] c"APPLY ENCODER\0A... \00"
 @__L__1256 = private constant [2 x i8] c" \00"
 @__L__1257 = private constant [2 x i8] c" \00"
-define i64 @__L__84(i64 %p0, i64 %p1) {
+define i64 @__L__84(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -19125,7 +19125,7 @@ __L__1195:
   %r13 = load i64, ptr %t0
   %r15 = load i64, ptr %t2
   %r14 = inttoptr i64 %r13 to ptr
-  %r16 = getelementptr i64, ptr %r14, i64 %r15
+  %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
   br label %__L__1196
@@ -19154,7 +19154,7 @@ cont.27:
   %r29 = load i64, ptr %arg0
   %r31 = load i64, ptr %t4
   %r30 = inttoptr i64 %r29 to ptr
-  %r32 = getelementptr i64, ptr %r30, i64 %r31
+  %r32 = getelementptr inbounds i64, ptr %r30, i64 %r31
   %r33 = load i64, ptr %r32
   store i64 %r33, ptr %t5
   %r34 = load i64, ptr %arg1
@@ -19173,7 +19173,7 @@ cont.27:
   %r42 = load i64, ptr %arg0
   %r44 = load i64, ptr %t8
   %r43 = inttoptr i64 %r42 to ptr
-  %r45 = getelementptr i64, ptr %r43, i64 %r44
+  %r45 = getelementptr inbounds i64, ptr %r43, i64 %r44
   %r46 = load i64, ptr %r45
   store i64 %r46, ptr %t9
   %r47 = ptrtoint ptr %t7 to i64
@@ -19229,14 +19229,14 @@ cont.65:
   %r81 = load i64, ptr %t18
   %r83 = load i64, ptr %t19
   %r82 = inttoptr i64 %r81 to ptr
-  %r84 = getelementptr i64, ptr %r82, i64 %r83
+  %r84 = getelementptr inbounds i64, ptr %r82, i64 %r83
   %r85 = load i64, ptr %r84
   store i64 %r85, ptr %t20
   store i64 0, ptr %t21
   %r86 = load i64, ptr %t20
   %r88 = load i64, ptr %t21
   %r87 = inttoptr i64 %r86 to ptr
-  %r89 = getelementptr i64, ptr %r87, i64 %r88
+  %r89 = getelementptr inbounds i64, ptr %r87, i64 %r88
   %r90 = load i64, ptr %r89
   store i64 %r90, ptr %t22
   %r91 = ptrtoint ptr @__L__141 to i64
@@ -19260,7 +19260,7 @@ __L__1199:
   %r101 = load i64, ptr %t14
   %r103 = load i64, ptr %t23
   %r102 = inttoptr i64 %r101 to ptr
-  %r104 = getelementptr i64, ptr %r102, i64 %r103
+  %r104 = getelementptr inbounds i64, ptr %r102, i64 %r103
   %r105 = load i64, ptr %r104
   store i64 %r105, ptr %t24
   %r106 = load i64, ptr %t24
@@ -19289,7 +19289,7 @@ __L__1204:
   %r119 = load i64, ptr %t25
   %r121 = load i64, ptr %t27
   %r120 = inttoptr i64 %r119 to ptr
-  %r122 = getelementptr i64, ptr %r120, i64 %r121
+  %r122 = getelementptr inbounds i64, ptr %r120, i64 %r121
   %r123 = load i64, ptr %r122
   store i64 %r123, ptr %acc.ptr
   br label %__L__1205
@@ -19318,7 +19318,7 @@ cont.133:
   %r135 = load i64, ptr %t24
   %r137 = load i64, ptr %t29
   %r136 = inttoptr i64 %r135 to ptr
-  %r138 = getelementptr i64, ptr %r136, i64 %r137
+  %r138 = getelementptr inbounds i64, ptr %r136, i64 %r137
   %r139 = load i64, ptr %r138
   store i64 %r139, ptr %t24
   store i64 %r139, ptr %acc.ptr
@@ -19346,7 +19346,7 @@ __L__1201:
   %r152 = load i64, ptr %t14
   %r154 = load i64, ptr %t33
   %r153 = inttoptr i64 %r152 to ptr
-  %r155 = getelementptr i64, ptr %r153, i64 %r154
+  %r155 = getelementptr inbounds i64, ptr %r153, i64 %r154
   %r156 = load i64, ptr %r155
   store i64 %r156, ptr %t14
   store i64 %r156, ptr %acc.ptr
@@ -19379,7 +19379,7 @@ __L__1208:
   %r171 = load i64, ptr %t34
   %r173 = load i64, ptr %t36
   %r172 = inttoptr i64 %r171 to ptr
-  %r174 = getelementptr i64, ptr %r172, i64 %r173
+  %r174 = getelementptr inbounds i64, ptr %r172, i64 %r173
   %r175 = load i64, ptr %r174
   store i64 %r175, ptr %acc.ptr
   br label %__L__1209
@@ -19501,7 +19501,7 @@ __L__1212:
   %r245 = load i64, ptr %t46
   %r247 = load i64, ptr %t52
   %r246 = inttoptr i64 %r245 to ptr
-  %r248 = getelementptr i64, ptr %r246, i64 %r247
+  %r248 = getelementptr inbounds i64, ptr %r246, i64 %r247
   %r249 = load i64, ptr %r248
   store i64 %r249, ptr %t53
   store i64 0, ptr %t54
@@ -19521,7 +19521,7 @@ __L__1212:
   %r259 = load i64, ptr %t46
   %r261 = load i64, ptr %t55
   %r260 = inttoptr i64 %r259 to ptr
-  %r262 = getelementptr i64, ptr %r260, i64 %r261
+  %r262 = getelementptr inbounds i64, ptr %r260, i64 %r261
   %r263 = load i64, ptr %r262
   store i64 %r263, ptr %t46
   store i64 %r263, ptr %acc.ptr
@@ -19554,7 +19554,7 @@ __L__1216:
   %r278 = load i64, ptr %t56
   %r280 = load i64, ptr %t58
   %r279 = inttoptr i64 %r278 to ptr
-  %r281 = getelementptr i64, ptr %r279, i64 %r280
+  %r281 = getelementptr inbounds i64, ptr %r279, i64 %r280
   %r282 = load i64, ptr %r281
   store i64 %r282, ptr %acc.ptr
   br label %__L__1217
@@ -19665,7 +19665,7 @@ cont.342:
   %r345 = load i64, ptr %t70
   %r347 = load i64, ptr %t71
   %r346 = inttoptr i64 %r345 to ptr
-  %r348 = getelementptr i64, ptr %r346, i64 %r347
+  %r348 = getelementptr inbounds i64, ptr %r346, i64 %r347
   %r349 = load i64, ptr %r348
   store i64 %r349, ptr %t72
   %r350 = load i64, ptr %t9
@@ -19783,7 +19783,7 @@ cont.413:
   %r422 = load i64, ptr %t89
   %r424 = load i64, ptr %t90
   %r423 = inttoptr i64 %r422 to ptr
-  %r425 = getelementptr i64, ptr %r423, i64 %r424
+  %r425 = getelementptr inbounds i64, ptr %r423, i64 %r424
   %r426 = load i64, ptr %r425
   store i64 %r426, ptr %t91
   %r427 = ptrtoint ptr @__L__169 to i64
@@ -19949,7 +19949,7 @@ __L__1231:
   %r518 = load i64, ptr %t105
   %r520 = load i64, ptr %t107
   %r519 = inttoptr i64 %r518 to ptr
-  %r521 = getelementptr i64, ptr %r519, i64 %r520
+  %r521 = getelementptr inbounds i64, ptr %r519, i64 %r520
   %r522 = load i64, ptr %r521
   store i64 %r522, ptr %acc.ptr
   br label %__L__1232
@@ -20002,7 +20002,7 @@ cont.545:
   %r549 = load i64, ptr %t113
   %r551 = load i64, ptr %t114
   %r550 = inttoptr i64 %r549 to ptr
-  %r552 = getelementptr i64, ptr %r550, i64 %r551
+  %r552 = getelementptr inbounds i64, ptr %r550, i64 %r551
   %r553 = load i64, ptr %r552
   store i64 %r553, ptr %t115
   %r554 = ptrtoint ptr @__L__169 to i64
@@ -20039,7 +20039,7 @@ cont.570:
   %r573 = load i64, ptr %t117
   %r575 = load i64, ptr %t118
   %r574 = inttoptr i64 %r573 to ptr
-  %r576 = getelementptr i64, ptr %r574, i64 %r575
+  %r576 = getelementptr inbounds i64, ptr %r574, i64 %r575
   %r577 = load i64, ptr %r576
   store i64 %r577, ptr %t119
   %r578 = load i64, ptr %t119
@@ -20068,7 +20068,7 @@ __L__1241:
   %r591 = load i64, ptr %t120
   %r593 = load i64, ptr %t122
   %r592 = inttoptr i64 %r591 to ptr
-  %r594 = getelementptr i64, ptr %r592, i64 %r593
+  %r594 = getelementptr inbounds i64, ptr %r592, i64 %r593
   %r595 = load i64, ptr %r594
   store i64 %r595, ptr %acc.ptr
   br label %__L__1242
@@ -20119,7 +20119,7 @@ __L__1245:
   %r620 = load i64, ptr %t124
   %r622 = load i64, ptr %t126
   %r621 = inttoptr i64 %r620 to ptr
-  %r623 = getelementptr i64, ptr %r621, i64 %r622
+  %r623 = getelementptr inbounds i64, ptr %r621, i64 %r622
   %r624 = load i64, ptr %r623
   store i64 %r624, ptr %acc.ptr
   br label %__L__1246
@@ -20164,7 +20164,7 @@ __L__1235:
   %r641 = load i64, ptr %t128
   %r643 = load i64, ptr %t129
   %r642 = inttoptr i64 %r641 to ptr
-  %r644 = getelementptr i64, ptr %r642, i64 %r643
+  %r644 = getelementptr inbounds i64, ptr %r642, i64 %r643
   %r645 = load i64, ptr %r644
   store i64 %r645, ptr %t130
   %r646 = load i64, ptr %arg1
@@ -20173,14 +20173,14 @@ __L__1235:
   %r647 = load i64, ptr %t131
   %r649 = load i64, ptr %t132
   %r648 = inttoptr i64 %r647 to ptr
-  %r650 = getelementptr i64, ptr %r648, i64 %r649
+  %r650 = getelementptr inbounds i64, ptr %r648, i64 %r649
   %r651 = load i64, ptr %r650
   store i64 %r651, ptr %t133
   store i64 0, ptr %t134
   %r652 = load i64, ptr %t133
   %r654 = load i64, ptr %t134
   %r653 = inttoptr i64 %r652 to ptr
-  %r655 = getelementptr i64, ptr %r653, i64 %r654
+  %r655 = getelementptr inbounds i64, ptr %r653, i64 %r654
   %r656 = load i64, ptr %r655
   store i64 %r656, ptr %t135
   %r657 = load i64, ptr %t130
@@ -20189,14 +20189,14 @@ __L__1235:
   %r658 = load i64, ptr %t136
   %r660 = load i64, ptr %t137
   %r659 = inttoptr i64 %r658 to ptr
-  %r661 = getelementptr i64, ptr %r659, i64 %r660
+  %r661 = getelementptr inbounds i64, ptr %r659, i64 %r660
   %r662 = load i64, ptr %r661
   store i64 %r662, ptr %t138
   store i64 0, ptr %t139
   %r663 = load i64, ptr %t138
   %r665 = load i64, ptr %t139
   %r664 = inttoptr i64 %r663 to ptr
-  %r666 = getelementptr i64, ptr %r664, i64 %r665
+  %r666 = getelementptr inbounds i64, ptr %r664, i64 %r665
   %r667 = load i64, ptr %r666
   %r668 = load i64, ptr %t135
   %r669 = icmp eq i64 %r667, %r668
@@ -20215,7 +20215,7 @@ cont.672:
   %r677 = load i64, ptr %t141
   %r679 = load i64, ptr %t142
   %r678 = inttoptr i64 %r676 to ptr
-  %r680 = getelementptr i64, ptr %r678, i64 %r679
+  %r680 = getelementptr inbounds i64, ptr %r678, i64 %r679
   store i64 %r677, ptr %r680
   store i64 %r677, ptr %acc.ptr
   br label %__L__1247
@@ -20235,7 +20235,7 @@ __L__1227:
   %r685 = load i64, ptr %t143
   %r687 = load i64, ptr %t144
   %r686 = inttoptr i64 %r685 to ptr
-  %r688 = getelementptr i64, ptr %r686, i64 %r687
+  %r688 = getelementptr inbounds i64, ptr %r686, i64 %r687
   %r689 = load i64, ptr %r688
   store i64 %r689, ptr %t145
   %r690 = load i64, ptr %arg0
@@ -20264,7 +20264,7 @@ __L__1250:
   %r703 = load i64, ptr %t146
   %r705 = load i64, ptr %t148
   %r704 = inttoptr i64 %r703 to ptr
-  %r706 = getelementptr i64, ptr %r704, i64 %r705
+  %r706 = getelementptr inbounds i64, ptr %r704, i64 %r705
   %r707 = load i64, ptr %r706
   store i64 %r707, ptr %acc.ptr
   br label %__L__1251
@@ -20457,7 +20457,7 @@ __L__1192:
   ret i64 %r824
 }
 ; defn enlist
-define i64 @__L__85(i64 %p0, i64 %p1) {
+define i64 @__L__85(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -20514,7 +20514,7 @@ __L__1262:
   %r13 = load i64, ptr %t0
   %r15 = load i64, ptr %t2
   %r14 = inttoptr i64 %r13 to ptr
-  %r16 = getelementptr i64, ptr %r14, i64 %r15
+  %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
   br label %__L__1263
@@ -20543,7 +20543,7 @@ cont.27:
   %r29 = load i64, ptr %arg0
   %r31 = load i64, ptr %t4
   %r30 = inttoptr i64 %r29 to ptr
-  %r32 = getelementptr i64, ptr %r30, i64 %r31
+  %r32 = getelementptr inbounds i64, ptr %r30, i64 %r31
   %r33 = load i64, ptr %r32
   store i64 %r33, ptr %t5
   %r34 = load i64, ptr %arg1
@@ -20570,7 +20570,7 @@ cont.27:
   %r48 = load i64, ptr %arg0
   %r50 = load i64, ptr %t9
   %r49 = inttoptr i64 %r48 to ptr
-  %r51 = getelementptr i64, ptr %r49, i64 %r50
+  %r51 = getelementptr inbounds i64, ptr %r49, i64 %r50
   %r52 = load i64, ptr %r51
   store i64 %r52, ptr %t10
   %r53 = load i64, ptr %arg1
@@ -20651,7 +20651,7 @@ __L__1259:
 }
 ; defn k_expand
 @__L__1298 = private constant [5 x i8] c"set-\00"
-define i64 @__L__86(i64 %p0, i64 %p1) {
+define i64 @__L__86(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -20816,7 +20816,7 @@ __L__1268:
   %r13 = load i64, ptr %t0
   %r15 = load i64, ptr %t2
   %r14 = inttoptr i64 %r13 to ptr
-  %r16 = getelementptr i64, ptr %r14, i64 %r15
+  %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
   br label %__L__1269
@@ -20845,7 +20845,7 @@ cont.27:
   %r29 = load i64, ptr %arg0
   %r31 = load i64, ptr %t4
   %r30 = inttoptr i64 %r29 to ptr
-  %r32 = getelementptr i64, ptr %r30, i64 %r31
+  %r32 = getelementptr inbounds i64, ptr %r30, i64 %r31
   %r33 = load i64, ptr %r32
   store i64 %r33, ptr %t5
   %r34 = load i64, ptr %arg1
@@ -20894,7 +20894,7 @@ __L__1274:
   %r61 = load i64, ptr %t9
   %r63 = load i64, ptr %t11
   %r62 = inttoptr i64 %r61 to ptr
-  %r64 = getelementptr i64, ptr %r62, i64 %r63
+  %r64 = getelementptr inbounds i64, ptr %r62, i64 %r63
   %r65 = load i64, ptr %r64
   store i64 %r65, ptr %acc.ptr
   br label %__L__1275
@@ -20959,7 +20959,7 @@ __L__1279:
   %r99 = load i64, ptr %t16
   %r101 = load i64, ptr %t18
   %r100 = inttoptr i64 %r99 to ptr
-  %r102 = getelementptr i64, ptr %r100, i64 %r101
+  %r102 = getelementptr inbounds i64, ptr %r100, i64 %r101
   %r103 = load i64, ptr %r102
   store i64 %r103, ptr %acc.ptr
   br label %__L__1280
@@ -20990,7 +20990,7 @@ cont.113:
   %r116 = load i64, ptr %t20
   %r118 = load i64, ptr %t21
   %r117 = inttoptr i64 %r116 to ptr
-  %r119 = getelementptr i64, ptr %r117, i64 %r118
+  %r119 = getelementptr inbounds i64, ptr %r117, i64 %r118
   %r120 = load i64, ptr %r119
   store i64 %r120, ptr %t15
   store i64 %r120, ptr %acc.ptr
@@ -21023,7 +21023,7 @@ __L__1284:
   %r135 = load i64, ptr %t22
   %r137 = load i64, ptr %t24
   %r136 = inttoptr i64 %r135 to ptr
-  %r138 = getelementptr i64, ptr %r136, i64 %r137
+  %r138 = getelementptr inbounds i64, ptr %r136, i64 %r137
   %r139 = load i64, ptr %r138
   store i64 %r139, ptr %acc.ptr
   br label %__L__1285
@@ -21054,7 +21054,7 @@ cont.149:
   %r152 = load i64, ptr %t26
   %r154 = load i64, ptr %t27
   %r153 = inttoptr i64 %r152 to ptr
-  %r155 = getelementptr i64, ptr %r153, i64 %r154
+  %r155 = getelementptr inbounds i64, ptr %r153, i64 %r154
   %r156 = load i64, ptr %r155
   store i64 %r156, ptr %t28
   %r157 = load i64, ptr %t28
@@ -21069,7 +21069,7 @@ cont.159:
   %r162 = load i64, ptr %arg0
   %r164 = load i64, ptr %t30
   %r163 = inttoptr i64 %r162 to ptr
-  %r165 = getelementptr i64, ptr %r163, i64 %r164
+  %r165 = getelementptr inbounds i64, ptr %r163, i64 %r164
   %r166 = load i64, ptr %r165
   store i64 %r166, ptr %t31
   %r167 = ptrtoint ptr @__L__149 to i64
@@ -21161,7 +21161,7 @@ __L__1271:
   %r218 = load i64, ptr %arg0
   %r220 = load i64, ptr %t42
   %r219 = inttoptr i64 %r218 to ptr
-  %r221 = getelementptr i64, ptr %r219, i64 %r220
+  %r221 = getelementptr inbounds i64, ptr %r219, i64 %r220
   %r222 = load i64, ptr %r221
   store i64 %r222, ptr %t43
   %r223 = ptrtoint ptr %t43 to i64
@@ -21245,7 +21245,7 @@ __L__1292:
   %r273 = load i64, ptr %t50
   %r275 = load i64, ptr %t52
   %r274 = inttoptr i64 %r273 to ptr
-  %r276 = getelementptr i64, ptr %r274, i64 %r275
+  %r276 = getelementptr inbounds i64, ptr %r274, i64 %r275
   %r277 = load i64, ptr %r276
   store i64 %r277, ptr %acc.ptr
   br label %__L__1293
@@ -21303,7 +21303,7 @@ __L__1296:
   %r307 = load i64, ptr %t55
   %r309 = load i64, ptr %t57
   %r308 = inttoptr i64 %r307 to ptr
-  %r310 = getelementptr i64, ptr %r308, i64 %r309
+  %r310 = getelementptr inbounds i64, ptr %r308, i64 %r309
   %r311 = load i64, ptr %r310
   store i64 %r311, ptr %acc.ptr
   br label %__L__1297
@@ -21352,18 +21352,18 @@ cont.321:
   %r336 = load i64, ptr %t43
   %r338 = load i64, ptr %t64
   %r337 = inttoptr i64 %r336 to ptr
-  %r339 = getelementptr i64, ptr %r337, i64 %r338
+  %r339 = getelementptr inbounds i64, ptr %r337, i64 %r338
   %r340 = load i64, ptr %r339
   %r342 = load i64, ptr %t63
   %r341 = inttoptr i64 %r340 to ptr
-  %r343 = getelementptr i64, ptr %r341, i64 %r342
+  %r343 = getelementptr inbounds i64, ptr %r341, i64 %r342
   %r344 = load i64, ptr %r343
   store i64 %r344, ptr %t65
   store i64 0, ptr %t66
   %r345 = load i64, ptr %t65
   %r347 = load i64, ptr %t66
   %r346 = inttoptr i64 %r345 to ptr
-  %r348 = getelementptr i64, ptr %r346, i64 %r347
+  %r348 = getelementptr inbounds i64, ptr %r346, i64 %r347
   %r349 = load i64, ptr %r348
   store i64 %r349, ptr %t67
   %r350 = ptrtoint ptr @__L__110 to i64
@@ -21396,18 +21396,18 @@ cont.321:
   %r368 = load i64, ptr %t43
   %r370 = load i64, ptr %t71
   %r369 = inttoptr i64 %r368 to ptr
-  %r371 = getelementptr i64, ptr %r369, i64 %r370
+  %r371 = getelementptr inbounds i64, ptr %r369, i64 %r370
   %r372 = load i64, ptr %r371
   %r374 = load i64, ptr %t70
   %r373 = inttoptr i64 %r372 to ptr
-  %r375 = getelementptr i64, ptr %r373, i64 %r374
+  %r375 = getelementptr inbounds i64, ptr %r373, i64 %r374
   %r376 = load i64, ptr %r375
   store i64 %r376, ptr %t72
   store i64 1, ptr %t73
   %r377 = load i64, ptr %t43
   %r379 = load i64, ptr %t73
   %r378 = inttoptr i64 %r377 to ptr
-  %r380 = getelementptr i64, ptr %r378, i64 %r379
+  %r380 = getelementptr inbounds i64, ptr %r378, i64 %r379
   %r381 = load i64, ptr %r380
   store i64 %r381, ptr %t74
   %r382 = ptrtoint ptr @__L__130 to i64
@@ -21484,7 +21484,7 @@ __L__1303:
   %r425 = load i64, ptr %t79
   %r427 = load i64, ptr %t81
   %r426 = inttoptr i64 %r425 to ptr
-  %r428 = getelementptr i64, ptr %r426, i64 %r427
+  %r428 = getelementptr inbounds i64, ptr %r426, i64 %r427
   %r429 = load i64, ptr %r428
   store i64 %r429, ptr %acc.ptr
   br label %__L__1304
@@ -21549,7 +21549,7 @@ __L__1308:
   %r463 = load i64, ptr %t86
   %r465 = load i64, ptr %t88
   %r464 = inttoptr i64 %r463 to ptr
-  %r466 = getelementptr i64, ptr %r464, i64 %r465
+  %r466 = getelementptr inbounds i64, ptr %r464, i64 %r465
   %r467 = load i64, ptr %r466
   store i64 %r467, ptr %acc.ptr
   br label %__L__1309
@@ -21580,7 +21580,7 @@ cont.477:
   %r480 = load i64, ptr %t90
   %r482 = load i64, ptr %t91
   %r481 = inttoptr i64 %r480 to ptr
-  %r483 = getelementptr i64, ptr %r481, i64 %r482
+  %r483 = getelementptr inbounds i64, ptr %r481, i64 %r482
   %r484 = load i64, ptr %r483
   store i64 %r484, ptr %t85
   store i64 %r484, ptr %acc.ptr
@@ -21613,7 +21613,7 @@ __L__1313:
   %r499 = load i64, ptr %t92
   %r501 = load i64, ptr %t94
   %r500 = inttoptr i64 %r499 to ptr
-  %r502 = getelementptr i64, ptr %r500, i64 %r501
+  %r502 = getelementptr inbounds i64, ptr %r500, i64 %r501
   %r503 = load i64, ptr %r502
   store i64 %r503, ptr %acc.ptr
   br label %__L__1314
@@ -21644,7 +21644,7 @@ cont.513:
   %r516 = load i64, ptr %t96
   %r518 = load i64, ptr %t97
   %r517 = inttoptr i64 %r516 to ptr
-  %r519 = getelementptr i64, ptr %r517, i64 %r518
+  %r519 = getelementptr inbounds i64, ptr %r517, i64 %r518
   %r520 = load i64, ptr %r519
   store i64 %r520, ptr %t98
   %r521 = load i64, ptr %t98
@@ -21748,7 +21748,7 @@ __L__1299:
   %r579 = load i64, ptr %t112
   %r581 = load i64, ptr %t113
   %r580 = inttoptr i64 %r579 to ptr
-  %r582 = getelementptr i64, ptr %r580, i64 %r581
+  %r582 = getelementptr inbounds i64, ptr %r580, i64 %r581
   %r583 = load i64, ptr %r582
   store i64 %r583, ptr %t114
   %r584 = load i64, ptr %arg0
@@ -21777,7 +21777,7 @@ __L__1318:
   %r597 = load i64, ptr %t115
   %r599 = load i64, ptr %t117
   %r598 = inttoptr i64 %r597 to ptr
-  %r600 = getelementptr i64, ptr %r598, i64 %r599
+  %r600 = getelementptr inbounds i64, ptr %r598, i64 %r599
   %r601 = load i64, ptr %r600
   store i64 %r601, ptr %acc.ptr
   br label %__L__1319
@@ -21878,7 +21878,7 @@ __L__1287:
   ret i64 %r653
 }
 ; defn exlist
-define i64 @__L__87(i64 %p0, i64 %p1) {
+define i64 @__L__87(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -21935,7 +21935,7 @@ __L__1325:
   %r13 = load i64, ptr %t0
   %r15 = load i64, ptr %t2
   %r14 = inttoptr i64 %r13 to ptr
-  %r16 = getelementptr i64, ptr %r14, i64 %r15
+  %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
   br label %__L__1326
@@ -21964,7 +21964,7 @@ cont.27:
   %r29 = load i64, ptr %arg0
   %r31 = load i64, ptr %t4
   %r30 = inttoptr i64 %r29 to ptr
-  %r32 = getelementptr i64, ptr %r30, i64 %r31
+  %r32 = getelementptr inbounds i64, ptr %r30, i64 %r31
   %r33 = load i64, ptr %r32
   store i64 %r33, ptr %t5
   %r34 = load i64, ptr %arg1
@@ -21991,7 +21991,7 @@ cont.27:
   %r48 = load i64, ptr %arg0
   %r50 = load i64, ptr %t9
   %r49 = inttoptr i64 %r48 to ptr
-  %r51 = getelementptr i64, ptr %r49, i64 %r50
+  %r51 = getelementptr inbounds i64, ptr %r49, i64 %r50
   %r52 = load i64, ptr %r51
   store i64 %r52, ptr %t10
   %r53 = load i64, ptr %arg1
@@ -22074,7 +22074,7 @@ __L__1322:
 @__L__1343 = private constant [17 x i8] c"\0Aeval.k: error: \00"
 @__L__1344 = private constant [15 x i8] c"cannot apply: \00"
 @__L__1345 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__88(i64 %p0, i64 %p1, i64 %p2) {
+define i64 @__L__88(i64 %p0, i64 %p1, i64 %p2) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -22152,7 +22152,7 @@ __L__1329:
   %r13 = load i64, ptr %t0
   %r15 = load i64, ptr %t2
   %r14 = inttoptr i64 %r13 to ptr
-  %r16 = getelementptr i64, ptr %r14, i64 %r15
+  %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
   br label %__L__1330
@@ -22218,7 +22218,7 @@ cont.49:
   %r52 = load i64, ptr %t9
   %r54 = load i64, ptr %t10
   %r53 = inttoptr i64 %r52 to ptr
-  %r55 = getelementptr i64, ptr %r53, i64 %r54
+  %r55 = getelementptr inbounds i64, ptr %r53, i64 %r54
   %r56 = load i64, ptr %r55
   store i64 %r56, ptr %t11
   %r57 = load i64, ptr %arg1
@@ -22262,7 +22262,7 @@ cont.75:
   %r80 = load i64, ptr %t17
   %r82 = load i64, ptr %t18
   %r81 = inttoptr i64 %r80 to ptr
-  %r83 = getelementptr i64, ptr %r81, i64 %r82
+  %r83 = getelementptr inbounds i64, ptr %r81, i64 %r82
   %r84 = load i64, ptr %r83
   %r85 = load i64, ptr %t15
   store i64 %r85, ptr %a0
@@ -22282,7 +22282,7 @@ __L__1335:
   %r93 = load i64, ptr %t19
   %r95 = load i64, ptr %t20
   %r94 = inttoptr i64 %r93 to ptr
-  %r96 = getelementptr i64, ptr %r94, i64 %r95
+  %r96 = getelementptr inbounds i64, ptr %r94, i64 %r95
   %r97 = load i64, ptr %r96
   store i64 %r97, ptr %t21
   %r98 = load i64, ptr %arg0
@@ -22311,7 +22311,7 @@ __L__1339:
   %r111 = load i64, ptr %t22
   %r113 = load i64, ptr %t24
   %r112 = inttoptr i64 %r111 to ptr
-  %r114 = getelementptr i64, ptr %r112, i64 %r113
+  %r114 = getelementptr inbounds i64, ptr %r112, i64 %r113
   %r115 = load i64, ptr %r114
   store i64 %r115, ptr %acc.ptr
   br label %__L__1340
@@ -22468,7 +22468,7 @@ __L__1332:
 @__L__1374 = private constant [2 x i8] c" \00"
 @__L__1375 = private constant [2 x i8] c")\00"
 @__L__1376 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__89(i64 %p0, i64 %p1, i64 %p2) {
+define i64 @__L__89(i64 %p0, i64 %p1, i64 %p2) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -22646,7 +22646,7 @@ __L__1346:
   %r52 = load i64, ptr %t9
   %r54 = load i64, ptr %t10
   %r53 = inttoptr i64 %r52 to ptr
-  %r55 = getelementptr i64, ptr %r53, i64 %r54
+  %r55 = getelementptr inbounds i64, ptr %r53, i64 %r54
   %r56 = load i64, ptr %r55
   store i64 %r56, ptr %t11
   %r57 = load i64, ptr %t11
@@ -22673,7 +22673,7 @@ __L__1346:
   %r70 = load i64, ptr %t16
   %r72 = load i64, ptr %t17
   %r71 = inttoptr i64 %r70 to ptr
-  %r73 = getelementptr i64, ptr %r71, i64 %r72
+  %r73 = getelementptr inbounds i64, ptr %r71, i64 %r72
   %r74 = load i64, ptr %r73
   store i64 %r74, ptr %t18
   %r75 = load i64, ptr %arg2
@@ -22699,7 +22699,7 @@ __L__1346:
   %r87 = load i64, ptr %t21
   %r89 = load i64, ptr %t22
   %r88 = inttoptr i64 %r87 to ptr
-  %r90 = getelementptr i64, ptr %r88, i64 %r89
+  %r90 = getelementptr inbounds i64, ptr %r88, i64 %r89
   %r91 = load i64, ptr %r90
   store i64 %r91, ptr %t23
   %r92 = ptrtoint ptr %t11 to i64
@@ -22748,7 +22748,7 @@ __L__1355:
   %r118 = load i64, ptr %t26
   %r120 = load i64, ptr %t28
   %r119 = inttoptr i64 %r118 to ptr
-  %r121 = getelementptr i64, ptr %r119, i64 %r120
+  %r121 = getelementptr inbounds i64, ptr %r119, i64 %r120
   %r122 = load i64, ptr %r121
   store i64 %r122, ptr %acc.ptr
   br label %__L__1356
@@ -22842,28 +22842,28 @@ __L__1352:
   %r181 = load i64, ptr %t15
   %r183 = load i64, ptr %t38
   %r182 = inttoptr i64 %r181 to ptr
-  %r184 = getelementptr i64, ptr %r182, i64 %r183
+  %r184 = getelementptr inbounds i64, ptr %r182, i64 %r183
   %r185 = load i64, ptr %r184
   store i64 %r185, ptr %t39
   store i64 3, ptr %t40
   %r186 = load i64, ptr %t39
   %r188 = load i64, ptr %t40
   %r187 = inttoptr i64 %r186 to ptr
-  %r189 = getelementptr i64, ptr %r187, i64 %r188
+  %r189 = getelementptr inbounds i64, ptr %r187, i64 %r188
   %r190 = load i64, ptr %r189
   store i64 %r190, ptr %t41
   store i64 0, ptr %t42
   %r191 = load i64, ptr %t41
   %r193 = load i64, ptr %t42
   %r192 = inttoptr i64 %r191 to ptr
-  %r194 = getelementptr i64, ptr %r192, i64 %r193
+  %r194 = getelementptr inbounds i64, ptr %r192, i64 %r193
   %r195 = load i64, ptr %r194
   store i64 %r195, ptr %t43
   store i64 0, ptr %t44
   %r196 = load i64, ptr %t8
   %r198 = load i64, ptr %t44
   %r197 = inttoptr i64 %r196 to ptr
-  %r199 = getelementptr i64, ptr %r197, i64 %r198
+  %r199 = getelementptr inbounds i64, ptr %r197, i64 %r198
   %r200 = load i64, ptr %r199
   store i64 %r200, ptr %t45
   %r201 = ptrtoint ptr @__L__127 to i64
@@ -22882,14 +22882,14 @@ __L__1352:
   %r210 = load i64, ptr %t15
   %r212 = load i64, ptr %t46
   %r211 = inttoptr i64 %r210 to ptr
-  %r213 = getelementptr i64, ptr %r211, i64 %r212
+  %r213 = getelementptr inbounds i64, ptr %r211, i64 %r212
   %r214 = load i64, ptr %r213
   store i64 %r214, ptr %t15
   store i64 1, ptr %t47
   %r215 = load i64, ptr %t8
   %r217 = load i64, ptr %t47
   %r216 = inttoptr i64 %r215 to ptr
-  %r218 = getelementptr i64, ptr %r216, i64 %r217
+  %r218 = getelementptr inbounds i64, ptr %r216, i64 %r217
   %r219 = load i64, ptr %r218
   store i64 %r219, ptr %t8
   store i64 %r219, ptr %acc.ptr
@@ -22922,7 +22922,7 @@ __L__1364:
   %r234 = load i64, ptr %t48
   %r236 = load i64, ptr %t50
   %r235 = inttoptr i64 %r234 to ptr
-  %r237 = getelementptr i64, ptr %r235, i64 %r236
+  %r237 = getelementptr inbounds i64, ptr %r235, i64 %r236
   %r238 = load i64, ptr %r237
   store i64 %r238, ptr %acc.ptr
   br label %__L__1365
@@ -22973,7 +22973,7 @@ __L__1369:
   %r263 = load i64, ptr %t52
   %r265 = load i64, ptr %t54
   %r264 = inttoptr i64 %r263 to ptr
-  %r266 = getelementptr i64, ptr %r264, i64 %r265
+  %r266 = getelementptr inbounds i64, ptr %r264, i64 %r265
   %r267 = load i64, ptr %r266
   store i64 %r267, ptr %acc.ptr
   br label %__L__1370
@@ -23006,14 +23006,14 @@ cont.277:
   %r281 = load i64, ptr %t57
   %r283 = load i64, ptr %t58
   %r282 = inttoptr i64 %r281 to ptr
-  %r284 = getelementptr i64, ptr %r282, i64 %r283
+  %r284 = getelementptr inbounds i64, ptr %r282, i64 %r283
   %r285 = load i64, ptr %r284
   store i64 %r285, ptr %t59
   store i64 0, ptr %t60
   %r286 = load i64, ptr %t59
   %r288 = load i64, ptr %t60
   %r287 = inttoptr i64 %r286 to ptr
-  %r289 = getelementptr i64, ptr %r287, i64 %r288
+  %r289 = getelementptr inbounds i64, ptr %r287, i64 %r288
   %r290 = load i64, ptr %r289
   store i64 %r290, ptr %t61
   %r291 = load i64, ptr %t8
@@ -23109,11 +23109,11 @@ __L__1371:
   %r352 = load i64, ptr %t11
   %r354 = load i64, ptr %t71
   %r353 = inttoptr i64 %r352 to ptr
-  %r355 = getelementptr i64, ptr %r353, i64 %r354
+  %r355 = getelementptr inbounds i64, ptr %r353, i64 %r354
   %r356 = load i64, ptr %r355
   %r358 = load i64, ptr %t70
   %r357 = inttoptr i64 %r356 to ptr
-  %r359 = getelementptr i64, ptr %r357, i64 %r358
+  %r359 = getelementptr inbounds i64, ptr %r357, i64 %r358
   %r360 = load i64, ptr %r359
   store i64 %r360, ptr %t11
   store i64 %r360, ptr %acc.ptr
@@ -23124,7 +23124,7 @@ __L__1377:
   %r362 = load i64, ptr %t11
   %r364 = load i64, ptr %t72
   %r363 = inttoptr i64 %r362 to ptr
-  %r365 = getelementptr i64, ptr %r363, i64 %r364
+  %r365 = getelementptr inbounds i64, ptr %r363, i64 %r364
   %r366 = load i64, ptr %r365
   store i64 %r366, ptr %t73
   %r367 = load i64, ptr %arg2
@@ -23143,7 +23143,7 @@ __L__1377:
   %r375 = load i64, ptr %t11
   %r377 = load i64, ptr %t75
   %r376 = inttoptr i64 %r375 to ptr
-  %r378 = getelementptr i64, ptr %r376, i64 %r377
+  %r378 = getelementptr inbounds i64, ptr %r376, i64 %r377
   %r379 = load i64, ptr %r378
   store i64 %r379, ptr %t11
   store i64 %r379, ptr %acc.ptr
@@ -23176,7 +23176,7 @@ __L__1381:
   %r394 = load i64, ptr %t76
   %r396 = load i64, ptr %t78
   %r395 = inttoptr i64 %r394 to ptr
-  %r397 = getelementptr i64, ptr %r395, i64 %r396
+  %r397 = getelementptr inbounds i64, ptr %r395, i64 %r396
   %r398 = load i64, ptr %r397
   store i64 %r398, ptr %acc.ptr
   br label %__L__1382
@@ -23207,7 +23207,7 @@ cont.408:
   %r411 = load i64, ptr %t80
   %r413 = load i64, ptr %t81
   %r412 = inttoptr i64 %r411 to ptr
-  %r414 = getelementptr i64, ptr %r412, i64 %r413
+  %r414 = getelementptr inbounds i64, ptr %r412, i64 %r413
   %r415 = load i64, ptr %r414
   store i64 %r415, ptr %acc.ptr
   %r416 = icmp ne i64 %r415, 0
@@ -23222,7 +23222,7 @@ cont.417:
   %r421 = load i64, ptr %t83
   %r423 = load i64, ptr %t84
   %r422 = inttoptr i64 %r420 to ptr
-  %r424 = getelementptr i64, ptr %r422, i64 %r423
+  %r424 = getelementptr inbounds i64, ptr %r422, i64 %r423
   store i64 %r421, ptr %r424
   store i64 %r421, ptr %acc.ptr
   br label %__L__1383
@@ -23255,7 +23255,7 @@ __L__1383:
 @__L__1413 = private constant [17 x i8] c"\0Aeval.k: error: \00"
 @__L__1414 = private constant [16 x i8] c"symbol in eval?\00"
 @__L__1415 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__90(i64 %p0, i64 %p1) {
+define i64 @__L__90(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -23447,7 +23447,7 @@ __L__1389:
   %r51 = load i64, ptr %t6
   %r53 = load i64, ptr %t8
   %r52 = inttoptr i64 %r51 to ptr
-  %r54 = getelementptr i64, ptr %r52, i64 %r53
+  %r54 = getelementptr inbounds i64, ptr %r52, i64 %r53
   %r55 = load i64, ptr %r54
   store i64 %r55, ptr %acc.ptr
   br label %__L__1390
@@ -23541,7 +23541,7 @@ cont.105:
   %r108 = load i64, ptr %t15
   %r110 = load i64, ptr %t16
   %r109 = inttoptr i64 %r108 to ptr
-  %r111 = getelementptr i64, ptr %r109, i64 %r110
+  %r111 = getelementptr inbounds i64, ptr %r109, i64 %r110
   %r112 = load i64, ptr %r111
   store i64 %r112, ptr %acc.ptr
   br label %__L__1400
@@ -23553,21 +23553,21 @@ __L__1399:
   %r115 = load i64, ptr %t17
   %r117 = load i64, ptr %t18
   %r116 = inttoptr i64 %r115 to ptr
-  %r118 = getelementptr i64, ptr %r116, i64 %r117
+  %r118 = getelementptr inbounds i64, ptr %r116, i64 %r117
   %r119 = load i64, ptr %r118
   store i64 %r119, ptr %t19
   store i64 1, ptr %t20
   %r120 = load i64, ptr %t19
   %r122 = load i64, ptr %t20
   %r121 = inttoptr i64 %r120 to ptr
-  %r123 = getelementptr i64, ptr %r121, i64 %r122
+  %r123 = getelementptr inbounds i64, ptr %r121, i64 %r122
   %r124 = load i64, ptr %r123
   store i64 %r124, ptr %t21
   store i64 0, ptr %t22
   %r125 = load i64, ptr %t21
   %r127 = load i64, ptr %t22
   %r126 = inttoptr i64 %r125 to ptr
-  %r128 = getelementptr i64, ptr %r126, i64 %r127
+  %r128 = getelementptr inbounds i64, ptr %r126, i64 %r127
   %r129 = load i64, ptr %r128
   store i64 %r129, ptr %t23
   %r130 = load i64, ptr %arg1
@@ -23576,21 +23576,21 @@ __L__1399:
   %r131 = load i64, ptr %t24
   %r133 = load i64, ptr %t25
   %r132 = inttoptr i64 %r131 to ptr
-  %r134 = getelementptr i64, ptr %r132, i64 %r133
+  %r134 = getelementptr inbounds i64, ptr %r132, i64 %r133
   %r135 = load i64, ptr %r134
   store i64 %r135, ptr %t26
   store i64 1, ptr %t27
   %r136 = load i64, ptr %t26
   %r138 = load i64, ptr %t27
   %r137 = inttoptr i64 %r136 to ptr
-  %r139 = getelementptr i64, ptr %r137, i64 %r138
+  %r139 = getelementptr inbounds i64, ptr %r137, i64 %r138
   %r140 = load i64, ptr %r139
   store i64 %r140, ptr %t28
   store i64 0, ptr %t29
   %r141 = load i64, ptr %t28
   %r143 = load i64, ptr %t29
   %r142 = inttoptr i64 %r141 to ptr
-  %r144 = getelementptr i64, ptr %r142, i64 %r143
+  %r144 = getelementptr inbounds i64, ptr %r142, i64 %r143
   %r145 = load i64, ptr %r144
   %r146 = load i64, ptr %t23
   %r147 = sub i64 %r145, %r146
@@ -23605,7 +23605,7 @@ __L__1401:
   %r150 = load i64, ptr %t31
   %r152 = load i64, ptr %t32
   %r151 = inttoptr i64 %r150 to ptr
-  %r153 = getelementptr i64, ptr %r151, i64 %r152
+  %r153 = getelementptr inbounds i64, ptr %r151, i64 %r152
   %r154 = load i64, ptr %r153
   store i64 %r154, ptr %arg1
   store i64 1, ptr %t33
@@ -23633,7 +23633,7 @@ cont.164:
   %r167 = load i64, ptr %t35
   %r169 = load i64, ptr %t36
   %r168 = inttoptr i64 %r167 to ptr
-  %r170 = getelementptr i64, ptr %r168, i64 %r169
+  %r170 = getelementptr inbounds i64, ptr %r168, i64 %r169
   %r171 = load i64, ptr %r170
   store i64 %r171, ptr %t37
   %r172 = load i64, ptr %arg0
@@ -23642,14 +23642,14 @@ cont.164:
   %r173 = load i64, ptr %t38
   %r175 = load i64, ptr %t39
   %r174 = inttoptr i64 %r173 to ptr
-  %r176 = getelementptr i64, ptr %r174, i64 %r175
+  %r176 = getelementptr inbounds i64, ptr %r174, i64 %r175
   %r177 = load i64, ptr %r176
   store i64 %r177, ptr %t40
   store i64 0, ptr %t41
   %r178 = load i64, ptr %t40
   %r180 = load i64, ptr %t41
   %r179 = inttoptr i64 %r178 to ptr
-  %r181 = getelementptr i64, ptr %r179, i64 %r180
+  %r181 = getelementptr inbounds i64, ptr %r179, i64 %r180
   %r182 = load i64, ptr %r181
   store i64 %r182, ptr %t42
   %r183 = ptrtoint ptr @__L__128 to i64
@@ -23684,7 +23684,7 @@ cont.198:
   %r200 = load i64, ptr %arg0
   %r202 = load i64, ptr %t44
   %r201 = inttoptr i64 %r200 to ptr
-  %r203 = getelementptr i64, ptr %r201, i64 %r202
+  %r203 = getelementptr inbounds i64, ptr %r201, i64 %r202
   %r204 = load i64, ptr %r203
   store i64 %r204, ptr %t45
   %r205 = load i64, ptr %arg1
@@ -23756,7 +23756,7 @@ __L__1409:
   %r247 = load i64, ptr %t53
   %r249 = load i64, ptr %t55
   %r248 = inttoptr i64 %r247 to ptr
-  %r250 = getelementptr i64, ptr %r248, i64 %r249
+  %r250 = getelementptr inbounds i64, ptr %r248, i64 %r249
   %r251 = load i64, ptr %r250
   store i64 %r251, ptr %acc.ptr
   br label %__L__1410
@@ -23787,14 +23787,14 @@ cont.261:
   %r264 = load i64, ptr %t57
   %r266 = load i64, ptr %t58
   %r265 = inttoptr i64 %r264 to ptr
-  %r267 = getelementptr i64, ptr %r265, i64 %r266
+  %r267 = getelementptr inbounds i64, ptr %r265, i64 %r266
   %r268 = load i64, ptr %r267
   store i64 %r268, ptr %t59
   store i64 1, ptr %t60
   %r269 = load i64, ptr %arg0
   %r271 = load i64, ptr %t60
   %r270 = inttoptr i64 %r269 to ptr
-  %r272 = getelementptr i64, ptr %r270, i64 %r271
+  %r272 = getelementptr inbounds i64, ptr %r270, i64 %r271
   %r273 = load i64, ptr %r272
   store i64 %r273, ptr %t61
   %r274 = load i64, ptr %arg1
@@ -23819,7 +23819,7 @@ __L__1405:
   %r285 = load i64, ptr %arg0
   %r287 = load i64, ptr %t63
   %r286 = inttoptr i64 %r285 to ptr
-  %r288 = getelementptr i64, ptr %r286, i64 %r287
+  %r288 = getelementptr inbounds i64, ptr %r286, i64 %r287
   %r289 = load i64, ptr %r288
   store i64 %r289, ptr %t64
   %r290 = load i64, ptr %arg1
@@ -23943,7 +23943,7 @@ __L__1411:
   %r367 = load i64, ptr %t80
   %r369 = load i64, ptr %t81
   %r368 = inttoptr i64 %r367 to ptr
-  %r370 = getelementptr i64, ptr %r368, i64 %r369
+  %r370 = getelementptr inbounds i64, ptr %r368, i64 %r369
   %r371 = load i64, ptr %r370
   store i64 %r371, ptr %t82
   %r372 = load i64, ptr %arg0
@@ -23972,7 +23972,7 @@ __L__1418:
   %r385 = load i64, ptr %t83
   %r387 = load i64, ptr %t85
   %r386 = inttoptr i64 %r385 to ptr
-  %r388 = getelementptr i64, ptr %r386, i64 %r387
+  %r388 = getelementptr inbounds i64, ptr %r386, i64 %r387
   %r389 = load i64, ptr %r388
   store i64 %r389, ptr %acc.ptr
   br label %__L__1419
@@ -24114,7 +24114,7 @@ __L__1392:
   ret i64 %r463
 }
 ; defn k_env_define
-define i64 @__L__91(i64 %p0, i64 %p1, i64 %p2) {
+define i64 @__L__91(i64 %p0, i64 %p1, i64 %p2) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -24169,7 +24169,7 @@ entry:
   %r1 = load i64, ptr %t0
   %r3 = load i64, ptr %t1
   %r2 = inttoptr i64 %r1 to ptr
-  %r4 = getelementptr i64, ptr %r2, i64 %r3
+  %r4 = getelementptr inbounds i64, ptr %r2, i64 %r3
   %r5 = load i64, ptr %r4
   store i64 %r5, ptr %t2
   %r6 = load i64, ptr %t2
@@ -24205,7 +24205,7 @@ __L__1421:
   %r23 = load i64, ptr %t8
   %r25 = load i64, ptr %t9
   %r24 = inttoptr i64 %r23 to ptr
-  %r26 = getelementptr i64, ptr %r24, i64 %r25
+  %r26 = getelementptr inbounds i64, ptr %r24, i64 %r25
   %r27 = load i64, ptr %r26
   store i64 %r27, ptr %t10
   %r28 = load i64, ptr %arg1
@@ -24226,7 +24226,7 @@ cont.33:
   %r38 = load i64, ptr %t12
   %r40 = load i64, ptr %t13
   %r39 = inttoptr i64 %r37 to ptr
-  %r41 = getelementptr i64, ptr %r39, i64 %r40
+  %r41 = getelementptr inbounds i64, ptr %r39, i64 %r40
   store i64 %r38, ptr %r41
   %r42 = load i64, ptr %t7
   store i64 %r42, ptr %acc.ptr
@@ -24257,14 +24257,14 @@ cont.52:
   %r55 = load i64, ptr %t16
   %r57 = load i64, ptr %t17
   %r56 = inttoptr i64 %r55 to ptr
-  %r58 = getelementptr i64, ptr %r56, i64 %r57
+  %r58 = getelementptr inbounds i64, ptr %r56, i64 %r57
   %r59 = load i64, ptr %r58
   store i64 %r59, ptr %t18
   store i64 0, ptr %t19
   %r60 = load i64, ptr %t18
   %r62 = load i64, ptr %t19
   %r61 = inttoptr i64 %r60 to ptr
-  %r63 = getelementptr i64, ptr %r61, i64 %r62
+  %r63 = getelementptr inbounds i64, ptr %r61, i64 %r62
   %r64 = load i64, ptr %r63
   store i64 %r64, ptr %t20
   %r65 = load i64, ptr %arg1
@@ -24318,7 +24318,7 @@ cont.52:
   %r96 = load i64, ptr %t30
   %r98 = load i64, ptr %t31
   %r97 = inttoptr i64 %r95 to ptr
-  %r99 = getelementptr i64, ptr %r97, i64 %r98
+  %r99 = getelementptr inbounds i64, ptr %r97, i64 %r98
   store i64 %r96, ptr %r99
   %r100 = load i64, ptr %t2
   store i64 %r100, ptr %t32
@@ -24351,7 +24351,7 @@ __L__1424:
 }
 ; defn k_env_lookup
 @__L__1427 = private constant [23 x i8] c"undefined variable: %s\00"
-define i64 @__L__92(i64 %p0, i64 %p1) {
+define i64 @__L__92(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -24395,7 +24395,7 @@ cont.11:
   %r14 = load i64, ptr %t3
   %r16 = load i64, ptr %t4
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   store i64 %r18, ptr %acc.ptr
   br label %__L__1426
@@ -24409,7 +24409,7 @@ __L__1425:
   %r22 = load i64, ptr %t6
   %r24 = load i64, ptr %t7
   %r23 = inttoptr i64 %r22 to ptr
-  %r25 = getelementptr i64, ptr %r23, i64 %r24
+  %r25 = getelementptr inbounds i64, ptr %r23, i64 %r24
   %r26 = load i64, ptr %r25
   store i64 %r26, ptr %t8
   %r27 = ptrtoint ptr @__L__169 to i64
@@ -24428,7 +24428,7 @@ __L__1426:
   ret i64 %r34
 }
 ; defn k_env_find_variable
-define i64 @__L__93(i64 %p0, i64 %p1) {
+define i64 @__L__93(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -24463,7 +24463,7 @@ __L__1428:
   %r2 = load i64, ptr %t0
   %r4 = load i64, ptr %t1
   %r3 = inttoptr i64 %r2 to ptr
-  %r5 = getelementptr i64, ptr %r3, i64 %r4
+  %r5 = getelementptr inbounds i64, ptr %r3, i64 %r4
   %r6 = load i64, ptr %r5
   store i64 %r6, ptr %t2
   %r7 = load i64, ptr %t2
@@ -24481,7 +24481,7 @@ __L__1428:
   %r14 = load i64, ptr %t5
   %r16 = load i64, ptr %t6
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   store i64 %r18, ptr %t7
   store i64 %r18, ptr %acc.ptr
@@ -24493,7 +24493,7 @@ __L__1430:
   %r21 = load i64, ptr %t7
   %r23 = load i64, ptr %t8
   %r22 = inttoptr i64 %r21 to ptr
-  %r24 = getelementptr i64, ptr %r22, i64 %r23
+  %r24 = getelementptr inbounds i64, ptr %r22, i64 %r23
   %r25 = load i64, ptr %r24
   store i64 %r25, ptr %t9
   %r26 = load i64, ptr %t9
@@ -24502,7 +24502,7 @@ __L__1430:
   %r27 = load i64, ptr %t10
   %r29 = load i64, ptr %t11
   %r28 = inttoptr i64 %r27 to ptr
-  %r30 = getelementptr i64, ptr %r28, i64 %r29
+  %r30 = getelementptr inbounds i64, ptr %r28, i64 %r29
   %r31 = load i64, ptr %r30
   store i64 %r31, ptr %t12
   %r32 = load i64, ptr %arg1
@@ -24543,7 +24543,7 @@ cont.49:
   %r52 = load i64, ptr %t15
   %r54 = load i64, ptr %t16
   %r53 = inttoptr i64 %r52 to ptr
-  %r55 = getelementptr i64, ptr %r53, i64 %r54
+  %r55 = getelementptr inbounds i64, ptr %r53, i64 %r54
   %r56 = load i64, ptr %r55
   store i64 %r56, ptr %arg0
   store i64 %r56, ptr %acc.ptr
@@ -24564,7 +24564,7 @@ __L__1433:
 }
 ; defn read_quote
 @__L__1435 = private constant [33 x i8] c"EOF while reading quoted literal\00"
-define i64 @__L__94(i64 %p0, i64 %p1) {
+define i64 @__L__94(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -24666,7 +24666,7 @@ __L__1434:
 }
 ; defn read_list
 @__L__1442 = private constant [50 x i8] c"missing closing '%c' delimiter while reading list\00"
-define i64 @__L__95(i64 %p0, i64 %p1) {
+define i64 @__L__95(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -24757,7 +24757,7 @@ __L__1436:
   %r31 = load i64, ptr %t9
   %r33 = load i64, ptr %t10
   %r32 = inttoptr i64 %r30 to ptr
-  %r34 = getelementptr i64, ptr %r32, i64 %r33
+  %r34 = getelementptr inbounds i64, ptr %r32, i64 %r33
   store i64 %r31, ptr %r34
   store i64 %r31, ptr %t3
   store i64 %r31, ptr %acc.ptr
@@ -24823,7 +24823,7 @@ cont.64:
   %r73 = load i64, ptr %t16
   %r75 = load i64, ptr %t17
   %r74 = inttoptr i64 %r72 to ptr
-  %r76 = getelementptr i64, ptr %r74, i64 %r75
+  %r76 = getelementptr inbounds i64, ptr %r74, i64 %r75
   store i64 %r73, ptr %r76
   store i64 %r73, ptr %acc.ptr
   br label %__L__1439
@@ -24871,7 +24871,7 @@ cont.103:
   %r105 = load i64, ptr %t2
   %r107 = load i64, ptr %t24
   %r106 = inttoptr i64 %r105 to ptr
-  %r108 = getelementptr i64, ptr %r106, i64 %r107
+  %r108 = getelementptr inbounds i64, ptr %r106, i64 %r107
   %r109 = load i64, ptr %r108
   store i64 %r109, ptr %acc.ptr
   br label %__L__1441
@@ -24897,7 +24897,7 @@ __L__1441:
   ret i64 %r120
 }
 ; defn k_read_allow_close
-define i64 @__L__96(i64 %p0) {
+define i64 @__L__96(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -24922,7 +24922,7 @@ entry:
   ret i64 %r8
 }
 ; defn k_read
-define i64 @__L__97(i64 %p0) {
+define i64 @__L__97(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -24947,7 +24947,7 @@ entry:
   ret i64 %r8
 }
 ; defn expected_char
-define i64 @__L__98(i64 %p0) {
+define i64 @__L__98(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -24957,7 +24957,7 @@ entry:
 }
 ; defn unexpected_char
 @__L__1443 = private constant [25 x i8] c"unexpected character: %c\00"
-define i64 @__L__99(i64 %p0) {
+define i64 @__L__99(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -24983,7 +24983,7 @@ entry:
 }
 ; defn _k_read
 @__L__1488 = private constant [22 x i8] c"illegal character: %c\00"
-define i64 @__L__100(i64 %p0, i64 %p1) {
+define i64 @__L__100(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -25836,7 +25836,7 @@ __L__1450:
 }
 ; defn read_string
 @__L__1492 = private constant [28 x i8] c"unterminated string literal\00"
-define i64 @__L__101(i64 %p0, i64 %p1) {
+define i64 @__L__101(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -25956,7 +25956,7 @@ cont.48:
   %r58 = load i64, ptr %t0
   %r60 = load i64, ptr %t11
   %r59 = inttoptr i64 %r58 to ptr
-  %r61 = getelementptr i64, ptr %r59, i64 %r60
+  %r61 = getelementptr inbounds i64, ptr %r59, i64 %r60
   %r62 = load i64, ptr %r61
   store i64 %r62, ptr %t12
   %r63 = ptrtoint ptr @__L__151 to i64
@@ -25978,7 +25978,7 @@ cont.48:
   ret i64 %r74
 }
 ; defn read_symbol
-define i64 @__L__102(i64 %p0, i64 %p1) {
+define i64 @__L__102(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -26094,7 +26094,7 @@ cont.37:
   %r56 = load i64, ptr %t0
   %r58 = load i64, ptr %t10
   %r57 = inttoptr i64 %r56 to ptr
-  %r59 = getelementptr i64, ptr %r57, i64 %r58
+  %r59 = getelementptr inbounds i64, ptr %r57, i64 %r58
   %r60 = load i64, ptr %r59
   store i64 %r60, ptr %t11
   %r61 = ptrtoint ptr @__L__108 to i64
@@ -26116,7 +26116,7 @@ cont.37:
   ret i64 %r72
 }
 ; defn read_number
-define i64 @__L__103(i64 %p0, i64 %p1) {
+define i64 @__L__103(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -26543,7 +26543,7 @@ __L__1504:
   %r217 = load i64, ptr %t0
   %r219 = load i64, ptr %t38
   %r218 = inttoptr i64 %r217 to ptr
-  %r220 = getelementptr i64, ptr %r218, i64 %r219
+  %r220 = getelementptr inbounds i64, ptr %r218, i64 %r219
   %r221 = load i64, ptr %r220
   store i64 %r221, ptr %t39
   store i64 0, ptr %t40
@@ -26591,7 +26591,7 @@ cont.247:
   %r249 = load i64, ptr %t0
   %r251 = load i64, ptr %t45
   %r250 = inttoptr i64 %r249 to ptr
-  %r252 = getelementptr i64, ptr %r250, i64 %r251
+  %r252 = getelementptr inbounds i64, ptr %r250, i64 %r251
   %r253 = load i64, ptr %r252
   store i64 %r253, ptr %t46
   %r254 = load i64, ptr %t46
@@ -26696,7 +26696,7 @@ cont.314:
   %r316 = load i64, ptr %t0
   %r318 = load i64, ptr %t57
   %r317 = inttoptr i64 %r316 to ptr
-  %r319 = getelementptr i64, ptr %r317, i64 %r318
+  %r319 = getelementptr inbounds i64, ptr %r317, i64 %r318
   %r320 = load i64, ptr %r319
   store i64 %r320, ptr %t58
   %r321 = load i64, ptr %t58
@@ -26709,7 +26709,7 @@ __L__1513:
   %r324 = load i64, ptr %t0
   %r326 = load i64, ptr %t59
   %r325 = inttoptr i64 %r324 to ptr
-  %r327 = getelementptr i64, ptr %r325, i64 %r326
+  %r327 = getelementptr inbounds i64, ptr %r325, i64 %r326
   %r328 = load i64, ptr %r327
   store i64 %r328, ptr %acc.ptr
   br label %__L__1514
@@ -26773,7 +26773,7 @@ __L__1499:
 }
 ; defn read_char
 @__L__1551 = private constant [30 x i8] c"illegal character escape: \5C%c\00"
-define i64 @__L__104(i64 %p0, i64 %p1) {
+define i64 @__L__104(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -27437,7 +27437,7 @@ __L__1518:
 }
 ; defn digit_value
 @__L__1561 = private constant [34 x i8] c"illegal digit in character escape\00"
-define i64 @__L__105(i64 %p0) {
+define i64 @__L__105(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -27580,7 +27580,7 @@ __L__1553:
   ret i64 %r69
 }
 ; defn is_hexadecimal
-define i64 @__L__106(i64 %p0) {
+define i64 @__L__106(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -27665,7 +27665,7 @@ __L__1562:
   ret i64 %r42
 }
 ; defn is_octal
-define i64 @__L__107(i64 %p0) {
+define i64 @__L__107(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -27694,7 +27694,7 @@ __L__1566:
   ret i64 %r11
 }
 ; defn intern
-define i64 @__L__108(i64 %p0) {
+define i64 @__L__108(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -27782,7 +27782,7 @@ __L__1567:
   %r26 = load i64, ptr %t13
   %r28 = load i64, ptr %t14
   %r27 = inttoptr i64 %r26 to ptr
-  %r29 = getelementptr i64, ptr %r27, i64 %r28
+  %r29 = getelementptr inbounds i64, ptr %r27, i64 %r28
   %r30 = load i64, ptr %r29
   store i64 %r30, ptr %t15
   %r31 = ptrtoint ptr @strcmp to i64
@@ -27913,7 +27913,7 @@ __L__1573:
   ret i64 %r107
 }
 ; defn buffer_contents
-define i64 @__L__109(i64 %p0) {
+define i64 @__L__109(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -27944,7 +27944,7 @@ entry:
   %r8 = load i64, ptr %arg0
   %r10 = load i64, ptr %t3
   %r9 = inttoptr i64 %r8 to ptr
-  %r11 = getelementptr i64, ptr %r9, i64 %r10
+  %r11 = getelementptr inbounds i64, ptr %r9, i64 %r10
   %r12 = load i64, ptr %r11
   %r13 = load i64, ptr %t2
   %r14 = sub i64 %r12, %r13
@@ -27954,18 +27954,18 @@ entry:
   %r16 = load i64, ptr %t4
   %r18 = load i64, ptr %t5
   %r17 = inttoptr i64 %r15 to ptr
-  %r19 = getelementptr i64, ptr %r17, i64 %r18
+  %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   store i64 %r16, ptr %r19
   store i64 0, ptr %t6
   %r20 = load i64, ptr %arg0
   %r22 = load i64, ptr %t6
   %r21 = inttoptr i64 %r20 to ptr
-  %r23 = getelementptr i64, ptr %r21, i64 %r22
+  %r23 = getelementptr inbounds i64, ptr %r21, i64 %r22
   %r24 = load i64, ptr %r23
   ret i64 %r24
 }
 ; defn buffer_append_all
-define i64 @__L__110(i64 %p0, i64 %p1) {
+define i64 @__L__110(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -28013,7 +28013,7 @@ __L__1575:
   %r15 = load i64, ptr %arg1
   %r17 = load i64, ptr %t5
   %r16 = inttoptr i64 %r15 to ptr
-  %r18 = getelementptr i8, ptr %r16, i64 %r17
+  %r18 = getelementptr inbounds i8, ptr %r16, i64 %r17
   %r19 = load i8, ptr %r18
   %r20 = zext i8 %r19 to i64
   store i64 %r20, ptr %t1
@@ -28025,7 +28025,7 @@ cont.22:
   ret i64 %r23
 }
 ; defn buffer_append
-define i64 @__L__111(i64 %p0, i64 %p1) {
+define i64 @__L__111(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -28049,14 +28049,14 @@ entry:
   %r0 = load i64, ptr %arg0
   %r2 = load i64, ptr %t0
   %r1 = inttoptr i64 %r0 to ptr
-  %r3 = getelementptr i64, ptr %r1, i64 %r2
+  %r3 = getelementptr inbounds i64, ptr %r1, i64 %r2
   %r4 = load i64, ptr %r3
   store i64 %r4, ptr %t1
   store i64 2, ptr %t2
   %r5 = load i64, ptr %arg0
   %r7 = load i64, ptr %t2
   %r6 = inttoptr i64 %r5 to ptr
-  %r8 = getelementptr i64, ptr %r6, i64 %r7
+  %r8 = getelementptr inbounds i64, ptr %r6, i64 %r7
   %r9 = load i64, ptr %r8
   %r10 = load i64, ptr %t1
   %r11 = icmp eq i64 %r9, %r10
@@ -28082,7 +28082,7 @@ __L__1576:
   %r23 = load i64, ptr %arg0
   %r25 = load i64, ptr %t4
   %r24 = inttoptr i64 %r23 to ptr
-  %r26 = getelementptr i64, ptr %r24, i64 %r25
+  %r26 = getelementptr inbounds i64, ptr %r24, i64 %r25
   %r27 = load i64, ptr %r26
   store i64 %r27, ptr %t5
   %r28 = load i64, ptr %arg1
@@ -28093,12 +28093,12 @@ __L__1576:
   %r30 = load i64, ptr %arg0
   %r32 = load i64, ptr %t8
   %r31 = inttoptr i64 %r30 to ptr
-  %r33 = getelementptr i64, ptr %r31, i64 %r32
+  %r33 = getelementptr inbounds i64, ptr %r31, i64 %r32
   %r34 = load i64, ptr %r33
   %r35 = load i64, ptr %t6
   %r37 = load i64, ptr %t7
   %r36 = inttoptr i64 %r34 to ptr
-  %r38 = getelementptr i8, ptr %r36, i64 %r37
+  %r38 = getelementptr inbounds i8, ptr %r36, i64 %r37
   %r39 = trunc i64 %r35 to i8
   store i8 %r39, ptr %r38
   %r40 = load i64, ptr %t5
@@ -28111,12 +28111,12 @@ __L__1576:
   %r44 = load i64, ptr %t10
   %r46 = load i64, ptr %t11
   %r45 = inttoptr i64 %r43 to ptr
-  %r47 = getelementptr i64, ptr %r45, i64 %r46
+  %r47 = getelementptr inbounds i64, ptr %r45, i64 %r46
   store i64 %r44, ptr %r47
   ret i64 %r44
 }
 ; defn buffer_grow
-define i64 @__L__112(i64 %p0) {
+define i64 @__L__112(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -28144,7 +28144,7 @@ entry:
   %r0 = load i64, ptr %arg0
   %r2 = load i64, ptr %t0
   %r1 = inttoptr i64 %r0 to ptr
-  %r3 = getelementptr i64, ptr %r1, i64 %r2
+  %r3 = getelementptr inbounds i64, ptr %r1, i64 %r2
   %r4 = load i64, ptr %r3
   store i64 %r4, ptr %t1
   %r5 = load i64, ptr %t1
@@ -28165,7 +28165,7 @@ entry:
   %r14 = load i64, ptr %arg0
   %r16 = load i64, ptr %t6
   %r15 = inttoptr i64 %r14 to ptr
-  %r17 = getelementptr i64, ptr %r15, i64 %r16
+  %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   store i64 %r18, ptr %t7
   %r19 = load i64, ptr %t1
@@ -28186,7 +28186,7 @@ entry:
   %r29 = load i64, ptr %arg0
   %r31 = load i64, ptr %t9
   %r30 = inttoptr i64 %r29 to ptr
-  %r32 = getelementptr i64, ptr %r30, i64 %r31
+  %r32 = getelementptr inbounds i64, ptr %r30, i64 %r31
   %r33 = load i64, ptr %r32
   store i64 %r33, ptr %t10
   %r34 = ptrtoint ptr @free to i64
@@ -28202,7 +28202,7 @@ entry:
   %r41 = load i64, ptr %t11
   %r43 = load i64, ptr %t12
   %r42 = inttoptr i64 %r40 to ptr
-  %r44 = getelementptr i64, ptr %r42, i64 %r43
+  %r44 = getelementptr inbounds i64, ptr %r42, i64 %r43
   store i64 %r41, ptr %r44
   %r45 = load i64, ptr %t1
   store i64 %r45, ptr %t13
@@ -28214,12 +28214,12 @@ entry:
   %r49 = load i64, ptr %t14
   %r51 = load i64, ptr %t15
   %r50 = inttoptr i64 %r48 to ptr
-  %r52 = getelementptr i64, ptr %r50, i64 %r51
+  %r52 = getelementptr inbounds i64, ptr %r50, i64 %r51
   store i64 %r49, ptr %r52
   ret i64 %r49
 }
 ; defn buffer_delete
-define i64 @__L__113(i64 %p0) {
+define i64 @__L__113(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -28232,7 +28232,7 @@ entry:
   %r0 = load i64, ptr %arg0
   %r2 = load i64, ptr %t0
   %r1 = inttoptr i64 %r0 to ptr
-  %r3 = getelementptr i64, ptr %r1, i64 %r2
+  %r3 = getelementptr inbounds i64, ptr %r1, i64 %r2
   %r4 = load i64, ptr %r3
   store i64 %r4, ptr %t1
   %r5 = ptrtoint ptr @free to i64
@@ -28252,7 +28252,7 @@ entry:
   ret i64 %r15
 }
 ; defn new_buffer
-define i64 @__L__114() {
+define i64 @__L__114() nounwind {
 entry:
   %acc.ptr = alloca i64
   %t0 = alloca i64
@@ -28286,7 +28286,7 @@ entry:
   %r11 = load i64, ptr %t3
   %r13 = load i64, ptr %t4
   %r12 = inttoptr i64 %r10 to ptr
-  %r14 = getelementptr i64, ptr %r12, i64 %r13
+  %r14 = getelementptr inbounds i64, ptr %r12, i64 %r13
   store i64 %r11, ptr %r14
   store i64 32, ptr %t5
   store i64 1, ptr %t6
@@ -28294,7 +28294,7 @@ entry:
   %r16 = load i64, ptr %t5
   %r18 = load i64, ptr %t6
   %r17 = inttoptr i64 %r15 to ptr
-  %r19 = getelementptr i64, ptr %r17, i64 %r18
+  %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   store i64 %r16, ptr %r19
   store i64 0, ptr %t7
   store i64 2, ptr %t8
@@ -28302,13 +28302,13 @@ entry:
   %r21 = load i64, ptr %t7
   %r23 = load i64, ptr %t8
   %r22 = inttoptr i64 %r20 to ptr
-  %r24 = getelementptr i64, ptr %r22, i64 %r23
+  %r24 = getelementptr inbounds i64, ptr %r22, i64 %r23
   store i64 %r21, ptr %r24
   %r25 = load i64, ptr %t1
   ret i64 %r25
 }
 ; defn is_letter
-define i64 @__L__115(i64 %p0) {
+define i64 @__L__115(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -28507,7 +28507,7 @@ __L__1577:
   ret i64 %r113
 }
 ; defn is_alpha
-define i64 @__L__116(i64 %p0) {
+define i64 @__L__116(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -28566,7 +28566,7 @@ __L__1582:
   ret i64 %r27
 }
 ; defn is_digit16
-define i64 @__L__117(i64 %p0) {
+define i64 @__L__117(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -28651,7 +28651,7 @@ __L__1585:
   ret i64 %r42
 }
 ; defn is_digit10
-define i64 @__L__118(i64 %p0) {
+define i64 @__L__118(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -28680,7 +28680,7 @@ __L__1589:
   ret i64 %r11
 }
 ; defn is_blank
-define i64 @__L__119(i64 %p0) {
+define i64 @__L__119(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -28754,7 +28754,7 @@ __L__1590:
 }
 ; defn k_dumpln
 @__L__1591 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__120(i64 %p0) {
+define i64 @__L__120(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -28787,7 +28787,7 @@ entry:
   ret i64 %r13
 }
 ; defn k_dump
-define i64 @__L__121(i64 %p0) {
+define i64 @__L__121(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -28812,7 +28812,7 @@ entry:
 }
 ; defn k_println
 @__L__1592 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__122(i64 %p0) {
+define i64 @__L__122(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -28845,7 +28845,7 @@ entry:
   ret i64 %r13
 }
 ; defn k_print
-define i64 @__L__123(i64 %p0) {
+define i64 @__L__123(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -28899,7 +28899,7 @@ entry:
 @__L__1680 = private constant [8 x i8] c"Env<%d>\00"
 @__L__1683 = private constant [10 x i8] c"Context<>\00"
 @__L__1684 = private constant [10 x i8] c"<type:%d>\00"
-define i64 @__L__124(i64 %p0, i64 %p1) {
+define i64 @__L__124(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -29075,7 +29075,7 @@ __L__1595:
   %r13 = load i64, ptr %t0
   %r15 = load i64, ptr %t2
   %r14 = inttoptr i64 %r13 to ptr
-  %r16 = getelementptr i64, ptr %r14, i64 %r15
+  %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
   br label %__L__1596
@@ -29133,7 +29133,7 @@ cont.43:
   %r47 = load i64, ptr %t8
   %r49 = load i64, ptr %t9
   %r48 = inttoptr i64 %r47 to ptr
-  %r50 = getelementptr i64, ptr %r48, i64 %r49
+  %r50 = getelementptr inbounds i64, ptr %r48, i64 %r49
   %r51 = load i64, ptr %r50
   store i64 %r51, ptr %t10
   %r52 = ptrtoint ptr @printf to i64
@@ -29164,7 +29164,7 @@ cont.66:
   %r68 = load i64, ptr %arg0
   %r70 = load i64, ptr %t12
   %r69 = inttoptr i64 %r68 to ptr
-  %r71 = getelementptr i64, ptr %r69, i64 %r70
+  %r71 = getelementptr inbounds i64, ptr %r69, i64 %r70
   %r72 = load i64, ptr %r71
   store i64 %r72, ptr %t13
   %r73 = ptrtoint ptr @printdouble to i64
@@ -29194,7 +29194,7 @@ cont.85:
   %r88 = load i64, ptr %t15
   %r90 = load i64, ptr %t16
   %r89 = inttoptr i64 %r88 to ptr
-  %r91 = getelementptr i64, ptr %r89, i64 %r90
+  %r91 = getelementptr inbounds i64, ptr %r89, i64 %r90
   %r92 = load i64, ptr %r91
   store i64 %r92, ptr %t17
   %r93 = load i64, ptr %arg1
@@ -29360,7 +29360,7 @@ __L__1612:
   %r186 = load i64, ptr %t17
   %r188 = load i64, ptr %t34
   %r187 = inttoptr i64 %r186 to ptr
-  %r189 = getelementptr i8, ptr %r187, i64 %r188
+  %r189 = getelementptr inbounds i8, ptr %r187, i64 %r188
   %r190 = load i8, ptr %r189
   %r191 = zext i8 %r190 to i64
   store i64 %r191, ptr %t21
@@ -29404,7 +29404,7 @@ cont.209:
   %r213 = load i64, ptr %t38
   %r215 = load i64, ptr %t39
   %r214 = inttoptr i64 %r213 to ptr
-  %r216 = getelementptr i64, ptr %r214, i64 %r215
+  %r216 = getelementptr inbounds i64, ptr %r214, i64 %r215
   %r217 = load i64, ptr %r216
   store i64 %r217, ptr %t40
   %r218 = ptrtoint ptr @printf to i64
@@ -29447,7 +29447,7 @@ __L__1631:
   %r241 = load i64, ptr %arg0
   %r243 = load i64, ptr %t43
   %r242 = inttoptr i64 %r241 to ptr
-  %r244 = getelementptr i64, ptr %r242, i64 %r243
+  %r244 = getelementptr inbounds i64, ptr %r242, i64 %r243
   %r245 = load i64, ptr %r244
   store i64 %r245, ptr %t44
   %r246 = load i64, ptr %arg1
@@ -29465,7 +29465,7 @@ __L__1631:
   %r254 = load i64, ptr %arg0
   %r256 = load i64, ptr %t46
   %r255 = inttoptr i64 %r254 to ptr
-  %r257 = getelementptr i64, ptr %r255, i64 %r256
+  %r257 = getelementptr inbounds i64, ptr %r255, i64 %r256
   %r258 = load i64, ptr %r257
   store i64 %r258, ptr %arg0
   store i64 %r258, ptr %t47
@@ -29493,7 +29493,7 @@ __L__1636:
   %r271 = load i64, ptr %t47
   %r273 = load i64, ptr %t49
   %r272 = inttoptr i64 %r271 to ptr
-  %r274 = getelementptr i64, ptr %r272, i64 %r273
+  %r274 = getelementptr inbounds i64, ptr %r272, i64 %r273
   %r275 = load i64, ptr %r274
   store i64 %r275, ptr %acc.ptr
   br label %__L__1637
@@ -29560,7 +29560,7 @@ __L__1642:
   %r308 = load i64, ptr %t52
   %r310 = load i64, ptr %t54
   %r309 = inttoptr i64 %r308 to ptr
-  %r311 = getelementptr i64, ptr %r309, i64 %r310
+  %r311 = getelementptr inbounds i64, ptr %r309, i64 %r310
   %r312 = load i64, ptr %r311
   store i64 %r312, ptr %acc.ptr
   br label %__L__1643
@@ -29805,7 +29805,7 @@ cont.451:
   %r460 = load i64, ptr %t79
   %r462 = load i64, ptr %t80
   %r461 = inttoptr i64 %r460 to ptr
-  %r463 = getelementptr i64, ptr %r461, i64 %r462
+  %r463 = getelementptr inbounds i64, ptr %r461, i64 %r462
   %r464 = load i64, ptr %r463
   store i64 %r464, ptr %t81
   %r465 = ptrtoint ptr @__L__137 to i64
@@ -29863,7 +29863,7 @@ cont.491:
   %r500 = load i64, ptr %t87
   %r502 = load i64, ptr %t88
   %r501 = inttoptr i64 %r500 to ptr
-  %r503 = getelementptr i64, ptr %r501, i64 %r502
+  %r503 = getelementptr inbounds i64, ptr %r501, i64 %r502
   %r504 = load i64, ptr %r503
   store i64 %r504, ptr %t89
   %r505 = load i64, ptr %arg1
@@ -29891,7 +29891,7 @@ cont.491:
   %r520 = load i64, ptr %t92
   %r522 = load i64, ptr %t93
   %r521 = inttoptr i64 %r520 to ptr
-  %r523 = getelementptr i64, ptr %r521, i64 %r522
+  %r523 = getelementptr inbounds i64, ptr %r521, i64 %r522
   %r524 = load i64, ptr %r523
   store i64 %r524, ptr %t94
   %r525 = load i64, ptr %arg1
@@ -29942,7 +29942,7 @@ cont.546:
   %r555 = load i64, ptr %t99
   %r557 = load i64, ptr %t100
   %r556 = inttoptr i64 %r555 to ptr
-  %r558 = getelementptr i64, ptr %r556, i64 %r557
+  %r558 = getelementptr inbounds i64, ptr %r556, i64 %r557
   %r559 = load i64, ptr %r558
   store i64 %r559, ptr %t101
   %r560 = load i64, ptr %arg1
@@ -29987,7 +29987,7 @@ cont.581:
   %r585 = load i64, ptr %t106
   %r587 = load i64, ptr %t107
   %r586 = inttoptr i64 %r585 to ptr
-  %r588 = getelementptr i64, ptr %r586, i64 %r587
+  %r588 = getelementptr inbounds i64, ptr %r586, i64 %r587
   %r589 = load i64, ptr %r588
   store i64 %r589, ptr %t108
   %r590 = ptrtoint ptr @printf to i64
@@ -30020,7 +30020,7 @@ cont.604:
   %r607 = load i64, ptr %t110
   %r609 = load i64, ptr %t111
   %r608 = inttoptr i64 %r607 to ptr
-  %r610 = getelementptr i64, ptr %r608, i64 %r609
+  %r610 = getelementptr inbounds i64, ptr %r608, i64 %r609
   %r611 = load i64, ptr %r610
   store i64 %r611, ptr %t112
   %r612 = load i64, ptr %arg0
@@ -30029,7 +30029,7 @@ cont.604:
   %r613 = load i64, ptr %t113
   %r615 = load i64, ptr %t114
   %r614 = inttoptr i64 %r613 to ptr
-  %r616 = getelementptr i64, ptr %r614, i64 %r615
+  %r616 = getelementptr inbounds i64, ptr %r614, i64 %r615
   %r617 = load i64, ptr %r616
   store i64 %r617, ptr %t115
   %r618 = ptrtoint ptr @__L__124 to i64
@@ -30052,21 +30052,21 @@ cont.625:
   %r629 = load i64, ptr %t117
   %r631 = load i64, ptr %t118
   %r630 = inttoptr i64 %r629 to ptr
-  %r632 = getelementptr i64, ptr %r630, i64 %r631
+  %r632 = getelementptr inbounds i64, ptr %r630, i64 %r631
   %r633 = load i64, ptr %r632
   store i64 %r633, ptr %t119
   store i64 1, ptr %t120
   %r634 = load i64, ptr %t119
   %r636 = load i64, ptr %t120
   %r635 = inttoptr i64 %r634 to ptr
-  %r637 = getelementptr i64, ptr %r635, i64 %r636
+  %r637 = getelementptr inbounds i64, ptr %r635, i64 %r636
   %r638 = load i64, ptr %r637
   store i64 %r638, ptr %t121
   store i64 0, ptr %t122
   %r639 = load i64, ptr %t121
   %r641 = load i64, ptr %t122
   %r640 = inttoptr i64 %r639 to ptr
-  %r642 = getelementptr i64, ptr %r640, i64 %r641
+  %r642 = getelementptr inbounds i64, ptr %r640, i64 %r641
   %r643 = load i64, ptr %r642
   store i64 %r643, ptr %t123
   %r644 = load i64, ptr %arg0
@@ -30075,14 +30075,14 @@ cont.625:
   %r645 = load i64, ptr %t124
   %r647 = load i64, ptr %t125
   %r646 = inttoptr i64 %r645 to ptr
-  %r648 = getelementptr i64, ptr %r646, i64 %r647
+  %r648 = getelementptr inbounds i64, ptr %r646, i64 %r647
   %r649 = load i64, ptr %r648
   store i64 %r649, ptr %t126
   store i64 0, ptr %t127
   %r650 = load i64, ptr %t126
   %r652 = load i64, ptr %t127
   %r651 = inttoptr i64 %r650 to ptr
-  %r653 = getelementptr i64, ptr %r651, i64 %r652
+  %r653 = getelementptr inbounds i64, ptr %r651, i64 %r652
   %r654 = load i64, ptr %r653
   store i64 %r654, ptr %t128
   %r655 = ptrtoint ptr @printf to i64
@@ -30124,14 +30124,14 @@ cont.672:
   %r676 = load i64, ptr %t131
   %r678 = load i64, ptr %t132
   %r677 = inttoptr i64 %r676 to ptr
-  %r679 = getelementptr i64, ptr %r677, i64 %r678
+  %r679 = getelementptr inbounds i64, ptr %r677, i64 %r678
   %r680 = load i64, ptr %r679
   store i64 %r680, ptr %t133
   store i64 0, ptr %t134
   %r681 = load i64, ptr %t133
   %r683 = load i64, ptr %t134
   %r682 = inttoptr i64 %r681 to ptr
-  %r684 = getelementptr i64, ptr %r682, i64 %r683
+  %r684 = getelementptr inbounds i64, ptr %r682, i64 %r683
   %r685 = load i64, ptr %r684
   store i64 %r685, ptr %t135
   %r686 = ptrtoint ptr @printf to i64
@@ -30242,7 +30242,7 @@ __L__1598:
   ret i64 %r731
 }
 ; defn k_array_insert
-define i64 @__L__125(i64 %p0, i64 %p1, i64 %p2) {
+define i64 @__L__125(i64 %p0, i64 %p1, i64 %p2) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -30313,7 +30313,7 @@ cont.21:
   %r24 = load i64, ptr %t5
   %r26 = load i64, ptr %t6
   %r25 = inttoptr i64 %r24 to ptr
-  %r27 = getelementptr i64, ptr %r25, i64 %r26
+  %r27 = getelementptr inbounds i64, ptr %r25, i64 %r26
   %r28 = load i64, ptr %r27
   store i64 %r28, ptr %t7
   %r29 = load i64, ptr %arg1
@@ -30378,7 +30378,7 @@ __L__1685:
   ret i64 %r66
 }
 ; defn k_array_append
-define i64 @__L__126(i64 %p0, i64 %p1) {
+define i64 @__L__126(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -30420,7 +30420,7 @@ entry:
   ret i64 %r16
 }
 ; defn k_set_array_at
-define i64 @__L__127(i64 %p0, i64 %p1, i64 %p2) {
+define i64 @__L__127(i64 %p0, i64 %p1, i64 %p2) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -30498,7 +30498,7 @@ __L__1689:
   %r13 = load i64, ptr %t0
   %r15 = load i64, ptr %t2
   %r14 = inttoptr i64 %r13 to ptr
-  %r16 = getelementptr i64, ptr %r14, i64 %r15
+  %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
   br label %__L__1690
@@ -30529,7 +30529,7 @@ cont.27:
   %r30 = load i64, ptr %t4
   %r32 = load i64, ptr %t5
   %r31 = inttoptr i64 %r30 to ptr
-  %r33 = getelementptr i64, ptr %r31, i64 %r32
+  %r33 = getelementptr inbounds i64, ptr %r31, i64 %r32
   %r34 = load i64, ptr %r33
   store i64 %r34, ptr %t6
   %r35 = load i64, ptr %arg0
@@ -30538,14 +30538,14 @@ cont.27:
   %r36 = load i64, ptr %t7
   %r38 = load i64, ptr %t8
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %t9
   store i64 0, ptr %t10
   %r41 = load i64, ptr %t9
   %r43 = load i64, ptr %t10
   %r42 = inttoptr i64 %r41 to ptr
-  %r44 = getelementptr i64, ptr %r42, i64 %r43
+  %r44 = getelementptr inbounds i64, ptr %r42, i64 %r43
   %r45 = load i64, ptr %r44
   store i64 %r45, ptr %t11
   %r46 = load i64, ptr %arg1
@@ -30660,7 +30660,7 @@ cont.80:
   %r116 = load i64, ptr %t29
   %r118 = load i64, ptr %t30
   %r117 = inttoptr i64 %r115 to ptr
-  %r119 = getelementptr i64, ptr %r117, i64 %r118
+  %r119 = getelementptr inbounds i64, ptr %r117, i64 %r118
   store i64 %r116, ptr %r119
   store i64 %r116, ptr %t6
   %r120 = load i64, ptr %arg0
@@ -30682,7 +30682,7 @@ cont.80:
   %r130 = load i64, ptr %t34
   %r132 = load i64, ptr %t35
   %r131 = inttoptr i64 %r129 to ptr
-  %r133 = getelementptr i64, ptr %r131, i64 %r132
+  %r133 = getelementptr inbounds i64, ptr %r131, i64 %r132
   store i64 %r130, ptr %r133
   store i64 %r130, ptr %t36
   %r134 = ptrtoint ptr %arg0 to i64
@@ -30706,7 +30706,7 @@ __L__1692:
   %r145 = load i64, ptr %t38
   %r147 = load i64, ptr %t39
   %r146 = inttoptr i64 %r144 to ptr
-  %r148 = getelementptr i64, ptr %r146, i64 %r147
+  %r148 = getelementptr inbounds i64, ptr %r146, i64 %r147
   store i64 %r145, ptr %r148
   store i64 %r145, ptr %acc.ptr
   br label %__L__1691
@@ -30719,7 +30719,7 @@ __L__1686:
   ret i64 %r150
 }
 ; defn k_array_at
-define i64 @__L__128(i64 %p0, i64 %p1) {
+define i64 @__L__128(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -30767,7 +30767,7 @@ __L__1698:
   %r13 = load i64, ptr %t0
   %r15 = load i64, ptr %t2
   %r14 = inttoptr i64 %r13 to ptr
-  %r16 = getelementptr i64, ptr %r14, i64 %r15
+  %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
   br label %__L__1699
@@ -30798,7 +30798,7 @@ cont.27:
   %r30 = load i64, ptr %t4
   %r32 = load i64, ptr %t5
   %r31 = inttoptr i64 %r30 to ptr
-  %r33 = getelementptr i64, ptr %r31, i64 %r32
+  %r33 = getelementptr inbounds i64, ptr %r31, i64 %r32
   %r34 = load i64, ptr %r33
   store i64 %r34, ptr %t6
   %r35 = load i64, ptr %arg0
@@ -30807,14 +30807,14 @@ cont.27:
   %r36 = load i64, ptr %t7
   %r38 = load i64, ptr %t8
   %r37 = inttoptr i64 %r36 to ptr
-  %r39 = getelementptr i64, ptr %r37, i64 %r38
+  %r39 = getelementptr inbounds i64, ptr %r37, i64 %r38
   %r40 = load i64, ptr %r39
   store i64 %r40, ptr %t9
   store i64 0, ptr %t10
   %r41 = load i64, ptr %t9
   %r43 = load i64, ptr %t10
   %r42 = inttoptr i64 %r41 to ptr
-  %r44 = getelementptr i64, ptr %r42, i64 %r43
+  %r44 = getelementptr inbounds i64, ptr %r42, i64 %r43
   %r45 = load i64, ptr %r44
   store i64 %r45, ptr %t11
   %r46 = load i64, ptr %arg1
@@ -30843,7 +30843,7 @@ cont.59:
   %r62 = load i64, ptr %t6
   %r64 = load i64, ptr %t14
   %r63 = inttoptr i64 %r62 to ptr
-  %r65 = getelementptr i64, ptr %r63, i64 %r64
+  %r65 = getelementptr inbounds i64, ptr %r63, i64 %r64
   %r66 = load i64, ptr %r65
   store i64 %r66, ptr %acc.ptr
   br label %__L__1700
@@ -30856,7 +30856,7 @@ __L__1695:
   ret i64 %r68
 }
 ; defn k_array_length
-define i64 @__L__129(i64 %p0) {
+define i64 @__L__129(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -30871,19 +30871,19 @@ entry:
   %r1 = load i64, ptr %t0
   %r3 = load i64, ptr %t1
   %r2 = inttoptr i64 %r1 to ptr
-  %r4 = getelementptr i64, ptr %r2, i64 %r3
+  %r4 = getelementptr inbounds i64, ptr %r2, i64 %r3
   %r5 = load i64, ptr %r4
   store i64 %r5, ptr %t2
   store i64 0, ptr %t3
   %r6 = load i64, ptr %t2
   %r8 = load i64, ptr %t3
   %r7 = inttoptr i64 %r6 to ptr
-  %r9 = getelementptr i64, ptr %r7, i64 %r8
+  %r9 = getelementptr inbounds i64, ptr %r7, i64 %r8
   %r10 = load i64, ptr %r9
   ret i64 %r10
 }
 ; defn k_concat
-define i64 @__L__130(i64 %p0, i64 %p1) {
+define i64 @__L__130(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -30931,7 +30931,7 @@ __L__1705:
   %r13 = load i64, ptr %t0
   %r15 = load i64, ptr %t2
   %r14 = inttoptr i64 %r13 to ptr
-  %r16 = getelementptr i64, ptr %r14, i64 %r15
+  %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
   br label %__L__1706
@@ -30960,7 +30960,7 @@ cont.27:
   %r29 = load i64, ptr %arg0
   %r31 = load i64, ptr %t4
   %r30 = inttoptr i64 %r29 to ptr
-  %r32 = getelementptr i64, ptr %r30, i64 %r31
+  %r32 = getelementptr inbounds i64, ptr %r30, i64 %r31
   %r33 = load i64, ptr %r32
   store i64 %r33, ptr %t5
   %r34 = load i64, ptr %arg1
@@ -30987,7 +30987,7 @@ cont.27:
   %r48 = load i64, ptr %arg0
   %r50 = load i64, ptr %t8
   %r49 = inttoptr i64 %r48 to ptr
-  %r51 = getelementptr i64, ptr %r49, i64 %r50
+  %r51 = getelementptr inbounds i64, ptr %r49, i64 %r50
   %r52 = load i64, ptr %r51
   store i64 %r52, ptr %t9
   %r53 = load i64, ptr %arg1
@@ -31023,7 +31023,7 @@ __L__1702:
   ret i64 %r70
 }
 ; defn k_string_length
-define i64 @__L__131(i64 %p0) {
+define i64 @__L__131(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -31038,19 +31038,19 @@ entry:
   %r1 = load i64, ptr %t0
   %r3 = load i64, ptr %t1
   %r2 = inttoptr i64 %r1 to ptr
-  %r4 = getelementptr i64, ptr %r2, i64 %r3
+  %r4 = getelementptr inbounds i64, ptr %r2, i64 %r3
   %r5 = load i64, ptr %r4
   store i64 %r5, ptr %t2
   store i64 0, ptr %t3
   %r6 = load i64, ptr %t2
   %r8 = load i64, ptr %t3
   %r7 = inttoptr i64 %r6 to ptr
-  %r9 = getelementptr i64, ptr %r7, i64 %r8
+  %r9 = getelementptr inbounds i64, ptr %r7, i64 %r8
   %r10 = load i64, ptr %r9
   ret i64 %r10
 }
 ; defn k_caddr
-define i64 @__L__132(i64 %p0) {
+define i64 @__L__132(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -31084,7 +31084,7 @@ entry:
   ret i64 %r15
 }
 ; defn k_cddr
-define i64 @__L__133(i64 %p0) {
+define i64 @__L__133(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -31110,7 +31110,7 @@ entry:
   ret i64 %r10
 }
 ; defn k_cadr
-define i64 @__L__134(i64 %p0) {
+define i64 @__L__134(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -31136,7 +31136,7 @@ entry:
   ret i64 %r10
 }
 ; defn k_caar
-define i64 @__L__135(i64 %p0) {
+define i64 @__L__135(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -31162,7 +31162,7 @@ entry:
   ret i64 %r10
 }
 ; defn k_cdr
-define i64 @__L__136(i64 %p0) {
+define i64 @__L__136(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -31198,7 +31198,7 @@ __L__1710:
   %r13 = load i64, ptr %t0
   %r15 = load i64, ptr %t2
   %r14 = inttoptr i64 %r13 to ptr
-  %r16 = getelementptr i64, ptr %r14, i64 %r15
+  %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
   br label %__L__1711
@@ -31227,7 +31227,7 @@ cont.27:
   %r29 = load i64, ptr %arg0
   %r31 = load i64, ptr %t4
   %r30 = inttoptr i64 %r29 to ptr
-  %r32 = getelementptr i64, ptr %r30, i64 %r31
+  %r32 = getelementptr inbounds i64, ptr %r30, i64 %r31
   %r33 = load i64, ptr %r32
   store i64 %r33, ptr %acc.ptr
   br label %__L__1707
@@ -31236,7 +31236,7 @@ __L__1707:
   ret i64 %r34
 }
 ; defn k_car
-define i64 @__L__137(i64 %p0) {
+define i64 @__L__137(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -31272,7 +31272,7 @@ __L__1715:
   %r13 = load i64, ptr %t0
   %r15 = load i64, ptr %t2
   %r14 = inttoptr i64 %r13 to ptr
-  %r16 = getelementptr i64, ptr %r14, i64 %r15
+  %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
   br label %__L__1716
@@ -31301,7 +31301,7 @@ cont.27:
   %r29 = load i64, ptr %arg0
   %r31 = load i64, ptr %t4
   %r30 = inttoptr i64 %r29 to ptr
-  %r32 = getelementptr i64, ptr %r30, i64 %r31
+  %r32 = getelementptr inbounds i64, ptr %r30, i64 %r31
   %r33 = load i64, ptr %r32
   store i64 %r33, ptr %acc.ptr
   br label %__L__1712
@@ -31310,7 +31310,7 @@ __L__1712:
   ret i64 %r34
 }
 ; defn is_global
-define i64 @__L__138(i64 %p0) {
+define i64 @__L__138(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -31329,7 +31329,7 @@ entry:
   %r1 = load i64, ptr %t0
   %r3 = load i64, ptr %t1
   %r2 = inttoptr i64 %r1 to ptr
-  %r4 = getelementptr i64, ptr %r2, i64 %r3
+  %r4 = getelementptr inbounds i64, ptr %r2, i64 %r3
   %r5 = load i64, ptr %r4
   store i64 %r5, ptr %t2
   %r6 = load i64, ptr %t2
@@ -31344,14 +31344,14 @@ cont.8:
   %r11 = load i64, ptr %t3
   %r13 = load i64, ptr %t4
   %r12 = inttoptr i64 %r11 to ptr
-  %r14 = getelementptr i64, ptr %r12, i64 %r13
+  %r14 = getelementptr inbounds i64, ptr %r12, i64 %r13
   %r15 = load i64, ptr %r14
   store i64 %r15, ptr %t5
   store i64 0, ptr %t6
   %r16 = load i64, ptr %t5
   %r18 = load i64, ptr %t6
   %r17 = inttoptr i64 %r16 to ptr
-  %r19 = getelementptr i64, ptr %r17, i64 %r18
+  %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   %r20 = load i64, ptr %r19
   store i64 %r20, ptr %t7
   %r21 = load i64, ptr %t7
@@ -31364,7 +31364,7 @@ __L__1717:
   ret i64 %r24
 }
 ; defn new-<context>
-define i64 @__L__139(i64 %p0, i64 %p1, i64 %p2) {
+define i64 @__L__139(i64 %p0, i64 %p1, i64 %p2) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -31404,7 +31404,7 @@ cont.2:
   %r5 = load i64, ptr %t1
   %r7 = load i64, ptr %t2
   %r6 = inttoptr i64 %r5 to ptr
-  %r8 = getelementptr i64, ptr %r6, i64 %r7
+  %r8 = getelementptr inbounds i64, ptr %r6, i64 %r7
   %r9 = load i64, ptr %r8
   store i64 %r9, ptr %t0
   store i64 %r9, ptr %acc.ptr
@@ -31425,7 +31425,7 @@ cont.12:
   %r17 = load i64, ptr %t4
   %r19 = load i64, ptr %t5
   %r18 = inttoptr i64 %r16 to ptr
-  %r20 = getelementptr i64, ptr %r18, i64 %r19
+  %r20 = getelementptr inbounds i64, ptr %r18, i64 %r19
   store i64 %r17, ptr %r20
   %r21 = load i64, ptr %t0
   store i64 %r21, ptr %t6
@@ -31436,7 +31436,7 @@ cont.12:
   %r24 = load i64, ptr %t7
   %r26 = load i64, ptr %t8
   %r25 = inttoptr i64 %r23 to ptr
-  %r27 = getelementptr i64, ptr %r25, i64 %r26
+  %r27 = getelementptr inbounds i64, ptr %r25, i64 %r26
   store i64 %r24, ptr %r27
   store i64 %r24, ptr %acc.ptr
   br label %__L__1719
@@ -31476,7 +31476,7 @@ cont.43:
   %r48 = load i64, ptr %t13
   %r50 = load i64, ptr %t14
   %r49 = inttoptr i64 %r47 to ptr
-  %r51 = getelementptr i64, ptr %r49, i64 %r50
+  %r51 = getelementptr inbounds i64, ptr %r49, i64 %r50
   store i64 %r48, ptr %r51
   store i64 %r48, ptr %acc.ptr
   br label %__L__1721
@@ -31490,7 +31490,7 @@ __L__1719:
   ret i64 %r54
 }
 ; defn new-base-<context>
-define i64 @__L__140(i64 %p0, i64 %p1, i64 %p2) {
+define i64 @__L__140(i64 %p0, i64 %p1, i64 %p2) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -31542,7 +31542,7 @@ entry:
   %r16 = load i64, ptr %t4
   %r18 = load i64, ptr %t5
   %r17 = inttoptr i64 %r15 to ptr
-  %r19 = getelementptr i64, ptr %r17, i64 %r18
+  %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   store i64 %r16, ptr %r19
   %r20 = load i64, ptr %arg2
   store i64 %r20, ptr %t6
@@ -31551,7 +31551,7 @@ entry:
   %r22 = load i64, ptr %t6
   %r24 = load i64, ptr %t7
   %r23 = inttoptr i64 %r21 to ptr
-  %r25 = getelementptr i64, ptr %r23, i64 %r24
+  %r25 = getelementptr inbounds i64, ptr %r23, i64 %r24
   store i64 %r22, ptr %r25
   store i64 0, ptr %t8
   %r26 = ptrtoint ptr @__L__148 to i64
@@ -31566,7 +31566,7 @@ entry:
   %r32 = load i64, ptr %t9
   %r34 = load i64, ptr %t10
   %r33 = inttoptr i64 %r31 to ptr
-  %r35 = getelementptr i64, ptr %r33, i64 %r34
+  %r35 = getelementptr inbounds i64, ptr %r33, i64 %r34
   store i64 %r32, ptr %r35
   %r36 = load i64, ptr %t2
   store i64 %r36, ptr %t11
@@ -31582,7 +31582,7 @@ entry:
   ret i64 %r43
 }
 ; defn new-<env>
-define i64 @__L__141(i64 %p0, i64 %p1, i64 %p2) {
+define i64 @__L__141(i64 %p0, i64 %p1, i64 %p2) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -31643,7 +31643,7 @@ entry:
   %r16 = load i64, ptr %t4
   %r18 = load i64, ptr %t5
   %r17 = inttoptr i64 %r15 to ptr
-  %r19 = getelementptr i64, ptr %r17, i64 %r18
+  %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   store i64 %r16, ptr %r19
   %r20 = load i64, ptr %arg0
   store i64 %r20, ptr %acc.ptr
@@ -31659,14 +31659,14 @@ cont.22:
   %r26 = load i64, ptr %t7
   %r28 = load i64, ptr %t8
   %r27 = inttoptr i64 %r26 to ptr
-  %r29 = getelementptr i64, ptr %r27, i64 %r28
+  %r29 = getelementptr inbounds i64, ptr %r27, i64 %r28
   %r30 = load i64, ptr %r29
   store i64 %r30, ptr %t9
   store i64 0, ptr %t10
   %r31 = load i64, ptr %t9
   %r33 = load i64, ptr %t10
   %r32 = inttoptr i64 %r31 to ptr
-  %r34 = getelementptr i64, ptr %r32, i64 %r33
+  %r34 = getelementptr inbounds i64, ptr %r32, i64 %r33
   %r35 = load i64, ptr %r34
   %r36 = load i64, ptr %t6
   %r37 = add i64 %r35, %r36
@@ -31691,7 +31691,7 @@ __L__1723:
   %r46 = load i64, ptr %t12
   %r48 = load i64, ptr %t13
   %r47 = inttoptr i64 %r45 to ptr
-  %r49 = getelementptr i64, ptr %r47, i64 %r48
+  %r49 = getelementptr inbounds i64, ptr %r47, i64 %r48
   store i64 %r46, ptr %r49
   %r50 = load i64, ptr %arg2
   store i64 %r50, ptr %t14
@@ -31707,7 +31707,7 @@ __L__1723:
   %r57 = load i64, ptr %t15
   %r59 = load i64, ptr %t16
   %r58 = inttoptr i64 %r56 to ptr
-  %r60 = getelementptr i64, ptr %r58, i64 %r59
+  %r60 = getelementptr inbounds i64, ptr %r58, i64 %r59
   store i64 %r57, ptr %r60
   store i64 0, ptr %t17
   %r61 = ptrtoint ptr @__L__148 to i64
@@ -31722,7 +31722,7 @@ __L__1723:
   %r67 = load i64, ptr %t18
   %r69 = load i64, ptr %t19
   %r68 = inttoptr i64 %r66 to ptr
-  %r70 = getelementptr i64, ptr %r68, i64 %r69
+  %r70 = getelementptr inbounds i64, ptr %r68, i64 %r69
   store i64 %r67, ptr %r70
   %r71 = load i64, ptr %t2
   store i64 %r71, ptr %t20
@@ -31755,7 +31755,7 @@ __L__1723:
 ; form get
 ; defn type_check_fail
 @__L__1724 = private constant [33 x i8] c"illegal type: expected %d got %d\00"
-define i64 @__L__142(i64 %p0, i64 %p1) {
+define i64 @__L__142(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -31793,7 +31793,7 @@ entry:
 ; defn get-type
 ; form get-type
 ; defn new-<variable>
-define i64 @__L__143(i64 %p0, i64 %p1, i64 %p2, i64 %p3) {
+define i64 @__L__143(i64 %p0, i64 %p1, i64 %p2, i64 %p3) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -31849,7 +31849,7 @@ entry:
   %r16 = load i64, ptr %t4
   %r18 = load i64, ptr %t5
   %r17 = inttoptr i64 %r15 to ptr
-  %r19 = getelementptr i64, ptr %r17, i64 %r18
+  %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   store i64 %r16, ptr %r19
   %r20 = load i64, ptr %arg1
   store i64 %r20, ptr %t6
@@ -31858,7 +31858,7 @@ entry:
   %r22 = load i64, ptr %t6
   %r24 = load i64, ptr %t7
   %r23 = inttoptr i64 %r21 to ptr
-  %r25 = getelementptr i64, ptr %r23, i64 %r24
+  %r25 = getelementptr inbounds i64, ptr %r23, i64 %r24
   store i64 %r22, ptr %r25
   %r26 = load i64, ptr %arg2
   store i64 %r26, ptr %t8
@@ -31867,7 +31867,7 @@ entry:
   %r28 = load i64, ptr %t8
   %r30 = load i64, ptr %t9
   %r29 = inttoptr i64 %r27 to ptr
-  %r31 = getelementptr i64, ptr %r29, i64 %r30
+  %r31 = getelementptr inbounds i64, ptr %r29, i64 %r30
   store i64 %r28, ptr %r31
   %r32 = load i64, ptr %arg3
   store i64 %r32, ptr %t10
@@ -31883,7 +31883,7 @@ entry:
   %r39 = load i64, ptr %t11
   %r41 = load i64, ptr %t12
   %r40 = inttoptr i64 %r38 to ptr
-  %r42 = getelementptr i64, ptr %r40, i64 %r41
+  %r42 = getelementptr inbounds i64, ptr %r40, i64 %r41
   store i64 %r39, ptr %r42
   %r43 = load i64, ptr %t2
   store i64 %r43, ptr %t13
@@ -31899,7 +31899,7 @@ entry:
   ret i64 %r50
 }
 ; defn new-<subr>
-define i64 @__L__144(i64 %p0, i64 %p1) {
+define i64 @__L__144(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -31946,7 +31946,7 @@ entry:
   %r16 = load i64, ptr %t4
   %r18 = load i64, ptr %t5
   %r17 = inttoptr i64 %r15 to ptr
-  %r19 = getelementptr i64, ptr %r17, i64 %r18
+  %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   store i64 %r16, ptr %r19
   %r20 = load i64, ptr %arg1
   store i64 %r20, ptr %t6
@@ -31955,7 +31955,7 @@ entry:
   %r22 = load i64, ptr %t6
   %r24 = load i64, ptr %t7
   %r23 = inttoptr i64 %r21 to ptr
-  %r25 = getelementptr i64, ptr %r23, i64 %r24
+  %r25 = getelementptr inbounds i64, ptr %r23, i64 %r24
   store i64 %r22, ptr %r25
   %r26 = load i64, ptr %t2
   store i64 %r26, ptr %t8
@@ -31971,7 +31971,7 @@ entry:
   ret i64 %r33
 }
 ; defn new-<fixed>
-define i64 @__L__145(i64 %p0) {
+define i64 @__L__145(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -32014,7 +32014,7 @@ entry:
   %r16 = load i64, ptr %t4
   %r18 = load i64, ptr %t5
   %r17 = inttoptr i64 %r15 to ptr
-  %r19 = getelementptr i64, ptr %r17, i64 %r18
+  %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   store i64 %r16, ptr %r19
   %r20 = load i64, ptr %t2
   store i64 %r20, ptr %t6
@@ -32030,7 +32030,7 @@ entry:
   ret i64 %r27
 }
 ; defn new-<form>
-define i64 @__L__146(i64 %p0, i64 %p1) {
+define i64 @__L__146(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -32077,7 +32077,7 @@ entry:
   %r16 = load i64, ptr %t4
   %r18 = load i64, ptr %t5
   %r17 = inttoptr i64 %r15 to ptr
-  %r19 = getelementptr i64, ptr %r17, i64 %r18
+  %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   store i64 %r16, ptr %r19
   %r20 = load i64, ptr %arg1
   store i64 %r20, ptr %t6
@@ -32086,7 +32086,7 @@ entry:
   %r22 = load i64, ptr %t6
   %r24 = load i64, ptr %t7
   %r23 = inttoptr i64 %r21 to ptr
-  %r25 = getelementptr i64, ptr %r23, i64 %r24
+  %r25 = getelementptr inbounds i64, ptr %r23, i64 %r24
   store i64 %r22, ptr %r25
   %r26 = load i64, ptr %t2
   store i64 %r26, ptr %t8
@@ -32102,7 +32102,7 @@ entry:
   ret i64 %r33
 }
 ; defn new-<expr>
-define i64 @__L__147(i64 %p0, i64 %p1) {
+define i64 @__L__147(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -32138,7 +32138,7 @@ entry:
   %r10 = load i64, ptr %t3
   %r12 = load i64, ptr %t4
   %r11 = inttoptr i64 %r9 to ptr
-  %r13 = getelementptr i64, ptr %r11, i64 %r12
+  %r13 = getelementptr inbounds i64, ptr %r11, i64 %r12
   store i64 %r10, ptr %r13
   %r14 = load i64, ptr %arg1
   store i64 %r14, ptr %t5
@@ -32147,13 +32147,13 @@ entry:
   %r16 = load i64, ptr %t5
   %r18 = load i64, ptr %t6
   %r17 = inttoptr i64 %r15 to ptr
-  %r19 = getelementptr i64, ptr %r17, i64 %r18
+  %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   store i64 %r16, ptr %r19
   %r20 = load i64, ptr %t2
   ret i64 %r20
 }
 ; defn new-<array>
-define i64 @__L__148(i64 %p0) {
+define i64 @__L__148(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -32226,7 +32226,7 @@ __L__1726:
   %r28 = load i64, ptr %t6
   %r30 = load i64, ptr %t7
   %r29 = inttoptr i64 %r27 to ptr
-  %r31 = getelementptr i64, ptr %r29, i64 %r30
+  %r31 = getelementptr inbounds i64, ptr %r29, i64 %r30
   store i64 %r28, ptr %r31
   %r32 = load i64, ptr @_3C__array_3E
   store i64 %r32, ptr %t8
@@ -32250,7 +32250,7 @@ __L__1726:
   %r44 = load i64, ptr %t11
   %r46 = load i64, ptr %t12
   %r45 = inttoptr i64 %r43 to ptr
-  %r47 = getelementptr i64, ptr %r45, i64 %r46
+  %r47 = getelementptr inbounds i64, ptr %r45, i64 %r46
   store i64 %r44, ptr %r47
   %r48 = load i64, ptr %t3
   store i64 %r48, ptr %t13
@@ -32266,7 +32266,7 @@ __L__1726:
   ret i64 %r55
 }
 ; defn new-<pair>
-define i64 @__L__149(i64 %p0, i64 %p1) {
+define i64 @__L__149(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -32302,7 +32302,7 @@ entry:
   %r10 = load i64, ptr %t3
   %r12 = load i64, ptr %t4
   %r11 = inttoptr i64 %r9 to ptr
-  %r13 = getelementptr i64, ptr %r11, i64 %r12
+  %r13 = getelementptr inbounds i64, ptr %r11, i64 %r12
   store i64 %r10, ptr %r13
   %r14 = load i64, ptr %arg1
   store i64 %r14, ptr %t5
@@ -32311,13 +32311,13 @@ entry:
   %r16 = load i64, ptr %t5
   %r18 = load i64, ptr %t6
   %r17 = inttoptr i64 %r15 to ptr
-  %r19 = getelementptr i64, ptr %r17, i64 %r18
+  %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   store i64 %r16, ptr %r19
   %r20 = load i64, ptr %t2
   ret i64 %r20
 }
 ; defn new-<symbol>
-define i64 @__L__150(i64 %p0) {
+define i64 @__L__150(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -32357,13 +32357,13 @@ entry:
   %r15 = load i64, ptr %t4
   %r17 = load i64, ptr %t5
   %r16 = inttoptr i64 %r14 to ptr
-  %r18 = getelementptr i64, ptr %r16, i64 %r17
+  %r18 = getelementptr inbounds i64, ptr %r16, i64 %r17
   store i64 %r15, ptr %r18
   %r19 = load i64, ptr %t2
   ret i64 %r19
 }
 ; defn new-<string>
-define i64 @__L__151(i64 %p0) {
+define i64 @__L__151(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -32401,7 +32401,7 @@ entry:
   %r12 = load i64, ptr %t3
   %r14 = load i64, ptr %t4
   %r13 = inttoptr i64 %r12 to ptr
-  %r15 = getelementptr i64, ptr %r13, i64 %r14
+  %r15 = getelementptr inbounds i64, ptr %r13, i64 %r14
   %r16 = load i64, ptr %r15
   store i64 %r16, ptr %t5
   %r17 = load i64, ptr %arg0
@@ -32424,7 +32424,7 @@ entry:
   ret i64 %r28
 }
 ; defn _new-<string>
-define i64 @__L__152(i64 %p0) {
+define i64 @__L__152(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -32479,7 +32479,7 @@ entry:
   %r21 = load i64, ptr %t5
   %r23 = load i64, ptr %t6
   %r22 = inttoptr i64 %r20 to ptr
-  %r24 = getelementptr i64, ptr %r22, i64 %r23
+  %r24 = getelementptr inbounds i64, ptr %r22, i64 %r23
   store i64 %r21, ptr %r24
   store i64 1, ptr %t7
   %r25 = load i64, ptr %arg0
@@ -32498,7 +32498,7 @@ entry:
   %r34 = load i64, ptr %t9
   %r36 = load i64, ptr %t10
   %r35 = inttoptr i64 %r33 to ptr
-  %r37 = getelementptr i64, ptr %r35, i64 %r36
+  %r37 = getelementptr inbounds i64, ptr %r35, i64 %r36
   store i64 %r34, ptr %r37
   %r38 = load i64, ptr %t2
   store i64 %r38, ptr %t11
@@ -32514,7 +32514,7 @@ entry:
   ret i64 %r45
 }
 ; defn new-<double>
-define i64 @__L__153(i64 %p0) {
+define i64 @__L__153(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -32546,13 +32546,13 @@ entry:
   %r10 = load i64, ptr %t3
   %r12 = load i64, ptr %t4
   %r11 = inttoptr i64 %r9 to ptr
-  %r13 = getelementptr i64, ptr %r11, i64 %r12
+  %r13 = getelementptr inbounds i64, ptr %r11, i64 %r12
   store i64 %r10, ptr %r13
   %r14 = load i64, ptr %t2
   ret i64 %r14
 }
 ; defn new-<long>
-define i64 @__L__154(i64 %p0) {
+define i64 @__L__154(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -32584,13 +32584,13 @@ entry:
   %r10 = load i64, ptr %t3
   %r12 = load i64, ptr %t4
   %r11 = inttoptr i64 %r9 to ptr
-  %r13 = getelementptr i64, ptr %r11, i64 %r12
+  %r13 = getelementptr inbounds i64, ptr %r11, i64 %r12
   store i64 %r10, ptr %r13
   %r14 = load i64, ptr %t2
   ret i64 %r14
 }
 ; defn new-oops
-define i64 @__L__155(i64 %p0, i64 %p1) {
+define i64 @__L__155(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -32618,13 +32618,13 @@ entry:
   %r8 = load i64, ptr %t2
   %r10 = load i64, ptr %t3
   %r9 = inttoptr i64 %r7 to ptr
-  %r11 = getelementptr i64, ptr %r9, i64 %r10
+  %r11 = getelementptr inbounds i64, ptr %r9, i64 %r10
   store i64 %r8, ptr %r11
   %r12 = load i64, ptr %t1
   ret i64 %r12
 }
 ; defn new-bits
-define i64 @__L__156(i64 %p0, i64 %p1) {
+define i64 @__L__156(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -32652,7 +32652,7 @@ entry:
   %r8 = load i64, ptr %t2
   %r10 = load i64, ptr %t3
   %r9 = inttoptr i64 %r7 to ptr
-  %r11 = getelementptr i64, ptr %r9, i64 %r10
+  %r11 = getelementptr inbounds i64, ptr %r9, i64 %r10
   store i64 %r8, ptr %r11
   %r12 = load i64, ptr %t1
   ret i64 %r12
@@ -32760,7 +32760,7 @@ entry:
 ; defn strcmp
 ; defn strlen
 ; defn gc_malloc_atomic
-define i64 @__L__157(i64 %p0) {
+define i64 @__L__157(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -32789,13 +32789,13 @@ entry:
   %r9 = load i64, ptr %t2
   %r11 = load i64, ptr %t3
   %r10 = inttoptr i64 %r8 to ptr
-  %r12 = getelementptr i64, ptr %r10, i64 %r11
+  %r12 = getelementptr inbounds i64, ptr %r10, i64 %r11
   store i64 %r9, ptr %r12
   %r13 = load i64, ptr %t1
   ret i64 %r13
 }
 ; defn gc_malloc
-define i64 @__L__158(i64 %p0) {
+define i64 @__L__158(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -32895,7 +32895,7 @@ __L__1727:
   %r17 = load i64, ptr @gc__memory__last
   %r19 = load i64, ptr %t3
   %r18 = inttoptr i64 %r17 to ptr
-  %r20 = getelementptr i64, ptr %r18, i64 %r19
+  %r20 = getelementptr inbounds i64, ptr %r18, i64 %r19
   %r21 = load i64, ptr %r20
   store i64 %r21, ptr %t4
   %r22 = load i64, ptr %t4
@@ -32921,7 +32921,7 @@ __L__1731:
   %r29 = load i64, ptr %t5
   %r31 = load i64, ptr %t8
   %r30 = inttoptr i64 %r29 to ptr
-  %r32 = getelementptr i64, ptr %r30, i64 %r31
+  %r32 = getelementptr inbounds i64, ptr %r30, i64 %r31
   %r33 = load i64, ptr %r32
   store i64 %r33, ptr %t9
   %r34 = load i64, ptr %t9
@@ -32936,7 +32936,7 @@ cont.38:
   %r40 = load i64, ptr %t5
   %r42 = load i64, ptr %t10
   %r41 = inttoptr i64 %r40 to ptr
-  %r43 = getelementptr i64, ptr %r41, i64 %r42
+  %r43 = getelementptr inbounds i64, ptr %r41, i64 %r42
   %r44 = load i64, ptr %r43
   store i64 %r44, ptr %t11
   store i64 %r44, ptr %acc.ptr
@@ -32947,14 +32947,14 @@ __L__1734:
   %r46 = load i64, ptr %t5
   %r48 = load i64, ptr %t12
   %r47 = inttoptr i64 %r46 to ptr
-  %r49 = getelementptr i64, ptr %r47, i64 %r48
+  %r49 = getelementptr inbounds i64, ptr %r47, i64 %r48
   %r50 = load i64, ptr %r49
   store i64 %r50, ptr %t13
   store i64 2, ptr %t14
   %r51 = load i64, ptr %t13
   %r53 = load i64, ptr %t14
   %r52 = inttoptr i64 %r51 to ptr
-  %r54 = getelementptr i64, ptr %r52, i64 %r53
+  %r54 = getelementptr inbounds i64, ptr %r52, i64 %r53
   %r55 = load i64, ptr %r54
   store i64 %r55, ptr %t15
   store i64 2, ptr %t16
@@ -32962,13 +32962,13 @@ __L__1734:
   %r57 = load i64, ptr %t15
   %r59 = load i64, ptr %t16
   %r58 = inttoptr i64 %r56 to ptr
-  %r60 = getelementptr i64, ptr %r58, i64 %r59
+  %r60 = getelementptr inbounds i64, ptr %r58, i64 %r59
   store i64 %r57, ptr %r60
   store i64 0, ptr %t17
   %r61 = load i64, ptr %t13
   %r63 = load i64, ptr %t17
   %r62 = inttoptr i64 %r61 to ptr
-  %r64 = getelementptr i64, ptr %r62, i64 %r63
+  %r64 = getelementptr inbounds i64, ptr %r62, i64 %r63
   %r65 = load i64, ptr %r64
   store i64 %r65, ptr %t18
   %r66 = load i64, ptr %t18
@@ -32983,7 +32983,7 @@ __L__1734:
   %r72 = load i64, ptr %t20
   %r74 = load i64, ptr %t21
   %r73 = inttoptr i64 %r71 to ptr
-  %r75 = getelementptr i64, ptr %r73, i64 %r74
+  %r75 = getelementptr inbounds i64, ptr %r73, i64 %r74
   store i64 %r72, ptr %r75
   store i64 %r72, ptr %t11
   %r76 = load i64, ptr @gc__memory__last
@@ -33012,11 +33012,11 @@ __L__1735:
   %r87 = load i64, ptr %t5
   %r89 = load i64, ptr %t24
   %r88 = inttoptr i64 %r87 to ptr
-  %r90 = getelementptr i64, ptr %r88, i64 %r89
+  %r90 = getelementptr inbounds i64, ptr %r88, i64 %r89
   %r91 = load i64, ptr %r90
   %r93 = load i64, ptr %t23
   %r92 = inttoptr i64 %r91 to ptr
-  %r94 = getelementptr i64, ptr %r92, i64 %r93
+  %r94 = getelementptr inbounds i64, ptr %r92, i64 %r93
   %r95 = load i64, ptr %r94
   store i64 %r95, ptr %t25
   %r96 = load i64, ptr %t25
@@ -33040,7 +33040,7 @@ cont.100:
   %r108 = load i64, ptr %t5
   %r110 = load i64, ptr %t29
   %r109 = inttoptr i64 %r108 to ptr
-  %r111 = getelementptr i64, ptr %r109, i64 %r110
+  %r111 = getelementptr inbounds i64, ptr %r109, i64 %r110
   %r112 = load i64, ptr %r111
   %r113 = load i64, ptr %t28
   %r114 = icmp eq i64 %r112, %r113
@@ -33111,7 +33111,7 @@ cont.143:
   %r156 = load i64, ptr %t37
   %r158 = load i64, ptr %t38
   %r157 = inttoptr i64 %r155 to ptr
-  %r159 = getelementptr i64, ptr %r157, i64 %r158
+  %r159 = getelementptr inbounds i64, ptr %r157, i64 %r158
   store i64 %r156, ptr %r159
   store i64 0, ptr %t39
   store i64 1, ptr %t40
@@ -33119,13 +33119,13 @@ cont.143:
   %r161 = load i64, ptr %t39
   %r163 = load i64, ptr %t40
   %r162 = inttoptr i64 %r160 to ptr
-  %r164 = getelementptr i64, ptr %r162, i64 %r163
+  %r164 = getelementptr inbounds i64, ptr %r162, i64 %r163
   store i64 %r161, ptr %r164
   store i64 2, ptr %t41
   %r165 = load i64, ptr %t5
   %r167 = load i64, ptr %t41
   %r166 = inttoptr i64 %r165 to ptr
-  %r168 = getelementptr i64, ptr %r166, i64 %r167
+  %r168 = getelementptr inbounds i64, ptr %r166, i64 %r167
   %r169 = load i64, ptr %r168
   store i64 %r169, ptr %t42
   store i64 2, ptr %t43
@@ -33133,7 +33133,7 @@ cont.143:
   %r171 = load i64, ptr %t42
   %r173 = load i64, ptr %t43
   %r172 = inttoptr i64 %r170 to ptr
-  %r174 = getelementptr i64, ptr %r172, i64 %r173
+  %r174 = getelementptr inbounds i64, ptr %r172, i64 %r173
   store i64 %r171, ptr %r174
   %r175 = load i64, ptr %arg0
   store i64 %r175, ptr %t44
@@ -33142,7 +33142,7 @@ cont.143:
   %r177 = load i64, ptr %t44
   %r179 = load i64, ptr %t45
   %r178 = inttoptr i64 %r176 to ptr
-  %r180 = getelementptr i64, ptr %r178, i64 %r179
+  %r180 = getelementptr inbounds i64, ptr %r178, i64 %r179
   store i64 %r177, ptr %r180
   %r181 = load i64, ptr %t34
   store i64 %r181, ptr %t46
@@ -33151,7 +33151,7 @@ cont.143:
   %r183 = load i64, ptr %t46
   %r185 = load i64, ptr %t47
   %r184 = inttoptr i64 %r182 to ptr
-  %r186 = getelementptr i64, ptr %r184, i64 %r185
+  %r186 = getelementptr inbounds i64, ptr %r184, i64 %r185
   store i64 %r183, ptr %r186
   %r187 = load i64, ptr %arg0
   store i64 %r187, ptr %t11
@@ -33165,7 +33165,7 @@ __L__1741:
   %r190 = load i64, ptr %t48
   %r192 = load i64, ptr %t49
   %r191 = inttoptr i64 %r189 to ptr
-  %r193 = getelementptr i64, ptr %r191, i64 %r192
+  %r193 = getelementptr inbounds i64, ptr %r191, i64 %r192
   store i64 %r190, ptr %r193
   %r194 = load i64, ptr %t5
   store i64 %r194, ptr @gc__memory__last
@@ -33217,7 +33217,7 @@ __L__1733:
   %r217 = load i64, ptr %t5
   %r219 = load i64, ptr %t56
   %r218 = inttoptr i64 %r217 to ptr
-  %r220 = getelementptr i64, ptr %r218, i64 %r219
+  %r220 = getelementptr inbounds i64, ptr %r218, i64 %r219
   %r221 = load i64, ptr %r220
   store i64 %r221, ptr %t5
   store i64 %r221, ptr %t57
@@ -33269,7 +33269,7 @@ __L__1742:
   ret i64 %r249
 }
 ; defn gc_gcollect
-define i64 @__L__159() {
+define i64 @__L__159() nounwind {
 entry:
   %acc.ptr = alloca i64
   %t0 = alloca i64
@@ -33290,11 +33290,11 @@ __L__1743:
   %r2 = load i64, ptr @gc__roots
   %r4 = load i64, ptr %t2
   %r3 = inttoptr i64 %r2 to ptr
-  %r5 = getelementptr i64, ptr %r3, i64 %r4
+  %r5 = getelementptr inbounds i64, ptr %r3, i64 %r4
   %r6 = load i64, ptr %r5
   %r8 = load i64, ptr %t1
   %r7 = inttoptr i64 %r6 to ptr
-  %r9 = getelementptr i64, ptr %r7, i64 %r8
+  %r9 = getelementptr inbounds i64, ptr %r7, i64 %r8
   %r10 = load i64, ptr %r9
   store i64 %r10, ptr %t3
   %r11 = ptrtoint ptr @__L__160 to i64
@@ -33330,7 +33330,7 @@ cont.26:
   ret i64 0
 }
 ; defn gc_mark_and_trace
-define i64 @__L__160(i64 %p0) {
+define i64 @__L__160(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -33378,7 +33378,7 @@ cont.10:
   %r15 = load i64, ptr %t2
   %r17 = load i64, ptr %t3
   %r16 = inttoptr i64 %r15 to ptr
-  %r18 = getelementptr i64, ptr %r16, i64 %r17
+  %r18 = getelementptr inbounds i64, ptr %r16, i64 %r17
   %r19 = load i64, ptr %r18
   store i64 %r19, ptr %t4
   store i64 4, ptr %t5
@@ -33400,7 +33400,7 @@ cont.24:
   %r30 = load i64, ptr %t7
   %r32 = load i64, ptr %t8
   %r31 = inttoptr i64 %r29 to ptr
-  %r33 = getelementptr i64, ptr %r31, i64 %r32
+  %r33 = getelementptr inbounds i64, ptr %r31, i64 %r32
   store i64 %r30, ptr %r33
   store i64 2, ptr %t9
   %r34 = load i64, ptr %t4
@@ -33416,7 +33416,7 @@ cont.38:
   %r40 = load i64, ptr %t2
   %r42 = load i64, ptr %t11
   %r41 = inttoptr i64 %r40 to ptr
-  %r43 = getelementptr i64, ptr %r41, i64 %r42
+  %r43 = getelementptr inbounds i64, ptr %r41, i64 %r42
   %r44 = load i64, ptr %r43
   %r45 = load i64, ptr %t10
   %r46 = sdiv i64 %r44, %r45
@@ -33435,7 +33435,7 @@ __L__1748:
   %r52 = load i64, ptr %arg0
   %r54 = load i64, ptr %t14
   %r53 = inttoptr i64 %r52 to ptr
-  %r55 = getelementptr i64, ptr %r53, i64 %r54
+  %r55 = getelementptr inbounds i64, ptr %r53, i64 %r54
   %r56 = load i64, ptr %r55
   store i64 %r56, ptr %t15
   %r57 = ptrtoint ptr @__L__160 to i64
@@ -33469,7 +33469,7 @@ __L__1745:
   ret i64 %r69
 }
 ; defn gc_sweep
-define i64 @__L__161() {
+define i64 @__L__161() nounwind {
 entry:
   %acc.ptr = alloca i64
   %t0 = alloca i64
@@ -33504,7 +33504,7 @@ __L__1750:
   %r2 = load i64, ptr %t0
   %r4 = load i64, ptr %t4
   %r3 = inttoptr i64 %r2 to ptr
-  %r5 = getelementptr i64, ptr %r3, i64 %r4
+  %r5 = getelementptr inbounds i64, ptr %r3, i64 %r4
   %r6 = load i64, ptr %r5
   store i64 %r6, ptr %t5
   store i64 4, ptr %t6
@@ -33520,7 +33520,7 @@ cont.11:
   %r13 = load i64, ptr %t0
   %r15 = load i64, ptr %t7
   %r14 = inttoptr i64 %r13 to ptr
-  %r16 = getelementptr i64, ptr %r14, i64 %r15
+  %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %t8
   %r18 = load i64, ptr %t2
@@ -33542,7 +33542,7 @@ cont.11:
   %r28 = load i64, ptr %t11
   %r30 = load i64, ptr %t12
   %r29 = inttoptr i64 %r27 to ptr
-  %r31 = getelementptr i64, ptr %r29, i64 %r30
+  %r31 = getelementptr inbounds i64, ptr %r29, i64 %r30
   store i64 %r28, ptr %r31
   store i64 %r28, ptr %acc.ptr
   br label %__L__1753
@@ -33552,7 +33552,7 @@ __L__1752:
   %r33 = load i64, ptr %t0
   %r35 = load i64, ptr %t13
   %r34 = inttoptr i64 %r33 to ptr
-  %r36 = getelementptr i64, ptr %r34, i64 %r35
+  %r36 = getelementptr inbounds i64, ptr %r34, i64 %r35
   %r37 = load i64, ptr %r36
   store i64 %r37, ptr %t14
   %r38 = load i64, ptr %t3
@@ -33565,7 +33565,7 @@ __L__1752:
   %r42 = load i64, ptr %t15
   %r44 = load i64, ptr %t16
   %r43 = inttoptr i64 %r41 to ptr
-  %r45 = getelementptr i64, ptr %r43, i64 %r44
+  %r45 = getelementptr inbounds i64, ptr %r43, i64 %r44
   store i64 %r42, ptr %r45
   store i64 %r42, ptr %acc.ptr
   br label %__L__1753
@@ -33575,7 +33575,7 @@ __L__1753:
   %r47 = load i64, ptr %t0
   %r49 = load i64, ptr %t17
   %r48 = inttoptr i64 %r47 to ptr
-  %r50 = getelementptr i64, ptr %r48, i64 %r49
+  %r50 = getelementptr inbounds i64, ptr %r48, i64 %r49
   %r51 = load i64, ptr %r50
   store i64 %r51, ptr %t0
   store i64 %r51, ptr %t18
@@ -33612,7 +33612,7 @@ cont.63:
   ret i64 0
 }
 ; defn gc_size
-define i64 @__L__162(i64 %p0) {
+define i64 @__L__162(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -33626,12 +33626,12 @@ entry:
   %r2 = sub i64 %r0, %r1
   %r4 = load i64, ptr %t0
   %r3 = inttoptr i64 %r2 to ptr
-  %r5 = getelementptr i64, ptr %r3, i64 %r4
+  %r5 = getelementptr inbounds i64, ptr %r3, i64 %r4
   %r6 = load i64, ptr %r5
   ret i64 %r6
 }
 ; defn gc_grow_memory
-define i64 @__L__163(i64 %p0) {
+define i64 @__L__163(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -33657,7 +33657,7 @@ entry:
   %r6 = load i64, ptr @gc__memory__last
   %r8 = load i64, ptr %t2
   %r7 = inttoptr i64 %r6 to ptr
-  %r9 = getelementptr i64, ptr %r7, i64 %r8
+  %r9 = getelementptr inbounds i64, ptr %r7, i64 %r8
   %r10 = load i64, ptr %r9
   store i64 %r10, ptr %t3
   store i64 2, ptr %t4
@@ -33665,7 +33665,7 @@ entry:
   %r12 = load i64, ptr %t3
   %r14 = load i64, ptr %t4
   %r13 = inttoptr i64 %r11 to ptr
-  %r15 = getelementptr i64, ptr %r13, i64 %r14
+  %r15 = getelementptr inbounds i64, ptr %r13, i64 %r14
   store i64 %r12, ptr %r15
   %r16 = load i64, ptr %t1
   store i64 %r16, ptr %t5
@@ -33674,14 +33674,14 @@ entry:
   %r18 = load i64, ptr %t5
   %r20 = load i64, ptr %t6
   %r19 = inttoptr i64 %r17 to ptr
-  %r21 = getelementptr i64, ptr %r19, i64 %r20
+  %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   store i64 %r18, ptr %r21
   ret i64 %r18
 }
 ; defn gc_pop_root
 @__L__1756 = private constant [21 x i8] c"root table underflow\00"
 @__L__1758 = private constant [14 x i8] c"non-lifo root\00"
-define i64 @__L__164(i64 %p0) {
+define i64 @__L__164(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -33720,7 +33720,7 @@ __L__1755:
   %r15 = load i64, ptr @gc__roots
   %r17 = load i64, ptr %t2
   %r16 = inttoptr i64 %r15 to ptr
-  %r18 = getelementptr i64, ptr %r16, i64 %r17
+  %r18 = getelementptr inbounds i64, ptr %r16, i64 %r17
   %r19 = load i64, ptr %r18
   store i64 %r19, ptr %t3
   %r20 = load i64, ptr %arg0
@@ -33747,7 +33747,7 @@ __L__1757:
   ret i64 %r33
 }
 ; defn gc_push_root
-define i64 @__L__165(i64 %p0) {
+define i64 @__L__165(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -33861,7 +33861,7 @@ __L__1759:
   %r55 = load i64, ptr %t12
   %r57 = load i64, ptr %t13
   %r56 = inttoptr i64 %r54 to ptr
-  %r58 = getelementptr i64, ptr %r56, i64 %r57
+  %r58 = getelementptr inbounds i64, ptr %r56, i64 %r57
   store i64 %r55, ptr %r58
   %r59 = load i64, ptr @gc__root__count
   store i64 %r59, ptr %t14
@@ -33871,7 +33871,7 @@ __L__1759:
   ret i64 %r61
 }
 ; defn gc_initialise
-define i64 @__L__166() {
+define i64 @__L__166() nounwind {
 entry:
   %acc.ptr = alloca i64
   %t0 = alloca i64
@@ -33894,7 +33894,7 @@ entry:
 }
 ; defn new_memory_block
 @__L__1762 = private constant [14 x i8] c"out of memory\00"
-define i64 @__L__167(i64 %p0) {
+define i64 @__L__167(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -33947,7 +33947,7 @@ __L__1761:
   %r21 = load i64, ptr %t4
   %r23 = load i64, ptr %t5
   %r22 = inttoptr i64 %r20 to ptr
-  %r24 = getelementptr i64, ptr %r22, i64 %r23
+  %r24 = getelementptr inbounds i64, ptr %r22, i64 %r23
   store i64 %r21, ptr %r24
   store i64 0, ptr %t6
   store i64 1, ptr %t7
@@ -33955,7 +33955,7 @@ __L__1761:
   %r26 = load i64, ptr %t6
   %r28 = load i64, ptr %t7
   %r27 = inttoptr i64 %r25 to ptr
-  %r29 = getelementptr i64, ptr %r27, i64 %r28
+  %r29 = getelementptr inbounds i64, ptr %r27, i64 %r28
   store i64 %r26, ptr %r29
   %r30 = load i64, ptr %t1
   store i64 %r30, ptr %t8
@@ -33964,7 +33964,7 @@ __L__1761:
   %r32 = load i64, ptr %t8
   %r34 = load i64, ptr %t9
   %r33 = inttoptr i64 %r31 to ptr
-  %r35 = getelementptr i64, ptr %r33, i64 %r34
+  %r35 = getelementptr inbounds i64, ptr %r33, i64 %r34
   store i64 %r32, ptr %r35
   %r36 = load i64, ptr %t1
   ret i64 %r36
@@ -33974,7 +33974,7 @@ __L__1761:
 ; defn fatal2
 @__L__1763 = private constant [10 x i8] c"\0Aeval.k: \00"
 @__L__1764 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__168(i64 %p0, i64 %p1, i64 %p2) {
+define i64 @__L__168(i64 %p0, i64 %p1, i64 %p2) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -34033,7 +34033,7 @@ entry:
 ; defn fatal1
 @__L__1765 = private constant [10 x i8] c"\0Aeval.k: \00"
 @__L__1766 = private constant [2 x i8] c"\0A\00"
-define i64 @__L__169(i64 %p0, i64 %p1) {
+define i64 @__L__169(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -34082,7 +34082,7 @@ entry:
 }
 ; defn fatal
 @__L__1767 = private constant [13 x i8] c"\0Aeval.k: %s\0A\00"
-define i64 @__L__170(i64 %p0) {
+define i64 @__L__170(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -34116,7 +34116,7 @@ entry:
 }
 ; defn die
 @__L__1770 = private constant [6 x i8] c"%3d: \00"
-define i64 @__L__171() {
+define i64 @__L__171() nounwind {
 entry:
   %acc.ptr = alloca i64
   %t0 = alloca i64
@@ -34201,7 +34201,7 @@ cont.33:
 ; defn trace_stack
 @trace__stack = global i64 0
 ; defn max
-define i64 @__L__172(i64 %p0, i64 %p1) {
+define i64 @__L__172(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
   %arg0 = alloca i64
@@ -34509,109 +34509,109 @@ declare double @llvm.sin.f64(double)
 declare double @llvm.cos.f64(double)
 declare double @llvm.log.f64(double)
 @.fmt_f = private constant [3 x i8] c"%f\00"
-define i64 @printdouble(i64 %0) {
+define i64 @printdouble(i64 %0) nounwind {
   %d = bitcast i64 %0 to double
   call i64 (...) @printf(ptr @.fmt_f, double %d)
   ret i64 0
 }
-define i64 @strtodouble(i64 %0) {
+define i64 @strtodouble(i64 %0) nounwind {
   %s = inttoptr i64 %0 to ptr
   %d = call double @strtod(ptr %s, ptr null)
   %r = bitcast double %d to i64
   ret i64 %r
 }
-define i64 @long2double(i64 %0) {
+define i64 @long2double(i64 %0) nounwind {
   %d = sitofp i64 %0 to double
   %r = bitcast double %d to i64
   ret i64 %r
 }
-define i64 @double2long(i64 %0) {
+define i64 @double2long(i64 %0) nounwind {
   %d = bitcast i64 %0 to double
   %r = fptosi double %d to i64
   ret i64 %r
 }
-define i64 @doublesin(i64 %0) {
+define i64 @doublesin(i64 %0) nounwind {
   %d = bitcast i64 %0 to double
   %r = call double @llvm.sin.f64(double %d)
   %rv = bitcast double %r to i64
   ret i64 %rv
 }
-define i64 @doublecos(i64 %0) {
+define i64 @doublecos(i64 %0) nounwind {
   %d = bitcast i64 %0 to double
   %r = call double @llvm.cos.f64(double %d)
   %rv = bitcast double %r to i64
   ret i64 %rv
 }
-define i64 @doublelog(i64 %0) {
+define i64 @doublelog(i64 %0) nounwind {
   %d = bitcast i64 %0 to double
   %r = call double @llvm.log.f64(double %d)
   %rv = bitcast double %r to i64
   ret i64 %rv
 }
-define i64 @doubleadd(i64 %0, i64 %1) {
+define i64 @doubleadd(i64 %0, i64 %1) nounwind {
   %a = bitcast i64 %0 to double
   %b = bitcast i64 %1 to double
   %r = fadd double %a, %b
   %rv = bitcast double %r to i64
   ret i64 %rv
 }
-define i64 @doublesub(i64 %0, i64 %1) {
+define i64 @doublesub(i64 %0, i64 %1) nounwind {
   %a = bitcast i64 %0 to double
   %b = bitcast i64 %1 to double
   %r = fsub double %a, %b
   %rv = bitcast double %r to i64
   ret i64 %rv
 }
-define i64 @doublemul(i64 %0, i64 %1) {
+define i64 @doublemul(i64 %0, i64 %1) nounwind {
   %a = bitcast i64 %0 to double
   %b = bitcast i64 %1 to double
   %r = fmul double %a, %b
   %rv = bitcast double %r to i64
   ret i64 %rv
 }
-define i64 @doublediv(i64 %0, i64 %1) {
+define i64 @doublediv(i64 %0, i64 %1) nounwind {
   %a = bitcast i64 %0 to double
   %b = bitcast i64 %1 to double
   %r = fdiv double %a, %b
   %rv = bitcast double %r to i64
   ret i64 %rv
 }
-define i64 @doublelt(i64 %0, i64 %1) {
+define i64 @doublelt(i64 %0, i64 %1) nounwind {
   %a = bitcast i64 %0 to double
   %b = bitcast i64 %1 to double
   %c = fcmp olt double %a, %b
   %r = zext i1 %c to i64
   ret i64 %r
 }
-define i64 @doublele(i64 %0, i64 %1) {
+define i64 @doublele(i64 %0, i64 %1) nounwind {
   %a = bitcast i64 %0 to double
   %b = bitcast i64 %1 to double
   %c = fcmp ole double %a, %b
   %r = zext i1 %c to i64
   ret i64 %r
 }
-define i64 @doublege(i64 %0, i64 %1) {
+define i64 @doublege(i64 %0, i64 %1) nounwind {
   %a = bitcast i64 %0 to double
   %b = bitcast i64 %1 to double
   %c = fcmp oge double %a, %b
   %r = zext i1 %c to i64
   ret i64 %r
 }
-define i64 @doublegt(i64 %0, i64 %1) {
+define i64 @doublegt(i64 %0, i64 %1) nounwind {
   %a = bitcast i64 %0 to double
   %b = bitcast i64 %1 to double
   %c = fcmp ogt double %a, %b
   %r = zext i1 %c to i64
   ret i64 %r
 }
-define i64 @doubleeq(i64 %0, i64 %1) {
+define i64 @doubleeq(i64 %0, i64 %1) nounwind {
   %a = bitcast i64 %0 to double
   %b = bitcast i64 %1 to double
   %c = fcmp oeq double %a, %b
   %r = zext i1 %c to i64
   ret i64 %r
 }
-define i64 @doublefmod(i64 %0, i64 %1) {
+define i64 @doublefmod(i64 %0, i64 %1) nounwind {
   %a = bitcast i64 %0 to double
   %b = bitcast i64 %1 to double
   %r = call double @fmod(double %a, double %b)

@@ -233,7 +233,7 @@
 	 (idx (llvm-load-reg idx-reg))
 	 (gep (llvm-new-reg)))
     (println "  "base" = inttoptr i64 "*llvm-acc*" to ptr")
-    (println "  "gep" = getelementptr "elem-type", ptr "base", i64 "idx)
+    (println "  "gep" = getelementptr inbounds "elem-type", ptr "base", i64 "idx)
     gep))
 
 (define-emit	(OOP-AT REG)
@@ -385,7 +385,7 @@
     (for (i 0 nparams)
       (and (> i 0) (print ", "))
       (print "i64 %p"i))
-    (println ") {")
+    (println ") nounwind {")
     (println "entry:")
     ;; Prologue: allocas and param stores
     (set *llvm-num-arg-slots* (<compiler>-arg-limit comp))
@@ -407,7 +407,7 @@
 ;;; EMIT-RUNTIME — native double support
 
 (define-function emit-llvm-double-unary (name intrinsic)
-  (println "define i64 @"name"(i64 %0) {")
+  (println "define i64 @"name"(i64 %0) nounwind {")
   (println "  %d = bitcast i64 %0 to double")
   (println "  %r = call double "intrinsic"(double %d)")
   (println "  %rv = bitcast double %r to i64")
@@ -415,7 +415,7 @@
   (println "}"))
 
 (define-function emit-llvm-double-binop (name expr)
-  (println "define i64 @"name"(i64 %0, i64 %1) {")
+  (println "define i64 @"name"(i64 %0, i64 %1) nounwind {")
   (println "  %a = bitcast i64 %0 to double")
   (println "  %b = bitcast i64 %1 to double")
   (println "  %r = "expr)
@@ -424,7 +424,7 @@
   (println "}"))
 
 (define-function emit-llvm-double-cmp (name cmp)
-  (println "define i64 @"name"(i64 %0, i64 %1) {")
+  (println "define i64 @"name"(i64 %0, i64 %1) nounwind {")
   (println "  %a = bitcast i64 %0 to double")
   (println "  %b = bitcast i64 %1 to double")
   (println "  %c = fcmp "cmp" double %a, %b")
@@ -446,26 +446,26 @@
   (println "declare double @llvm.log.f64(double)")
   (println "@.fmt_f = private constant [3 x i8] c\"%f\\00\"")
   ;; printdouble: i64 (bitpunned double) → printf "%f"
-  (println "define i64 @printdouble(i64 %0) {")
+  (println "define i64 @printdouble(i64 %0) nounwind {")
   (println "  %d = bitcast i64 %0 to double")
   (println "  call i64 (...) @printf(ptr @.fmt_f, double %d)")
   (println "  ret i64 0")
   (println "}")
   ;; strtodouble: i64 (string ptr) → strtod → i64 (bitpunned double)
-  (println "define i64 @strtodouble(i64 %0) {")
+  (println "define i64 @strtodouble(i64 %0) nounwind {")
   (println "  %s = inttoptr i64 %0 to ptr")
   (println "  %d = call double @strtod(ptr %s, ptr null)")
   (println "  %r = bitcast double %d to i64")
   (println "  ret i64 %r")
   (println "}")
   ;; long2double: i64 → sitofp → bitcast → i64
-  (println "define i64 @long2double(i64 %0) {")
+  (println "define i64 @long2double(i64 %0) nounwind {")
   (println "  %d = sitofp i64 %0 to double")
   (println "  %r = bitcast double %d to i64")
   (println "  ret i64 %r")
   (println "}")
   ;; double2long: i64 → bitcast → fptosi → i64
-  (println "define i64 @double2long(i64 %0) {")
+  (println "define i64 @double2long(i64 %0) nounwind {")
   (println "  %d = bitcast i64 %0 to double")
   (println "  %r = fptosi double %d to i64")
   (println "  ret i64 %r")
