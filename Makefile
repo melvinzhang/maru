@@ -62,8 +62,8 @@ obj/eval.%.s: bin/evall src/boot.l src/osdefs.%.k src/emit-shared.l src/emit-x64
 obj/eval.ll: bin/eval src/boot.l src/emit-shared.l src/emit-llvm.l src/eval.l
 	bin/eval -O src/boot.l src/emit-shared.l src/emit-llvm.l src/eval.l > $@
 
-bin/evall: obj/eval.ll
-	clang -O2 $< -o $@ -lm
+bin/evall: 
+	git show master:obj/eval.ll | clang -x ir -O2 - -o $@ -lm
 
 %.e: %.l
 	bin/eval src/boot.l $^
