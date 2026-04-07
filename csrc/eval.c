@@ -2497,7 +2497,7 @@ static subr(native_call)
 	if (mprotect(start, len, PROT_READ | PROT_WRITE | PROT_EXEC)) perror("mprotect");
 #     endif
     }
-    return newLong(((int (*)())addr)(argv));
+    return newLong(((int (*)(...))addr)(argv));
 }
 
 #if defined(WIN32)
