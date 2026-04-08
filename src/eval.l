@@ -96,7 +96,7 @@
 
 (define gc_memory_base		0)
 (define gc_memory_last		0)
-(define gc_alloc_count		0)
+(define gc_alloc_count		32768)
 (define gc_collection_count	0)
 
 (define-form size-of-structure (type)	(* (oop-size) (array-at %structure-sizes (eval type))))
@@ -217,11 +217,12 @@
       (gc_mark_and_trace (oop-at (oop-at gc_roots i) 0))
       (set i (+ 1 i))))
   (gc_sweep)
-  (set gc_alloc_count 0))
+  (set gc_alloc_count gc_frequency)
+  (set gc_memory_last gc_memory_base))
 
 (define-function gc_malloc (size)
   (set size (& -4 (+ 3 size)))
-  (and (= gc_alloc_count gc_frequency) (gc_gcollect))
+  (and (= 0 (set gc_alloc_count (- gc_alloc_count 1))) (gc_gcollect))
   (let* ((first (<header>-next gc_memory_last))
 	 (chunk first)
 	 (ssize (+ size (size-of-structure <header>))))
@@ -254,7 +255,6 @@
 		      (debug (printf "alloc chunk %p\n" chunk))
 		      (let ((obj (+ chunk (size-of-structure <header>))))
 			(memset obj 0 csize)
-			(set gc_alloc_count (+ gc_alloc_count 1))
 			(return obj))))))
 	  (!= first (set chunk (<header>-next chunk)))))
       (let ((brk (gc_grow_memory (max (+ (size-of-structure <header>) size) gc_quantum))))
