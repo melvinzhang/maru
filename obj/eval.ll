@@ -29969,6 +29969,7 @@ entry:
   %t59 = alloca i64
   %t60 = alloca i64
   %t61 = alloca i64
+  %t62 = alloca i64
   %a0 = alloca i64
   %a1 = alloca i64
   %a2 = alloca i64
@@ -30360,20 +30361,25 @@ cont.227:
   %r243 = load i64, ptr %a0
   %r242 = inttoptr i64 %r240 to ptr
   %r244 = call i64 %r242(i64 %r243)
-  store i64 %r244, ptr %acc.ptr
+  store i64 %r244, ptr %t62
+  %r245 = load i64, ptr %t62
+  store i64 %r245, ptr %t4
+  %r246 = load i64, ptr %t62
+  store i64 %r246, ptr %t5
+  store i64 %r246, ptr %acc.ptr
   br label %__L__1507
 __L__1507:
-  %r245 = load i64, ptr %acc.ptr
+  %r247 = load i64, ptr %acc.ptr
   store i64 1, ptr %acc.ptr
-  %r246 = icmp ne i64 1, 0
-  br i1 %r246, label %__L__1506, label %cont.247
-cont.247:
-  %r248 = load i64, ptr %acc.ptr
-  store i64 %r248, ptr %acc.ptr
+  %r248 = icmp ne i64 1, 0
+  br i1 %r248, label %__L__1506, label %cont.249
+cont.249:
+  %r250 = load i64, ptr %acc.ptr
+  store i64 %r250, ptr %acc.ptr
   br label %__L__1520
 __L__1520:
-  %r249 = load i64, ptr %acc.ptr
-  ret i64 %r249
+  %r251 = load i64, ptr %acc.ptr
+  ret i64 %r251
 }
 ; defn gc_gcollect
 define i64 @__L__159() nounwind {
@@ -30783,7 +30789,8 @@ entry:
   %r19 = inttoptr i64 %r17 to ptr
   %r21 = getelementptr inbounds i64, ptr %r19, i64 %r20
   store i64 %r18, ptr %r21
-  ret i64 %r18
+  %r22 = load i64, ptr %t1
+  ret i64 %r22
 }
 ; defn gc_pop_root
 @__L__1534 = private constant [21 x i8] c"root table underflow\00"

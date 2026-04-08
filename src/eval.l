@@ -159,7 +159,8 @@
 (define-function gc_grow_memory (size)
   (let ((brk (new_memory_block size)))
     (set (<header>-next brk) (<header>-next gc_memory_last))
-    (set (<header>-next gc_memory_last) brk)))
+    (set (<header>-next gc_memory_last) brk)
+    brk))
 
 (define-function gc_size (obj)	(<header>-size (- obj (size-of-structure <header>))))
 
@@ -256,7 +257,9 @@
 			(set gc_alloc_count (+ gc_alloc_count 1))
 			(return obj))))))
 	  (!= first (set chunk (<header>-next chunk)))))
-      (gc_grow_memory (max (+ (size-of-structure <header>) size) gc_quantum)))))
+      (let ((brk (gc_grow_memory (max (+ (size-of-structure <header>) size) gc_quantum))))
+	(set first brk)
+	(set chunk brk)))))
 
 (define-function gc_malloc_atomic (size)
   (let* ((obj (gc_malloc size)))
