@@ -43,12 +43,12 @@ clean:
 bin/eval: obj/eval.${OS}.s
 	${GCC} -x assembler $^ -o bin/eval -lm
 
-bin/eval.new: obj/eval.s
-	${GCC} $^ -o $@
+bin/eval.new: obj/eval.ll
+	clang -x ir -O2 $^ -o $@ -lm
 
 promote: bin/eval.new
 	make tests eval=evaln
-	mv bin/eval.new bin/eval
+	mv bin/eval.new bin/evall
 
 src/osdefs.k : bin/mkosdefs
 	$^ > $@
@@ -59,8 +59,8 @@ bin/mkosdefs : src/mkosdefs.c
 obj/eval.%.s: bin/evall src/boot.l src/osdefs.%.k src/emit-shared.l src/emit-x64.l src/eval.l
 	bin/evall -O $(wordlist 2, 9, $^) > $@
 
-obj/eval.ll: bin/eval src/boot.l src/emit-shared.l src/emit-llvm.l src/eval.l
-	bin/eval -O src/boot.l src/emit-shared.l src/emit-llvm.l src/eval.l > $@
+obj/eval.ll: bin/evall src/boot.l src/emit-shared.l src/emit-llvm.l src/eval.l
+	bin/evall -O src/boot.l src/emit-shared.l src/emit-llvm.l src/eval.l > $@
 
 bin/evall: 
 	git show master:obj/eval.ll | clang -x ir -O2 - -o $@ -lm
