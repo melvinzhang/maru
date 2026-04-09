@@ -98,6 +98,7 @@
 (define gc_memory_last		0)
 (define gc_alloc_count		32768)
 (define gc_collection_count	0)
+(define gc_free24		0)
 
 (define-form size-of-structure (type)	(* (oop-size) (array-at %structure-sizes (eval type))))
 
@@ -166,6 +167,7 @@
 
 (define-function gc_sweep ()
   (debug (printf "sweep\n"))
+  (set gc_free24 0)
   (let ((ptr gc_memory_base)
 	(nobjs 0)
 	(nused 0)
@@ -180,7 +182,12 @@
 	      (set (<header>-flags ptr) (^ flags (<header>-flags-mark))))
 	  (debug (printf "collect %p %d\n" ptr (<header>-size ptr)))
 	  (set nfree (+ nfree (<header>-size ptr)))
-	  (set (<header>-flags ptr) 0)))
+	  (if (= 24 (<header>-size ptr))
+	      (let ((obj (+ ptr (size-of-structure <header>))))
+		(set (<header>-flags ptr) (<header>-flags-used))
+		(set (oop-at obj 0) gc_free24)
+		(set gc_free24 ptr))
+	    (set (<header>-flags ptr) 0))))
       (and (= gc_memory_base (set ptr (<header>-next ptr)))
 	   (set ptr 0)))
     (set gc_objects_live nobjs)
@@ -223,6 +230,13 @@
 (define-function gc_malloc (size)
   (set size (& -4 (+ 3 size)))
   (and (= 0 (set gc_alloc_count (- gc_alloc_count 1))) (gc_gcollect))
+  (and (= size 24) gc_free24
+       (let ((chunk gc_free24))
+	 (let ((obj (+ chunk (size-of-structure <header>))))
+	   (set gc_free24 (oop-at obj 0))
+	   (set (<header>-flags chunk) (<header>-flags-used))
+	   (memset obj 0 24)
+	   (return obj))))
   (let* ((first (<header>-next gc_memory_last))
 	 (chunk first)
 	 (ssize (+ size (size-of-structure <header>))))
