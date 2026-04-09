@@ -25,7 +25,7 @@
 (define gc_alloc_count		32768)
 (define gc_collection_count	0)
 (define gc_freelist		0)
-(define gc_free_size		0)
+(define-constant gc_free_size	(* 3 oop-size))
 
 (define-form size-of-structure (type)	(* oop-size (array-at %structure-sizes (eval type))))
 
@@ -64,7 +64,6 @@
     ptr))
 
 (define-function gc_initialise ()
-  (set gc_free_size (* 3 oop-size))
   (let ((ptr (new_memory_block gc_quantum)))
     (set gc_memory_base ptr)
     (set gc_memory_last ptr)))
