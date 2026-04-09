@@ -234,7 +234,6 @@
        (let ((chunk gc_free24))
 	 (let ((obj (+ chunk (size-of-structure <header>))))
 	   (set gc_free24 (oop-at obj 0))
-	   (set (<header>-flags chunk) (<header>-flags-used))
 	   (memset obj 0 24)
 	   (return obj))))
   (let* ((first (<header>-next gc_memory_last))
