@@ -10,7 +10,7 @@
 ;;;   gen-definition methods
 ;;;   compile-end
 
-(define-form oop-size () 8)
+(define-constant oop-size 8)
 
 (define __PREFIX__ "")
 

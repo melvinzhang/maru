@@ -1,4 +1,4 @@
-(define-form oop-size () 4)
+(define-constant oop-size 4)
 
 (define __PREFIX__ (if (or (defined? '__MACH__) (defined? '__WIN32__)) "_" ""))
 
