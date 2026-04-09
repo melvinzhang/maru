@@ -10,8 +10,6 @@
 ;;;   gen-definition methods
 ;;;   compile-end
 
-(define-constant oop-size 8)
-
 (define __PREFIX__ "")
 
 (define-function string->type-name (str) (string->symbol (concat-string "<" (concat-string str ">"))))

@@ -1,3 +1,5 @@
+(define-constant oop-size 8)
+
 (define __PREFIX__ (if (or (defined? '__MACH__) (defined? '__WIN32__)) "_" ""))
 
 ;;; X86-64 -- OPERANDS

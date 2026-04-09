@@ -1,3 +1,5 @@
+(define-constant oop-size 8)
+
 ;;; LLVM -- OPERANDS
 
 (define-operand GVAR   (name)	"@"(mangle-label (<GVAR>-name self)))
