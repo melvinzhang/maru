@@ -9,13 +9,10 @@ by updating the maru-in-maru interpreter to include all the features of the
 maru-in-C interpreter.
 
 ## Objective
-* src/eval.l to have the same features as csrc/eval.c
-  * able to run test-pepsi example
-* add LLVM support
-
-## Other improvements
+* [DONE] src/eval.l able to run test-pepsi example
+* [DONE] add x64 and LLVM support
 * write tests for eval
-* document the maru language
+* document the Maru language and compiler
 
 ## Bootstrapping
 eval.ll is the interpreter compiled to LLVM IR, it can be compiled to a binary with clang via the Makefile
@@ -33,7 +30,7 @@ The generate eval.ll is identical to the version in the repository
 
 ## C-based Evaluators (csrc/)
 
-The `csrc/` directory contains several versions of the Maru evaluator implemented in C, representing an evolution of the language's core. These can be built using the `Makefile` in the `csrc/` directory or the root directory.
+The `csrc/` directory contains several versions of the Maru evaluator implemented in C, representing an evolution of the language's core. These can be built using `make bin/<binary name>`.
 
 - **eval1 (`eval.c`)**: The original evaluator. It uses specialized C structures for environments (`Env`), variables (`Variable`), and contexts (`Context`). Variable lookup is performed by traversing these structures.
 - **eval2 (`eval2.c`)**: A simplified and evolved version. It removes the specialized `Env`, `Variable`, and `Context` structures in favor of using basic `Pair` (linked list) structures for environments. It also introduces a global variable cache for improved performance.
