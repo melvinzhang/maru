@@ -155,7 +155,7 @@
   (set gc_memory_last gc_memory_base))
 
 (define-function gc_malloc (size)
-  (set size (& -4 (+ 3 size)))
+  (set size (& (- 0 oop-size) (+ (- oop-size 1) size)))
   (and (= 0 (set gc_alloc_count (- gc_alloc_count 1))) (gc_gcollect))
   (and (= size gc_free_size) gc_freelist
        (let ((chunk gc_freelist))
