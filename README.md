@@ -9,10 +9,10 @@ by updating the maru-in-maru interpreter to include all the features of the
 maru-in-C interpreter.
 
 ## Progress
-* [DONE] eval.l matches performance of eval.c on test-pepsi.l
-* [DONE] add x64 and LLVM support
-* write tests for eval
-* document the Maru language and compiler
+- [x] eval.l matches performance of eval.c on test-pepsi.l
+- [x] add x64 and LLVM support
+- [ ] write tests for eval
+- [ ] document the Maru language and compiler
 
 ## Bootstrapping
 eval.ll is the interpreter compiled to LLVM IR, it can be compiled to a binary with clang via the Makefile
