@@ -1,15 +1,14 @@
 # Maru
 
 > Maru is a symbolic expression evaluator that can compile its own implementation language.
-
--- http://piumarta.com/software/maru/
+> -- http://piumarta.com/software/maru/
 
 This fork aims to eliminate the dependence on C as the implementation language
 by updating the maru-in-maru interpreter to include all the features of the
 maru-in-C interpreter.
 
-## Objective
-* [DONE] src/eval.l able to run test-pepsi example
+## Progress
+* [DONE] eval.l matches performance of eval.c on test-pepsi.l
 * [DONE] add x64 and LLVM support
 * write tests for eval
 * document the Maru language and compiler
