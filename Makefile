@@ -122,6 +122,11 @@ test-pepsi: bin/eval1 bin/eval2 bin/eval3 bin/gceval bin/eval bin/evall
 		time ../../bin/$$e ../../src/boot.l ../unit-test.l repl.l test-pepsi.l > test-pepsi.$$e; \
 	done
 
+benchmark: obj/eval.ll
+	clang -x ir -O2 -pg $^ -o bin/eval.prof -lm
+	cd test/pepsi && time ../../bin/eval.prof ../../src/boot.l ../unit-test.l repl.l test-pepsi.l > test-pepsi.prof
+	cd test/pepsi && gprof ../../bin/eval.prof gmon.out | python3 ../../scripts/demangle.py ../../obj/eval.ll - | head -40
+
 test-llvm:
 	make examples/args.ll
 	make obj/eval.ll
