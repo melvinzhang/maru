@@ -59,7 +59,7 @@ bin/mkosdefs : src/mkosdefs.c
 obj/eval.%.s: bin/evall src/boot.l src/osdefs.%.k src/emit-shared.l src/emit-x64.l src/eval.l
 	bin/evall -O $(wordlist 2, 9, $^) > $@
 
-obj/eval.ll: bin/evall src/boot.l src/emit-shared.l src/emit-llvm.l src/eval.l
+obj/eval.ll: bin/evall src/boot.l src/emit-shared.l src/emit-llvm.l src/eval.l src/gc-marksweep.l
 	bin/evall -O src/boot.l src/emit-shared.l src/emit-llvm.l src/eval.l > $@
 
 bin/evall: 
