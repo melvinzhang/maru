@@ -29145,9 +29145,6 @@ entry:
   %t4 = alloca i64
   %t5 = alloca i64
   %t6 = alloca i64
-  %t7 = alloca i64
-  %t8 = alloca i64
-  %t9 = alloca i64
   %a0 = alloca i64
   %a1 = alloca i64
   %r0 = load i64, ptr @_3Csubr_3E
@@ -29163,44 +29160,26 @@ entry:
   %r4 = inttoptr i64 %r1 to ptr
   %r7 = call i64 %r4(i64 %r5, i64 %r6)
   store i64 %r7, ptr %t2
-  %r8 = ptrtoint ptr %t2 to i64
+  %r8 = load i64, ptr %arg0
   store i64 %r8, ptr %t3
-  %r9 = ptrtoint ptr @__L__165 to i64
+  store i64 1, ptr %t4
+  %r9 = load i64, ptr %t2
   %r10 = load i64, ptr %t3
-  store i64 %r10, ptr %a0
-  %r12 = load i64, ptr %a0
+  %r12 = load i64, ptr %t4
   %r11 = inttoptr i64 %r9 to ptr
-  %r13 = call i64 %r11(i64 %r12)
-  %r14 = load i64, ptr %arg0
-  store i64 %r14, ptr %t4
-  store i64 1, ptr %t5
+  %r13 = getelementptr inbounds i64, ptr %r11, i64 %r12
+  store i64 %r10, ptr %r13
+  %r14 = load i64, ptr %arg1
+  store i64 %r14, ptr %t5
+  store i64 0, ptr %t6
   %r15 = load i64, ptr %t2
-  %r16 = load i64, ptr %t4
-  %r18 = load i64, ptr %t5
+  %r16 = load i64, ptr %t5
+  %r18 = load i64, ptr %t6
   %r17 = inttoptr i64 %r15 to ptr
   %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   store i64 %r16, ptr %r19
-  %r20 = load i64, ptr %arg1
-  store i64 %r20, ptr %t6
-  store i64 0, ptr %t7
-  %r21 = load i64, ptr %t2
-  %r22 = load i64, ptr %t6
-  %r24 = load i64, ptr %t7
-  %r23 = inttoptr i64 %r21 to ptr
-  %r25 = getelementptr inbounds i64, ptr %r23, i64 %r24
-  store i64 %r22, ptr %r25
-  %r26 = load i64, ptr %t2
-  store i64 %r26, ptr %t8
-  %r27 = ptrtoint ptr %t2 to i64
-  store i64 %r27, ptr %t9
-  %r28 = ptrtoint ptr @__L__164 to i64
-  %r29 = load i64, ptr %t9
-  store i64 %r29, ptr %a0
-  %r31 = load i64, ptr %a0
-  %r30 = inttoptr i64 %r28 to ptr
-  %r32 = call i64 %r30(i64 %r31)
-  %r33 = load i64, ptr %t8
-  ret i64 %r33
+  %r20 = load i64, ptr %t2
+  ret i64 %r20
 }
 ; defn new-<fixed>
 define i64 @__L__145(i64 %p0) nounwind {
@@ -29213,9 +29192,6 @@ entry:
   %t2 = alloca i64
   %t3 = alloca i64
   %t4 = alloca i64
-  %t5 = alloca i64
-  %t6 = alloca i64
-  %t7 = alloca i64
   %a0 = alloca i64
   %a1 = alloca i64
   %r0 = load i64, ptr @_3Cfixed_3E
@@ -29231,35 +29207,17 @@ entry:
   %r4 = inttoptr i64 %r1 to ptr
   %r7 = call i64 %r4(i64 %r5, i64 %r6)
   store i64 %r7, ptr %t2
-  %r8 = ptrtoint ptr %t2 to i64
+  %r8 = load i64, ptr %arg0
   store i64 %r8, ptr %t3
-  %r9 = ptrtoint ptr @__L__165 to i64
+  store i64 0, ptr %t4
+  %r9 = load i64, ptr %t2
   %r10 = load i64, ptr %t3
-  store i64 %r10, ptr %a0
-  %r12 = load i64, ptr %a0
+  %r12 = load i64, ptr %t4
   %r11 = inttoptr i64 %r9 to ptr
-  %r13 = call i64 %r11(i64 %r12)
-  %r14 = load i64, ptr %arg0
-  store i64 %r14, ptr %t4
-  store i64 0, ptr %t5
-  %r15 = load i64, ptr %t2
-  %r16 = load i64, ptr %t4
-  %r18 = load i64, ptr %t5
-  %r17 = inttoptr i64 %r15 to ptr
-  %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
-  store i64 %r16, ptr %r19
-  %r20 = load i64, ptr %t2
-  store i64 %r20, ptr %t6
-  %r21 = ptrtoint ptr %t2 to i64
-  store i64 %r21, ptr %t7
-  %r22 = ptrtoint ptr @__L__164 to i64
-  %r23 = load i64, ptr %t7
-  store i64 %r23, ptr %a0
-  %r25 = load i64, ptr %a0
-  %r24 = inttoptr i64 %r22 to ptr
-  %r26 = call i64 %r24(i64 %r25)
-  %r27 = load i64, ptr %t6
-  ret i64 %r27
+  %r13 = getelementptr inbounds i64, ptr %r11, i64 %r12
+  store i64 %r10, ptr %r13
+  %r14 = load i64, ptr %t2
+  ret i64 %r14
 }
 ; defn new-<form>
 define i64 @__L__146(i64 %p0, i64 %p1) nounwind {
@@ -29276,9 +29234,6 @@ entry:
   %t4 = alloca i64
   %t5 = alloca i64
   %t6 = alloca i64
-  %t7 = alloca i64
-  %t8 = alloca i64
-  %t9 = alloca i64
   %a0 = alloca i64
   %a1 = alloca i64
   %r0 = load i64, ptr @_3Cform_3E
@@ -29294,44 +29249,26 @@ entry:
   %r4 = inttoptr i64 %r1 to ptr
   %r7 = call i64 %r4(i64 %r5, i64 %r6)
   store i64 %r7, ptr %t2
-  %r8 = ptrtoint ptr %t2 to i64
+  %r8 = load i64, ptr %arg0
   store i64 %r8, ptr %t3
-  %r9 = ptrtoint ptr @__L__165 to i64
+  store i64 0, ptr %t4
+  %r9 = load i64, ptr %t2
   %r10 = load i64, ptr %t3
-  store i64 %r10, ptr %a0
-  %r12 = load i64, ptr %a0
+  %r12 = load i64, ptr %t4
   %r11 = inttoptr i64 %r9 to ptr
-  %r13 = call i64 %r11(i64 %r12)
-  %r14 = load i64, ptr %arg0
-  store i64 %r14, ptr %t4
-  store i64 0, ptr %t5
+  %r13 = getelementptr inbounds i64, ptr %r11, i64 %r12
+  store i64 %r10, ptr %r13
+  %r14 = load i64, ptr %arg1
+  store i64 %r14, ptr %t5
+  store i64 1, ptr %t6
   %r15 = load i64, ptr %t2
-  %r16 = load i64, ptr %t4
-  %r18 = load i64, ptr %t5
+  %r16 = load i64, ptr %t5
+  %r18 = load i64, ptr %t6
   %r17 = inttoptr i64 %r15 to ptr
   %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   store i64 %r16, ptr %r19
-  %r20 = load i64, ptr %arg1
-  store i64 %r20, ptr %t6
-  store i64 1, ptr %t7
-  %r21 = load i64, ptr %t2
-  %r22 = load i64, ptr %t6
-  %r24 = load i64, ptr %t7
-  %r23 = inttoptr i64 %r21 to ptr
-  %r25 = getelementptr inbounds i64, ptr %r23, i64 %r24
-  store i64 %r22, ptr %r25
-  %r26 = load i64, ptr %t2
-  store i64 %r26, ptr %t8
-  %r27 = ptrtoint ptr %t2 to i64
-  store i64 %r27, ptr %t9
-  %r28 = ptrtoint ptr @__L__164 to i64
-  %r29 = load i64, ptr %t9
-  store i64 %r29, ptr %a0
-  %r31 = load i64, ptr %a0
-  %r30 = inttoptr i64 %r28 to ptr
-  %r32 = call i64 %r30(i64 %r31)
-  %r33 = load i64, ptr %t8
-  ret i64 %r33
+  %r20 = load i64, ptr %t2
+  ret i64 %r20
 }
 ; defn new-<expr>
 define i64 @__L__147(i64 %p0, i64 %p1) nounwind {
