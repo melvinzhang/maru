@@ -9320,10 +9320,12 @@ __L__558:
 ; defn subr_gt
 @__L__585 = private constant [2 x i8] c">\00"
 @__L__602 = private constant [17 x i8] c"\0Aeval.k: error: \00"
-@__L__603 = private constant [26 x i8] c"non-numeric argument: (> \00"
-@__L__604 = private constant [2 x i8] c" \00"
-@__L__605 = private constant [2 x i8] c")\00"
-@__L__606 = private constant [2 x i8] c"\0A\00"
+@__L__603 = private constant [24 x i8] c"non-numeric argument: (\00"
+@__L__604 = private constant [2 x i8] c">\00"
+@__L__605 = private constant [2 x i8] c" \00"
+@__L__606 = private constant [2 x i8] c" \00"
+@__L__607 = private constant [2 x i8] c")\00"
+@__L__608 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__55(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -9362,6 +9364,8 @@ entry:
   %t28 = alloca i64
   %t29 = alloca i64
   %t30 = alloca i64
+  %t31 = alloca i64
+  %t32 = alloca i64
   %a0 = alloca i64
   %a1 = alloca i64
   %r0 = ptrtoint ptr @__L__585 to i64
@@ -9607,15 +9611,15 @@ __L__590:
   %r145 = load i64, ptr %a0
   %r144 = inttoptr i64 %r142 to ptr
   %r146 = call i64 %r144(i64 %r145)
-  %r147 = load i64, ptr %t3
+  %r147 = ptrtoint ptr @__L__604 to i64
   store i64 %r147, ptr %t26
-  %r148 = ptrtoint ptr @__L__123 to i64
+  %r148 = ptrtoint ptr @printf to i64
   %r149 = load i64, ptr %t26
   store i64 %r149, ptr %a0
   %r151 = load i64, ptr %a0
   %r150 = inttoptr i64 %r148 to ptr
   %r152 = call i64 %r150(i64 %r151)
-  %r153 = ptrtoint ptr @__L__604 to i64
+  %r153 = ptrtoint ptr @__L__605 to i64
   store i64 %r153, ptr %t27
   %r154 = ptrtoint ptr @printf to i64
   %r155 = load i64, ptr %t27
@@ -9623,7 +9627,7 @@ __L__590:
   %r157 = load i64, ptr %a0
   %r156 = inttoptr i64 %r154 to ptr
   %r158 = call i64 %r156(i64 %r157)
-  %r159 = load i64, ptr %t6
+  %r159 = load i64, ptr %t3
   store i64 %r159, ptr %t28
   %r160 = ptrtoint ptr @__L__123 to i64
   %r161 = load i64, ptr %t28
@@ -9631,7 +9635,7 @@ __L__590:
   %r163 = load i64, ptr %a0
   %r162 = inttoptr i64 %r160 to ptr
   %r164 = call i64 %r162(i64 %r163)
-  %r165 = ptrtoint ptr @__L__605 to i64
+  %r165 = ptrtoint ptr @__L__606 to i64
   store i64 %r165, ptr %t29
   %r166 = ptrtoint ptr @printf to i64
   %r167 = load i64, ptr %t29
@@ -9639,34 +9643,52 @@ __L__590:
   %r169 = load i64, ptr %a0
   %r168 = inttoptr i64 %r166 to ptr
   %r170 = call i64 %r168(i64 %r169)
-  %r171 = ptrtoint ptr @__L__606 to i64
+  %r171 = load i64, ptr %t6
   store i64 %r171, ptr %t30
-  %r172 = ptrtoint ptr @printf to i64
+  %r172 = ptrtoint ptr @__L__123 to i64
   %r173 = load i64, ptr %t30
   store i64 %r173, ptr %a0
   %r175 = load i64, ptr %a0
   %r174 = inttoptr i64 %r172 to ptr
   %r176 = call i64 %r174(i64 %r175)
-  %r177 = ptrtoint ptr @__L__171 to i64
-  %r178 = inttoptr i64 %r177 to ptr
-  %r179 = call i64 %r178()
-  store i64 %r179, ptr %acc.ptr
+  %r177 = ptrtoint ptr @__L__607 to i64
+  store i64 %r177, ptr %t31
+  %r178 = ptrtoint ptr @printf to i64
+  %r179 = load i64, ptr %t31
+  store i64 %r179, ptr %a0
+  %r181 = load i64, ptr %a0
+  %r180 = inttoptr i64 %r178 to ptr
+  %r182 = call i64 %r180(i64 %r181)
+  %r183 = ptrtoint ptr @__L__608 to i64
+  store i64 %r183, ptr %t32
+  %r184 = ptrtoint ptr @printf to i64
+  %r185 = load i64, ptr %t32
+  store i64 %r185, ptr %a0
+  %r187 = load i64, ptr %a0
+  %r186 = inttoptr i64 %r184 to ptr
+  %r188 = call i64 %r186(i64 %r187)
+  %r189 = ptrtoint ptr @__L__171 to i64
+  %r190 = inttoptr i64 %r189 to ptr
+  %r191 = call i64 %r190()
+  store i64 %r191, ptr %acc.ptr
   br label %__L__591
 __L__591:
-  %r180 = load i64, ptr %acc.ptr
-  store i64 %r180, ptr %acc.ptr
+  %r192 = load i64, ptr %acc.ptr
+  store i64 %r192, ptr %acc.ptr
   br label %__L__587
 __L__587:
-  %r181 = load i64, ptr %acc.ptr
-  ret i64 %r181
+  %r193 = load i64, ptr %acc.ptr
+  ret i64 %r193
 }
 ; defn subr_ge
-@__L__607 = private constant [3 x i8] c">=\00"
-@__L__624 = private constant [17 x i8] c"\0Aeval.k: error: \00"
-@__L__625 = private constant [27 x i8] c"non-numeric argument: (>= \00"
-@__L__626 = private constant [2 x i8] c" \00"
-@__L__627 = private constant [2 x i8] c")\00"
-@__L__628 = private constant [2 x i8] c"\0A\00"
+@__L__609 = private constant [3 x i8] c">=\00"
+@__L__626 = private constant [17 x i8] c"\0Aeval.k: error: \00"
+@__L__627 = private constant [24 x i8] c"non-numeric argument: (\00"
+@__L__628 = private constant [3 x i8] c">=\00"
+@__L__629 = private constant [2 x i8] c" \00"
+@__L__630 = private constant [2 x i8] c" \00"
+@__L__631 = private constant [2 x i8] c")\00"
+@__L__632 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__56(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -9705,9 +9727,11 @@ entry:
   %t28 = alloca i64
   %t29 = alloca i64
   %t30 = alloca i64
+  %t31 = alloca i64
+  %t32 = alloca i64
   %a0 = alloca i64
   %a1 = alloca i64
-  %r0 = ptrtoint ptr @__L__607 to i64
+  %r0 = ptrtoint ptr @__L__609 to i64
   store i64 %r0, ptr %t0
   %r1 = load i64, ptr %arg0
   store i64 %r1, ptr %t1
@@ -9745,7 +9769,7 @@ entry:
   %r25 = and i64 %r23, %r24
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__610
+  br i1 %r26, label %cont.27, label %__L__612
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 1, ptr %t8
@@ -9753,12 +9777,12 @@ cont.27:
   %r30 = load i64, ptr %t8
   %r31 = and i64 %r29, %r30
   store i64 %r31, ptr %acc.ptr
-  br label %__L__610
-__L__610:
+  br label %__L__612
+__L__612:
   %r32 = load i64, ptr %acc.ptr
   store i64 %r32, ptr %acc.ptr
   %r33 = icmp ne i64 %r32, 0
-  br i1 %r33, label %cont.34, label %__L__608
+  br i1 %r33, label %cont.34, label %__L__610
 cont.34:
   %r35 = load i64, ptr %acc.ptr
   store i64 1, ptr %t9
@@ -9775,24 +9799,24 @@ cont.34:
   %r44 = zext i1 %r43 to i64
   store i64 %r44, ptr %acc.ptr
   %r45 = icmp ne i64 %r44, 0
-  br i1 %r45, label %cont.46, label %__L__611
+  br i1 %r45, label %cont.46, label %__L__613
 cont.46:
   %r47 = load i64, ptr %acc.ptr
   %r48 = load i64, ptr @s__t
   store i64 %r48, ptr %acc.ptr
-  br label %__L__611
-__L__611:
+  br label %__L__613
+__L__613:
   %r49 = load i64, ptr %acc.ptr
   store i64 %r49, ptr %acc.ptr
-  br label %__L__609
-__L__608:
+  br label %__L__611
+__L__610:
   %r50 = load i64, ptr %acc.ptr
   %r51 = load i64, ptr %t3
   store i64 %r51, ptr %t12
   %r52 = load i64, ptr %t12
   store i64 %r52, ptr %acc.ptr
   %r53 = icmp ne i64 %r52, 0
-  br i1 %r53, label %cont.54, label %__L__615
+  br i1 %r53, label %cont.54, label %__L__617
 cont.54:
   %r55 = load i64, ptr %acc.ptr
   store i64 1, ptr %t13
@@ -9801,13 +9825,13 @@ cont.54:
   %r58 = and i64 %r56, %r57
   store i64 %r58, ptr %acc.ptr
   %r59 = icmp ne i64 %r58, 0
-  br i1 %r59, label %cont.60, label %__L__617
+  br i1 %r59, label %cont.60, label %__L__619
 cont.60:
   %r61 = load i64, ptr %acc.ptr
   %r62 = load i64, ptr @_3Clong_3E
   store i64 %r62, ptr %acc.ptr
-  br label %__L__618
-__L__617:
+  br label %__L__620
+__L__619:
   %r63 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t14
   %r64 = load i64, ptr %t12
@@ -9816,17 +9840,17 @@ __L__617:
   %r67 = getelementptr inbounds i64, ptr %r65, i64 %r66
   %r68 = load i64, ptr %r67
   store i64 %r68, ptr %acc.ptr
-  br label %__L__618
-__L__618:
+  br label %__L__620
+__L__620:
   %r69 = load i64, ptr %acc.ptr
   store i64 %r69, ptr %acc.ptr
-  br label %__L__616
-__L__615:
+  br label %__L__618
+__L__617:
   %r70 = load i64, ptr %acc.ptr
   %r71 = load i64, ptr @_3Cundefined_3E
   store i64 %r71, ptr %acc.ptr
-  br label %__L__616
-__L__616:
+  br label %__L__618
+__L__618:
   %r72 = load i64, ptr %acc.ptr
   store i64 %r72, ptr %t15
   %r73 = load i64, ptr @_3Cdouble_3E
@@ -9835,7 +9859,7 @@ __L__616:
   %r76 = zext i1 %r75 to i64
   store i64 %r76, ptr %acc.ptr
   %r77 = icmp ne i64 %r76, 0
-  br i1 %r77, label %__L__614, label %cont.78
+  br i1 %r77, label %__L__616, label %cont.78
 cont.78:
   %r79 = load i64, ptr %acc.ptr
   %r80 = load i64, ptr %t6
@@ -9843,7 +9867,7 @@ cont.78:
   %r81 = load i64, ptr %t16
   store i64 %r81, ptr %acc.ptr
   %r82 = icmp ne i64 %r81, 0
-  br i1 %r82, label %cont.83, label %__L__619
+  br i1 %r82, label %cont.83, label %__L__621
 cont.83:
   %r84 = load i64, ptr %acc.ptr
   store i64 1, ptr %t17
@@ -9852,13 +9876,13 @@ cont.83:
   %r87 = and i64 %r85, %r86
   store i64 %r87, ptr %acc.ptr
   %r88 = icmp ne i64 %r87, 0
-  br i1 %r88, label %cont.89, label %__L__621
+  br i1 %r88, label %cont.89, label %__L__623
 cont.89:
   %r90 = load i64, ptr %acc.ptr
   %r91 = load i64, ptr @_3Clong_3E
   store i64 %r91, ptr %acc.ptr
-  br label %__L__622
-__L__621:
+  br label %__L__624
+__L__623:
   %r92 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t18
   %r93 = load i64, ptr %t16
@@ -9867,17 +9891,17 @@ __L__621:
   %r96 = getelementptr inbounds i64, ptr %r94, i64 %r95
   %r97 = load i64, ptr %r96
   store i64 %r97, ptr %acc.ptr
-  br label %__L__622
-__L__622:
+  br label %__L__624
+__L__624:
   %r98 = load i64, ptr %acc.ptr
   store i64 %r98, ptr %acc.ptr
-  br label %__L__620
-__L__619:
+  br label %__L__622
+__L__621:
   %r99 = load i64, ptr %acc.ptr
   %r100 = load i64, ptr @_3Cundefined_3E
   store i64 %r100, ptr %acc.ptr
-  br label %__L__620
-__L__620:
+  br label %__L__622
+__L__622:
   %r101 = load i64, ptr %acc.ptr
   store i64 %r101, ptr %t19
   %r102 = load i64, ptr @_3Cdouble_3E
@@ -9885,12 +9909,12 @@ __L__620:
   %r104 = icmp eq i64 %r102, %r103
   %r105 = zext i1 %r104 to i64
   store i64 %r105, ptr %acc.ptr
-  br label %__L__614
-__L__614:
+  br label %__L__616
+__L__616:
   %r106 = load i64, ptr %acc.ptr
   store i64 %r106, ptr %acc.ptr
   %r107 = icmp ne i64 %r106, 0
-  br i1 %r107, label %cont.108, label %__L__612
+  br i1 %r107, label %cont.108, label %__L__614
 cont.108:
   %r109 = load i64, ptr %acc.ptr
   %r110 = load i64, ptr %t3
@@ -9922,19 +9946,19 @@ cont.108:
   %r128 = call i64 %r125(i64 %r126, i64 %r127)
   store i64 %r128, ptr %acc.ptr
   %r129 = icmp ne i64 %r128, 0
-  br i1 %r129, label %cont.130, label %__L__623
+  br i1 %r129, label %cont.130, label %__L__625
 cont.130:
   %r131 = load i64, ptr %acc.ptr
   %r132 = load i64, ptr @s__t
   store i64 %r132, ptr %acc.ptr
-  br label %__L__623
-__L__623:
+  br label %__L__625
+__L__625:
   %r133 = load i64, ptr %acc.ptr
   store i64 %r133, ptr %acc.ptr
-  br label %__L__613
-__L__612:
+  br label %__L__615
+__L__614:
   %r134 = load i64, ptr %acc.ptr
-  %r135 = ptrtoint ptr @__L__624 to i64
+  %r135 = ptrtoint ptr @__L__626 to i64
   store i64 %r135, ptr %t24
   %r136 = ptrtoint ptr @printf to i64
   %r137 = load i64, ptr %t24
@@ -9942,7 +9966,7 @@ __L__612:
   %r139 = load i64, ptr %a0
   %r138 = inttoptr i64 %r136 to ptr
   %r140 = call i64 %r138(i64 %r139)
-  %r141 = ptrtoint ptr @__L__625 to i64
+  %r141 = ptrtoint ptr @__L__627 to i64
   store i64 %r141, ptr %t25
   %r142 = ptrtoint ptr @printf to i64
   %r143 = load i64, ptr %t25
@@ -9950,15 +9974,15 @@ __L__612:
   %r145 = load i64, ptr %a0
   %r144 = inttoptr i64 %r142 to ptr
   %r146 = call i64 %r144(i64 %r145)
-  %r147 = load i64, ptr %t3
+  %r147 = ptrtoint ptr @__L__628 to i64
   store i64 %r147, ptr %t26
-  %r148 = ptrtoint ptr @__L__123 to i64
+  %r148 = ptrtoint ptr @printf to i64
   %r149 = load i64, ptr %t26
   store i64 %r149, ptr %a0
   %r151 = load i64, ptr %a0
   %r150 = inttoptr i64 %r148 to ptr
   %r152 = call i64 %r150(i64 %r151)
-  %r153 = ptrtoint ptr @__L__626 to i64
+  %r153 = ptrtoint ptr @__L__629 to i64
   store i64 %r153, ptr %t27
   %r154 = ptrtoint ptr @printf to i64
   %r155 = load i64, ptr %t27
@@ -9966,7 +9990,7 @@ __L__612:
   %r157 = load i64, ptr %a0
   %r156 = inttoptr i64 %r154 to ptr
   %r158 = call i64 %r156(i64 %r157)
-  %r159 = load i64, ptr %t6
+  %r159 = load i64, ptr %t3
   store i64 %r159, ptr %t28
   %r160 = ptrtoint ptr @__L__123 to i64
   %r161 = load i64, ptr %t28
@@ -9974,7 +9998,7 @@ __L__612:
   %r163 = load i64, ptr %a0
   %r162 = inttoptr i64 %r160 to ptr
   %r164 = call i64 %r162(i64 %r163)
-  %r165 = ptrtoint ptr @__L__627 to i64
+  %r165 = ptrtoint ptr @__L__630 to i64
   store i64 %r165, ptr %t29
   %r166 = ptrtoint ptr @printf to i64
   %r167 = load i64, ptr %t29
@@ -9982,34 +10006,52 @@ __L__612:
   %r169 = load i64, ptr %a0
   %r168 = inttoptr i64 %r166 to ptr
   %r170 = call i64 %r168(i64 %r169)
-  %r171 = ptrtoint ptr @__L__628 to i64
+  %r171 = load i64, ptr %t6
   store i64 %r171, ptr %t30
-  %r172 = ptrtoint ptr @printf to i64
+  %r172 = ptrtoint ptr @__L__123 to i64
   %r173 = load i64, ptr %t30
   store i64 %r173, ptr %a0
   %r175 = load i64, ptr %a0
   %r174 = inttoptr i64 %r172 to ptr
   %r176 = call i64 %r174(i64 %r175)
-  %r177 = ptrtoint ptr @__L__171 to i64
-  %r178 = inttoptr i64 %r177 to ptr
-  %r179 = call i64 %r178()
-  store i64 %r179, ptr %acc.ptr
-  br label %__L__613
-__L__613:
-  %r180 = load i64, ptr %acc.ptr
-  store i64 %r180, ptr %acc.ptr
-  br label %__L__609
-__L__609:
-  %r181 = load i64, ptr %acc.ptr
-  ret i64 %r181
+  %r177 = ptrtoint ptr @__L__631 to i64
+  store i64 %r177, ptr %t31
+  %r178 = ptrtoint ptr @printf to i64
+  %r179 = load i64, ptr %t31
+  store i64 %r179, ptr %a0
+  %r181 = load i64, ptr %a0
+  %r180 = inttoptr i64 %r178 to ptr
+  %r182 = call i64 %r180(i64 %r181)
+  %r183 = ptrtoint ptr @__L__632 to i64
+  store i64 %r183, ptr %t32
+  %r184 = ptrtoint ptr @printf to i64
+  %r185 = load i64, ptr %t32
+  store i64 %r185, ptr %a0
+  %r187 = load i64, ptr %a0
+  %r186 = inttoptr i64 %r184 to ptr
+  %r188 = call i64 %r186(i64 %r187)
+  %r189 = ptrtoint ptr @__L__171 to i64
+  %r190 = inttoptr i64 %r189 to ptr
+  %r191 = call i64 %r190()
+  store i64 %r191, ptr %acc.ptr
+  br label %__L__615
+__L__615:
+  %r192 = load i64, ptr %acc.ptr
+  store i64 %r192, ptr %acc.ptr
+  br label %__L__611
+__L__611:
+  %r193 = load i64, ptr %acc.ptr
+  ret i64 %r193
 }
 ; defn subr_le
-@__L__629 = private constant [3 x i8] c"<=\00"
-@__L__646 = private constant [17 x i8] c"\0Aeval.k: error: \00"
-@__L__647 = private constant [27 x i8] c"non-numeric argument: (<= \00"
-@__L__648 = private constant [2 x i8] c" \00"
-@__L__649 = private constant [2 x i8] c")\00"
-@__L__650 = private constant [2 x i8] c"\0A\00"
+@__L__633 = private constant [3 x i8] c"<=\00"
+@__L__650 = private constant [17 x i8] c"\0Aeval.k: error: \00"
+@__L__651 = private constant [24 x i8] c"non-numeric argument: (\00"
+@__L__652 = private constant [3 x i8] c"<=\00"
+@__L__653 = private constant [2 x i8] c" \00"
+@__L__654 = private constant [2 x i8] c" \00"
+@__L__655 = private constant [2 x i8] c")\00"
+@__L__656 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__57(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -10048,9 +10090,11 @@ entry:
   %t28 = alloca i64
   %t29 = alloca i64
   %t30 = alloca i64
+  %t31 = alloca i64
+  %t32 = alloca i64
   %a0 = alloca i64
   %a1 = alloca i64
-  %r0 = ptrtoint ptr @__L__629 to i64
+  %r0 = ptrtoint ptr @__L__633 to i64
   store i64 %r0, ptr %t0
   %r1 = load i64, ptr %arg0
   store i64 %r1, ptr %t1
@@ -10088,7 +10132,7 @@ entry:
   %r25 = and i64 %r23, %r24
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__632
+  br i1 %r26, label %cont.27, label %__L__636
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 1, ptr %t8
@@ -10096,12 +10140,12 @@ cont.27:
   %r30 = load i64, ptr %t8
   %r31 = and i64 %r29, %r30
   store i64 %r31, ptr %acc.ptr
-  br label %__L__632
-__L__632:
+  br label %__L__636
+__L__636:
   %r32 = load i64, ptr %acc.ptr
   store i64 %r32, ptr %acc.ptr
   %r33 = icmp ne i64 %r32, 0
-  br i1 %r33, label %cont.34, label %__L__630
+  br i1 %r33, label %cont.34, label %__L__634
 cont.34:
   %r35 = load i64, ptr %acc.ptr
   store i64 1, ptr %t9
@@ -10118,24 +10162,24 @@ cont.34:
   %r44 = zext i1 %r43 to i64
   store i64 %r44, ptr %acc.ptr
   %r45 = icmp ne i64 %r44, 0
-  br i1 %r45, label %cont.46, label %__L__633
+  br i1 %r45, label %cont.46, label %__L__637
 cont.46:
   %r47 = load i64, ptr %acc.ptr
   %r48 = load i64, ptr @s__t
   store i64 %r48, ptr %acc.ptr
-  br label %__L__633
-__L__633:
+  br label %__L__637
+__L__637:
   %r49 = load i64, ptr %acc.ptr
   store i64 %r49, ptr %acc.ptr
-  br label %__L__631
-__L__630:
+  br label %__L__635
+__L__634:
   %r50 = load i64, ptr %acc.ptr
   %r51 = load i64, ptr %t3
   store i64 %r51, ptr %t12
   %r52 = load i64, ptr %t12
   store i64 %r52, ptr %acc.ptr
   %r53 = icmp ne i64 %r52, 0
-  br i1 %r53, label %cont.54, label %__L__637
+  br i1 %r53, label %cont.54, label %__L__641
 cont.54:
   %r55 = load i64, ptr %acc.ptr
   store i64 1, ptr %t13
@@ -10144,13 +10188,13 @@ cont.54:
   %r58 = and i64 %r56, %r57
   store i64 %r58, ptr %acc.ptr
   %r59 = icmp ne i64 %r58, 0
-  br i1 %r59, label %cont.60, label %__L__639
+  br i1 %r59, label %cont.60, label %__L__643
 cont.60:
   %r61 = load i64, ptr %acc.ptr
   %r62 = load i64, ptr @_3Clong_3E
   store i64 %r62, ptr %acc.ptr
-  br label %__L__640
-__L__639:
+  br label %__L__644
+__L__643:
   %r63 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t14
   %r64 = load i64, ptr %t12
@@ -10159,17 +10203,17 @@ __L__639:
   %r67 = getelementptr inbounds i64, ptr %r65, i64 %r66
   %r68 = load i64, ptr %r67
   store i64 %r68, ptr %acc.ptr
-  br label %__L__640
-__L__640:
+  br label %__L__644
+__L__644:
   %r69 = load i64, ptr %acc.ptr
   store i64 %r69, ptr %acc.ptr
-  br label %__L__638
-__L__637:
+  br label %__L__642
+__L__641:
   %r70 = load i64, ptr %acc.ptr
   %r71 = load i64, ptr @_3Cundefined_3E
   store i64 %r71, ptr %acc.ptr
-  br label %__L__638
-__L__638:
+  br label %__L__642
+__L__642:
   %r72 = load i64, ptr %acc.ptr
   store i64 %r72, ptr %t15
   %r73 = load i64, ptr @_3Cdouble_3E
@@ -10178,7 +10222,7 @@ __L__638:
   %r76 = zext i1 %r75 to i64
   store i64 %r76, ptr %acc.ptr
   %r77 = icmp ne i64 %r76, 0
-  br i1 %r77, label %__L__636, label %cont.78
+  br i1 %r77, label %__L__640, label %cont.78
 cont.78:
   %r79 = load i64, ptr %acc.ptr
   %r80 = load i64, ptr %t6
@@ -10186,7 +10230,7 @@ cont.78:
   %r81 = load i64, ptr %t16
   store i64 %r81, ptr %acc.ptr
   %r82 = icmp ne i64 %r81, 0
-  br i1 %r82, label %cont.83, label %__L__641
+  br i1 %r82, label %cont.83, label %__L__645
 cont.83:
   %r84 = load i64, ptr %acc.ptr
   store i64 1, ptr %t17
@@ -10195,13 +10239,13 @@ cont.83:
   %r87 = and i64 %r85, %r86
   store i64 %r87, ptr %acc.ptr
   %r88 = icmp ne i64 %r87, 0
-  br i1 %r88, label %cont.89, label %__L__643
+  br i1 %r88, label %cont.89, label %__L__647
 cont.89:
   %r90 = load i64, ptr %acc.ptr
   %r91 = load i64, ptr @_3Clong_3E
   store i64 %r91, ptr %acc.ptr
-  br label %__L__644
-__L__643:
+  br label %__L__648
+__L__647:
   %r92 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t18
   %r93 = load i64, ptr %t16
@@ -10210,17 +10254,17 @@ __L__643:
   %r96 = getelementptr inbounds i64, ptr %r94, i64 %r95
   %r97 = load i64, ptr %r96
   store i64 %r97, ptr %acc.ptr
-  br label %__L__644
-__L__644:
+  br label %__L__648
+__L__648:
   %r98 = load i64, ptr %acc.ptr
   store i64 %r98, ptr %acc.ptr
-  br label %__L__642
-__L__641:
+  br label %__L__646
+__L__645:
   %r99 = load i64, ptr %acc.ptr
   %r100 = load i64, ptr @_3Cundefined_3E
   store i64 %r100, ptr %acc.ptr
-  br label %__L__642
-__L__642:
+  br label %__L__646
+__L__646:
   %r101 = load i64, ptr %acc.ptr
   store i64 %r101, ptr %t19
   %r102 = load i64, ptr @_3Cdouble_3E
@@ -10228,12 +10272,12 @@ __L__642:
   %r104 = icmp eq i64 %r102, %r103
   %r105 = zext i1 %r104 to i64
   store i64 %r105, ptr %acc.ptr
-  br label %__L__636
-__L__636:
+  br label %__L__640
+__L__640:
   %r106 = load i64, ptr %acc.ptr
   store i64 %r106, ptr %acc.ptr
   %r107 = icmp ne i64 %r106, 0
-  br i1 %r107, label %cont.108, label %__L__634
+  br i1 %r107, label %cont.108, label %__L__638
 cont.108:
   %r109 = load i64, ptr %acc.ptr
   %r110 = load i64, ptr %t3
@@ -10265,19 +10309,19 @@ cont.108:
   %r128 = call i64 %r125(i64 %r126, i64 %r127)
   store i64 %r128, ptr %acc.ptr
   %r129 = icmp ne i64 %r128, 0
-  br i1 %r129, label %cont.130, label %__L__645
+  br i1 %r129, label %cont.130, label %__L__649
 cont.130:
   %r131 = load i64, ptr %acc.ptr
   %r132 = load i64, ptr @s__t
   store i64 %r132, ptr %acc.ptr
-  br label %__L__645
-__L__645:
+  br label %__L__649
+__L__649:
   %r133 = load i64, ptr %acc.ptr
   store i64 %r133, ptr %acc.ptr
-  br label %__L__635
-__L__634:
+  br label %__L__639
+__L__638:
   %r134 = load i64, ptr %acc.ptr
-  %r135 = ptrtoint ptr @__L__646 to i64
+  %r135 = ptrtoint ptr @__L__650 to i64
   store i64 %r135, ptr %t24
   %r136 = ptrtoint ptr @printf to i64
   %r137 = load i64, ptr %t24
@@ -10285,7 +10329,7 @@ __L__634:
   %r139 = load i64, ptr %a0
   %r138 = inttoptr i64 %r136 to ptr
   %r140 = call i64 %r138(i64 %r139)
-  %r141 = ptrtoint ptr @__L__647 to i64
+  %r141 = ptrtoint ptr @__L__651 to i64
   store i64 %r141, ptr %t25
   %r142 = ptrtoint ptr @printf to i64
   %r143 = load i64, ptr %t25
@@ -10293,15 +10337,15 @@ __L__634:
   %r145 = load i64, ptr %a0
   %r144 = inttoptr i64 %r142 to ptr
   %r146 = call i64 %r144(i64 %r145)
-  %r147 = load i64, ptr %t3
+  %r147 = ptrtoint ptr @__L__652 to i64
   store i64 %r147, ptr %t26
-  %r148 = ptrtoint ptr @__L__123 to i64
+  %r148 = ptrtoint ptr @printf to i64
   %r149 = load i64, ptr %t26
   store i64 %r149, ptr %a0
   %r151 = load i64, ptr %a0
   %r150 = inttoptr i64 %r148 to ptr
   %r152 = call i64 %r150(i64 %r151)
-  %r153 = ptrtoint ptr @__L__648 to i64
+  %r153 = ptrtoint ptr @__L__653 to i64
   store i64 %r153, ptr %t27
   %r154 = ptrtoint ptr @printf to i64
   %r155 = load i64, ptr %t27
@@ -10309,7 +10353,7 @@ __L__634:
   %r157 = load i64, ptr %a0
   %r156 = inttoptr i64 %r154 to ptr
   %r158 = call i64 %r156(i64 %r157)
-  %r159 = load i64, ptr %t6
+  %r159 = load i64, ptr %t3
   store i64 %r159, ptr %t28
   %r160 = ptrtoint ptr @__L__123 to i64
   %r161 = load i64, ptr %t28
@@ -10317,7 +10361,7 @@ __L__634:
   %r163 = load i64, ptr %a0
   %r162 = inttoptr i64 %r160 to ptr
   %r164 = call i64 %r162(i64 %r163)
-  %r165 = ptrtoint ptr @__L__649 to i64
+  %r165 = ptrtoint ptr @__L__654 to i64
   store i64 %r165, ptr %t29
   %r166 = ptrtoint ptr @printf to i64
   %r167 = load i64, ptr %t29
@@ -10325,34 +10369,52 @@ __L__634:
   %r169 = load i64, ptr %a0
   %r168 = inttoptr i64 %r166 to ptr
   %r170 = call i64 %r168(i64 %r169)
-  %r171 = ptrtoint ptr @__L__650 to i64
+  %r171 = load i64, ptr %t6
   store i64 %r171, ptr %t30
-  %r172 = ptrtoint ptr @printf to i64
+  %r172 = ptrtoint ptr @__L__123 to i64
   %r173 = load i64, ptr %t30
   store i64 %r173, ptr %a0
   %r175 = load i64, ptr %a0
   %r174 = inttoptr i64 %r172 to ptr
   %r176 = call i64 %r174(i64 %r175)
-  %r177 = ptrtoint ptr @__L__171 to i64
-  %r178 = inttoptr i64 %r177 to ptr
-  %r179 = call i64 %r178()
-  store i64 %r179, ptr %acc.ptr
+  %r177 = ptrtoint ptr @__L__655 to i64
+  store i64 %r177, ptr %t31
+  %r178 = ptrtoint ptr @printf to i64
+  %r179 = load i64, ptr %t31
+  store i64 %r179, ptr %a0
+  %r181 = load i64, ptr %a0
+  %r180 = inttoptr i64 %r178 to ptr
+  %r182 = call i64 %r180(i64 %r181)
+  %r183 = ptrtoint ptr @__L__656 to i64
+  store i64 %r183, ptr %t32
+  %r184 = ptrtoint ptr @printf to i64
+  %r185 = load i64, ptr %t32
+  store i64 %r185, ptr %a0
+  %r187 = load i64, ptr %a0
+  %r186 = inttoptr i64 %r184 to ptr
+  %r188 = call i64 %r186(i64 %r187)
+  %r189 = ptrtoint ptr @__L__171 to i64
+  %r190 = inttoptr i64 %r189 to ptr
+  %r191 = call i64 %r190()
+  store i64 %r191, ptr %acc.ptr
+  br label %__L__639
+__L__639:
+  %r192 = load i64, ptr %acc.ptr
+  store i64 %r192, ptr %acc.ptr
   br label %__L__635
 __L__635:
-  %r180 = load i64, ptr %acc.ptr
-  store i64 %r180, ptr %acc.ptr
-  br label %__L__631
-__L__631:
-  %r181 = load i64, ptr %acc.ptr
-  ret i64 %r181
+  %r193 = load i64, ptr %acc.ptr
+  ret i64 %r193
 }
 ; defn subr_lt
-@__L__651 = private constant [2 x i8] c"<\00"
-@__L__668 = private constant [17 x i8] c"\0Aeval.k: error: \00"
-@__L__669 = private constant [26 x i8] c"non-numeric argument: (< \00"
-@__L__670 = private constant [2 x i8] c" \00"
-@__L__671 = private constant [2 x i8] c")\00"
-@__L__672 = private constant [2 x i8] c"\0A\00"
+@__L__657 = private constant [2 x i8] c"<\00"
+@__L__674 = private constant [17 x i8] c"\0Aeval.k: error: \00"
+@__L__675 = private constant [24 x i8] c"non-numeric argument: (\00"
+@__L__676 = private constant [2 x i8] c"<\00"
+@__L__677 = private constant [2 x i8] c" \00"
+@__L__678 = private constant [2 x i8] c" \00"
+@__L__679 = private constant [2 x i8] c")\00"
+@__L__680 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__58(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -10391,9 +10453,11 @@ entry:
   %t28 = alloca i64
   %t29 = alloca i64
   %t30 = alloca i64
+  %t31 = alloca i64
+  %t32 = alloca i64
   %a0 = alloca i64
   %a1 = alloca i64
-  %r0 = ptrtoint ptr @__L__651 to i64
+  %r0 = ptrtoint ptr @__L__657 to i64
   store i64 %r0, ptr %t0
   %r1 = load i64, ptr %arg0
   store i64 %r1, ptr %t1
@@ -10431,7 +10495,7 @@ entry:
   %r25 = and i64 %r23, %r24
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__654
+  br i1 %r26, label %cont.27, label %__L__660
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 1, ptr %t8
@@ -10439,12 +10503,12 @@ cont.27:
   %r30 = load i64, ptr %t8
   %r31 = and i64 %r29, %r30
   store i64 %r31, ptr %acc.ptr
-  br label %__L__654
-__L__654:
+  br label %__L__660
+__L__660:
   %r32 = load i64, ptr %acc.ptr
   store i64 %r32, ptr %acc.ptr
   %r33 = icmp ne i64 %r32, 0
-  br i1 %r33, label %cont.34, label %__L__652
+  br i1 %r33, label %cont.34, label %__L__658
 cont.34:
   %r35 = load i64, ptr %acc.ptr
   store i64 1, ptr %t9
@@ -10461,24 +10525,24 @@ cont.34:
   %r44 = zext i1 %r43 to i64
   store i64 %r44, ptr %acc.ptr
   %r45 = icmp ne i64 %r44, 0
-  br i1 %r45, label %cont.46, label %__L__655
+  br i1 %r45, label %cont.46, label %__L__661
 cont.46:
   %r47 = load i64, ptr %acc.ptr
   %r48 = load i64, ptr @s__t
   store i64 %r48, ptr %acc.ptr
-  br label %__L__655
-__L__655:
+  br label %__L__661
+__L__661:
   %r49 = load i64, ptr %acc.ptr
   store i64 %r49, ptr %acc.ptr
-  br label %__L__653
-__L__652:
+  br label %__L__659
+__L__658:
   %r50 = load i64, ptr %acc.ptr
   %r51 = load i64, ptr %t3
   store i64 %r51, ptr %t12
   %r52 = load i64, ptr %t12
   store i64 %r52, ptr %acc.ptr
   %r53 = icmp ne i64 %r52, 0
-  br i1 %r53, label %cont.54, label %__L__659
+  br i1 %r53, label %cont.54, label %__L__665
 cont.54:
   %r55 = load i64, ptr %acc.ptr
   store i64 1, ptr %t13
@@ -10487,13 +10551,13 @@ cont.54:
   %r58 = and i64 %r56, %r57
   store i64 %r58, ptr %acc.ptr
   %r59 = icmp ne i64 %r58, 0
-  br i1 %r59, label %cont.60, label %__L__661
+  br i1 %r59, label %cont.60, label %__L__667
 cont.60:
   %r61 = load i64, ptr %acc.ptr
   %r62 = load i64, ptr @_3Clong_3E
   store i64 %r62, ptr %acc.ptr
-  br label %__L__662
-__L__661:
+  br label %__L__668
+__L__667:
   %r63 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t14
   %r64 = load i64, ptr %t12
@@ -10502,17 +10566,17 @@ __L__661:
   %r67 = getelementptr inbounds i64, ptr %r65, i64 %r66
   %r68 = load i64, ptr %r67
   store i64 %r68, ptr %acc.ptr
-  br label %__L__662
-__L__662:
+  br label %__L__668
+__L__668:
   %r69 = load i64, ptr %acc.ptr
   store i64 %r69, ptr %acc.ptr
-  br label %__L__660
-__L__659:
+  br label %__L__666
+__L__665:
   %r70 = load i64, ptr %acc.ptr
   %r71 = load i64, ptr @_3Cundefined_3E
   store i64 %r71, ptr %acc.ptr
-  br label %__L__660
-__L__660:
+  br label %__L__666
+__L__666:
   %r72 = load i64, ptr %acc.ptr
   store i64 %r72, ptr %t15
   %r73 = load i64, ptr @_3Cdouble_3E
@@ -10521,7 +10585,7 @@ __L__660:
   %r76 = zext i1 %r75 to i64
   store i64 %r76, ptr %acc.ptr
   %r77 = icmp ne i64 %r76, 0
-  br i1 %r77, label %__L__658, label %cont.78
+  br i1 %r77, label %__L__664, label %cont.78
 cont.78:
   %r79 = load i64, ptr %acc.ptr
   %r80 = load i64, ptr %t6
@@ -10529,7 +10593,7 @@ cont.78:
   %r81 = load i64, ptr %t16
   store i64 %r81, ptr %acc.ptr
   %r82 = icmp ne i64 %r81, 0
-  br i1 %r82, label %cont.83, label %__L__663
+  br i1 %r82, label %cont.83, label %__L__669
 cont.83:
   %r84 = load i64, ptr %acc.ptr
   store i64 1, ptr %t17
@@ -10538,13 +10602,13 @@ cont.83:
   %r87 = and i64 %r85, %r86
   store i64 %r87, ptr %acc.ptr
   %r88 = icmp ne i64 %r87, 0
-  br i1 %r88, label %cont.89, label %__L__665
+  br i1 %r88, label %cont.89, label %__L__671
 cont.89:
   %r90 = load i64, ptr %acc.ptr
   %r91 = load i64, ptr @_3Clong_3E
   store i64 %r91, ptr %acc.ptr
-  br label %__L__666
-__L__665:
+  br label %__L__672
+__L__671:
   %r92 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t18
   %r93 = load i64, ptr %t16
@@ -10553,17 +10617,17 @@ __L__665:
   %r96 = getelementptr inbounds i64, ptr %r94, i64 %r95
   %r97 = load i64, ptr %r96
   store i64 %r97, ptr %acc.ptr
-  br label %__L__666
-__L__666:
+  br label %__L__672
+__L__672:
   %r98 = load i64, ptr %acc.ptr
   store i64 %r98, ptr %acc.ptr
-  br label %__L__664
-__L__663:
+  br label %__L__670
+__L__669:
   %r99 = load i64, ptr %acc.ptr
   %r100 = load i64, ptr @_3Cundefined_3E
   store i64 %r100, ptr %acc.ptr
-  br label %__L__664
-__L__664:
+  br label %__L__670
+__L__670:
   %r101 = load i64, ptr %acc.ptr
   store i64 %r101, ptr %t19
   %r102 = load i64, ptr @_3Cdouble_3E
@@ -10571,12 +10635,12 @@ __L__664:
   %r104 = icmp eq i64 %r102, %r103
   %r105 = zext i1 %r104 to i64
   store i64 %r105, ptr %acc.ptr
-  br label %__L__658
-__L__658:
+  br label %__L__664
+__L__664:
   %r106 = load i64, ptr %acc.ptr
   store i64 %r106, ptr %acc.ptr
   %r107 = icmp ne i64 %r106, 0
-  br i1 %r107, label %cont.108, label %__L__656
+  br i1 %r107, label %cont.108, label %__L__662
 cont.108:
   %r109 = load i64, ptr %acc.ptr
   %r110 = load i64, ptr %t3
@@ -10608,19 +10672,19 @@ cont.108:
   %r128 = call i64 %r125(i64 %r126, i64 %r127)
   store i64 %r128, ptr %acc.ptr
   %r129 = icmp ne i64 %r128, 0
-  br i1 %r129, label %cont.130, label %__L__667
+  br i1 %r129, label %cont.130, label %__L__673
 cont.130:
   %r131 = load i64, ptr %acc.ptr
   %r132 = load i64, ptr @s__t
   store i64 %r132, ptr %acc.ptr
-  br label %__L__667
-__L__667:
+  br label %__L__673
+__L__673:
   %r133 = load i64, ptr %acc.ptr
   store i64 %r133, ptr %acc.ptr
-  br label %__L__657
-__L__656:
+  br label %__L__663
+__L__662:
   %r134 = load i64, ptr %acc.ptr
-  %r135 = ptrtoint ptr @__L__668 to i64
+  %r135 = ptrtoint ptr @__L__674 to i64
   store i64 %r135, ptr %t24
   %r136 = ptrtoint ptr @printf to i64
   %r137 = load i64, ptr %t24
@@ -10628,7 +10692,7 @@ __L__656:
   %r139 = load i64, ptr %a0
   %r138 = inttoptr i64 %r136 to ptr
   %r140 = call i64 %r138(i64 %r139)
-  %r141 = ptrtoint ptr @__L__669 to i64
+  %r141 = ptrtoint ptr @__L__675 to i64
   store i64 %r141, ptr %t25
   %r142 = ptrtoint ptr @printf to i64
   %r143 = load i64, ptr %t25
@@ -10636,15 +10700,15 @@ __L__656:
   %r145 = load i64, ptr %a0
   %r144 = inttoptr i64 %r142 to ptr
   %r146 = call i64 %r144(i64 %r145)
-  %r147 = load i64, ptr %t3
+  %r147 = ptrtoint ptr @__L__676 to i64
   store i64 %r147, ptr %t26
-  %r148 = ptrtoint ptr @__L__123 to i64
+  %r148 = ptrtoint ptr @printf to i64
   %r149 = load i64, ptr %t26
   store i64 %r149, ptr %a0
   %r151 = load i64, ptr %a0
   %r150 = inttoptr i64 %r148 to ptr
   %r152 = call i64 %r150(i64 %r151)
-  %r153 = ptrtoint ptr @__L__670 to i64
+  %r153 = ptrtoint ptr @__L__677 to i64
   store i64 %r153, ptr %t27
   %r154 = ptrtoint ptr @printf to i64
   %r155 = load i64, ptr %t27
@@ -10652,7 +10716,7 @@ __L__656:
   %r157 = load i64, ptr %a0
   %r156 = inttoptr i64 %r154 to ptr
   %r158 = call i64 %r156(i64 %r157)
-  %r159 = load i64, ptr %t6
+  %r159 = load i64, ptr %t3
   store i64 %r159, ptr %t28
   %r160 = ptrtoint ptr @__L__123 to i64
   %r161 = load i64, ptr %t28
@@ -10660,7 +10724,7 @@ __L__656:
   %r163 = load i64, ptr %a0
   %r162 = inttoptr i64 %r160 to ptr
   %r164 = call i64 %r162(i64 %r163)
-  %r165 = ptrtoint ptr @__L__671 to i64
+  %r165 = ptrtoint ptr @__L__678 to i64
   store i64 %r165, ptr %t29
   %r166 = ptrtoint ptr @printf to i64
   %r167 = load i64, ptr %t29
@@ -10668,36 +10732,54 @@ __L__656:
   %r169 = load i64, ptr %a0
   %r168 = inttoptr i64 %r166 to ptr
   %r170 = call i64 %r168(i64 %r169)
-  %r171 = ptrtoint ptr @__L__672 to i64
+  %r171 = load i64, ptr %t6
   store i64 %r171, ptr %t30
-  %r172 = ptrtoint ptr @printf to i64
+  %r172 = ptrtoint ptr @__L__123 to i64
   %r173 = load i64, ptr %t30
   store i64 %r173, ptr %a0
   %r175 = load i64, ptr %a0
   %r174 = inttoptr i64 %r172 to ptr
   %r176 = call i64 %r174(i64 %r175)
-  %r177 = ptrtoint ptr @__L__171 to i64
-  %r178 = inttoptr i64 %r177 to ptr
-  %r179 = call i64 %r178()
-  store i64 %r179, ptr %acc.ptr
-  br label %__L__657
-__L__657:
-  %r180 = load i64, ptr %acc.ptr
-  store i64 %r180, ptr %acc.ptr
-  br label %__L__653
-__L__653:
-  %r181 = load i64, ptr %acc.ptr
-  ret i64 %r181
+  %r177 = ptrtoint ptr @__L__679 to i64
+  store i64 %r177, ptr %t31
+  %r178 = ptrtoint ptr @printf to i64
+  %r179 = load i64, ptr %t31
+  store i64 %r179, ptr %a0
+  %r181 = load i64, ptr %a0
+  %r180 = inttoptr i64 %r178 to ptr
+  %r182 = call i64 %r180(i64 %r181)
+  %r183 = ptrtoint ptr @__L__680 to i64
+  store i64 %r183, ptr %t32
+  %r184 = ptrtoint ptr @printf to i64
+  %r185 = load i64, ptr %t32
+  store i64 %r185, ptr %a0
+  %r187 = load i64, ptr %a0
+  %r186 = inttoptr i64 %r184 to ptr
+  %r188 = call i64 %r186(i64 %r187)
+  %r189 = ptrtoint ptr @__L__171 to i64
+  %r190 = inttoptr i64 %r189 to ptr
+  %r191 = call i64 %r190()
+  store i64 %r191, ptr %acc.ptr
+  br label %__L__663
+__L__663:
+  %r192 = load i64, ptr %acc.ptr
+  store i64 %r192, ptr %acc.ptr
+  br label %__L__659
+__L__659:
+  %r193 = load i64, ptr %acc.ptr
+  ret i64 %r193
 }
 ; defn define-relation
 ; form define-relation
 ; defn subr_mod
-@__L__673 = private constant [2 x i8] c"%\00"
-@__L__688 = private constant [17 x i8] c"\0Aeval.k: error: \00"
-@__L__689 = private constant [26 x i8] c"non-numeric argument: (% \00"
-@__L__690 = private constant [2 x i8] c" \00"
-@__L__691 = private constant [2 x i8] c")\00"
-@__L__692 = private constant [2 x i8] c"\0A\00"
+@__L__681 = private constant [4 x i8] c"mod\00"
+@__L__696 = private constant [17 x i8] c"\0Aeval.k: error: \00"
+@__L__697 = private constant [24 x i8] c"non-numeric argument: (\00"
+@__L__698 = private constant [4 x i8] c"mod\00"
+@__L__699 = private constant [2 x i8] c" \00"
+@__L__700 = private constant [2 x i8] c" \00"
+@__L__701 = private constant [2 x i8] c")\00"
+@__L__702 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__59(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -10742,9 +10824,11 @@ entry:
   %t34 = alloca i64
   %t35 = alloca i64
   %t36 = alloca i64
+  %t37 = alloca i64
+  %t38 = alloca i64
   %a0 = alloca i64
   %a1 = alloca i64
-  %r0 = ptrtoint ptr @__L__673 to i64
+  %r0 = ptrtoint ptr @__L__681 to i64
   store i64 %r0, ptr %t0
   %r1 = load i64, ptr %arg0
   store i64 %r1, ptr %t1
@@ -10782,7 +10866,7 @@ entry:
   %r25 = and i64 %r23, %r24
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__676
+  br i1 %r26, label %cont.27, label %__L__684
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 1, ptr %t8
@@ -10790,12 +10874,12 @@ cont.27:
   %r30 = load i64, ptr %t8
   %r31 = and i64 %r29, %r30
   store i64 %r31, ptr %acc.ptr
-  br label %__L__676
-__L__676:
+  br label %__L__684
+__L__684:
   %r32 = load i64, ptr %acc.ptr
   store i64 %r32, ptr %acc.ptr
   %r33 = icmp ne i64 %r32, 0
-  br i1 %r33, label %cont.34, label %__L__674
+  br i1 %r33, label %cont.34, label %__L__682
 cont.34:
   %r35 = load i64, ptr %acc.ptr
   store i64 1, ptr %t9
@@ -10831,15 +10915,15 @@ cont.34:
   %r56 = inttoptr i64 %r54 to ptr
   %r58 = call i64 %r56(i64 %r57)
   store i64 %r58, ptr %acc.ptr
-  br label %__L__675
-__L__674:
+  br label %__L__683
+__L__682:
   %r59 = load i64, ptr %acc.ptr
   %r60 = load i64, ptr %t3
   store i64 %r60, ptr %t17
   %r61 = load i64, ptr %t17
   store i64 %r61, ptr %acc.ptr
   %r62 = icmp ne i64 %r61, 0
-  br i1 %r62, label %cont.63, label %__L__680
+  br i1 %r62, label %cont.63, label %__L__688
 cont.63:
   %r64 = load i64, ptr %acc.ptr
   store i64 1, ptr %t18
@@ -10848,13 +10932,13 @@ cont.63:
   %r67 = and i64 %r65, %r66
   store i64 %r67, ptr %acc.ptr
   %r68 = icmp ne i64 %r67, 0
-  br i1 %r68, label %cont.69, label %__L__682
+  br i1 %r68, label %cont.69, label %__L__690
 cont.69:
   %r70 = load i64, ptr %acc.ptr
   %r71 = load i64, ptr @_3Clong_3E
   store i64 %r71, ptr %acc.ptr
-  br label %__L__683
-__L__682:
+  br label %__L__691
+__L__690:
   %r72 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t19
   %r73 = load i64, ptr %t17
@@ -10863,17 +10947,17 @@ __L__682:
   %r76 = getelementptr inbounds i64, ptr %r74, i64 %r75
   %r77 = load i64, ptr %r76
   store i64 %r77, ptr %acc.ptr
-  br label %__L__683
-__L__683:
+  br label %__L__691
+__L__691:
   %r78 = load i64, ptr %acc.ptr
   store i64 %r78, ptr %acc.ptr
-  br label %__L__681
-__L__680:
+  br label %__L__689
+__L__688:
   %r79 = load i64, ptr %acc.ptr
   %r80 = load i64, ptr @_3Cundefined_3E
   store i64 %r80, ptr %acc.ptr
-  br label %__L__681
-__L__681:
+  br label %__L__689
+__L__689:
   %r81 = load i64, ptr %acc.ptr
   store i64 %r81, ptr %t20
   %r82 = load i64, ptr @_3Cdouble_3E
@@ -10882,7 +10966,7 @@ __L__681:
   %r85 = zext i1 %r84 to i64
   store i64 %r85, ptr %acc.ptr
   %r86 = icmp ne i64 %r85, 0
-  br i1 %r86, label %__L__679, label %cont.87
+  br i1 %r86, label %__L__687, label %cont.87
 cont.87:
   %r88 = load i64, ptr %acc.ptr
   %r89 = load i64, ptr %t6
@@ -10890,7 +10974,7 @@ cont.87:
   %r90 = load i64, ptr %t21
   store i64 %r90, ptr %acc.ptr
   %r91 = icmp ne i64 %r90, 0
-  br i1 %r91, label %cont.92, label %__L__684
+  br i1 %r91, label %cont.92, label %__L__692
 cont.92:
   %r93 = load i64, ptr %acc.ptr
   store i64 1, ptr %t22
@@ -10899,13 +10983,13 @@ cont.92:
   %r96 = and i64 %r94, %r95
   store i64 %r96, ptr %acc.ptr
   %r97 = icmp ne i64 %r96, 0
-  br i1 %r97, label %cont.98, label %__L__686
+  br i1 %r97, label %cont.98, label %__L__694
 cont.98:
   %r99 = load i64, ptr %acc.ptr
   %r100 = load i64, ptr @_3Clong_3E
   store i64 %r100, ptr %acc.ptr
-  br label %__L__687
-__L__686:
+  br label %__L__695
+__L__694:
   %r101 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t23
   %r102 = load i64, ptr %t21
@@ -10914,17 +10998,17 @@ __L__686:
   %r105 = getelementptr inbounds i64, ptr %r103, i64 %r104
   %r106 = load i64, ptr %r105
   store i64 %r106, ptr %acc.ptr
-  br label %__L__687
-__L__687:
+  br label %__L__695
+__L__695:
   %r107 = load i64, ptr %acc.ptr
   store i64 %r107, ptr %acc.ptr
-  br label %__L__685
-__L__684:
+  br label %__L__693
+__L__692:
   %r108 = load i64, ptr %acc.ptr
   %r109 = load i64, ptr @_3Cundefined_3E
   store i64 %r109, ptr %acc.ptr
-  br label %__L__685
-__L__685:
+  br label %__L__693
+__L__693:
   %r110 = load i64, ptr %acc.ptr
   store i64 %r110, ptr %t24
   %r111 = load i64, ptr @_3Cdouble_3E
@@ -10932,12 +11016,12 @@ __L__685:
   %r113 = icmp eq i64 %r111, %r112
   %r114 = zext i1 %r113 to i64
   store i64 %r114, ptr %acc.ptr
-  br label %__L__679
-__L__679:
+  br label %__L__687
+__L__687:
   %r115 = load i64, ptr %acc.ptr
   store i64 %r115, ptr %acc.ptr
   %r116 = icmp ne i64 %r115, 0
-  br i1 %r116, label %cont.117, label %__L__677
+  br i1 %r116, label %cont.117, label %__L__685
 cont.117:
   %r118 = load i64, ptr %acc.ptr
   %r119 = load i64, ptr %t3
@@ -10975,10 +11059,10 @@ cont.117:
   %r140 = inttoptr i64 %r138 to ptr
   %r142 = call i64 %r140(i64 %r141)
   store i64 %r142, ptr %acc.ptr
-  br label %__L__678
-__L__677:
+  br label %__L__686
+__L__685:
   %r143 = load i64, ptr %acc.ptr
-  %r144 = ptrtoint ptr @__L__688 to i64
+  %r144 = ptrtoint ptr @__L__696 to i64
   store i64 %r144, ptr %t30
   %r145 = ptrtoint ptr @printf to i64
   %r146 = load i64, ptr %t30
@@ -10986,7 +11070,7 @@ __L__677:
   %r148 = load i64, ptr %a0
   %r147 = inttoptr i64 %r145 to ptr
   %r149 = call i64 %r147(i64 %r148)
-  %r150 = ptrtoint ptr @__L__689 to i64
+  %r150 = ptrtoint ptr @__L__697 to i64
   store i64 %r150, ptr %t31
   %r151 = ptrtoint ptr @printf to i64
   %r152 = load i64, ptr %t31
@@ -10994,15 +11078,15 @@ __L__677:
   %r154 = load i64, ptr %a0
   %r153 = inttoptr i64 %r151 to ptr
   %r155 = call i64 %r153(i64 %r154)
-  %r156 = load i64, ptr %t3
+  %r156 = ptrtoint ptr @__L__698 to i64
   store i64 %r156, ptr %t32
-  %r157 = ptrtoint ptr @__L__123 to i64
+  %r157 = ptrtoint ptr @printf to i64
   %r158 = load i64, ptr %t32
   store i64 %r158, ptr %a0
   %r160 = load i64, ptr %a0
   %r159 = inttoptr i64 %r157 to ptr
   %r161 = call i64 %r159(i64 %r160)
-  %r162 = ptrtoint ptr @__L__690 to i64
+  %r162 = ptrtoint ptr @__L__699 to i64
   store i64 %r162, ptr %t33
   %r163 = ptrtoint ptr @printf to i64
   %r164 = load i64, ptr %t33
@@ -11010,7 +11094,7 @@ __L__677:
   %r166 = load i64, ptr %a0
   %r165 = inttoptr i64 %r163 to ptr
   %r167 = call i64 %r165(i64 %r166)
-  %r168 = load i64, ptr %t6
+  %r168 = load i64, ptr %t3
   store i64 %r168, ptr %t34
   %r169 = ptrtoint ptr @__L__123 to i64
   %r170 = load i64, ptr %t34
@@ -11018,7 +11102,7 @@ __L__677:
   %r172 = load i64, ptr %a0
   %r171 = inttoptr i64 %r169 to ptr
   %r173 = call i64 %r171(i64 %r172)
-  %r174 = ptrtoint ptr @__L__691 to i64
+  %r174 = ptrtoint ptr @__L__700 to i64
   store i64 %r174, ptr %t35
   %r175 = ptrtoint ptr @printf to i64
   %r176 = load i64, ptr %t35
@@ -11026,34 +11110,52 @@ __L__677:
   %r178 = load i64, ptr %a0
   %r177 = inttoptr i64 %r175 to ptr
   %r179 = call i64 %r177(i64 %r178)
-  %r180 = ptrtoint ptr @__L__692 to i64
+  %r180 = load i64, ptr %t6
   store i64 %r180, ptr %t36
-  %r181 = ptrtoint ptr @printf to i64
+  %r181 = ptrtoint ptr @__L__123 to i64
   %r182 = load i64, ptr %t36
   store i64 %r182, ptr %a0
   %r184 = load i64, ptr %a0
   %r183 = inttoptr i64 %r181 to ptr
   %r185 = call i64 %r183(i64 %r184)
-  %r186 = ptrtoint ptr @__L__171 to i64
-  %r187 = inttoptr i64 %r186 to ptr
-  %r188 = call i64 %r187()
-  store i64 %r188, ptr %acc.ptr
-  br label %__L__678
-__L__678:
-  %r189 = load i64, ptr %acc.ptr
-  store i64 %r189, ptr %acc.ptr
-  br label %__L__675
-__L__675:
-  %r190 = load i64, ptr %acc.ptr
-  ret i64 %r190
+  %r186 = ptrtoint ptr @__L__701 to i64
+  store i64 %r186, ptr %t37
+  %r187 = ptrtoint ptr @printf to i64
+  %r188 = load i64, ptr %t37
+  store i64 %r188, ptr %a0
+  %r190 = load i64, ptr %a0
+  %r189 = inttoptr i64 %r187 to ptr
+  %r191 = call i64 %r189(i64 %r190)
+  %r192 = ptrtoint ptr @__L__702 to i64
+  store i64 %r192, ptr %t38
+  %r193 = ptrtoint ptr @printf to i64
+  %r194 = load i64, ptr %t38
+  store i64 %r194, ptr %a0
+  %r196 = load i64, ptr %a0
+  %r195 = inttoptr i64 %r193 to ptr
+  %r197 = call i64 %r195(i64 %r196)
+  %r198 = ptrtoint ptr @__L__171 to i64
+  %r199 = inttoptr i64 %r198 to ptr
+  %r200 = call i64 %r199()
+  store i64 %r200, ptr %acc.ptr
+  br label %__L__686
+__L__686:
+  %r201 = load i64, ptr %acc.ptr
+  store i64 %r201, ptr %acc.ptr
+  br label %__L__683
+__L__683:
+  %r202 = load i64, ptr %acc.ptr
+  ret i64 %r202
 }
 ; defn subr_div
-@__L__693 = private constant [2 x i8] c"/\00"
-@__L__708 = private constant [17 x i8] c"\0Aeval.k: error: \00"
-@__L__709 = private constant [26 x i8] c"non-numeric argument: (/ \00"
-@__L__710 = private constant [2 x i8] c" \00"
-@__L__711 = private constant [2 x i8] c")\00"
-@__L__712 = private constant [2 x i8] c"\0A\00"
+@__L__703 = private constant [4 x i8] c"div\00"
+@__L__718 = private constant [17 x i8] c"\0Aeval.k: error: \00"
+@__L__719 = private constant [24 x i8] c"non-numeric argument: (\00"
+@__L__720 = private constant [4 x i8] c"div\00"
+@__L__721 = private constant [2 x i8] c" \00"
+@__L__722 = private constant [2 x i8] c" \00"
+@__L__723 = private constant [2 x i8] c")\00"
+@__L__724 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__60(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -11094,9 +11196,11 @@ entry:
   %t30 = alloca i64
   %t31 = alloca i64
   %t32 = alloca i64
+  %t33 = alloca i64
+  %t34 = alloca i64
   %a0 = alloca i64
   %a1 = alloca i64
-  %r0 = ptrtoint ptr @__L__693 to i64
+  %r0 = ptrtoint ptr @__L__703 to i64
   store i64 %r0, ptr %t0
   %r1 = load i64, ptr %arg0
   store i64 %r1, ptr %t1
@@ -11134,7 +11238,7 @@ entry:
   %r25 = and i64 %r23, %r24
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__696
+  br i1 %r26, label %cont.27, label %__L__706
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 1, ptr %t8
@@ -11142,12 +11246,12 @@ cont.27:
   %r30 = load i64, ptr %t8
   %r31 = and i64 %r29, %r30
   store i64 %r31, ptr %acc.ptr
-  br label %__L__696
-__L__696:
+  br label %__L__706
+__L__706:
   %r32 = load i64, ptr %acc.ptr
   store i64 %r32, ptr %acc.ptr
   %r33 = icmp ne i64 %r32, 0
-  br i1 %r33, label %cont.34, label %__L__694
+  br i1 %r33, label %cont.34, label %__L__704
 cont.34:
   %r35 = load i64, ptr %acc.ptr
   store i64 1, ptr %t9
@@ -11169,15 +11273,15 @@ cont.34:
   %r46 = inttoptr i64 %r44 to ptr
   %r48 = call i64 %r46(i64 %r47)
   store i64 %r48, ptr %acc.ptr
-  br label %__L__695
-__L__694:
+  br label %__L__705
+__L__704:
   %r49 = load i64, ptr %acc.ptr
   %r50 = load i64, ptr %t3
   store i64 %r50, ptr %t13
   %r51 = load i64, ptr %t13
   store i64 %r51, ptr %acc.ptr
   %r52 = icmp ne i64 %r51, 0
-  br i1 %r52, label %cont.53, label %__L__700
+  br i1 %r52, label %cont.53, label %__L__710
 cont.53:
   %r54 = load i64, ptr %acc.ptr
   store i64 1, ptr %t14
@@ -11186,13 +11290,13 @@ cont.53:
   %r57 = and i64 %r55, %r56
   store i64 %r57, ptr %acc.ptr
   %r58 = icmp ne i64 %r57, 0
-  br i1 %r58, label %cont.59, label %__L__702
+  br i1 %r58, label %cont.59, label %__L__712
 cont.59:
   %r60 = load i64, ptr %acc.ptr
   %r61 = load i64, ptr @_3Clong_3E
   store i64 %r61, ptr %acc.ptr
-  br label %__L__703
-__L__702:
+  br label %__L__713
+__L__712:
   %r62 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t15
   %r63 = load i64, ptr %t13
@@ -11201,17 +11305,17 @@ __L__702:
   %r66 = getelementptr inbounds i64, ptr %r64, i64 %r65
   %r67 = load i64, ptr %r66
   store i64 %r67, ptr %acc.ptr
-  br label %__L__703
-__L__703:
+  br label %__L__713
+__L__713:
   %r68 = load i64, ptr %acc.ptr
   store i64 %r68, ptr %acc.ptr
-  br label %__L__701
-__L__700:
+  br label %__L__711
+__L__710:
   %r69 = load i64, ptr %acc.ptr
   %r70 = load i64, ptr @_3Cundefined_3E
   store i64 %r70, ptr %acc.ptr
-  br label %__L__701
-__L__701:
+  br label %__L__711
+__L__711:
   %r71 = load i64, ptr %acc.ptr
   store i64 %r71, ptr %t16
   %r72 = load i64, ptr @_3Cdouble_3E
@@ -11220,7 +11324,7 @@ __L__701:
   %r75 = zext i1 %r74 to i64
   store i64 %r75, ptr %acc.ptr
   %r76 = icmp ne i64 %r75, 0
-  br i1 %r76, label %__L__699, label %cont.77
+  br i1 %r76, label %__L__709, label %cont.77
 cont.77:
   %r78 = load i64, ptr %acc.ptr
   %r79 = load i64, ptr %t6
@@ -11228,7 +11332,7 @@ cont.77:
   %r80 = load i64, ptr %t17
   store i64 %r80, ptr %acc.ptr
   %r81 = icmp ne i64 %r80, 0
-  br i1 %r81, label %cont.82, label %__L__704
+  br i1 %r81, label %cont.82, label %__L__714
 cont.82:
   %r83 = load i64, ptr %acc.ptr
   store i64 1, ptr %t18
@@ -11237,13 +11341,13 @@ cont.82:
   %r86 = and i64 %r84, %r85
   store i64 %r86, ptr %acc.ptr
   %r87 = icmp ne i64 %r86, 0
-  br i1 %r87, label %cont.88, label %__L__706
+  br i1 %r87, label %cont.88, label %__L__716
 cont.88:
   %r89 = load i64, ptr %acc.ptr
   %r90 = load i64, ptr @_3Clong_3E
   store i64 %r90, ptr %acc.ptr
-  br label %__L__707
-__L__706:
+  br label %__L__717
+__L__716:
   %r91 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t19
   %r92 = load i64, ptr %t17
@@ -11252,17 +11356,17 @@ __L__706:
   %r95 = getelementptr inbounds i64, ptr %r93, i64 %r94
   %r96 = load i64, ptr %r95
   store i64 %r96, ptr %acc.ptr
-  br label %__L__707
-__L__707:
+  br label %__L__717
+__L__717:
   %r97 = load i64, ptr %acc.ptr
   store i64 %r97, ptr %acc.ptr
-  br label %__L__705
-__L__704:
+  br label %__L__715
+__L__714:
   %r98 = load i64, ptr %acc.ptr
   %r99 = load i64, ptr @_3Cundefined_3E
   store i64 %r99, ptr %acc.ptr
-  br label %__L__705
-__L__705:
+  br label %__L__715
+__L__715:
   %r100 = load i64, ptr %acc.ptr
   store i64 %r100, ptr %t20
   %r101 = load i64, ptr @_3Cdouble_3E
@@ -11270,12 +11374,12 @@ __L__705:
   %r103 = icmp eq i64 %r101, %r102
   %r104 = zext i1 %r103 to i64
   store i64 %r104, ptr %acc.ptr
-  br label %__L__699
-__L__699:
+  br label %__L__709
+__L__709:
   %r105 = load i64, ptr %acc.ptr
   store i64 %r105, ptr %acc.ptr
   %r106 = icmp ne i64 %r105, 0
-  br i1 %r106, label %cont.107, label %__L__697
+  br i1 %r106, label %cont.107, label %__L__707
 cont.107:
   %r108 = load i64, ptr %acc.ptr
   %r109 = load i64, ptr %t3
@@ -11313,10 +11417,10 @@ cont.107:
   %r130 = inttoptr i64 %r128 to ptr
   %r132 = call i64 %r130(i64 %r131)
   store i64 %r132, ptr %acc.ptr
-  br label %__L__698
-__L__697:
+  br label %__L__708
+__L__707:
   %r133 = load i64, ptr %acc.ptr
-  %r134 = ptrtoint ptr @__L__708 to i64
+  %r134 = ptrtoint ptr @__L__718 to i64
   store i64 %r134, ptr %t26
   %r135 = ptrtoint ptr @printf to i64
   %r136 = load i64, ptr %t26
@@ -11324,7 +11428,7 @@ __L__697:
   %r138 = load i64, ptr %a0
   %r137 = inttoptr i64 %r135 to ptr
   %r139 = call i64 %r137(i64 %r138)
-  %r140 = ptrtoint ptr @__L__709 to i64
+  %r140 = ptrtoint ptr @__L__719 to i64
   store i64 %r140, ptr %t27
   %r141 = ptrtoint ptr @printf to i64
   %r142 = load i64, ptr %t27
@@ -11332,15 +11436,15 @@ __L__697:
   %r144 = load i64, ptr %a0
   %r143 = inttoptr i64 %r141 to ptr
   %r145 = call i64 %r143(i64 %r144)
-  %r146 = load i64, ptr %t3
+  %r146 = ptrtoint ptr @__L__720 to i64
   store i64 %r146, ptr %t28
-  %r147 = ptrtoint ptr @__L__123 to i64
+  %r147 = ptrtoint ptr @printf to i64
   %r148 = load i64, ptr %t28
   store i64 %r148, ptr %a0
   %r150 = load i64, ptr %a0
   %r149 = inttoptr i64 %r147 to ptr
   %r151 = call i64 %r149(i64 %r150)
-  %r152 = ptrtoint ptr @__L__710 to i64
+  %r152 = ptrtoint ptr @__L__721 to i64
   store i64 %r152, ptr %t29
   %r153 = ptrtoint ptr @printf to i64
   %r154 = load i64, ptr %t29
@@ -11348,7 +11452,7 @@ __L__697:
   %r156 = load i64, ptr %a0
   %r155 = inttoptr i64 %r153 to ptr
   %r157 = call i64 %r155(i64 %r156)
-  %r158 = load i64, ptr %t6
+  %r158 = load i64, ptr %t3
   store i64 %r158, ptr %t30
   %r159 = ptrtoint ptr @__L__123 to i64
   %r160 = load i64, ptr %t30
@@ -11356,7 +11460,7 @@ __L__697:
   %r162 = load i64, ptr %a0
   %r161 = inttoptr i64 %r159 to ptr
   %r163 = call i64 %r161(i64 %r162)
-  %r164 = ptrtoint ptr @__L__711 to i64
+  %r164 = ptrtoint ptr @__L__722 to i64
   store i64 %r164, ptr %t31
   %r165 = ptrtoint ptr @printf to i64
   %r166 = load i64, ptr %t31
@@ -11364,34 +11468,52 @@ __L__697:
   %r168 = load i64, ptr %a0
   %r167 = inttoptr i64 %r165 to ptr
   %r169 = call i64 %r167(i64 %r168)
-  %r170 = ptrtoint ptr @__L__712 to i64
+  %r170 = load i64, ptr %t6
   store i64 %r170, ptr %t32
-  %r171 = ptrtoint ptr @printf to i64
+  %r171 = ptrtoint ptr @__L__123 to i64
   %r172 = load i64, ptr %t32
   store i64 %r172, ptr %a0
   %r174 = load i64, ptr %a0
   %r173 = inttoptr i64 %r171 to ptr
   %r175 = call i64 %r173(i64 %r174)
-  %r176 = ptrtoint ptr @__L__171 to i64
-  %r177 = inttoptr i64 %r176 to ptr
-  %r178 = call i64 %r177()
-  store i64 %r178, ptr %acc.ptr
-  br label %__L__698
-__L__698:
-  %r179 = load i64, ptr %acc.ptr
-  store i64 %r179, ptr %acc.ptr
-  br label %__L__695
-__L__695:
-  %r180 = load i64, ptr %acc.ptr
-  ret i64 %r180
+  %r176 = ptrtoint ptr @__L__723 to i64
+  store i64 %r176, ptr %t33
+  %r177 = ptrtoint ptr @printf to i64
+  %r178 = load i64, ptr %t33
+  store i64 %r178, ptr %a0
+  %r180 = load i64, ptr %a0
+  %r179 = inttoptr i64 %r177 to ptr
+  %r181 = call i64 %r179(i64 %r180)
+  %r182 = ptrtoint ptr @__L__724 to i64
+  store i64 %r182, ptr %t34
+  %r183 = ptrtoint ptr @printf to i64
+  %r184 = load i64, ptr %t34
+  store i64 %r184, ptr %a0
+  %r186 = load i64, ptr %a0
+  %r185 = inttoptr i64 %r183 to ptr
+  %r187 = call i64 %r185(i64 %r186)
+  %r188 = ptrtoint ptr @__L__171 to i64
+  %r189 = inttoptr i64 %r188 to ptr
+  %r190 = call i64 %r189()
+  store i64 %r190, ptr %acc.ptr
+  br label %__L__708
+__L__708:
+  %r191 = load i64, ptr %acc.ptr
+  store i64 %r191, ptr %acc.ptr
+  br label %__L__705
+__L__705:
+  %r192 = load i64, ptr %acc.ptr
+  ret i64 %r192
 }
 ; defn subr_mul
-@__L__713 = private constant [2 x i8] c"*\00"
-@__L__728 = private constant [17 x i8] c"\0Aeval.k: error: \00"
-@__L__729 = private constant [26 x i8] c"non-numeric argument: (* \00"
-@__L__730 = private constant [2 x i8] c" \00"
-@__L__731 = private constant [2 x i8] c")\00"
-@__L__732 = private constant [2 x i8] c"\0A\00"
+@__L__725 = private constant [4 x i8] c"mul\00"
+@__L__740 = private constant [17 x i8] c"\0Aeval.k: error: \00"
+@__L__741 = private constant [24 x i8] c"non-numeric argument: (\00"
+@__L__742 = private constant [4 x i8] c"mul\00"
+@__L__743 = private constant [2 x i8] c" \00"
+@__L__744 = private constant [2 x i8] c" \00"
+@__L__745 = private constant [2 x i8] c")\00"
+@__L__746 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__61(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -11432,9 +11554,11 @@ entry:
   %t30 = alloca i64
   %t31 = alloca i64
   %t32 = alloca i64
+  %t33 = alloca i64
+  %t34 = alloca i64
   %a0 = alloca i64
   %a1 = alloca i64
-  %r0 = ptrtoint ptr @__L__713 to i64
+  %r0 = ptrtoint ptr @__L__725 to i64
   store i64 %r0, ptr %t0
   %r1 = load i64, ptr %arg0
   store i64 %r1, ptr %t1
@@ -11472,7 +11596,7 @@ entry:
   %r25 = and i64 %r23, %r24
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__716
+  br i1 %r26, label %cont.27, label %__L__728
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 1, ptr %t8
@@ -11480,12 +11604,12 @@ cont.27:
   %r30 = load i64, ptr %t8
   %r31 = and i64 %r29, %r30
   store i64 %r31, ptr %acc.ptr
-  br label %__L__716
-__L__716:
+  br label %__L__728
+__L__728:
   %r32 = load i64, ptr %acc.ptr
   store i64 %r32, ptr %acc.ptr
   %r33 = icmp ne i64 %r32, 0
-  br i1 %r33, label %cont.34, label %__L__714
+  br i1 %r33, label %cont.34, label %__L__726
 cont.34:
   %r35 = load i64, ptr %acc.ptr
   store i64 1, ptr %t9
@@ -11507,15 +11631,15 @@ cont.34:
   %r46 = inttoptr i64 %r44 to ptr
   %r48 = call i64 %r46(i64 %r47)
   store i64 %r48, ptr %acc.ptr
-  br label %__L__715
-__L__714:
+  br label %__L__727
+__L__726:
   %r49 = load i64, ptr %acc.ptr
   %r50 = load i64, ptr %t3
   store i64 %r50, ptr %t13
   %r51 = load i64, ptr %t13
   store i64 %r51, ptr %acc.ptr
   %r52 = icmp ne i64 %r51, 0
-  br i1 %r52, label %cont.53, label %__L__720
+  br i1 %r52, label %cont.53, label %__L__732
 cont.53:
   %r54 = load i64, ptr %acc.ptr
   store i64 1, ptr %t14
@@ -11524,13 +11648,13 @@ cont.53:
   %r57 = and i64 %r55, %r56
   store i64 %r57, ptr %acc.ptr
   %r58 = icmp ne i64 %r57, 0
-  br i1 %r58, label %cont.59, label %__L__722
+  br i1 %r58, label %cont.59, label %__L__734
 cont.59:
   %r60 = load i64, ptr %acc.ptr
   %r61 = load i64, ptr @_3Clong_3E
   store i64 %r61, ptr %acc.ptr
-  br label %__L__723
-__L__722:
+  br label %__L__735
+__L__734:
   %r62 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t15
   %r63 = load i64, ptr %t13
@@ -11539,17 +11663,17 @@ __L__722:
   %r66 = getelementptr inbounds i64, ptr %r64, i64 %r65
   %r67 = load i64, ptr %r66
   store i64 %r67, ptr %acc.ptr
-  br label %__L__723
-__L__723:
+  br label %__L__735
+__L__735:
   %r68 = load i64, ptr %acc.ptr
   store i64 %r68, ptr %acc.ptr
-  br label %__L__721
-__L__720:
+  br label %__L__733
+__L__732:
   %r69 = load i64, ptr %acc.ptr
   %r70 = load i64, ptr @_3Cundefined_3E
   store i64 %r70, ptr %acc.ptr
-  br label %__L__721
-__L__721:
+  br label %__L__733
+__L__733:
   %r71 = load i64, ptr %acc.ptr
   store i64 %r71, ptr %t16
   %r72 = load i64, ptr @_3Cdouble_3E
@@ -11558,7 +11682,7 @@ __L__721:
   %r75 = zext i1 %r74 to i64
   store i64 %r75, ptr %acc.ptr
   %r76 = icmp ne i64 %r75, 0
-  br i1 %r76, label %__L__719, label %cont.77
+  br i1 %r76, label %__L__731, label %cont.77
 cont.77:
   %r78 = load i64, ptr %acc.ptr
   %r79 = load i64, ptr %t6
@@ -11566,7 +11690,7 @@ cont.77:
   %r80 = load i64, ptr %t17
   store i64 %r80, ptr %acc.ptr
   %r81 = icmp ne i64 %r80, 0
-  br i1 %r81, label %cont.82, label %__L__724
+  br i1 %r81, label %cont.82, label %__L__736
 cont.82:
   %r83 = load i64, ptr %acc.ptr
   store i64 1, ptr %t18
@@ -11575,13 +11699,13 @@ cont.82:
   %r86 = and i64 %r84, %r85
   store i64 %r86, ptr %acc.ptr
   %r87 = icmp ne i64 %r86, 0
-  br i1 %r87, label %cont.88, label %__L__726
+  br i1 %r87, label %cont.88, label %__L__738
 cont.88:
   %r89 = load i64, ptr %acc.ptr
   %r90 = load i64, ptr @_3Clong_3E
   store i64 %r90, ptr %acc.ptr
-  br label %__L__727
-__L__726:
+  br label %__L__739
+__L__738:
   %r91 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t19
   %r92 = load i64, ptr %t17
@@ -11590,17 +11714,17 @@ __L__726:
   %r95 = getelementptr inbounds i64, ptr %r93, i64 %r94
   %r96 = load i64, ptr %r95
   store i64 %r96, ptr %acc.ptr
-  br label %__L__727
-__L__727:
+  br label %__L__739
+__L__739:
   %r97 = load i64, ptr %acc.ptr
   store i64 %r97, ptr %acc.ptr
-  br label %__L__725
-__L__724:
+  br label %__L__737
+__L__736:
   %r98 = load i64, ptr %acc.ptr
   %r99 = load i64, ptr @_3Cundefined_3E
   store i64 %r99, ptr %acc.ptr
-  br label %__L__725
-__L__725:
+  br label %__L__737
+__L__737:
   %r100 = load i64, ptr %acc.ptr
   store i64 %r100, ptr %t20
   %r101 = load i64, ptr @_3Cdouble_3E
@@ -11608,12 +11732,12 @@ __L__725:
   %r103 = icmp eq i64 %r101, %r102
   %r104 = zext i1 %r103 to i64
   store i64 %r104, ptr %acc.ptr
-  br label %__L__719
-__L__719:
+  br label %__L__731
+__L__731:
   %r105 = load i64, ptr %acc.ptr
   store i64 %r105, ptr %acc.ptr
   %r106 = icmp ne i64 %r105, 0
-  br i1 %r106, label %cont.107, label %__L__717
+  br i1 %r106, label %cont.107, label %__L__729
 cont.107:
   %r108 = load i64, ptr %acc.ptr
   %r109 = load i64, ptr %t3
@@ -11651,10 +11775,10 @@ cont.107:
   %r130 = inttoptr i64 %r128 to ptr
   %r132 = call i64 %r130(i64 %r131)
   store i64 %r132, ptr %acc.ptr
-  br label %__L__718
-__L__717:
+  br label %__L__730
+__L__729:
   %r133 = load i64, ptr %acc.ptr
-  %r134 = ptrtoint ptr @__L__728 to i64
+  %r134 = ptrtoint ptr @__L__740 to i64
   store i64 %r134, ptr %t26
   %r135 = ptrtoint ptr @printf to i64
   %r136 = load i64, ptr %t26
@@ -11662,7 +11786,7 @@ __L__717:
   %r138 = load i64, ptr %a0
   %r137 = inttoptr i64 %r135 to ptr
   %r139 = call i64 %r137(i64 %r138)
-  %r140 = ptrtoint ptr @__L__729 to i64
+  %r140 = ptrtoint ptr @__L__741 to i64
   store i64 %r140, ptr %t27
   %r141 = ptrtoint ptr @printf to i64
   %r142 = load i64, ptr %t27
@@ -11670,15 +11794,15 @@ __L__717:
   %r144 = load i64, ptr %a0
   %r143 = inttoptr i64 %r141 to ptr
   %r145 = call i64 %r143(i64 %r144)
-  %r146 = load i64, ptr %t3
+  %r146 = ptrtoint ptr @__L__742 to i64
   store i64 %r146, ptr %t28
-  %r147 = ptrtoint ptr @__L__123 to i64
+  %r147 = ptrtoint ptr @printf to i64
   %r148 = load i64, ptr %t28
   store i64 %r148, ptr %a0
   %r150 = load i64, ptr %a0
   %r149 = inttoptr i64 %r147 to ptr
   %r151 = call i64 %r149(i64 %r150)
-  %r152 = ptrtoint ptr @__L__730 to i64
+  %r152 = ptrtoint ptr @__L__743 to i64
   store i64 %r152, ptr %t29
   %r153 = ptrtoint ptr @printf to i64
   %r154 = load i64, ptr %t29
@@ -11686,7 +11810,7 @@ __L__717:
   %r156 = load i64, ptr %a0
   %r155 = inttoptr i64 %r153 to ptr
   %r157 = call i64 %r155(i64 %r156)
-  %r158 = load i64, ptr %t6
+  %r158 = load i64, ptr %t3
   store i64 %r158, ptr %t30
   %r159 = ptrtoint ptr @__L__123 to i64
   %r160 = load i64, ptr %t30
@@ -11694,7 +11818,7 @@ __L__717:
   %r162 = load i64, ptr %a0
   %r161 = inttoptr i64 %r159 to ptr
   %r163 = call i64 %r161(i64 %r162)
-  %r164 = ptrtoint ptr @__L__731 to i64
+  %r164 = ptrtoint ptr @__L__744 to i64
   store i64 %r164, ptr %t31
   %r165 = ptrtoint ptr @printf to i64
   %r166 = load i64, ptr %t31
@@ -11702,34 +11826,52 @@ __L__717:
   %r168 = load i64, ptr %a0
   %r167 = inttoptr i64 %r165 to ptr
   %r169 = call i64 %r167(i64 %r168)
-  %r170 = ptrtoint ptr @__L__732 to i64
+  %r170 = load i64, ptr %t6
   store i64 %r170, ptr %t32
-  %r171 = ptrtoint ptr @printf to i64
+  %r171 = ptrtoint ptr @__L__123 to i64
   %r172 = load i64, ptr %t32
   store i64 %r172, ptr %a0
   %r174 = load i64, ptr %a0
   %r173 = inttoptr i64 %r171 to ptr
   %r175 = call i64 %r173(i64 %r174)
-  %r176 = ptrtoint ptr @__L__171 to i64
-  %r177 = inttoptr i64 %r176 to ptr
-  %r178 = call i64 %r177()
-  store i64 %r178, ptr %acc.ptr
-  br label %__L__718
-__L__718:
-  %r179 = load i64, ptr %acc.ptr
-  store i64 %r179, ptr %acc.ptr
-  br label %__L__715
-__L__715:
-  %r180 = load i64, ptr %acc.ptr
-  ret i64 %r180
+  %r176 = ptrtoint ptr @__L__745 to i64
+  store i64 %r176, ptr %t33
+  %r177 = ptrtoint ptr @printf to i64
+  %r178 = load i64, ptr %t33
+  store i64 %r178, ptr %a0
+  %r180 = load i64, ptr %a0
+  %r179 = inttoptr i64 %r177 to ptr
+  %r181 = call i64 %r179(i64 %r180)
+  %r182 = ptrtoint ptr @__L__746 to i64
+  store i64 %r182, ptr %t34
+  %r183 = ptrtoint ptr @printf to i64
+  %r184 = load i64, ptr %t34
+  store i64 %r184, ptr %a0
+  %r186 = load i64, ptr %a0
+  %r185 = inttoptr i64 %r183 to ptr
+  %r187 = call i64 %r185(i64 %r186)
+  %r188 = ptrtoint ptr @__L__171 to i64
+  %r189 = inttoptr i64 %r188 to ptr
+  %r190 = call i64 %r189()
+  store i64 %r190, ptr %acc.ptr
+  br label %__L__730
+__L__730:
+  %r191 = load i64, ptr %acc.ptr
+  store i64 %r191, ptr %acc.ptr
+  br label %__L__727
+__L__727:
+  %r192 = load i64, ptr %acc.ptr
+  ret i64 %r192
 }
 ; defn subr_add
-@__L__733 = private constant [2 x i8] c"+\00"
-@__L__748 = private constant [17 x i8] c"\0Aeval.k: error: \00"
-@__L__749 = private constant [26 x i8] c"non-numeric argument: (+ \00"
-@__L__750 = private constant [2 x i8] c" \00"
-@__L__751 = private constant [2 x i8] c")\00"
-@__L__752 = private constant [2 x i8] c"\0A\00"
+@__L__747 = private constant [4 x i8] c"add\00"
+@__L__762 = private constant [17 x i8] c"\0Aeval.k: error: \00"
+@__L__763 = private constant [24 x i8] c"non-numeric argument: (\00"
+@__L__764 = private constant [4 x i8] c"add\00"
+@__L__765 = private constant [2 x i8] c" \00"
+@__L__766 = private constant [2 x i8] c" \00"
+@__L__767 = private constant [2 x i8] c")\00"
+@__L__768 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__62(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -11770,9 +11912,11 @@ entry:
   %t30 = alloca i64
   %t31 = alloca i64
   %t32 = alloca i64
+  %t33 = alloca i64
+  %t34 = alloca i64
   %a0 = alloca i64
   %a1 = alloca i64
-  %r0 = ptrtoint ptr @__L__733 to i64
+  %r0 = ptrtoint ptr @__L__747 to i64
   store i64 %r0, ptr %t0
   %r1 = load i64, ptr %arg0
   store i64 %r1, ptr %t1
@@ -11810,7 +11954,7 @@ entry:
   %r25 = and i64 %r23, %r24
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__736
+  br i1 %r26, label %cont.27, label %__L__750
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 1, ptr %t8
@@ -11818,12 +11962,12 @@ cont.27:
   %r30 = load i64, ptr %t8
   %r31 = and i64 %r29, %r30
   store i64 %r31, ptr %acc.ptr
-  br label %__L__736
-__L__736:
+  br label %__L__750
+__L__750:
   %r32 = load i64, ptr %acc.ptr
   store i64 %r32, ptr %acc.ptr
   %r33 = icmp ne i64 %r32, 0
-  br i1 %r33, label %cont.34, label %__L__734
+  br i1 %r33, label %cont.34, label %__L__748
 cont.34:
   %r35 = load i64, ptr %acc.ptr
   store i64 1, ptr %t9
@@ -11845,15 +11989,15 @@ cont.34:
   %r46 = inttoptr i64 %r44 to ptr
   %r48 = call i64 %r46(i64 %r47)
   store i64 %r48, ptr %acc.ptr
-  br label %__L__735
-__L__734:
+  br label %__L__749
+__L__748:
   %r49 = load i64, ptr %acc.ptr
   %r50 = load i64, ptr %t3
   store i64 %r50, ptr %t13
   %r51 = load i64, ptr %t13
   store i64 %r51, ptr %acc.ptr
   %r52 = icmp ne i64 %r51, 0
-  br i1 %r52, label %cont.53, label %__L__740
+  br i1 %r52, label %cont.53, label %__L__754
 cont.53:
   %r54 = load i64, ptr %acc.ptr
   store i64 1, ptr %t14
@@ -11862,13 +12006,13 @@ cont.53:
   %r57 = and i64 %r55, %r56
   store i64 %r57, ptr %acc.ptr
   %r58 = icmp ne i64 %r57, 0
-  br i1 %r58, label %cont.59, label %__L__742
+  br i1 %r58, label %cont.59, label %__L__756
 cont.59:
   %r60 = load i64, ptr %acc.ptr
   %r61 = load i64, ptr @_3Clong_3E
   store i64 %r61, ptr %acc.ptr
-  br label %__L__743
-__L__742:
+  br label %__L__757
+__L__756:
   %r62 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t15
   %r63 = load i64, ptr %t13
@@ -11877,17 +12021,17 @@ __L__742:
   %r66 = getelementptr inbounds i64, ptr %r64, i64 %r65
   %r67 = load i64, ptr %r66
   store i64 %r67, ptr %acc.ptr
-  br label %__L__743
-__L__743:
+  br label %__L__757
+__L__757:
   %r68 = load i64, ptr %acc.ptr
   store i64 %r68, ptr %acc.ptr
-  br label %__L__741
-__L__740:
+  br label %__L__755
+__L__754:
   %r69 = load i64, ptr %acc.ptr
   %r70 = load i64, ptr @_3Cundefined_3E
   store i64 %r70, ptr %acc.ptr
-  br label %__L__741
-__L__741:
+  br label %__L__755
+__L__755:
   %r71 = load i64, ptr %acc.ptr
   store i64 %r71, ptr %t16
   %r72 = load i64, ptr @_3Cdouble_3E
@@ -11896,7 +12040,7 @@ __L__741:
   %r75 = zext i1 %r74 to i64
   store i64 %r75, ptr %acc.ptr
   %r76 = icmp ne i64 %r75, 0
-  br i1 %r76, label %__L__739, label %cont.77
+  br i1 %r76, label %__L__753, label %cont.77
 cont.77:
   %r78 = load i64, ptr %acc.ptr
   %r79 = load i64, ptr %t6
@@ -11904,7 +12048,7 @@ cont.77:
   %r80 = load i64, ptr %t17
   store i64 %r80, ptr %acc.ptr
   %r81 = icmp ne i64 %r80, 0
-  br i1 %r81, label %cont.82, label %__L__744
+  br i1 %r81, label %cont.82, label %__L__758
 cont.82:
   %r83 = load i64, ptr %acc.ptr
   store i64 1, ptr %t18
@@ -11913,13 +12057,13 @@ cont.82:
   %r86 = and i64 %r84, %r85
   store i64 %r86, ptr %acc.ptr
   %r87 = icmp ne i64 %r86, 0
-  br i1 %r87, label %cont.88, label %__L__746
+  br i1 %r87, label %cont.88, label %__L__760
 cont.88:
   %r89 = load i64, ptr %acc.ptr
   %r90 = load i64, ptr @_3Clong_3E
   store i64 %r90, ptr %acc.ptr
-  br label %__L__747
-__L__746:
+  br label %__L__761
+__L__760:
   %r91 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t19
   %r92 = load i64, ptr %t17
@@ -11928,17 +12072,17 @@ __L__746:
   %r95 = getelementptr inbounds i64, ptr %r93, i64 %r94
   %r96 = load i64, ptr %r95
   store i64 %r96, ptr %acc.ptr
-  br label %__L__747
-__L__747:
+  br label %__L__761
+__L__761:
   %r97 = load i64, ptr %acc.ptr
   store i64 %r97, ptr %acc.ptr
-  br label %__L__745
-__L__744:
+  br label %__L__759
+__L__758:
   %r98 = load i64, ptr %acc.ptr
   %r99 = load i64, ptr @_3Cundefined_3E
   store i64 %r99, ptr %acc.ptr
-  br label %__L__745
-__L__745:
+  br label %__L__759
+__L__759:
   %r100 = load i64, ptr %acc.ptr
   store i64 %r100, ptr %t20
   %r101 = load i64, ptr @_3Cdouble_3E
@@ -11946,12 +12090,12 @@ __L__745:
   %r103 = icmp eq i64 %r101, %r102
   %r104 = zext i1 %r103 to i64
   store i64 %r104, ptr %acc.ptr
-  br label %__L__739
-__L__739:
+  br label %__L__753
+__L__753:
   %r105 = load i64, ptr %acc.ptr
   store i64 %r105, ptr %acc.ptr
   %r106 = icmp ne i64 %r105, 0
-  br i1 %r106, label %cont.107, label %__L__737
+  br i1 %r106, label %cont.107, label %__L__751
 cont.107:
   %r108 = load i64, ptr %acc.ptr
   %r109 = load i64, ptr %t3
@@ -11989,10 +12133,10 @@ cont.107:
   %r130 = inttoptr i64 %r128 to ptr
   %r132 = call i64 %r130(i64 %r131)
   store i64 %r132, ptr %acc.ptr
-  br label %__L__738
-__L__737:
+  br label %__L__752
+__L__751:
   %r133 = load i64, ptr %acc.ptr
-  %r134 = ptrtoint ptr @__L__748 to i64
+  %r134 = ptrtoint ptr @__L__762 to i64
   store i64 %r134, ptr %t26
   %r135 = ptrtoint ptr @printf to i64
   %r136 = load i64, ptr %t26
@@ -12000,7 +12144,7 @@ __L__737:
   %r138 = load i64, ptr %a0
   %r137 = inttoptr i64 %r135 to ptr
   %r139 = call i64 %r137(i64 %r138)
-  %r140 = ptrtoint ptr @__L__749 to i64
+  %r140 = ptrtoint ptr @__L__763 to i64
   store i64 %r140, ptr %t27
   %r141 = ptrtoint ptr @printf to i64
   %r142 = load i64, ptr %t27
@@ -12008,15 +12152,15 @@ __L__737:
   %r144 = load i64, ptr %a0
   %r143 = inttoptr i64 %r141 to ptr
   %r145 = call i64 %r143(i64 %r144)
-  %r146 = load i64, ptr %t3
+  %r146 = ptrtoint ptr @__L__764 to i64
   store i64 %r146, ptr %t28
-  %r147 = ptrtoint ptr @__L__123 to i64
+  %r147 = ptrtoint ptr @printf to i64
   %r148 = load i64, ptr %t28
   store i64 %r148, ptr %a0
   %r150 = load i64, ptr %a0
   %r149 = inttoptr i64 %r147 to ptr
   %r151 = call i64 %r149(i64 %r150)
-  %r152 = ptrtoint ptr @__L__750 to i64
+  %r152 = ptrtoint ptr @__L__765 to i64
   store i64 %r152, ptr %t29
   %r153 = ptrtoint ptr @printf to i64
   %r154 = load i64, ptr %t29
@@ -12024,7 +12168,7 @@ __L__737:
   %r156 = load i64, ptr %a0
   %r155 = inttoptr i64 %r153 to ptr
   %r157 = call i64 %r155(i64 %r156)
-  %r158 = load i64, ptr %t6
+  %r158 = load i64, ptr %t3
   store i64 %r158, ptr %t30
   %r159 = ptrtoint ptr @__L__123 to i64
   %r160 = load i64, ptr %t30
@@ -12032,7 +12176,7 @@ __L__737:
   %r162 = load i64, ptr %a0
   %r161 = inttoptr i64 %r159 to ptr
   %r163 = call i64 %r161(i64 %r162)
-  %r164 = ptrtoint ptr @__L__751 to i64
+  %r164 = ptrtoint ptr @__L__766 to i64
   store i64 %r164, ptr %t31
   %r165 = ptrtoint ptr @printf to i64
   %r166 = load i64, ptr %t31
@@ -12040,37 +12184,55 @@ __L__737:
   %r168 = load i64, ptr %a0
   %r167 = inttoptr i64 %r165 to ptr
   %r169 = call i64 %r167(i64 %r168)
-  %r170 = ptrtoint ptr @__L__752 to i64
+  %r170 = load i64, ptr %t6
   store i64 %r170, ptr %t32
-  %r171 = ptrtoint ptr @printf to i64
+  %r171 = ptrtoint ptr @__L__123 to i64
   %r172 = load i64, ptr %t32
   store i64 %r172, ptr %a0
   %r174 = load i64, ptr %a0
   %r173 = inttoptr i64 %r171 to ptr
   %r175 = call i64 %r173(i64 %r174)
-  %r176 = ptrtoint ptr @__L__171 to i64
-  %r177 = inttoptr i64 %r176 to ptr
-  %r178 = call i64 %r177()
-  store i64 %r178, ptr %acc.ptr
-  br label %__L__738
-__L__738:
-  %r179 = load i64, ptr %acc.ptr
-  store i64 %r179, ptr %acc.ptr
-  br label %__L__735
-__L__735:
-  %r180 = load i64, ptr %acc.ptr
-  ret i64 %r180
+  %r176 = ptrtoint ptr @__L__767 to i64
+  store i64 %r176, ptr %t33
+  %r177 = ptrtoint ptr @printf to i64
+  %r178 = load i64, ptr %t33
+  store i64 %r178, ptr %a0
+  %r180 = load i64, ptr %a0
+  %r179 = inttoptr i64 %r177 to ptr
+  %r181 = call i64 %r179(i64 %r180)
+  %r182 = ptrtoint ptr @__L__768 to i64
+  store i64 %r182, ptr %t34
+  %r183 = ptrtoint ptr @printf to i64
+  %r184 = load i64, ptr %t34
+  store i64 %r184, ptr %a0
+  %r186 = load i64, ptr %a0
+  %r185 = inttoptr i64 %r183 to ptr
+  %r187 = call i64 %r185(i64 %r186)
+  %r188 = ptrtoint ptr @__L__171 to i64
+  %r189 = inttoptr i64 %r188 to ptr
+  %r190 = call i64 %r189()
+  store i64 %r190, ptr %acc.ptr
+  br label %__L__752
+__L__752:
+  %r191 = load i64, ptr %acc.ptr
+  store i64 %r191, ptr %acc.ptr
+  br label %__L__749
+__L__749:
+  %r192 = load i64, ptr %acc.ptr
+  ret i64 %r192
 }
+; defn define-arithmetic
+; form define-arithmetic
 ; defn subr_shr
-@__L__753 = private constant [4 x i8] c"shr\00"
-@__L__757 = private constant [7 x i8] c"%p %p\0A\00"
-@__L__758 = private constant [17 x i8] c"\0Aeval.k: error: \00"
-@__L__759 = private constant [24 x i8] c"non-numeric argument: (\00"
-@__L__760 = private constant [4 x i8] c"shr\00"
-@__L__761 = private constant [2 x i8] c" \00"
-@__L__762 = private constant [2 x i8] c" \00"
-@__L__763 = private constant [2 x i8] c")\00"
-@__L__764 = private constant [2 x i8] c"\0A\00"
+@__L__769 = private constant [4 x i8] c"shr\00"
+@__L__773 = private constant [7 x i8] c"%p %p\0A\00"
+@__L__774 = private constant [17 x i8] c"\0Aeval.k: error: \00"
+@__L__775 = private constant [24 x i8] c"non-numeric argument: (\00"
+@__L__776 = private constant [4 x i8] c"shr\00"
+@__L__777 = private constant [2 x i8] c" \00"
+@__L__778 = private constant [2 x i8] c" \00"
+@__L__779 = private constant [2 x i8] c")\00"
+@__L__780 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__63(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -12106,7 +12268,7 @@ entry:
   %a0 = alloca i64
   %a1 = alloca i64
   %a2 = alloca i64
-  %r0 = ptrtoint ptr @__L__753 to i64
+  %r0 = ptrtoint ptr @__L__769 to i64
   store i64 %r0, ptr %t0
   %r1 = load i64, ptr %arg0
   store i64 %r1, ptr %t1
@@ -12144,7 +12306,7 @@ entry:
   %r25 = and i64 %r23, %r24
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__756
+  br i1 %r26, label %cont.27, label %__L__772
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 1, ptr %t8
@@ -12152,12 +12314,12 @@ cont.27:
   %r30 = load i64, ptr %t8
   %r31 = and i64 %r29, %r30
   store i64 %r31, ptr %acc.ptr
-  br label %__L__756
-__L__756:
+  br label %__L__772
+__L__772:
   %r32 = load i64, ptr %acc.ptr
   store i64 %r32, ptr %acc.ptr
   %r33 = icmp ne i64 %r32, 0
-  br i1 %r33, label %cont.34, label %__L__754
+  br i1 %r33, label %cont.34, label %__L__770
 cont.34:
   %r35 = load i64, ptr %acc.ptr
   store i64 1, ptr %t9
@@ -12179,10 +12341,10 @@ cont.34:
   %r46 = inttoptr i64 %r44 to ptr
   %r48 = call i64 %r46(i64 %r47)
   store i64 %r48, ptr %acc.ptr
-  br label %__L__755
-__L__754:
+  br label %__L__771
+__L__770:
   %r49 = load i64, ptr %acc.ptr
-  %r50 = ptrtoint ptr @__L__757 to i64
+  %r50 = ptrtoint ptr @__L__773 to i64
   store i64 %r50, ptr %t13
   %r51 = load i64, ptr %t3
   store i64 %r51, ptr %t14
@@ -12200,7 +12362,7 @@ __L__754:
   %r60 = load i64, ptr %a2
   %r57 = inttoptr i64 %r53 to ptr
   %r61 = call i64 %r57(i64 %r58, i64 %r59, i64 %r60)
-  %r62 = ptrtoint ptr @__L__758 to i64
+  %r62 = ptrtoint ptr @__L__774 to i64
   store i64 %r62, ptr %t16
   %r63 = ptrtoint ptr @printf to i64
   %r64 = load i64, ptr %t16
@@ -12208,7 +12370,7 @@ __L__754:
   %r66 = load i64, ptr %a0
   %r65 = inttoptr i64 %r63 to ptr
   %r67 = call i64 %r65(i64 %r66)
-  %r68 = ptrtoint ptr @__L__759 to i64
+  %r68 = ptrtoint ptr @__L__775 to i64
   store i64 %r68, ptr %t17
   %r69 = ptrtoint ptr @printf to i64
   %r70 = load i64, ptr %t17
@@ -12216,7 +12378,7 @@ __L__754:
   %r72 = load i64, ptr %a0
   %r71 = inttoptr i64 %r69 to ptr
   %r73 = call i64 %r71(i64 %r72)
-  %r74 = ptrtoint ptr @__L__760 to i64
+  %r74 = ptrtoint ptr @__L__776 to i64
   store i64 %r74, ptr %t18
   %r75 = ptrtoint ptr @printf to i64
   %r76 = load i64, ptr %t18
@@ -12224,7 +12386,7 @@ __L__754:
   %r78 = load i64, ptr %a0
   %r77 = inttoptr i64 %r75 to ptr
   %r79 = call i64 %r77(i64 %r78)
-  %r80 = ptrtoint ptr @__L__761 to i64
+  %r80 = ptrtoint ptr @__L__777 to i64
   store i64 %r80, ptr %t19
   %r81 = ptrtoint ptr @printf to i64
   %r82 = load i64, ptr %t19
@@ -12240,7 +12402,7 @@ __L__754:
   %r90 = load i64, ptr %a0
   %r89 = inttoptr i64 %r87 to ptr
   %r91 = call i64 %r89(i64 %r90)
-  %r92 = ptrtoint ptr @__L__762 to i64
+  %r92 = ptrtoint ptr @__L__778 to i64
   store i64 %r92, ptr %t21
   %r93 = ptrtoint ptr @printf to i64
   %r94 = load i64, ptr %t21
@@ -12256,7 +12418,7 @@ __L__754:
   %r102 = load i64, ptr %a0
   %r101 = inttoptr i64 %r99 to ptr
   %r103 = call i64 %r101(i64 %r102)
-  %r104 = ptrtoint ptr @__L__763 to i64
+  %r104 = ptrtoint ptr @__L__779 to i64
   store i64 %r104, ptr %t23
   %r105 = ptrtoint ptr @printf to i64
   %r106 = load i64, ptr %t23
@@ -12264,7 +12426,7 @@ __L__754:
   %r108 = load i64, ptr %a0
   %r107 = inttoptr i64 %r105 to ptr
   %r109 = call i64 %r107(i64 %r108)
-  %r110 = ptrtoint ptr @__L__764 to i64
+  %r110 = ptrtoint ptr @__L__780 to i64
   store i64 %r110, ptr %t24
   %r111 = ptrtoint ptr @printf to i64
   %r112 = load i64, ptr %t24
@@ -12276,21 +12438,21 @@ __L__754:
   %r117 = inttoptr i64 %r116 to ptr
   %r118 = call i64 %r117()
   store i64 %r118, ptr %acc.ptr
-  br label %__L__755
-__L__755:
+  br label %__L__771
+__L__771:
   %r119 = load i64, ptr %acc.ptr
   ret i64 %r119
 }
 ; defn subr_shl
-@__L__765 = private constant [4 x i8] c"shl\00"
-@__L__769 = private constant [7 x i8] c"%p %p\0A\00"
-@__L__770 = private constant [17 x i8] c"\0Aeval.k: error: \00"
-@__L__771 = private constant [24 x i8] c"non-numeric argument: (\00"
-@__L__772 = private constant [4 x i8] c"shl\00"
-@__L__773 = private constant [2 x i8] c" \00"
-@__L__774 = private constant [2 x i8] c" \00"
-@__L__775 = private constant [2 x i8] c")\00"
-@__L__776 = private constant [2 x i8] c"\0A\00"
+@__L__781 = private constant [4 x i8] c"shl\00"
+@__L__785 = private constant [7 x i8] c"%p %p\0A\00"
+@__L__786 = private constant [17 x i8] c"\0Aeval.k: error: \00"
+@__L__787 = private constant [24 x i8] c"non-numeric argument: (\00"
+@__L__788 = private constant [4 x i8] c"shl\00"
+@__L__789 = private constant [2 x i8] c" \00"
+@__L__790 = private constant [2 x i8] c" \00"
+@__L__791 = private constant [2 x i8] c")\00"
+@__L__792 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__64(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -12326,7 +12488,7 @@ entry:
   %a0 = alloca i64
   %a1 = alloca i64
   %a2 = alloca i64
-  %r0 = ptrtoint ptr @__L__765 to i64
+  %r0 = ptrtoint ptr @__L__781 to i64
   store i64 %r0, ptr %t0
   %r1 = load i64, ptr %arg0
   store i64 %r1, ptr %t1
@@ -12364,7 +12526,7 @@ entry:
   %r25 = and i64 %r23, %r24
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__768
+  br i1 %r26, label %cont.27, label %__L__784
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 1, ptr %t8
@@ -12372,12 +12534,12 @@ cont.27:
   %r30 = load i64, ptr %t8
   %r31 = and i64 %r29, %r30
   store i64 %r31, ptr %acc.ptr
-  br label %__L__768
-__L__768:
+  br label %__L__784
+__L__784:
   %r32 = load i64, ptr %acc.ptr
   store i64 %r32, ptr %acc.ptr
   %r33 = icmp ne i64 %r32, 0
-  br i1 %r33, label %cont.34, label %__L__766
+  br i1 %r33, label %cont.34, label %__L__782
 cont.34:
   %r35 = load i64, ptr %acc.ptr
   store i64 1, ptr %t9
@@ -12399,10 +12561,10 @@ cont.34:
   %r46 = inttoptr i64 %r44 to ptr
   %r48 = call i64 %r46(i64 %r47)
   store i64 %r48, ptr %acc.ptr
-  br label %__L__767
-__L__766:
+  br label %__L__783
+__L__782:
   %r49 = load i64, ptr %acc.ptr
-  %r50 = ptrtoint ptr @__L__769 to i64
+  %r50 = ptrtoint ptr @__L__785 to i64
   store i64 %r50, ptr %t13
   %r51 = load i64, ptr %t3
   store i64 %r51, ptr %t14
@@ -12420,7 +12582,7 @@ __L__766:
   %r60 = load i64, ptr %a2
   %r57 = inttoptr i64 %r53 to ptr
   %r61 = call i64 %r57(i64 %r58, i64 %r59, i64 %r60)
-  %r62 = ptrtoint ptr @__L__770 to i64
+  %r62 = ptrtoint ptr @__L__786 to i64
   store i64 %r62, ptr %t16
   %r63 = ptrtoint ptr @printf to i64
   %r64 = load i64, ptr %t16
@@ -12428,7 +12590,7 @@ __L__766:
   %r66 = load i64, ptr %a0
   %r65 = inttoptr i64 %r63 to ptr
   %r67 = call i64 %r65(i64 %r66)
-  %r68 = ptrtoint ptr @__L__771 to i64
+  %r68 = ptrtoint ptr @__L__787 to i64
   store i64 %r68, ptr %t17
   %r69 = ptrtoint ptr @printf to i64
   %r70 = load i64, ptr %t17
@@ -12436,7 +12598,7 @@ __L__766:
   %r72 = load i64, ptr %a0
   %r71 = inttoptr i64 %r69 to ptr
   %r73 = call i64 %r71(i64 %r72)
-  %r74 = ptrtoint ptr @__L__772 to i64
+  %r74 = ptrtoint ptr @__L__788 to i64
   store i64 %r74, ptr %t18
   %r75 = ptrtoint ptr @printf to i64
   %r76 = load i64, ptr %t18
@@ -12444,7 +12606,7 @@ __L__766:
   %r78 = load i64, ptr %a0
   %r77 = inttoptr i64 %r75 to ptr
   %r79 = call i64 %r77(i64 %r78)
-  %r80 = ptrtoint ptr @__L__773 to i64
+  %r80 = ptrtoint ptr @__L__789 to i64
   store i64 %r80, ptr %t19
   %r81 = ptrtoint ptr @printf to i64
   %r82 = load i64, ptr %t19
@@ -12460,7 +12622,7 @@ __L__766:
   %r90 = load i64, ptr %a0
   %r89 = inttoptr i64 %r87 to ptr
   %r91 = call i64 %r89(i64 %r90)
-  %r92 = ptrtoint ptr @__L__774 to i64
+  %r92 = ptrtoint ptr @__L__790 to i64
   store i64 %r92, ptr %t21
   %r93 = ptrtoint ptr @printf to i64
   %r94 = load i64, ptr %t21
@@ -12476,7 +12638,7 @@ __L__766:
   %r102 = load i64, ptr %a0
   %r101 = inttoptr i64 %r99 to ptr
   %r103 = call i64 %r101(i64 %r102)
-  %r104 = ptrtoint ptr @__L__775 to i64
+  %r104 = ptrtoint ptr @__L__791 to i64
   store i64 %r104, ptr %t23
   %r105 = ptrtoint ptr @printf to i64
   %r106 = load i64, ptr %t23
@@ -12484,7 +12646,7 @@ __L__766:
   %r108 = load i64, ptr %a0
   %r107 = inttoptr i64 %r105 to ptr
   %r109 = call i64 %r107(i64 %r108)
-  %r110 = ptrtoint ptr @__L__776 to i64
+  %r110 = ptrtoint ptr @__L__792 to i64
   store i64 %r110, ptr %t24
   %r111 = ptrtoint ptr @printf to i64
   %r112 = load i64, ptr %t24
@@ -12496,21 +12658,21 @@ __L__766:
   %r117 = inttoptr i64 %r116 to ptr
   %r118 = call i64 %r117()
   store i64 %r118, ptr %acc.ptr
-  br label %__L__767
-__L__767:
+  br label %__L__783
+__L__783:
   %r119 = load i64, ptr %acc.ptr
   ret i64 %r119
 }
 ; defn subr_bitxor
-@__L__777 = private constant [7 x i8] c"bitxor\00"
-@__L__781 = private constant [7 x i8] c"%p %p\0A\00"
-@__L__782 = private constant [17 x i8] c"\0Aeval.k: error: \00"
-@__L__783 = private constant [24 x i8] c"non-numeric argument: (\00"
-@__L__784 = private constant [7 x i8] c"bitxor\00"
-@__L__785 = private constant [2 x i8] c" \00"
-@__L__786 = private constant [2 x i8] c" \00"
-@__L__787 = private constant [2 x i8] c")\00"
-@__L__788 = private constant [2 x i8] c"\0A\00"
+@__L__793 = private constant [7 x i8] c"bitxor\00"
+@__L__797 = private constant [7 x i8] c"%p %p\0A\00"
+@__L__798 = private constant [17 x i8] c"\0Aeval.k: error: \00"
+@__L__799 = private constant [24 x i8] c"non-numeric argument: (\00"
+@__L__800 = private constant [7 x i8] c"bitxor\00"
+@__L__801 = private constant [2 x i8] c" \00"
+@__L__802 = private constant [2 x i8] c" \00"
+@__L__803 = private constant [2 x i8] c")\00"
+@__L__804 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__65(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -12546,7 +12708,7 @@ entry:
   %a0 = alloca i64
   %a1 = alloca i64
   %a2 = alloca i64
-  %r0 = ptrtoint ptr @__L__777 to i64
+  %r0 = ptrtoint ptr @__L__793 to i64
   store i64 %r0, ptr %t0
   %r1 = load i64, ptr %arg0
   store i64 %r1, ptr %t1
@@ -12584,7 +12746,7 @@ entry:
   %r25 = and i64 %r23, %r24
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__780
+  br i1 %r26, label %cont.27, label %__L__796
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 1, ptr %t8
@@ -12592,12 +12754,12 @@ cont.27:
   %r30 = load i64, ptr %t8
   %r31 = and i64 %r29, %r30
   store i64 %r31, ptr %acc.ptr
-  br label %__L__780
-__L__780:
+  br label %__L__796
+__L__796:
   %r32 = load i64, ptr %acc.ptr
   store i64 %r32, ptr %acc.ptr
   %r33 = icmp ne i64 %r32, 0
-  br i1 %r33, label %cont.34, label %__L__778
+  br i1 %r33, label %cont.34, label %__L__794
 cont.34:
   %r35 = load i64, ptr %acc.ptr
   store i64 1, ptr %t9
@@ -12619,10 +12781,10 @@ cont.34:
   %r46 = inttoptr i64 %r44 to ptr
   %r48 = call i64 %r46(i64 %r47)
   store i64 %r48, ptr %acc.ptr
-  br label %__L__779
-__L__778:
+  br label %__L__795
+__L__794:
   %r49 = load i64, ptr %acc.ptr
-  %r50 = ptrtoint ptr @__L__781 to i64
+  %r50 = ptrtoint ptr @__L__797 to i64
   store i64 %r50, ptr %t13
   %r51 = load i64, ptr %t3
   store i64 %r51, ptr %t14
@@ -12640,7 +12802,7 @@ __L__778:
   %r60 = load i64, ptr %a2
   %r57 = inttoptr i64 %r53 to ptr
   %r61 = call i64 %r57(i64 %r58, i64 %r59, i64 %r60)
-  %r62 = ptrtoint ptr @__L__782 to i64
+  %r62 = ptrtoint ptr @__L__798 to i64
   store i64 %r62, ptr %t16
   %r63 = ptrtoint ptr @printf to i64
   %r64 = load i64, ptr %t16
@@ -12648,7 +12810,7 @@ __L__778:
   %r66 = load i64, ptr %a0
   %r65 = inttoptr i64 %r63 to ptr
   %r67 = call i64 %r65(i64 %r66)
-  %r68 = ptrtoint ptr @__L__783 to i64
+  %r68 = ptrtoint ptr @__L__799 to i64
   store i64 %r68, ptr %t17
   %r69 = ptrtoint ptr @printf to i64
   %r70 = load i64, ptr %t17
@@ -12656,7 +12818,7 @@ __L__778:
   %r72 = load i64, ptr %a0
   %r71 = inttoptr i64 %r69 to ptr
   %r73 = call i64 %r71(i64 %r72)
-  %r74 = ptrtoint ptr @__L__784 to i64
+  %r74 = ptrtoint ptr @__L__800 to i64
   store i64 %r74, ptr %t18
   %r75 = ptrtoint ptr @printf to i64
   %r76 = load i64, ptr %t18
@@ -12664,7 +12826,7 @@ __L__778:
   %r78 = load i64, ptr %a0
   %r77 = inttoptr i64 %r75 to ptr
   %r79 = call i64 %r77(i64 %r78)
-  %r80 = ptrtoint ptr @__L__785 to i64
+  %r80 = ptrtoint ptr @__L__801 to i64
   store i64 %r80, ptr %t19
   %r81 = ptrtoint ptr @printf to i64
   %r82 = load i64, ptr %t19
@@ -12680,7 +12842,7 @@ __L__778:
   %r90 = load i64, ptr %a0
   %r89 = inttoptr i64 %r87 to ptr
   %r91 = call i64 %r89(i64 %r90)
-  %r92 = ptrtoint ptr @__L__786 to i64
+  %r92 = ptrtoint ptr @__L__802 to i64
   store i64 %r92, ptr %t21
   %r93 = ptrtoint ptr @printf to i64
   %r94 = load i64, ptr %t21
@@ -12696,7 +12858,7 @@ __L__778:
   %r102 = load i64, ptr %a0
   %r101 = inttoptr i64 %r99 to ptr
   %r103 = call i64 %r101(i64 %r102)
-  %r104 = ptrtoint ptr @__L__787 to i64
+  %r104 = ptrtoint ptr @__L__803 to i64
   store i64 %r104, ptr %t23
   %r105 = ptrtoint ptr @printf to i64
   %r106 = load i64, ptr %t23
@@ -12704,7 +12866,7 @@ __L__778:
   %r108 = load i64, ptr %a0
   %r107 = inttoptr i64 %r105 to ptr
   %r109 = call i64 %r107(i64 %r108)
-  %r110 = ptrtoint ptr @__L__788 to i64
+  %r110 = ptrtoint ptr @__L__804 to i64
   store i64 %r110, ptr %t24
   %r111 = ptrtoint ptr @printf to i64
   %r112 = load i64, ptr %t24
@@ -12716,21 +12878,21 @@ __L__778:
   %r117 = inttoptr i64 %r116 to ptr
   %r118 = call i64 %r117()
   store i64 %r118, ptr %acc.ptr
-  br label %__L__779
-__L__779:
+  br label %__L__795
+__L__795:
   %r119 = load i64, ptr %acc.ptr
   ret i64 %r119
 }
 ; defn subr_bitor
-@__L__789 = private constant [6 x i8] c"bitor\00"
-@__L__793 = private constant [7 x i8] c"%p %p\0A\00"
-@__L__794 = private constant [17 x i8] c"\0Aeval.k: error: \00"
-@__L__795 = private constant [24 x i8] c"non-numeric argument: (\00"
-@__L__796 = private constant [6 x i8] c"bitor\00"
-@__L__797 = private constant [2 x i8] c" \00"
-@__L__798 = private constant [2 x i8] c" \00"
-@__L__799 = private constant [2 x i8] c")\00"
-@__L__800 = private constant [2 x i8] c"\0A\00"
+@__L__805 = private constant [6 x i8] c"bitor\00"
+@__L__809 = private constant [7 x i8] c"%p %p\0A\00"
+@__L__810 = private constant [17 x i8] c"\0Aeval.k: error: \00"
+@__L__811 = private constant [24 x i8] c"non-numeric argument: (\00"
+@__L__812 = private constant [6 x i8] c"bitor\00"
+@__L__813 = private constant [2 x i8] c" \00"
+@__L__814 = private constant [2 x i8] c" \00"
+@__L__815 = private constant [2 x i8] c")\00"
+@__L__816 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__66(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -12766,7 +12928,7 @@ entry:
   %a0 = alloca i64
   %a1 = alloca i64
   %a2 = alloca i64
-  %r0 = ptrtoint ptr @__L__789 to i64
+  %r0 = ptrtoint ptr @__L__805 to i64
   store i64 %r0, ptr %t0
   %r1 = load i64, ptr %arg0
   store i64 %r1, ptr %t1
@@ -12804,7 +12966,7 @@ entry:
   %r25 = and i64 %r23, %r24
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__792
+  br i1 %r26, label %cont.27, label %__L__808
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 1, ptr %t8
@@ -12812,12 +12974,12 @@ cont.27:
   %r30 = load i64, ptr %t8
   %r31 = and i64 %r29, %r30
   store i64 %r31, ptr %acc.ptr
-  br label %__L__792
-__L__792:
+  br label %__L__808
+__L__808:
   %r32 = load i64, ptr %acc.ptr
   store i64 %r32, ptr %acc.ptr
   %r33 = icmp ne i64 %r32, 0
-  br i1 %r33, label %cont.34, label %__L__790
+  br i1 %r33, label %cont.34, label %__L__806
 cont.34:
   %r35 = load i64, ptr %acc.ptr
   store i64 1, ptr %t9
@@ -12839,10 +13001,10 @@ cont.34:
   %r46 = inttoptr i64 %r44 to ptr
   %r48 = call i64 %r46(i64 %r47)
   store i64 %r48, ptr %acc.ptr
-  br label %__L__791
-__L__790:
+  br label %__L__807
+__L__806:
   %r49 = load i64, ptr %acc.ptr
-  %r50 = ptrtoint ptr @__L__793 to i64
+  %r50 = ptrtoint ptr @__L__809 to i64
   store i64 %r50, ptr %t13
   %r51 = load i64, ptr %t3
   store i64 %r51, ptr %t14
@@ -12860,7 +13022,7 @@ __L__790:
   %r60 = load i64, ptr %a2
   %r57 = inttoptr i64 %r53 to ptr
   %r61 = call i64 %r57(i64 %r58, i64 %r59, i64 %r60)
-  %r62 = ptrtoint ptr @__L__794 to i64
+  %r62 = ptrtoint ptr @__L__810 to i64
   store i64 %r62, ptr %t16
   %r63 = ptrtoint ptr @printf to i64
   %r64 = load i64, ptr %t16
@@ -12868,7 +13030,7 @@ __L__790:
   %r66 = load i64, ptr %a0
   %r65 = inttoptr i64 %r63 to ptr
   %r67 = call i64 %r65(i64 %r66)
-  %r68 = ptrtoint ptr @__L__795 to i64
+  %r68 = ptrtoint ptr @__L__811 to i64
   store i64 %r68, ptr %t17
   %r69 = ptrtoint ptr @printf to i64
   %r70 = load i64, ptr %t17
@@ -12876,7 +13038,7 @@ __L__790:
   %r72 = load i64, ptr %a0
   %r71 = inttoptr i64 %r69 to ptr
   %r73 = call i64 %r71(i64 %r72)
-  %r74 = ptrtoint ptr @__L__796 to i64
+  %r74 = ptrtoint ptr @__L__812 to i64
   store i64 %r74, ptr %t18
   %r75 = ptrtoint ptr @printf to i64
   %r76 = load i64, ptr %t18
@@ -12884,7 +13046,7 @@ __L__790:
   %r78 = load i64, ptr %a0
   %r77 = inttoptr i64 %r75 to ptr
   %r79 = call i64 %r77(i64 %r78)
-  %r80 = ptrtoint ptr @__L__797 to i64
+  %r80 = ptrtoint ptr @__L__813 to i64
   store i64 %r80, ptr %t19
   %r81 = ptrtoint ptr @printf to i64
   %r82 = load i64, ptr %t19
@@ -12900,7 +13062,7 @@ __L__790:
   %r90 = load i64, ptr %a0
   %r89 = inttoptr i64 %r87 to ptr
   %r91 = call i64 %r89(i64 %r90)
-  %r92 = ptrtoint ptr @__L__798 to i64
+  %r92 = ptrtoint ptr @__L__814 to i64
   store i64 %r92, ptr %t21
   %r93 = ptrtoint ptr @printf to i64
   %r94 = load i64, ptr %t21
@@ -12916,7 +13078,7 @@ __L__790:
   %r102 = load i64, ptr %a0
   %r101 = inttoptr i64 %r99 to ptr
   %r103 = call i64 %r101(i64 %r102)
-  %r104 = ptrtoint ptr @__L__799 to i64
+  %r104 = ptrtoint ptr @__L__815 to i64
   store i64 %r104, ptr %t23
   %r105 = ptrtoint ptr @printf to i64
   %r106 = load i64, ptr %t23
@@ -12924,7 +13086,7 @@ __L__790:
   %r108 = load i64, ptr %a0
   %r107 = inttoptr i64 %r105 to ptr
   %r109 = call i64 %r107(i64 %r108)
-  %r110 = ptrtoint ptr @__L__800 to i64
+  %r110 = ptrtoint ptr @__L__816 to i64
   store i64 %r110, ptr %t24
   %r111 = ptrtoint ptr @printf to i64
   %r112 = load i64, ptr %t24
@@ -12936,21 +13098,21 @@ __L__790:
   %r117 = inttoptr i64 %r116 to ptr
   %r118 = call i64 %r117()
   store i64 %r118, ptr %acc.ptr
-  br label %__L__791
-__L__791:
+  br label %__L__807
+__L__807:
   %r119 = load i64, ptr %acc.ptr
   ret i64 %r119
 }
 ; defn subr_bitand
-@__L__801 = private constant [7 x i8] c"bitand\00"
-@__L__805 = private constant [7 x i8] c"%p %p\0A\00"
-@__L__806 = private constant [17 x i8] c"\0Aeval.k: error: \00"
-@__L__807 = private constant [24 x i8] c"non-numeric argument: (\00"
-@__L__808 = private constant [7 x i8] c"bitand\00"
-@__L__809 = private constant [2 x i8] c" \00"
-@__L__810 = private constant [2 x i8] c" \00"
-@__L__811 = private constant [2 x i8] c")\00"
-@__L__812 = private constant [2 x i8] c"\0A\00"
+@__L__817 = private constant [7 x i8] c"bitand\00"
+@__L__821 = private constant [7 x i8] c"%p %p\0A\00"
+@__L__822 = private constant [17 x i8] c"\0Aeval.k: error: \00"
+@__L__823 = private constant [24 x i8] c"non-numeric argument: (\00"
+@__L__824 = private constant [7 x i8] c"bitand\00"
+@__L__825 = private constant [2 x i8] c" \00"
+@__L__826 = private constant [2 x i8] c" \00"
+@__L__827 = private constant [2 x i8] c")\00"
+@__L__828 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__67(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -12986,7 +13148,7 @@ entry:
   %a0 = alloca i64
   %a1 = alloca i64
   %a2 = alloca i64
-  %r0 = ptrtoint ptr @__L__801 to i64
+  %r0 = ptrtoint ptr @__L__817 to i64
   store i64 %r0, ptr %t0
   %r1 = load i64, ptr %arg0
   store i64 %r1, ptr %t1
@@ -13024,7 +13186,7 @@ entry:
   %r25 = and i64 %r23, %r24
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__804
+  br i1 %r26, label %cont.27, label %__L__820
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 1, ptr %t8
@@ -13032,12 +13194,12 @@ cont.27:
   %r30 = load i64, ptr %t8
   %r31 = and i64 %r29, %r30
   store i64 %r31, ptr %acc.ptr
-  br label %__L__804
-__L__804:
+  br label %__L__820
+__L__820:
   %r32 = load i64, ptr %acc.ptr
   store i64 %r32, ptr %acc.ptr
   %r33 = icmp ne i64 %r32, 0
-  br i1 %r33, label %cont.34, label %__L__802
+  br i1 %r33, label %cont.34, label %__L__818
 cont.34:
   %r35 = load i64, ptr %acc.ptr
   store i64 1, ptr %t9
@@ -13059,10 +13221,10 @@ cont.34:
   %r46 = inttoptr i64 %r44 to ptr
   %r48 = call i64 %r46(i64 %r47)
   store i64 %r48, ptr %acc.ptr
-  br label %__L__803
-__L__802:
+  br label %__L__819
+__L__818:
   %r49 = load i64, ptr %acc.ptr
-  %r50 = ptrtoint ptr @__L__805 to i64
+  %r50 = ptrtoint ptr @__L__821 to i64
   store i64 %r50, ptr %t13
   %r51 = load i64, ptr %t3
   store i64 %r51, ptr %t14
@@ -13080,7 +13242,7 @@ __L__802:
   %r60 = load i64, ptr %a2
   %r57 = inttoptr i64 %r53 to ptr
   %r61 = call i64 %r57(i64 %r58, i64 %r59, i64 %r60)
-  %r62 = ptrtoint ptr @__L__806 to i64
+  %r62 = ptrtoint ptr @__L__822 to i64
   store i64 %r62, ptr %t16
   %r63 = ptrtoint ptr @printf to i64
   %r64 = load i64, ptr %t16
@@ -13088,7 +13250,7 @@ __L__802:
   %r66 = load i64, ptr %a0
   %r65 = inttoptr i64 %r63 to ptr
   %r67 = call i64 %r65(i64 %r66)
-  %r68 = ptrtoint ptr @__L__807 to i64
+  %r68 = ptrtoint ptr @__L__823 to i64
   store i64 %r68, ptr %t17
   %r69 = ptrtoint ptr @printf to i64
   %r70 = load i64, ptr %t17
@@ -13096,7 +13258,7 @@ __L__802:
   %r72 = load i64, ptr %a0
   %r71 = inttoptr i64 %r69 to ptr
   %r73 = call i64 %r71(i64 %r72)
-  %r74 = ptrtoint ptr @__L__808 to i64
+  %r74 = ptrtoint ptr @__L__824 to i64
   store i64 %r74, ptr %t18
   %r75 = ptrtoint ptr @printf to i64
   %r76 = load i64, ptr %t18
@@ -13104,7 +13266,7 @@ __L__802:
   %r78 = load i64, ptr %a0
   %r77 = inttoptr i64 %r75 to ptr
   %r79 = call i64 %r77(i64 %r78)
-  %r80 = ptrtoint ptr @__L__809 to i64
+  %r80 = ptrtoint ptr @__L__825 to i64
   store i64 %r80, ptr %t19
   %r81 = ptrtoint ptr @printf to i64
   %r82 = load i64, ptr %t19
@@ -13120,7 +13282,7 @@ __L__802:
   %r90 = load i64, ptr %a0
   %r89 = inttoptr i64 %r87 to ptr
   %r91 = call i64 %r89(i64 %r90)
-  %r92 = ptrtoint ptr @__L__810 to i64
+  %r92 = ptrtoint ptr @__L__826 to i64
   store i64 %r92, ptr %t21
   %r93 = ptrtoint ptr @printf to i64
   %r94 = load i64, ptr %t21
@@ -13136,7 +13298,7 @@ __L__802:
   %r102 = load i64, ptr %a0
   %r101 = inttoptr i64 %r99 to ptr
   %r103 = call i64 %r101(i64 %r102)
-  %r104 = ptrtoint ptr @__L__811 to i64
+  %r104 = ptrtoint ptr @__L__827 to i64
   store i64 %r104, ptr %t23
   %r105 = ptrtoint ptr @printf to i64
   %r106 = load i64, ptr %t23
@@ -13144,7 +13306,7 @@ __L__802:
   %r108 = load i64, ptr %a0
   %r107 = inttoptr i64 %r105 to ptr
   %r109 = call i64 %r107(i64 %r108)
-  %r110 = ptrtoint ptr @__L__812 to i64
+  %r110 = ptrtoint ptr @__L__828 to i64
   store i64 %r110, ptr %t24
   %r111 = ptrtoint ptr @printf to i64
   %r112 = load i64, ptr %t24
@@ -13156,24 +13318,24 @@ __L__802:
   %r117 = inttoptr i64 %r116 to ptr
   %r118 = call i64 %r117()
   store i64 %r118, ptr %acc.ptr
-  br label %__L__803
-__L__803:
+  br label %__L__819
+__L__819:
   %r119 = load i64, ptr %acc.ptr
   ret i64 %r119
 }
 ; defn define-binary
 ; form define-binary
 ; defn subr_sub
-@__L__814 = private constant [29 x i8] c"-: expected 1 or 2 arguments\00"
-@__L__835 = private constant [17 x i8] c"\0Aeval.k: error: \00"
-@__L__836 = private constant [26 x i8] c"non-numeric argument: (- \00"
-@__L__837 = private constant [2 x i8] c" \00"
-@__L__838 = private constant [2 x i8] c")\00"
-@__L__839 = private constant [2 x i8] c"\0A\00"
-@__L__848 = private constant [17 x i8] c"\0Aeval.k: error: \00"
-@__L__849 = private constant [26 x i8] c"non-numeric argument: (- \00"
-@__L__850 = private constant [2 x i8] c")\00"
-@__L__851 = private constant [2 x i8] c"\0A\00"
+@__L__830 = private constant [29 x i8] c"-: expected 1 or 2 arguments\00"
+@__L__851 = private constant [17 x i8] c"\0Aeval.k: error: \00"
+@__L__852 = private constant [26 x i8] c"non-numeric argument: (- \00"
+@__L__853 = private constant [2 x i8] c" \00"
+@__L__854 = private constant [2 x i8] c")\00"
+@__L__855 = private constant [2 x i8] c"\0A\00"
+@__L__864 = private constant [17 x i8] c"\0Aeval.k: error: \00"
+@__L__865 = private constant [26 x i8] c"non-numeric argument: (- \00"
+@__L__866 = private constant [2 x i8] c")\00"
+@__L__867 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__68(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -13239,10 +13401,10 @@ entry:
   %r0 = load i64, ptr %arg0
   store i64 %r0, ptr %acc.ptr
   %r1 = icmp ne i64 %r0, 0
-  br i1 %r1, label %__L__813, label %cont.2
+  br i1 %r1, label %__L__829, label %cont.2
 cont.2:
   %r3 = load i64, ptr %acc.ptr
-  %r4 = ptrtoint ptr @__L__814 to i64
+  %r4 = ptrtoint ptr @__L__830 to i64
   store i64 %r4, ptr %t0
   %r5 = ptrtoint ptr @__L__170 to i64
   %r6 = load i64, ptr %t0
@@ -13251,8 +13413,8 @@ cont.2:
   %r7 = inttoptr i64 %r5 to ptr
   %r9 = call i64 %r7(i64 %r8)
   store i64 %r9, ptr %acc.ptr
-  br label %__L__813
-__L__813:
+  br label %__L__829
+__L__829:
   %r10 = load i64, ptr %acc.ptr
   store i64 0, ptr %t1
   %r11 = load i64, ptr %arg0
@@ -13273,7 +13435,7 @@ __L__813:
   %r22 = load i64, ptr %t5
   store i64 %r22, ptr %acc.ptr
   %r23 = icmp ne i64 %r22, 0
-  br i1 %r23, label %cont.24, label %__L__817
+  br i1 %r23, label %cont.24, label %__L__833
 cont.24:
   %r25 = load i64, ptr %acc.ptr
   store i64 1, ptr %t6
@@ -13282,13 +13444,13 @@ cont.24:
   %r28 = and i64 %r26, %r27
   store i64 %r28, ptr %acc.ptr
   %r29 = icmp ne i64 %r28, 0
-  br i1 %r29, label %cont.30, label %__L__819
+  br i1 %r29, label %cont.30, label %__L__835
 cont.30:
   %r31 = load i64, ptr %acc.ptr
   %r32 = load i64, ptr @_3Clong_3E
   store i64 %r32, ptr %acc.ptr
-  br label %__L__820
-__L__819:
+  br label %__L__836
+__L__835:
   %r33 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t7
   %r34 = load i64, ptr %t5
@@ -13297,17 +13459,17 @@ __L__819:
   %r37 = getelementptr inbounds i64, ptr %r35, i64 %r36
   %r38 = load i64, ptr %r37
   store i64 %r38, ptr %acc.ptr
-  br label %__L__820
-__L__820:
+  br label %__L__836
+__L__836:
   %r39 = load i64, ptr %acc.ptr
   store i64 %r39, ptr %acc.ptr
-  br label %__L__818
-__L__817:
+  br label %__L__834
+__L__833:
   %r40 = load i64, ptr %acc.ptr
   %r41 = load i64, ptr @_3Cundefined_3E
   store i64 %r41, ptr %acc.ptr
-  br label %__L__818
-__L__818:
+  br label %__L__834
+__L__834:
   %r42 = load i64, ptr %acc.ptr
   store i64 %r42, ptr %t8
   %r43 = load i64, ptr @_3Cpair_3E
@@ -13316,7 +13478,7 @@ __L__818:
   %r46 = zext i1 %r45 to i64
   store i64 %r46, ptr %acc.ptr
   %r47 = icmp ne i64 %r46, 0
-  br i1 %r47, label %cont.48, label %__L__815
+  br i1 %r47, label %cont.48, label %__L__831
 cont.48:
   %r49 = load i64, ptr %acc.ptr
   store i64 0, ptr %t9
@@ -13332,7 +13494,7 @@ cont.48:
   %r57 = and i64 %r55, %r56
   store i64 %r57, ptr %acc.ptr
   %r58 = icmp ne i64 %r57, 0
-  br i1 %r58, label %cont.59, label %__L__823
+  br i1 %r58, label %cont.59, label %__L__839
 cont.59:
   %r60 = load i64, ptr %acc.ptr
   store i64 1, ptr %t11
@@ -13340,12 +13502,12 @@ cont.59:
   %r62 = load i64, ptr %t11
   %r63 = and i64 %r61, %r62
   store i64 %r63, ptr %acc.ptr
-  br label %__L__823
-__L__823:
+  br label %__L__839
+__L__839:
   %r64 = load i64, ptr %acc.ptr
   store i64 %r64, ptr %acc.ptr
   %r65 = icmp ne i64 %r64, 0
-  br i1 %r65, label %cont.66, label %__L__821
+  br i1 %r65, label %cont.66, label %__L__837
 cont.66:
   %r67 = load i64, ptr %acc.ptr
   store i64 1, ptr %t12
@@ -13367,15 +13529,15 @@ cont.66:
   %r78 = inttoptr i64 %r76 to ptr
   %r80 = call i64 %r78(i64 %r79)
   store i64 %r80, ptr %acc.ptr
-  br label %__L__822
-__L__821:
+  br label %__L__838
+__L__837:
   %r81 = load i64, ptr %acc.ptr
   %r82 = load i64, ptr %t2
   store i64 %r82, ptr %t16
   %r83 = load i64, ptr %t16
   store i64 %r83, ptr %acc.ptr
   %r84 = icmp ne i64 %r83, 0
-  br i1 %r84, label %cont.85, label %__L__827
+  br i1 %r84, label %cont.85, label %__L__843
 cont.85:
   %r86 = load i64, ptr %acc.ptr
   store i64 1, ptr %t17
@@ -13384,13 +13546,13 @@ cont.85:
   %r89 = and i64 %r87, %r88
   store i64 %r89, ptr %acc.ptr
   %r90 = icmp ne i64 %r89, 0
-  br i1 %r90, label %cont.91, label %__L__829
+  br i1 %r90, label %cont.91, label %__L__845
 cont.91:
   %r92 = load i64, ptr %acc.ptr
   %r93 = load i64, ptr @_3Clong_3E
   store i64 %r93, ptr %acc.ptr
-  br label %__L__830
-__L__829:
+  br label %__L__846
+__L__845:
   %r94 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t18
   %r95 = load i64, ptr %t16
@@ -13399,17 +13561,17 @@ __L__829:
   %r98 = getelementptr inbounds i64, ptr %r96, i64 %r97
   %r99 = load i64, ptr %r98
   store i64 %r99, ptr %acc.ptr
-  br label %__L__830
-__L__830:
+  br label %__L__846
+__L__846:
   %r100 = load i64, ptr %acc.ptr
   store i64 %r100, ptr %acc.ptr
-  br label %__L__828
-__L__827:
+  br label %__L__844
+__L__843:
   %r101 = load i64, ptr %acc.ptr
   %r102 = load i64, ptr @_3Cundefined_3E
   store i64 %r102, ptr %acc.ptr
-  br label %__L__828
-__L__828:
+  br label %__L__844
+__L__844:
   %r103 = load i64, ptr %acc.ptr
   store i64 %r103, ptr %t19
   %r104 = load i64, ptr @_3Cdouble_3E
@@ -13418,7 +13580,7 @@ __L__828:
   %r107 = zext i1 %r106 to i64
   store i64 %r107, ptr %acc.ptr
   %r108 = icmp ne i64 %r107, 0
-  br i1 %r108, label %__L__826, label %cont.109
+  br i1 %r108, label %__L__842, label %cont.109
 cont.109:
   %r110 = load i64, ptr %acc.ptr
   %r111 = load i64, ptr %t4
@@ -13426,7 +13588,7 @@ cont.109:
   %r112 = load i64, ptr %t20
   store i64 %r112, ptr %acc.ptr
   %r113 = icmp ne i64 %r112, 0
-  br i1 %r113, label %cont.114, label %__L__831
+  br i1 %r113, label %cont.114, label %__L__847
 cont.114:
   %r115 = load i64, ptr %acc.ptr
   store i64 1, ptr %t21
@@ -13435,13 +13597,13 @@ cont.114:
   %r118 = and i64 %r116, %r117
   store i64 %r118, ptr %acc.ptr
   %r119 = icmp ne i64 %r118, 0
-  br i1 %r119, label %cont.120, label %__L__833
+  br i1 %r119, label %cont.120, label %__L__849
 cont.120:
   %r121 = load i64, ptr %acc.ptr
   %r122 = load i64, ptr @_3Clong_3E
   store i64 %r122, ptr %acc.ptr
-  br label %__L__834
-__L__833:
+  br label %__L__850
+__L__849:
   %r123 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t22
   %r124 = load i64, ptr %t20
@@ -13450,17 +13612,17 @@ __L__833:
   %r127 = getelementptr inbounds i64, ptr %r125, i64 %r126
   %r128 = load i64, ptr %r127
   store i64 %r128, ptr %acc.ptr
-  br label %__L__834
-__L__834:
+  br label %__L__850
+__L__850:
   %r129 = load i64, ptr %acc.ptr
   store i64 %r129, ptr %acc.ptr
-  br label %__L__832
-__L__831:
+  br label %__L__848
+__L__847:
   %r130 = load i64, ptr %acc.ptr
   %r131 = load i64, ptr @_3Cundefined_3E
   store i64 %r131, ptr %acc.ptr
-  br label %__L__832
-__L__832:
+  br label %__L__848
+__L__848:
   %r132 = load i64, ptr %acc.ptr
   store i64 %r132, ptr %t23
   %r133 = load i64, ptr @_3Cdouble_3E
@@ -13468,12 +13630,12 @@ __L__832:
   %r135 = icmp eq i64 %r133, %r134
   %r136 = zext i1 %r135 to i64
   store i64 %r136, ptr %acc.ptr
-  br label %__L__826
-__L__826:
+  br label %__L__842
+__L__842:
   %r137 = load i64, ptr %acc.ptr
   store i64 %r137, ptr %acc.ptr
   %r138 = icmp ne i64 %r137, 0
-  br i1 %r138, label %cont.139, label %__L__824
+  br i1 %r138, label %cont.139, label %__L__840
 cont.139:
   %r140 = load i64, ptr %acc.ptr
   %r141 = load i64, ptr %t2
@@ -13511,10 +13673,10 @@ cont.139:
   %r162 = inttoptr i64 %r160 to ptr
   %r164 = call i64 %r162(i64 %r163)
   store i64 %r164, ptr %acc.ptr
-  br label %__L__825
-__L__824:
+  br label %__L__841
+__L__840:
   %r165 = load i64, ptr %acc.ptr
-  %r166 = ptrtoint ptr @__L__835 to i64
+  %r166 = ptrtoint ptr @__L__851 to i64
   store i64 %r166, ptr %t29
   %r167 = ptrtoint ptr @printf to i64
   %r168 = load i64, ptr %t29
@@ -13522,7 +13684,7 @@ __L__824:
   %r170 = load i64, ptr %a0
   %r169 = inttoptr i64 %r167 to ptr
   %r171 = call i64 %r169(i64 %r170)
-  %r172 = ptrtoint ptr @__L__836 to i64
+  %r172 = ptrtoint ptr @__L__852 to i64
   store i64 %r172, ptr %t30
   %r173 = ptrtoint ptr @printf to i64
   %r174 = load i64, ptr %t30
@@ -13538,7 +13700,7 @@ __L__824:
   %r182 = load i64, ptr %a0
   %r181 = inttoptr i64 %r179 to ptr
   %r183 = call i64 %r181(i64 %r182)
-  %r184 = ptrtoint ptr @__L__837 to i64
+  %r184 = ptrtoint ptr @__L__853 to i64
   store i64 %r184, ptr %t32
   %r185 = ptrtoint ptr @printf to i64
   %r186 = load i64, ptr %t32
@@ -13554,7 +13716,7 @@ __L__824:
   %r194 = load i64, ptr %a0
   %r193 = inttoptr i64 %r191 to ptr
   %r195 = call i64 %r193(i64 %r194)
-  %r196 = ptrtoint ptr @__L__838 to i64
+  %r196 = ptrtoint ptr @__L__854 to i64
   store i64 %r196, ptr %t34
   %r197 = ptrtoint ptr @printf to i64
   %r198 = load i64, ptr %t34
@@ -13562,7 +13724,7 @@ __L__824:
   %r200 = load i64, ptr %a0
   %r199 = inttoptr i64 %r197 to ptr
   %r201 = call i64 %r199(i64 %r200)
-  %r202 = ptrtoint ptr @__L__839 to i64
+  %r202 = ptrtoint ptr @__L__855 to i64
   store i64 %r202, ptr %t35
   %r203 = ptrtoint ptr @printf to i64
   %r204 = load i64, ptr %t35
@@ -13574,16 +13736,16 @@ __L__824:
   %r209 = inttoptr i64 %r208 to ptr
   %r210 = call i64 %r209()
   store i64 %r210, ptr %acc.ptr
-  br label %__L__825
-__L__825:
+  br label %__L__841
+__L__841:
   %r211 = load i64, ptr %acc.ptr
   store i64 %r211, ptr %acc.ptr
-  br label %__L__822
-__L__822:
+  br label %__L__838
+__L__838:
   %r212 = load i64, ptr %acc.ptr
   store i64 %r212, ptr %acc.ptr
-  br label %__L__816
-__L__815:
+  br label %__L__832
+__L__831:
   %r213 = load i64, ptr %acc.ptr
   store i64 1, ptr %t36
   %r214 = load i64, ptr %t2
@@ -13591,7 +13753,7 @@ __L__815:
   %r216 = and i64 %r214, %r215
   store i64 %r216, ptr %acc.ptr
   %r217 = icmp ne i64 %r216, 0
-  br i1 %r217, label %cont.218, label %__L__840
+  br i1 %r217, label %cont.218, label %__L__856
 cont.218:
   %r219 = load i64, ptr %acc.ptr
   store i64 1, ptr %t37
@@ -13607,15 +13769,15 @@ cont.218:
   %r226 = inttoptr i64 %r224 to ptr
   %r228 = call i64 %r226(i64 %r227)
   store i64 %r228, ptr %acc.ptr
-  br label %__L__841
-__L__840:
+  br label %__L__857
+__L__856:
   %r229 = load i64, ptr %acc.ptr
   %r230 = load i64, ptr %t2
   store i64 %r230, ptr %t39
   %r231 = load i64, ptr %t39
   store i64 %r231, ptr %acc.ptr
   %r232 = icmp ne i64 %r231, 0
-  br i1 %r232, label %cont.233, label %__L__844
+  br i1 %r232, label %cont.233, label %__L__860
 cont.233:
   %r234 = load i64, ptr %acc.ptr
   store i64 1, ptr %t40
@@ -13624,13 +13786,13 @@ cont.233:
   %r237 = and i64 %r235, %r236
   store i64 %r237, ptr %acc.ptr
   %r238 = icmp ne i64 %r237, 0
-  br i1 %r238, label %cont.239, label %__L__846
+  br i1 %r238, label %cont.239, label %__L__862
 cont.239:
   %r240 = load i64, ptr %acc.ptr
   %r241 = load i64, ptr @_3Clong_3E
   store i64 %r241, ptr %acc.ptr
-  br label %__L__847
-__L__846:
+  br label %__L__863
+__L__862:
   %r242 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t41
   %r243 = load i64, ptr %t39
@@ -13639,17 +13801,17 @@ __L__846:
   %r246 = getelementptr inbounds i64, ptr %r244, i64 %r245
   %r247 = load i64, ptr %r246
   store i64 %r247, ptr %acc.ptr
-  br label %__L__847
-__L__847:
+  br label %__L__863
+__L__863:
   %r248 = load i64, ptr %acc.ptr
   store i64 %r248, ptr %acc.ptr
-  br label %__L__845
-__L__844:
+  br label %__L__861
+__L__860:
   %r249 = load i64, ptr %acc.ptr
   %r250 = load i64, ptr @_3Cundefined_3E
   store i64 %r250, ptr %acc.ptr
-  br label %__L__845
-__L__845:
+  br label %__L__861
+__L__861:
   %r251 = load i64, ptr %acc.ptr
   store i64 %r251, ptr %t42
   %r252 = load i64, ptr @_3Cdouble_3E
@@ -13658,7 +13820,7 @@ __L__845:
   %r255 = zext i1 %r254 to i64
   store i64 %r255, ptr %acc.ptr
   %r256 = icmp ne i64 %r255, 0
-  br i1 %r256, label %cont.257, label %__L__842
+  br i1 %r256, label %cont.257, label %__L__858
 cont.257:
   %r258 = load i64, ptr %acc.ptr
   store i64 0, ptr %t43
@@ -13693,10 +13855,10 @@ cont.257:
   %r278 = inttoptr i64 %r276 to ptr
   %r280 = call i64 %r278(i64 %r279)
   store i64 %r280, ptr %acc.ptr
-  br label %__L__843
-__L__842:
+  br label %__L__859
+__L__858:
   %r281 = load i64, ptr %acc.ptr
-  %r282 = ptrtoint ptr @__L__848 to i64
+  %r282 = ptrtoint ptr @__L__864 to i64
   store i64 %r282, ptr %t48
   %r283 = ptrtoint ptr @printf to i64
   %r284 = load i64, ptr %t48
@@ -13704,7 +13866,7 @@ __L__842:
   %r286 = load i64, ptr %a0
   %r285 = inttoptr i64 %r283 to ptr
   %r287 = call i64 %r285(i64 %r286)
-  %r288 = ptrtoint ptr @__L__849 to i64
+  %r288 = ptrtoint ptr @__L__865 to i64
   store i64 %r288, ptr %t49
   %r289 = ptrtoint ptr @printf to i64
   %r290 = load i64, ptr %t49
@@ -13720,7 +13882,7 @@ __L__842:
   %r298 = load i64, ptr %a0
   %r297 = inttoptr i64 %r295 to ptr
   %r299 = call i64 %r297(i64 %r298)
-  %r300 = ptrtoint ptr @__L__850 to i64
+  %r300 = ptrtoint ptr @__L__866 to i64
   store i64 %r300, ptr %t51
   %r301 = ptrtoint ptr @printf to i64
   %r302 = load i64, ptr %t51
@@ -13728,7 +13890,7 @@ __L__842:
   %r304 = load i64, ptr %a0
   %r303 = inttoptr i64 %r301 to ptr
   %r305 = call i64 %r303(i64 %r304)
-  %r306 = ptrtoint ptr @__L__851 to i64
+  %r306 = ptrtoint ptr @__L__867 to i64
   store i64 %r306, ptr %t52
   %r307 = ptrtoint ptr @printf to i64
   %r308 = load i64, ptr %t52
@@ -13740,16 +13902,16 @@ __L__842:
   %r313 = inttoptr i64 %r312 to ptr
   %r314 = call i64 %r313()
   store i64 %r314, ptr %acc.ptr
-  br label %__L__843
-__L__843:
+  br label %__L__859
+__L__859:
   %r315 = load i64, ptr %acc.ptr
   store i64 %r315, ptr %acc.ptr
-  br label %__L__841
-__L__841:
+  br label %__L__857
+__L__857:
   %r316 = load i64, ptr %acc.ptr
   store i64 %r316, ptr %acc.ptr
-  br label %__L__816
-__L__816:
+  br label %__L__832
+__L__832:
   %r317 = load i64, ptr %acc.ptr
   ret i64 %r317
 }
@@ -13772,7 +13934,7 @@ entry:
   %r1 = load i64, ptr %t0
   store i64 %r1, ptr %acc.ptr
   %r2 = icmp ne i64 %r1, 0
-  br i1 %r2, label %cont.3, label %__L__854
+  br i1 %r2, label %cont.3, label %__L__870
 cont.3:
   %r4 = load i64, ptr %acc.ptr
   store i64 1, ptr %t1
@@ -13781,13 +13943,13 @@ cont.3:
   %r7 = and i64 %r5, %r6
   store i64 %r7, ptr %acc.ptr
   %r8 = icmp ne i64 %r7, 0
-  br i1 %r8, label %cont.9, label %__L__856
+  br i1 %r8, label %cont.9, label %__L__872
 cont.9:
   %r10 = load i64, ptr %acc.ptr
   %r11 = load i64, ptr @_3Clong_3E
   store i64 %r11, ptr %acc.ptr
-  br label %__L__857
-__L__856:
+  br label %__L__873
+__L__872:
   %r12 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t2
   %r13 = load i64, ptr %t0
@@ -13796,17 +13958,17 @@ __L__856:
   %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
-  br label %__L__857
-__L__857:
+  br label %__L__873
+__L__873:
   %r18 = load i64, ptr %acc.ptr
   store i64 %r18, ptr %acc.ptr
-  br label %__L__855
-__L__854:
+  br label %__L__871
+__L__870:
   %r19 = load i64, ptr %acc.ptr
   %r20 = load i64, ptr @_3Cundefined_3E
   store i64 %r20, ptr %acc.ptr
-  br label %__L__855
-__L__855:
+  br label %__L__871
+__L__871:
   %r21 = load i64, ptr %acc.ptr
   store i64 %r21, ptr %t3
   %r22 = load i64, ptr @_3Cdouble_3E
@@ -13815,7 +13977,7 @@ __L__855:
   %r25 = zext i1 %r24 to i64
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__852
+  br i1 %r26, label %cont.27, label %__L__868
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 0, ptr %t4
@@ -13825,8 +13987,8 @@ cont.27:
   %r32 = getelementptr inbounds i64, ptr %r30, i64 %r31
   %r33 = load i64, ptr %r32
   store i64 %r33, ptr %acc.ptr
-  br label %__L__853
-__L__852:
+  br label %__L__869
+__L__868:
   %r34 = load i64, ptr %acc.ptr
   store i64 1, ptr %t5
   %r35 = load i64, ptr %arg0
@@ -13840,13 +14002,13 @@ __L__852:
   %r40 = inttoptr i64 %r38 to ptr
   %r42 = call i64 %r40(i64 %r41)
   store i64 %r42, ptr %acc.ptr
-  br label %__L__853
-__L__853:
+  br label %__L__869
+__L__869:
   %r43 = load i64, ptr %acc.ptr
   ret i64 %r43
 }
 ; defn arity3
-@__L__872 = private constant [25 x i8] c"%s: expected 3 arguments\00"
+@__L__888 = private constant [25 x i8] c"%s: expected 3 arguments\00"
 define i64 @__L__70(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -13882,7 +14044,7 @@ entry:
   %r1 = load i64, ptr %t0
   store i64 %r1, ptr %acc.ptr
   %r2 = icmp ne i64 %r1, 0
-  br i1 %r2, label %cont.3, label %__L__860
+  br i1 %r2, label %cont.3, label %__L__876
 cont.3:
   %r4 = load i64, ptr %acc.ptr
   store i64 1, ptr %t1
@@ -13891,13 +14053,13 @@ cont.3:
   %r7 = and i64 %r5, %r6
   store i64 %r7, ptr %acc.ptr
   %r8 = icmp ne i64 %r7, 0
-  br i1 %r8, label %cont.9, label %__L__862
+  br i1 %r8, label %cont.9, label %__L__878
 cont.9:
   %r10 = load i64, ptr %acc.ptr
   %r11 = load i64, ptr @_3Clong_3E
   store i64 %r11, ptr %acc.ptr
-  br label %__L__863
-__L__862:
+  br label %__L__879
+__L__878:
   %r12 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t2
   %r13 = load i64, ptr %t0
@@ -13906,17 +14068,17 @@ __L__862:
   %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
-  br label %__L__863
-__L__863:
+  br label %__L__879
+__L__879:
   %r18 = load i64, ptr %acc.ptr
   store i64 %r18, ptr %acc.ptr
-  br label %__L__861
-__L__860:
+  br label %__L__877
+__L__876:
   %r19 = load i64, ptr %acc.ptr
   %r20 = load i64, ptr @_3Cundefined_3E
   store i64 %r20, ptr %acc.ptr
-  br label %__L__861
-__L__861:
+  br label %__L__877
+__L__877:
   %r21 = load i64, ptr %acc.ptr
   store i64 %r21, ptr %t3
   %r22 = load i64, ptr @_3Cpair_3E
@@ -13925,7 +14087,7 @@ __L__861:
   %r25 = zext i1 %r24 to i64
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__859
+  br i1 %r26, label %cont.27, label %__L__875
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 1, ptr %t4
@@ -13938,7 +14100,7 @@ cont.27:
   %r34 = load i64, ptr %t5
   store i64 %r34, ptr %acc.ptr
   %r35 = icmp ne i64 %r34, 0
-  br i1 %r35, label %cont.36, label %__L__864
+  br i1 %r35, label %cont.36, label %__L__880
 cont.36:
   %r37 = load i64, ptr %acc.ptr
   store i64 1, ptr %t6
@@ -13947,13 +14109,13 @@ cont.36:
   %r40 = and i64 %r38, %r39
   store i64 %r40, ptr %acc.ptr
   %r41 = icmp ne i64 %r40, 0
-  br i1 %r41, label %cont.42, label %__L__866
+  br i1 %r41, label %cont.42, label %__L__882
 cont.42:
   %r43 = load i64, ptr %acc.ptr
   %r44 = load i64, ptr @_3Clong_3E
   store i64 %r44, ptr %acc.ptr
-  br label %__L__867
-__L__866:
+  br label %__L__883
+__L__882:
   %r45 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t7
   %r46 = load i64, ptr %t5
@@ -13962,17 +14124,17 @@ __L__866:
   %r49 = getelementptr inbounds i64, ptr %r47, i64 %r48
   %r50 = load i64, ptr %r49
   store i64 %r50, ptr %acc.ptr
-  br label %__L__867
-__L__867:
+  br label %__L__883
+__L__883:
   %r51 = load i64, ptr %acc.ptr
   store i64 %r51, ptr %acc.ptr
-  br label %__L__865
-__L__864:
+  br label %__L__881
+__L__880:
   %r52 = load i64, ptr %acc.ptr
   %r53 = load i64, ptr @_3Cundefined_3E
   store i64 %r53, ptr %acc.ptr
-  br label %__L__865
-__L__865:
+  br label %__L__881
+__L__881:
   %r54 = load i64, ptr %acc.ptr
   store i64 %r54, ptr %t8
   %r55 = load i64, ptr @_3Cpair_3E
@@ -13981,7 +14143,7 @@ __L__865:
   %r58 = zext i1 %r57 to i64
   store i64 %r58, ptr %acc.ptr
   %r59 = icmp ne i64 %r58, 0
-  br i1 %r59, label %cont.60, label %__L__859
+  br i1 %r59, label %cont.60, label %__L__875
 cont.60:
   %r61 = load i64, ptr %acc.ptr
   store i64 1, ptr %t9
@@ -13999,7 +14161,7 @@ cont.60:
   %r71 = load i64, ptr %t11
   store i64 %r71, ptr %acc.ptr
   %r72 = icmp ne i64 %r71, 0
-  br i1 %r72, label %cont.73, label %__L__868
+  br i1 %r72, label %cont.73, label %__L__884
 cont.73:
   %r74 = load i64, ptr %acc.ptr
   store i64 1, ptr %t12
@@ -14008,13 +14170,13 @@ cont.73:
   %r77 = and i64 %r75, %r76
   store i64 %r77, ptr %acc.ptr
   %r78 = icmp ne i64 %r77, 0
-  br i1 %r78, label %cont.79, label %__L__870
+  br i1 %r78, label %cont.79, label %__L__886
 cont.79:
   %r80 = load i64, ptr %acc.ptr
   %r81 = load i64, ptr @_3Clong_3E
   store i64 %r81, ptr %acc.ptr
-  br label %__L__871
-__L__870:
+  br label %__L__887
+__L__886:
   %r82 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t13
   %r83 = load i64, ptr %t11
@@ -14023,17 +14185,17 @@ __L__870:
   %r86 = getelementptr inbounds i64, ptr %r84, i64 %r85
   %r87 = load i64, ptr %r86
   store i64 %r87, ptr %acc.ptr
-  br label %__L__871
-__L__871:
+  br label %__L__887
+__L__887:
   %r88 = load i64, ptr %acc.ptr
   store i64 %r88, ptr %acc.ptr
-  br label %__L__869
-__L__868:
+  br label %__L__885
+__L__884:
   %r89 = load i64, ptr %acc.ptr
   %r90 = load i64, ptr @_3Cundefined_3E
   store i64 %r90, ptr %acc.ptr
-  br label %__L__869
-__L__869:
+  br label %__L__885
+__L__885:
   %r91 = load i64, ptr %acc.ptr
   store i64 %r91, ptr %t14
   %r92 = load i64, ptr @_3Cpair_3E
@@ -14042,7 +14204,7 @@ __L__869:
   %r95 = zext i1 %r94 to i64
   store i64 %r95, ptr %acc.ptr
   %r96 = icmp ne i64 %r95, 0
-  br i1 %r96, label %cont.97, label %__L__859
+  br i1 %r96, label %cont.97, label %__L__875
 cont.97:
   %r98 = load i64, ptr %acc.ptr
   store i64 1, ptr %t15
@@ -14066,15 +14228,15 @@ cont.97:
   %r113 = icmp eq i64 0, %r112
   %r114 = zext i1 %r113 to i64
   store i64 %r114, ptr %acc.ptr
-  br label %__L__859
-__L__859:
+  br label %__L__875
+__L__875:
   %r115 = load i64, ptr %acc.ptr
   store i64 %r115, ptr %acc.ptr
   %r116 = icmp ne i64 %r115, 0
-  br i1 %r116, label %__L__858, label %cont.117
+  br i1 %r116, label %__L__874, label %cont.117
 cont.117:
   %r118 = load i64, ptr %acc.ptr
-  %r119 = ptrtoint ptr @__L__872 to i64
+  %r119 = ptrtoint ptr @__L__888 to i64
   store i64 %r119, ptr %t19
   %r120 = load i64, ptr %arg0
   store i64 %r120, ptr %t20
@@ -14088,13 +14250,13 @@ cont.117:
   %r124 = inttoptr i64 %r121 to ptr
   %r127 = call i64 %r124(i64 %r125, i64 %r126)
   store i64 %r127, ptr %acc.ptr
-  br label %__L__858
-__L__858:
+  br label %__L__874
+__L__874:
   %r128 = load i64, ptr %acc.ptr
   ret i64 %r128
 }
 ; defn arity2
-@__L__883 = private constant [25 x i8] c"%s: expected 2 arguments\00"
+@__L__899 = private constant [25 x i8] c"%s: expected 2 arguments\00"
 define i64 @__L__71(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -14123,7 +14285,7 @@ entry:
   %r1 = load i64, ptr %t0
   store i64 %r1, ptr %acc.ptr
   %r2 = icmp ne i64 %r1, 0
-  br i1 %r2, label %cont.3, label %__L__875
+  br i1 %r2, label %cont.3, label %__L__891
 cont.3:
   %r4 = load i64, ptr %acc.ptr
   store i64 1, ptr %t1
@@ -14132,13 +14294,13 @@ cont.3:
   %r7 = and i64 %r5, %r6
   store i64 %r7, ptr %acc.ptr
   %r8 = icmp ne i64 %r7, 0
-  br i1 %r8, label %cont.9, label %__L__877
+  br i1 %r8, label %cont.9, label %__L__893
 cont.9:
   %r10 = load i64, ptr %acc.ptr
   %r11 = load i64, ptr @_3Clong_3E
   store i64 %r11, ptr %acc.ptr
-  br label %__L__878
-__L__877:
+  br label %__L__894
+__L__893:
   %r12 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t2
   %r13 = load i64, ptr %t0
@@ -14147,17 +14309,17 @@ __L__877:
   %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
-  br label %__L__878
-__L__878:
+  br label %__L__894
+__L__894:
   %r18 = load i64, ptr %acc.ptr
   store i64 %r18, ptr %acc.ptr
-  br label %__L__876
-__L__875:
+  br label %__L__892
+__L__891:
   %r19 = load i64, ptr %acc.ptr
   %r20 = load i64, ptr @_3Cundefined_3E
   store i64 %r20, ptr %acc.ptr
-  br label %__L__876
-__L__876:
+  br label %__L__892
+__L__892:
   %r21 = load i64, ptr %acc.ptr
   store i64 %r21, ptr %t3
   %r22 = load i64, ptr @_3Cpair_3E
@@ -14166,7 +14328,7 @@ __L__876:
   %r25 = zext i1 %r24 to i64
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__874
+  br i1 %r26, label %cont.27, label %__L__890
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 1, ptr %t4
@@ -14179,7 +14341,7 @@ cont.27:
   %r34 = load i64, ptr %t5
   store i64 %r34, ptr %acc.ptr
   %r35 = icmp ne i64 %r34, 0
-  br i1 %r35, label %cont.36, label %__L__879
+  br i1 %r35, label %cont.36, label %__L__895
 cont.36:
   %r37 = load i64, ptr %acc.ptr
   store i64 1, ptr %t6
@@ -14188,13 +14350,13 @@ cont.36:
   %r40 = and i64 %r38, %r39
   store i64 %r40, ptr %acc.ptr
   %r41 = icmp ne i64 %r40, 0
-  br i1 %r41, label %cont.42, label %__L__881
+  br i1 %r41, label %cont.42, label %__L__897
 cont.42:
   %r43 = load i64, ptr %acc.ptr
   %r44 = load i64, ptr @_3Clong_3E
   store i64 %r44, ptr %acc.ptr
-  br label %__L__882
-__L__881:
+  br label %__L__898
+__L__897:
   %r45 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t7
   %r46 = load i64, ptr %t5
@@ -14203,17 +14365,17 @@ __L__881:
   %r49 = getelementptr inbounds i64, ptr %r47, i64 %r48
   %r50 = load i64, ptr %r49
   store i64 %r50, ptr %acc.ptr
-  br label %__L__882
-__L__882:
+  br label %__L__898
+__L__898:
   %r51 = load i64, ptr %acc.ptr
   store i64 %r51, ptr %acc.ptr
-  br label %__L__880
-__L__879:
+  br label %__L__896
+__L__895:
   %r52 = load i64, ptr %acc.ptr
   %r53 = load i64, ptr @_3Cundefined_3E
   store i64 %r53, ptr %acc.ptr
-  br label %__L__880
-__L__880:
+  br label %__L__896
+__L__896:
   %r54 = load i64, ptr %acc.ptr
   store i64 %r54, ptr %t8
   %r55 = load i64, ptr @_3Cpair_3E
@@ -14222,7 +14384,7 @@ __L__880:
   %r58 = zext i1 %r57 to i64
   store i64 %r58, ptr %acc.ptr
   %r59 = icmp ne i64 %r58, 0
-  br i1 %r59, label %cont.60, label %__L__874
+  br i1 %r59, label %cont.60, label %__L__890
 cont.60:
   %r61 = load i64, ptr %acc.ptr
   store i64 1, ptr %t9
@@ -14241,15 +14403,15 @@ cont.60:
   %r72 = icmp eq i64 0, %r71
   %r73 = zext i1 %r72 to i64
   store i64 %r73, ptr %acc.ptr
-  br label %__L__874
-__L__874:
+  br label %__L__890
+__L__890:
   %r74 = load i64, ptr %acc.ptr
   store i64 %r74, ptr %acc.ptr
   %r75 = icmp ne i64 %r74, 0
-  br i1 %r75, label %__L__873, label %cont.76
+  br i1 %r75, label %__L__889, label %cont.76
 cont.76:
   %r77 = load i64, ptr %acc.ptr
-  %r78 = ptrtoint ptr @__L__883 to i64
+  %r78 = ptrtoint ptr @__L__899 to i64
   store i64 %r78, ptr %t12
   %r79 = load i64, ptr %arg0
   store i64 %r79, ptr %t13
@@ -14263,8 +14425,8 @@ cont.76:
   %r83 = inttoptr i64 %r80 to ptr
   %r86 = call i64 %r83(i64 %r84, i64 %r85)
   store i64 %r86, ptr %acc.ptr
-  br label %__L__873
-__L__873:
+  br label %__L__889
+__L__889:
   %r87 = load i64, ptr %acc.ptr
   ret i64 %r87
 }
@@ -14288,17 +14450,17 @@ entry:
   %r5 = call i64 %r3(i64 %r4)
   store i64 %r5, ptr %acc.ptr
   %r6 = icmp ne i64 %r5, 0
-  br i1 %r6, label %cont.7, label %__L__884
+  br i1 %r6, label %cont.7, label %__L__900
 cont.7:
   %r8 = load i64, ptr %acc.ptr
   store i64 0, ptr %acc.ptr
-  br label %__L__885
-__L__884:
+  br label %__L__901
+__L__900:
   %r9 = load i64, ptr %acc.ptr
   %r10 = load i64, ptr @s__t
   store i64 %r10, ptr %acc.ptr
-  br label %__L__885
-__L__885:
+  br label %__L__901
+__L__901:
   %r11 = load i64, ptr %acc.ptr
   ret i64 %r11
 }
@@ -14344,8 +14506,8 @@ entry:
   %r0 = load i64, ptr @s__t
   store i64 %r0, ptr %t0
   store i64 %r0, ptr %acc.ptr
-  br label %__L__887
-__L__886:
+  br label %__L__903
+__L__902:
   %r1 = load i64, ptr %acc.ptr
   store i64 0, ptr %t1
   %r2 = load i64, ptr %arg0
@@ -14368,12 +14530,12 @@ __L__886:
   store i64 %r14, ptr %t0
   store i64 %r14, ptr %acc.ptr
   %r15 = icmp ne i64 %r14, 0
-  br i1 %r15, label %__L__888, label %cont.16
+  br i1 %r15, label %__L__904, label %cont.16
 cont.16:
   %r17 = load i64, ptr %acc.ptr
   store i64 0, ptr %acc.ptr
-  br label %__L__889
-__L__888:
+  br label %__L__905
+__L__904:
   %r18 = load i64, ptr %acc.ptr
   store i64 1, ptr %t4
   %r19 = load i64, ptr %arg0
@@ -14383,15 +14545,15 @@ __L__888:
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %arg0
   store i64 %r23, ptr %acc.ptr
-  br label %__L__887
-__L__887:
+  br label %__L__903
+__L__903:
   %r24 = load i64, ptr %acc.ptr
   %r25 = load i64, ptr %arg0
   store i64 %r25, ptr %t5
   %r26 = load i64, ptr %t5
   store i64 %r26, ptr %acc.ptr
   %r27 = icmp ne i64 %r26, 0
-  br i1 %r27, label %cont.28, label %__L__890
+  br i1 %r27, label %cont.28, label %__L__906
 cont.28:
   %r29 = load i64, ptr %acc.ptr
   store i64 1, ptr %t6
@@ -14400,13 +14562,13 @@ cont.28:
   %r32 = and i64 %r30, %r31
   store i64 %r32, ptr %acc.ptr
   %r33 = icmp ne i64 %r32, 0
-  br i1 %r33, label %cont.34, label %__L__892
+  br i1 %r33, label %cont.34, label %__L__908
 cont.34:
   %r35 = load i64, ptr %acc.ptr
   %r36 = load i64, ptr @_3Clong_3E
   store i64 %r36, ptr %acc.ptr
-  br label %__L__893
-__L__892:
+  br label %__L__909
+__L__908:
   %r37 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t7
   %r38 = load i64, ptr %t5
@@ -14415,17 +14577,17 @@ __L__892:
   %r41 = getelementptr inbounds i64, ptr %r39, i64 %r40
   %r42 = load i64, ptr %r41
   store i64 %r42, ptr %acc.ptr
-  br label %__L__893
-__L__893:
+  br label %__L__909
+__L__909:
   %r43 = load i64, ptr %acc.ptr
   store i64 %r43, ptr %acc.ptr
-  br label %__L__891
-__L__890:
+  br label %__L__907
+__L__906:
   %r44 = load i64, ptr %acc.ptr
   %r45 = load i64, ptr @_3Cundefined_3E
   store i64 %r45, ptr %acc.ptr
-  br label %__L__891
-__L__891:
+  br label %__L__907
+__L__907:
   %r46 = load i64, ptr %acc.ptr
   store i64 %r46, ptr %t8
   %r47 = load i64, ptr @_3Cpair_3E
@@ -14434,13 +14596,13 @@ __L__891:
   %r50 = zext i1 %r49 to i64
   store i64 %r50, ptr %acc.ptr
   %r51 = icmp ne i64 %r50, 0
-  br i1 %r51, label %__L__886, label %cont.52
+  br i1 %r51, label %__L__902, label %cont.52
 cont.52:
   %r53 = load i64, ptr %acc.ptr
   %r54 = load i64, ptr %t0
   store i64 %r54, ptr %acc.ptr
-  br label %__L__889
-__L__889:
+  br label %__L__905
+__L__905:
   %r55 = load i64, ptr %acc.ptr
   ret i64 %r55
 }
@@ -14465,8 +14627,8 @@ entry:
   %a1 = alloca i64
   store i64 0, ptr %t0
   store i64 0, ptr %acc.ptr
-  br label %__L__895
-__L__894:
+  br label %__L__911
+__L__910:
   %r0 = load i64, ptr %acc.ptr
   store i64 0, ptr %t1
   %r1 = load i64, ptr %arg0
@@ -14489,13 +14651,13 @@ __L__894:
   store i64 %r13, ptr %t0
   store i64 %r13, ptr %acc.ptr
   %r14 = icmp ne i64 %r13, 0
-  br i1 %r14, label %cont.15, label %__L__896
+  br i1 %r14, label %cont.15, label %__L__912
 cont.15:
   %r16 = load i64, ptr %acc.ptr
   %r17 = load i64, ptr %t0
   store i64 %r17, ptr %acc.ptr
-  br label %__L__897
-__L__896:
+  br label %__L__913
+__L__912:
   %r18 = load i64, ptr %acc.ptr
   store i64 1, ptr %t4
   %r19 = load i64, ptr %arg0
@@ -14505,15 +14667,15 @@ __L__896:
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %arg0
   store i64 %r23, ptr %acc.ptr
-  br label %__L__895
-__L__895:
+  br label %__L__911
+__L__911:
   %r24 = load i64, ptr %acc.ptr
   %r25 = load i64, ptr %arg0
   store i64 %r25, ptr %t5
   %r26 = load i64, ptr %t5
   store i64 %r26, ptr %acc.ptr
   %r27 = icmp ne i64 %r26, 0
-  br i1 %r27, label %cont.28, label %__L__898
+  br i1 %r27, label %cont.28, label %__L__914
 cont.28:
   %r29 = load i64, ptr %acc.ptr
   store i64 1, ptr %t6
@@ -14522,13 +14684,13 @@ cont.28:
   %r32 = and i64 %r30, %r31
   store i64 %r32, ptr %acc.ptr
   %r33 = icmp ne i64 %r32, 0
-  br i1 %r33, label %cont.34, label %__L__900
+  br i1 %r33, label %cont.34, label %__L__916
 cont.34:
   %r35 = load i64, ptr %acc.ptr
   %r36 = load i64, ptr @_3Clong_3E
   store i64 %r36, ptr %acc.ptr
-  br label %__L__901
-__L__900:
+  br label %__L__917
+__L__916:
   %r37 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t7
   %r38 = load i64, ptr %t5
@@ -14537,17 +14699,17 @@ __L__900:
   %r41 = getelementptr inbounds i64, ptr %r39, i64 %r40
   %r42 = load i64, ptr %r41
   store i64 %r42, ptr %acc.ptr
-  br label %__L__901
-__L__901:
+  br label %__L__917
+__L__917:
   %r43 = load i64, ptr %acc.ptr
   store i64 %r43, ptr %acc.ptr
-  br label %__L__899
-__L__898:
+  br label %__L__915
+__L__914:
   %r44 = load i64, ptr %acc.ptr
   %r45 = load i64, ptr @_3Cundefined_3E
   store i64 %r45, ptr %acc.ptr
-  br label %__L__899
-__L__899:
+  br label %__L__915
+__L__915:
   %r46 = load i64, ptr %acc.ptr
   store i64 %r46, ptr %t8
   %r47 = load i64, ptr @_3Cpair_3E
@@ -14556,12 +14718,12 @@ __L__899:
   %r50 = zext i1 %r49 to i64
   store i64 %r50, ptr %acc.ptr
   %r51 = icmp ne i64 %r50, 0
-  br i1 %r51, label %__L__894, label %cont.52
+  br i1 %r51, label %__L__910, label %cont.52
 cont.52:
   %r53 = load i64, ptr %acc.ptr
   store i64 %r53, ptr %acc.ptr
-  br label %__L__897
-__L__897:
+  br label %__L__913
+__L__913:
   %r54 = load i64, ptr %acc.ptr
   ret i64 %r54
 }
@@ -14613,7 +14775,7 @@ entry:
   %r13 = call i64 %r10(i64 %r11, i64 %r12)
   store i64 %r13, ptr %acc.ptr
   %r14 = icmp ne i64 %r13, 0
-  br i1 %r14, label %cont.15, label %__L__902
+  br i1 %r14, label %cont.15, label %__L__918
 cont.15:
   %r16 = load i64, ptr %acc.ptr
   %r17 = load i64, ptr %arg0
@@ -14637,8 +14799,8 @@ cont.15:
   %r27 = inttoptr i64 %r24 to ptr
   %r30 = call i64 %r27(i64 %r28, i64 %r29)
   store i64 %r30, ptr %acc.ptr
-  br label %__L__903
-__L__902:
+  br label %__L__919
+__L__918:
   %r31 = load i64, ptr %acc.ptr
   store i64 0, ptr %t6
   %r32 = load i64, ptr %arg0
@@ -14651,8 +14813,8 @@ __L__902:
   %r37 = call i64 %r35(i64 %r36)
   store i64 %r37, ptr %arg0
   store i64 %r37, ptr %acc.ptr
-  br label %__L__905
-__L__904:
+  br label %__L__921
+__L__920:
   %r38 = load i64, ptr %acc.ptr
   store i64 0, ptr %t8
   %r39 = load i64, ptr %arg0
@@ -14674,8 +14836,8 @@ __L__904:
   %r51 = call i64 %r48(i64 %r49, i64 %r50)
   store i64 %r51, ptr %t6
   store i64 %r51, ptr %acc.ptr
-  br label %__L__905
-__L__905:
+  br label %__L__921
+__L__921:
   %r52 = load i64, ptr %acc.ptr
   %r53 = load i64, ptr %arg0
   store i64 %r53, ptr %t11
@@ -14690,7 +14852,7 @@ __L__905:
   %r59 = load i64, ptr %t12
   store i64 %r59, ptr %acc.ptr
   %r60 = icmp ne i64 %r59, 0
-  br i1 %r60, label %cont.61, label %__L__906
+  br i1 %r60, label %cont.61, label %__L__922
 cont.61:
   %r62 = load i64, ptr %acc.ptr
   store i64 1, ptr %t13
@@ -14699,13 +14861,13 @@ cont.61:
   %r65 = and i64 %r63, %r64
   store i64 %r65, ptr %acc.ptr
   %r66 = icmp ne i64 %r65, 0
-  br i1 %r66, label %cont.67, label %__L__908
+  br i1 %r66, label %cont.67, label %__L__924
 cont.67:
   %r68 = load i64, ptr %acc.ptr
   %r69 = load i64, ptr @_3Clong_3E
   store i64 %r69, ptr %acc.ptr
-  br label %__L__909
-__L__908:
+  br label %__L__925
+__L__924:
   %r70 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t14
   %r71 = load i64, ptr %t12
@@ -14714,17 +14876,17 @@ __L__908:
   %r74 = getelementptr inbounds i64, ptr %r72, i64 %r73
   %r75 = load i64, ptr %r74
   store i64 %r75, ptr %acc.ptr
-  br label %__L__909
-__L__909:
+  br label %__L__925
+__L__925:
   %r76 = load i64, ptr %acc.ptr
   store i64 %r76, ptr %acc.ptr
-  br label %__L__907
-__L__906:
+  br label %__L__923
+__L__922:
   %r77 = load i64, ptr %acc.ptr
   %r78 = load i64, ptr @_3Cundefined_3E
   store i64 %r78, ptr %acc.ptr
-  br label %__L__907
-__L__907:
+  br label %__L__923
+__L__923:
   %r79 = load i64, ptr %acc.ptr
   store i64 %r79, ptr %t15
   %r80 = load i64, ptr @_3Cpair_3E
@@ -14733,13 +14895,13 @@ __L__907:
   %r83 = zext i1 %r82 to i64
   store i64 %r83, ptr %acc.ptr
   %r84 = icmp ne i64 %r83, 0
-  br i1 %r84, label %__L__904, label %cont.85
+  br i1 %r84, label %__L__920, label %cont.85
 cont.85:
   %r86 = load i64, ptr %acc.ptr
   %r87 = load i64, ptr %t6
   store i64 %r87, ptr %acc.ptr
-  br label %__L__903
-__L__903:
+  br label %__L__919
+__L__919:
   %r88 = load i64, ptr %acc.ptr
   ret i64 %r88
 }
@@ -14779,14 +14941,14 @@ entry:
   %r6 = load i64, ptr %arg0
   store i64 %r6, ptr %t2
   store i64 %r6, ptr %acc.ptr
-  br label %__L__911
-__L__910:
+  br label %__L__927
+__L__926:
   %r7 = load i64, ptr %acc.ptr
   %r8 = load i64, ptr %t2
   store i64 %r8, ptr %t3
   store i64 %r8, ptr %acc.ptr
-  br label %__L__913
-__L__912:
+  br label %__L__929
+__L__928:
   %r9 = load i64, ptr %acc.ptr
   store i64 0, ptr %t4
   %r10 = load i64, ptr %t3
@@ -14807,8 +14969,8 @@ __L__912:
   %r19 = inttoptr i64 %r16 to ptr
   %r22 = call i64 %r19(i64 %r20, i64 %r21)
   store i64 %r22, ptr %acc.ptr
-  br label %__L__913
-__L__913:
+  br label %__L__929
+__L__929:
   %r23 = load i64, ptr %acc.ptr
   %r24 = load i64, ptr %t3
   store i64 %r24, ptr %t7
@@ -14823,7 +14985,7 @@ __L__913:
   %r30 = load i64, ptr %t8
   store i64 %r30, ptr %acc.ptr
   %r31 = icmp ne i64 %r30, 0
-  br i1 %r31, label %cont.32, label %__L__914
+  br i1 %r31, label %cont.32, label %__L__930
 cont.32:
   %r33 = load i64, ptr %acc.ptr
   store i64 1, ptr %t9
@@ -14832,13 +14994,13 @@ cont.32:
   %r36 = and i64 %r34, %r35
   store i64 %r36, ptr %acc.ptr
   %r37 = icmp ne i64 %r36, 0
-  br i1 %r37, label %cont.38, label %__L__916
+  br i1 %r37, label %cont.38, label %__L__932
 cont.38:
   %r39 = load i64, ptr %acc.ptr
   %r40 = load i64, ptr @_3Clong_3E
   store i64 %r40, ptr %acc.ptr
-  br label %__L__917
-__L__916:
+  br label %__L__933
+__L__932:
   %r41 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t10
   %r42 = load i64, ptr %t8
@@ -14847,17 +15009,17 @@ __L__916:
   %r45 = getelementptr inbounds i64, ptr %r43, i64 %r44
   %r46 = load i64, ptr %r45
   store i64 %r46, ptr %acc.ptr
-  br label %__L__917
-__L__917:
+  br label %__L__933
+__L__933:
   %r47 = load i64, ptr %acc.ptr
   store i64 %r47, ptr %acc.ptr
-  br label %__L__915
-__L__914:
+  br label %__L__931
+__L__930:
   %r48 = load i64, ptr %acc.ptr
   %r49 = load i64, ptr @_3Cundefined_3E
   store i64 %r49, ptr %acc.ptr
-  br label %__L__915
-__L__915:
+  br label %__L__931
+__L__931:
   %r50 = load i64, ptr %acc.ptr
   store i64 %r50, ptr %t11
   %r51 = load i64, ptr @_3Cpair_3E
@@ -14866,12 +15028,12 @@ __L__915:
   %r54 = zext i1 %r53 to i64
   store i64 %r54, ptr %acc.ptr
   %r55 = icmp ne i64 %r54, 0
-  br i1 %r55, label %__L__912, label %cont.56
+  br i1 %r55, label %__L__928, label %cont.56
 cont.56:
   %r57 = load i64, ptr %acc.ptr
   store i64 %r57, ptr %acc.ptr
-  br label %__L__911
-__L__911:
+  br label %__L__927
+__L__927:
   %r58 = load i64, ptr %acc.ptr
   %r59 = load i64, ptr %t1
   store i64 %r59, ptr %t12
@@ -14888,14 +15050,14 @@ __L__911:
   %r67 = call i64 %r64(i64 %r65, i64 %r66)
   store i64 %r67, ptr %acc.ptr
   %r68 = icmp ne i64 %r67, 0
-  br i1 %r68, label %__L__910, label %cont.69
+  br i1 %r68, label %__L__926, label %cont.69
 cont.69:
   %r70 = load i64, ptr %acc.ptr
   ret i64 %r70
 }
 ; defn subr_set
-@__L__923 = private constant [33 x i8] c"\0Acannot set undefined variable: \00"
-@__L__924 = private constant [9 x i8] c"aborting\00"
+@__L__939 = private constant [33 x i8] c"\0Acannot set undefined variable: \00"
+@__L__940 = private constant [9 x i8] c"aborting\00"
 define i64 @__L__78(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -14961,7 +15123,7 @@ entry:
   %r7 = load i64, ptr %t2
   store i64 %r7, ptr %acc.ptr
   %r8 = icmp ne i64 %r7, 0
-  br i1 %r8, label %cont.9, label %__L__919
+  br i1 %r8, label %cont.9, label %__L__935
 cont.9:
   %r10 = load i64, ptr %acc.ptr
   store i64 1, ptr %t3
@@ -14970,13 +15132,13 @@ cont.9:
   %r13 = and i64 %r11, %r12
   store i64 %r13, ptr %acc.ptr
   %r14 = icmp ne i64 %r13, 0
-  br i1 %r14, label %cont.15, label %__L__921
+  br i1 %r14, label %cont.15, label %__L__937
 cont.15:
   %r16 = load i64, ptr %acc.ptr
   %r17 = load i64, ptr @_3Clong_3E
   store i64 %r17, ptr %acc.ptr
-  br label %__L__922
-__L__921:
+  br label %__L__938
+__L__937:
   %r18 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t4
   %r19 = load i64, ptr %t2
@@ -14985,17 +15147,17 @@ __L__921:
   %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
-  br label %__L__922
-__L__922:
+  br label %__L__938
+__L__938:
   %r24 = load i64, ptr %acc.ptr
   store i64 %r24, ptr %acc.ptr
-  br label %__L__920
-__L__919:
+  br label %__L__936
+__L__935:
   %r25 = load i64, ptr %acc.ptr
   %r26 = load i64, ptr @_3Cundefined_3E
   store i64 %r26, ptr %acc.ptr
-  br label %__L__920
-__L__920:
+  br label %__L__936
+__L__936:
   %r27 = load i64, ptr %acc.ptr
   store i64 %r27, ptr %t5
   %r28 = load i64, ptr @_3Cvariable_3E
@@ -15004,10 +15166,10 @@ __L__920:
   %r31 = zext i1 %r30 to i64
   store i64 %r31, ptr %acc.ptr
   %r32 = icmp ne i64 %r31, 0
-  br i1 %r32, label %__L__918, label %cont.33
+  br i1 %r32, label %__L__934, label %cont.33
 cont.33:
   %r34 = load i64, ptr %acc.ptr
-  %r35 = ptrtoint ptr @__L__923 to i64
+  %r35 = ptrtoint ptr @__L__939 to i64
   store i64 %r35, ptr %t6
   %r36 = ptrtoint ptr @printf to i64
   %r37 = load i64, ptr %t6
@@ -15023,7 +15185,7 @@ cont.33:
   %r45 = load i64, ptr %a0
   %r44 = inttoptr i64 %r42 to ptr
   %r46 = call i64 %r44(i64 %r45)
-  %r47 = ptrtoint ptr @__L__924 to i64
+  %r47 = ptrtoint ptr @__L__940 to i64
   store i64 %r47, ptr %t8
   %r48 = ptrtoint ptr @__L__170 to i64
   %r49 = load i64, ptr %t8
@@ -15032,8 +15194,8 @@ cont.33:
   %r50 = inttoptr i64 %r48 to ptr
   %r52 = call i64 %r50(i64 %r51)
   store i64 %r52, ptr %acc.ptr
-  br label %__L__918
-__L__918:
+  br label %__L__934
+__L__934:
   %r53 = load i64, ptr %acc.ptr
   %r54 = load i64, ptr %arg0
   store i64 %r54, ptr %t9
@@ -15066,7 +15228,7 @@ __L__918:
   %r73 = call i64 %r71(i64 %r72)
   store i64 %r73, ptr %acc.ptr
   %r74 = icmp ne i64 %r73, 0
-  br i1 %r74, label %cont.75, label %__L__925
+  br i1 %r74, label %cont.75, label %__L__941
 cont.75:
   %r76 = load i64, ptr %acc.ptr
   %r77 = load i64, ptr %t1
@@ -15081,8 +15243,8 @@ cont.75:
   %r83 = getelementptr inbounds i64, ptr %r81, i64 %r82
   store i64 %r80, ptr %r83
   store i64 %r80, ptr %acc.ptr
-  br label %__L__926
-__L__925:
+  br label %__L__942
+__L__941:
   %r84 = load i64, ptr %acc.ptr
   store i64 1, ptr %t17
   %r85 = load i64, ptr %t1
@@ -15125,8 +15287,8 @@ __L__925:
   %r112 = sub i64 %r110, %r111
   store i64 %r112, ptr %t28
   store i64 %r112, ptr %acc.ptr
-  br label %__L__928
-__L__927:
+  br label %__L__944
+__L__943:
   %r113 = load i64, ptr %acc.ptr
   %r114 = load i64, ptr %arg1
   store i64 %r114, ptr %t29
@@ -15143,8 +15305,8 @@ __L__927:
   %r122 = sub i64 %r120, %r121
   store i64 %r122, ptr %t28
   store i64 %r122, ptr %acc.ptr
-  br label %__L__928
-__L__928:
+  br label %__L__944
+__L__944:
   %r123 = load i64, ptr %acc.ptr
   %r124 = load i64, ptr %t28
   store i64 %r124, ptr %t32
@@ -15153,7 +15315,7 @@ __L__928:
   %r127 = zext i1 %r126 to i64
   store i64 %r127, ptr %acc.ptr
   %r128 = icmp ne i64 %r127, 0
-  br i1 %r128, label %__L__927, label %cont.129
+  br i1 %r128, label %__L__943, label %cont.129
 cont.129:
   %r130 = load i64, ptr %acc.ptr
   %r131 = load i64, ptr %arg1
@@ -15192,8 +15354,8 @@ cont.129:
   %r150 = inttoptr i64 %r146 to ptr
   %r154 = call i64 %r150(i64 %r151, i64 %r152, i64 %r153)
   store i64 %r154, ptr %acc.ptr
-  br label %__L__926
-__L__926:
+  br label %__L__942
+__L__942:
   %r155 = load i64, ptr %acc.ptr
   ret i64 %r155
 }
@@ -15293,8 +15455,8 @@ entry:
   %r21 = inttoptr i64 %r19 to ptr
   %r23 = call i64 %r21(i64 %r22)
   store i64 %r23, ptr %acc.ptr
-  br label %__L__930
-__L__929:
+  br label %__L__946
+__L__945:
   %r24 = load i64, ptr %acc.ptr
   store i64 0, ptr %t9
   %r25 = load i64, ptr %t2
@@ -15308,7 +15470,7 @@ __L__929:
   %r31 = load i64, ptr %t11
   store i64 %r31, ptr %acc.ptr
   %r32 = icmp ne i64 %r31, 0
-  br i1 %r32, label %cont.33, label %__L__933
+  br i1 %r32, label %cont.33, label %__L__949
 cont.33:
   %r34 = load i64, ptr %acc.ptr
   store i64 1, ptr %t12
@@ -15317,13 +15479,13 @@ cont.33:
   %r37 = and i64 %r35, %r36
   store i64 %r37, ptr %acc.ptr
   %r38 = icmp ne i64 %r37, 0
-  br i1 %r38, label %cont.39, label %__L__935
+  br i1 %r38, label %cont.39, label %__L__951
 cont.39:
   %r40 = load i64, ptr %acc.ptr
   %r41 = load i64, ptr @_3Clong_3E
   store i64 %r41, ptr %acc.ptr
-  br label %__L__936
-__L__935:
+  br label %__L__952
+__L__951:
   %r42 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t13
   %r43 = load i64, ptr %t11
@@ -15332,17 +15494,17 @@ __L__935:
   %r46 = getelementptr inbounds i64, ptr %r44, i64 %r45
   %r47 = load i64, ptr %r46
   store i64 %r47, ptr %acc.ptr
-  br label %__L__936
-__L__936:
+  br label %__L__952
+__L__952:
   %r48 = load i64, ptr %acc.ptr
   store i64 %r48, ptr %acc.ptr
-  br label %__L__934
-__L__933:
+  br label %__L__950
+__L__949:
   %r49 = load i64, ptr %acc.ptr
   %r50 = load i64, ptr @_3Cundefined_3E
   store i64 %r50, ptr %acc.ptr
-  br label %__L__934
-__L__934:
+  br label %__L__950
+__L__950:
   %r51 = load i64, ptr %acc.ptr
   store i64 %r51, ptr %t14
   %r52 = load i64, ptr @_3Cpair_3E
@@ -15351,7 +15513,7 @@ __L__934:
   %r55 = zext i1 %r54 to i64
   store i64 %r55, ptr %acc.ptr
   %r56 = icmp ne i64 %r55, 0
-  br i1 %r56, label %cont.57, label %__L__931
+  br i1 %r56, label %cont.57, label %__L__947
 cont.57:
   %r58 = load i64, ptr %acc.ptr
   store i64 0, ptr %t15
@@ -15370,8 +15532,8 @@ cont.57:
   store i64 %r68, ptr %t18
   store i64 0, ptr %t0
   store i64 0, ptr %acc.ptr
-  br label %__L__938
-__L__937:
+  br label %__L__954
+__L__953:
   %r69 = load i64, ptr %acc.ptr
   store i64 0, ptr %t19
   %r70 = load i64, ptr %t18
@@ -15400,15 +15562,15 @@ __L__937:
   %r87 = load i64, ptr %r86
   store i64 %r87, ptr %t18
   store i64 %r87, ptr %acc.ptr
-  br label %__L__938
-__L__938:
+  br label %__L__954
+__L__954:
   %r88 = load i64, ptr %acc.ptr
   %r89 = load i64, ptr %t18
   store i64 %r89, ptr %t23
   %r90 = load i64, ptr %t23
   store i64 %r90, ptr %acc.ptr
   %r91 = icmp ne i64 %r90, 0
-  br i1 %r91, label %cont.92, label %__L__939
+  br i1 %r91, label %cont.92, label %__L__955
 cont.92:
   %r93 = load i64, ptr %acc.ptr
   store i64 1, ptr %t24
@@ -15417,13 +15579,13 @@ cont.92:
   %r96 = and i64 %r94, %r95
   store i64 %r96, ptr %acc.ptr
   %r97 = icmp ne i64 %r96, 0
-  br i1 %r97, label %cont.98, label %__L__941
+  br i1 %r97, label %cont.98, label %__L__957
 cont.98:
   %r99 = load i64, ptr %acc.ptr
   %r100 = load i64, ptr @_3Clong_3E
   store i64 %r100, ptr %acc.ptr
-  br label %__L__942
-__L__941:
+  br label %__L__958
+__L__957:
   %r101 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t25
   %r102 = load i64, ptr %t23
@@ -15432,17 +15594,17 @@ __L__941:
   %r105 = getelementptr inbounds i64, ptr %r103, i64 %r104
   %r106 = load i64, ptr %r105
   store i64 %r106, ptr %acc.ptr
-  br label %__L__942
-__L__942:
+  br label %__L__958
+__L__958:
   %r107 = load i64, ptr %acc.ptr
   store i64 %r107, ptr %acc.ptr
-  br label %__L__940
-__L__939:
+  br label %__L__956
+__L__955:
   %r108 = load i64, ptr %acc.ptr
   %r109 = load i64, ptr @_3Cundefined_3E
   store i64 %r109, ptr %acc.ptr
-  br label %__L__940
-__L__940:
+  br label %__L__956
+__L__956:
   %r110 = load i64, ptr %acc.ptr
   store i64 %r110, ptr %t26
   %r111 = load i64, ptr @_3Cpair_3E
@@ -15451,7 +15613,7 @@ __L__940:
   %r114 = zext i1 %r113 to i64
   store i64 %r114, ptr %acc.ptr
   %r115 = icmp ne i64 %r114, 0
-  br i1 %r115, label %__L__937, label %cont.116
+  br i1 %r115, label %__L__953, label %cont.116
 cont.116:
   %r117 = load i64, ptr %acc.ptr
   %r118 = load i64, ptr %t5
@@ -15483,12 +15645,12 @@ cont.116:
   %r132 = inttoptr i64 %r128 to ptr
   %r136 = call i64 %r132(i64 %r133, i64 %r134, i64 %r135)
   store i64 %r136, ptr %acc.ptr
-  br label %__L__932
-__L__931:
+  br label %__L__948
+__L__947:
   %r137 = load i64, ptr %acc.ptr
   store i64 %r137, ptr %acc.ptr
-  br label %__L__932
-__L__932:
+  br label %__L__948
+__L__948:
   %r138 = load i64, ptr %acc.ptr
   store i64 1, ptr %t33
   %r139 = load i64, ptr %t2
@@ -15498,15 +15660,15 @@ __L__932:
   %r143 = load i64, ptr %r142
   store i64 %r143, ptr %t2
   store i64 %r143, ptr %acc.ptr
-  br label %__L__930
-__L__930:
+  br label %__L__946
+__L__946:
   %r144 = load i64, ptr %acc.ptr
   %r145 = load i64, ptr %t2
   store i64 %r145, ptr %t34
   %r146 = load i64, ptr %t34
   store i64 %r146, ptr %acc.ptr
   %r147 = icmp ne i64 %r146, 0
-  br i1 %r147, label %cont.148, label %__L__943
+  br i1 %r147, label %cont.148, label %__L__959
 cont.148:
   %r149 = load i64, ptr %acc.ptr
   store i64 1, ptr %t35
@@ -15515,13 +15677,13 @@ cont.148:
   %r152 = and i64 %r150, %r151
   store i64 %r152, ptr %acc.ptr
   %r153 = icmp ne i64 %r152, 0
-  br i1 %r153, label %cont.154, label %__L__945
+  br i1 %r153, label %cont.154, label %__L__961
 cont.154:
   %r155 = load i64, ptr %acc.ptr
   %r156 = load i64, ptr @_3Clong_3E
   store i64 %r156, ptr %acc.ptr
-  br label %__L__946
-__L__945:
+  br label %__L__962
+__L__961:
   %r157 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t36
   %r158 = load i64, ptr %t34
@@ -15530,17 +15692,17 @@ __L__945:
   %r161 = getelementptr inbounds i64, ptr %r159, i64 %r160
   %r162 = load i64, ptr %r161
   store i64 %r162, ptr %acc.ptr
-  br label %__L__946
-__L__946:
+  br label %__L__962
+__L__962:
   %r163 = load i64, ptr %acc.ptr
   store i64 %r163, ptr %acc.ptr
-  br label %__L__944
-__L__943:
+  br label %__L__960
+__L__959:
   %r164 = load i64, ptr %acc.ptr
   %r165 = load i64, ptr @_3Cundefined_3E
   store i64 %r165, ptr %acc.ptr
-  br label %__L__944
-__L__944:
+  br label %__L__960
+__L__960:
   %r166 = load i64, ptr %acc.ptr
   store i64 %r166, ptr %t37
   %r167 = load i64, ptr @_3Cpair_3E
@@ -15549,13 +15711,13 @@ __L__944:
   %r170 = zext i1 %r169 to i64
   store i64 %r170, ptr %acc.ptr
   %r171 = icmp ne i64 %r170, 0
-  br i1 %r171, label %__L__929, label %cont.172
+  br i1 %r171, label %__L__945, label %cont.172
 cont.172:
   %r173 = load i64, ptr %acc.ptr
   store i64 0, ptr %t0
   store i64 0, ptr %acc.ptr
-  br label %__L__948
-__L__947:
+  br label %__L__964
+__L__963:
   %r174 = load i64, ptr %acc.ptr
   store i64 0, ptr %t38
   %r175 = load i64, ptr %t7
@@ -15584,15 +15746,15 @@ __L__947:
   %r192 = load i64, ptr %r191
   store i64 %r192, ptr %t7
   store i64 %r192, ptr %acc.ptr
-  br label %__L__948
-__L__948:
+  br label %__L__964
+__L__964:
   %r193 = load i64, ptr %acc.ptr
   %r194 = load i64, ptr %t7
   store i64 %r194, ptr %t42
   %r195 = load i64, ptr %t42
   store i64 %r195, ptr %acc.ptr
   %r196 = icmp ne i64 %r195, 0
-  br i1 %r196, label %cont.197, label %__L__949
+  br i1 %r196, label %cont.197, label %__L__965
 cont.197:
   %r198 = load i64, ptr %acc.ptr
   store i64 1, ptr %t43
@@ -15601,13 +15763,13 @@ cont.197:
   %r201 = and i64 %r199, %r200
   store i64 %r201, ptr %acc.ptr
   %r202 = icmp ne i64 %r201, 0
-  br i1 %r202, label %cont.203, label %__L__951
+  br i1 %r202, label %cont.203, label %__L__967
 cont.203:
   %r204 = load i64, ptr %acc.ptr
   %r205 = load i64, ptr @_3Clong_3E
   store i64 %r205, ptr %acc.ptr
-  br label %__L__952
-__L__951:
+  br label %__L__968
+__L__967:
   %r206 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t44
   %r207 = load i64, ptr %t42
@@ -15616,17 +15778,17 @@ __L__951:
   %r210 = getelementptr inbounds i64, ptr %r208, i64 %r209
   %r211 = load i64, ptr %r210
   store i64 %r211, ptr %acc.ptr
-  br label %__L__952
-__L__952:
+  br label %__L__968
+__L__968:
   %r212 = load i64, ptr %acc.ptr
   store i64 %r212, ptr %acc.ptr
-  br label %__L__950
-__L__949:
+  br label %__L__966
+__L__965:
   %r213 = load i64, ptr %acc.ptr
   %r214 = load i64, ptr @_3Cundefined_3E
   store i64 %r214, ptr %acc.ptr
-  br label %__L__950
-__L__950:
+  br label %__L__966
+__L__966:
   %r215 = load i64, ptr %acc.ptr
   store i64 %r215, ptr %t45
   %r216 = load i64, ptr @_3Cpair_3E
@@ -15635,7 +15797,7 @@ __L__950:
   %r219 = zext i1 %r218 to i64
   store i64 %r219, ptr %acc.ptr
   %r220 = icmp ne i64 %r219, 0
-  br i1 %r220, label %__L__947, label %cont.221
+  br i1 %r220, label %__L__963, label %cont.221
 cont.221:
   %r222 = load i64, ptr %acc.ptr
   store i64 %r222, ptr %t46
@@ -15715,7 +15877,7 @@ entry:
   %r11 = call i64 %r9(i64 %r10)
   store i64 %r11, ptr %acc.ptr
   %r12 = icmp ne i64 %r11, 0
-  br i1 %r12, label %__L__953, label %cont.13
+  br i1 %r12, label %__L__969, label %cont.13
 cont.13:
   %r14 = load i64, ptr %acc.ptr
   %r15 = load i64, ptr @globals
@@ -15727,8 +15889,8 @@ cont.13:
   %r19 = getelementptr inbounds i64, ptr %r17, i64 %r18
   %r20 = load i64, ptr %r19
   store i64 %r20, ptr %acc.ptr
-  br label %__L__953
-__L__953:
+  br label %__L__969
+__L__969:
   %r21 = load i64, ptr %acc.ptr
   store i64 %r21, ptr %t5
   %r22 = load i64, ptr %t5
@@ -15747,8 +15909,8 @@ __L__953:
   ret i64 %r30
 }
 ; defn subr_define
-@__L__959 = private constant [33 x i8] c"\0Aerror: non-variable in define: \00"
-@__L__960 = private constant [9 x i8] c"aborting\00"
+@__L__975 = private constant [33 x i8] c"\0Aerror: non-variable in define: \00"
+@__L__976 = private constant [9 x i8] c"aborting\00"
 define i64 @__L__82(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -15788,7 +15950,7 @@ entry:
   %r7 = load i64, ptr %t2
   store i64 %r7, ptr %acc.ptr
   %r8 = icmp ne i64 %r7, 0
-  br i1 %r8, label %cont.9, label %__L__955
+  br i1 %r8, label %cont.9, label %__L__971
 cont.9:
   %r10 = load i64, ptr %acc.ptr
   store i64 1, ptr %t3
@@ -15797,13 +15959,13 @@ cont.9:
   %r13 = and i64 %r11, %r12
   store i64 %r13, ptr %acc.ptr
   %r14 = icmp ne i64 %r13, 0
-  br i1 %r14, label %cont.15, label %__L__957
+  br i1 %r14, label %cont.15, label %__L__973
 cont.15:
   %r16 = load i64, ptr %acc.ptr
   %r17 = load i64, ptr @_3Clong_3E
   store i64 %r17, ptr %acc.ptr
-  br label %__L__958
-__L__957:
+  br label %__L__974
+__L__973:
   %r18 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t4
   %r19 = load i64, ptr %t2
@@ -15812,17 +15974,17 @@ __L__957:
   %r22 = getelementptr inbounds i64, ptr %r20, i64 %r21
   %r23 = load i64, ptr %r22
   store i64 %r23, ptr %acc.ptr
-  br label %__L__958
-__L__958:
+  br label %__L__974
+__L__974:
   %r24 = load i64, ptr %acc.ptr
   store i64 %r24, ptr %acc.ptr
-  br label %__L__956
-__L__955:
+  br label %__L__972
+__L__971:
   %r25 = load i64, ptr %acc.ptr
   %r26 = load i64, ptr @_3Cundefined_3E
   store i64 %r26, ptr %acc.ptr
-  br label %__L__956
-__L__956:
+  br label %__L__972
+__L__972:
   %r27 = load i64, ptr %acc.ptr
   store i64 %r27, ptr %t5
   %r28 = load i64, ptr @_3Cvariable_3E
@@ -15831,10 +15993,10 @@ __L__956:
   %r31 = zext i1 %r30 to i64
   store i64 %r31, ptr %acc.ptr
   %r32 = icmp ne i64 %r31, 0
-  br i1 %r32, label %__L__954, label %cont.33
+  br i1 %r32, label %__L__970, label %cont.33
 cont.33:
   %r34 = load i64, ptr %acc.ptr
-  %r35 = ptrtoint ptr @__L__959 to i64
+  %r35 = ptrtoint ptr @__L__975 to i64
   store i64 %r35, ptr %t6
   %r36 = ptrtoint ptr @printf to i64
   %r37 = load i64, ptr %t6
@@ -15850,7 +16012,7 @@ cont.33:
   %r45 = load i64, ptr %a0
   %r44 = inttoptr i64 %r42 to ptr
   %r46 = call i64 %r44(i64 %r45)
-  %r47 = ptrtoint ptr @__L__960 to i64
+  %r47 = ptrtoint ptr @__L__976 to i64
   store i64 %r47, ptr %t8
   %r48 = ptrtoint ptr @__L__170 to i64
   %r49 = load i64, ptr %t8
@@ -15859,8 +16021,8 @@ cont.33:
   %r50 = inttoptr i64 %r48 to ptr
   %r52 = call i64 %r50(i64 %r51)
   store i64 %r52, ptr %acc.ptr
-  br label %__L__954
-__L__954:
+  br label %__L__970
+__L__970:
   %r53 = load i64, ptr %acc.ptr
   %r54 = load i64, ptr %arg0
   store i64 %r54, ptr %t9
@@ -15931,7 +16093,7 @@ entry:
   %r1 = load i64, ptr %t0
   store i64 %r1, ptr %acc.ptr
   %r2 = icmp ne i64 %r1, 0
-  br i1 %r2, label %cont.3, label %__L__963
+  br i1 %r2, label %cont.3, label %__L__979
 cont.3:
   %r4 = load i64, ptr %acc.ptr
   store i64 1, ptr %t1
@@ -15940,13 +16102,13 @@ cont.3:
   %r7 = and i64 %r5, %r6
   store i64 %r7, ptr %acc.ptr
   %r8 = icmp ne i64 %r7, 0
-  br i1 %r8, label %cont.9, label %__L__965
+  br i1 %r8, label %cont.9, label %__L__981
 cont.9:
   %r10 = load i64, ptr %acc.ptr
   %r11 = load i64, ptr @_3Clong_3E
   store i64 %r11, ptr %acc.ptr
-  br label %__L__966
-__L__965:
+  br label %__L__982
+__L__981:
   %r12 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t2
   %r13 = load i64, ptr %t0
@@ -15955,17 +16117,17 @@ __L__965:
   %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
-  br label %__L__966
-__L__966:
+  br label %__L__982
+__L__982:
   %r18 = load i64, ptr %acc.ptr
   store i64 %r18, ptr %acc.ptr
-  br label %__L__964
-__L__963:
+  br label %__L__980
+__L__979:
   %r19 = load i64, ptr %acc.ptr
   %r20 = load i64, ptr @_3Cundefined_3E
   store i64 %r20, ptr %acc.ptr
-  br label %__L__964
-__L__964:
+  br label %__L__980
+__L__980:
   %r21 = load i64, ptr %acc.ptr
   store i64 %r21, ptr %t3
   %r22 = load i64, ptr @_3Cpair_3E
@@ -15974,7 +16136,7 @@ __L__964:
   %r25 = zext i1 %r24 to i64
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__961
+  br i1 %r26, label %cont.27, label %__L__977
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 0, ptr %t4
@@ -16065,23 +16227,23 @@ cont.27:
   %r88 = call i64 %r86(i64 %r87)
   %r89 = load i64, ptr %t18
   store i64 %r89, ptr %acc.ptr
-  br label %__L__962
-__L__961:
+  br label %__L__978
+__L__977:
   %r90 = load i64, ptr %acc.ptr
   %r91 = load i64, ptr %arg0
   store i64 %r91, ptr %acc.ptr
-  br label %__L__962
-__L__962:
+  br label %__L__978
+__L__978:
   %r92 = load i64, ptr %acc.ptr
   ret i64 %r92
 }
 ; defn k_encode
-@__L__1000 = private constant [28 x i8] c"set: undefined variable: %s\00"
-@__L__1010 = private constant [23 x i8] c"undefined variable: %s\00"
-@__L__1029 = private constant [23 x i8] c"APPLY GOT ENCODER\0A... \00"
-@__L__1031 = private constant [19 x i8] c"APPLY ENCODER\0A... \00"
-@__L__1032 = private constant [2 x i8] c" \00"
-@__L__1033 = private constant [2 x i8] c" \00"
+@__L__1016 = private constant [28 x i8] c"set: undefined variable: %s\00"
+@__L__1026 = private constant [23 x i8] c"undefined variable: %s\00"
+@__L__1045 = private constant [23 x i8] c"APPLY GOT ENCODER\0A... \00"
+@__L__1047 = private constant [19 x i8] c"APPLY ENCODER\0A... \00"
+@__L__1048 = private constant [2 x i8] c" \00"
+@__L__1049 = private constant [2 x i8] c" \00"
 define i64 @__L__84(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -16266,7 +16428,7 @@ entry:
   %r1 = load i64, ptr %t0
   store i64 %r1, ptr %acc.ptr
   %r2 = icmp ne i64 %r1, 0
-  br i1 %r2, label %cont.3, label %__L__969
+  br i1 %r2, label %cont.3, label %__L__985
 cont.3:
   %r4 = load i64, ptr %acc.ptr
   store i64 1, ptr %t1
@@ -16275,13 +16437,13 @@ cont.3:
   %r7 = and i64 %r5, %r6
   store i64 %r7, ptr %acc.ptr
   %r8 = icmp ne i64 %r7, 0
-  br i1 %r8, label %cont.9, label %__L__971
+  br i1 %r8, label %cont.9, label %__L__987
 cont.9:
   %r10 = load i64, ptr %acc.ptr
   %r11 = load i64, ptr @_3Clong_3E
   store i64 %r11, ptr %acc.ptr
-  br label %__L__972
-__L__971:
+  br label %__L__988
+__L__987:
   %r12 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t2
   %r13 = load i64, ptr %t0
@@ -16290,17 +16452,17 @@ __L__971:
   %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
-  br label %__L__972
-__L__972:
+  br label %__L__988
+__L__988:
   %r18 = load i64, ptr %acc.ptr
   store i64 %r18, ptr %acc.ptr
-  br label %__L__970
-__L__969:
+  br label %__L__986
+__L__985:
   %r19 = load i64, ptr %acc.ptr
   %r20 = load i64, ptr @_3Cundefined_3E
   store i64 %r20, ptr %acc.ptr
-  br label %__L__970
-__L__970:
+  br label %__L__986
+__L__986:
   %r21 = load i64, ptr %acc.ptr
   store i64 %r21, ptr %t3
   %r22 = load i64, ptr @_3Cpair_3E
@@ -16309,7 +16471,7 @@ __L__970:
   %r25 = zext i1 %r24 to i64
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__967
+  br i1 %r26, label %cont.27, label %__L__983
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 0, ptr %t4
@@ -16362,7 +16524,7 @@ cont.27:
   %r63 = zext i1 %r62 to i64
   store i64 %r63, ptr %acc.ptr
   %r64 = icmp ne i64 %r63, 0
-  br i1 %r64, label %cont.65, label %__L__973
+  br i1 %r64, label %cont.65, label %__L__989
 cont.65:
   %r66 = load i64, ptr %acc.ptr
   %r67 = load i64, ptr %arg0
@@ -16411,8 +16573,8 @@ cont.65:
   %r96 = call i64 %r92(i64 %r93, i64 %r94, i64 %r95)
   store i64 %r96, ptr %arg1
   store i64 %r96, ptr %acc.ptr
-  br label %__L__976
-__L__975:
+  br label %__L__992
+__L__991:
   %r97 = load i64, ptr %acc.ptr
   store i64 0, ptr %t22
   %r98 = load i64, ptr %t14
@@ -16426,7 +16588,7 @@ __L__975:
   %r104 = load i64, ptr %t24
   store i64 %r104, ptr %acc.ptr
   %r105 = icmp ne i64 %r104, 0
-  br i1 %r105, label %cont.106, label %__L__978
+  br i1 %r105, label %cont.106, label %__L__994
 cont.106:
   %r107 = load i64, ptr %acc.ptr
   store i64 1, ptr %t25
@@ -16435,13 +16597,13 @@ cont.106:
   %r110 = and i64 %r108, %r109
   store i64 %r110, ptr %acc.ptr
   %r111 = icmp ne i64 %r110, 0
-  br i1 %r111, label %cont.112, label %__L__980
+  br i1 %r111, label %cont.112, label %__L__996
 cont.112:
   %r113 = load i64, ptr %acc.ptr
   %r114 = load i64, ptr @_3Clong_3E
   store i64 %r114, ptr %acc.ptr
-  br label %__L__981
-__L__980:
+  br label %__L__997
+__L__996:
   %r115 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t26
   %r116 = load i64, ptr %t24
@@ -16450,17 +16612,17 @@ __L__980:
   %r119 = getelementptr inbounds i64, ptr %r117, i64 %r118
   %r120 = load i64, ptr %r119
   store i64 %r120, ptr %acc.ptr
-  br label %__L__981
-__L__981:
+  br label %__L__997
+__L__997:
   %r121 = load i64, ptr %acc.ptr
   store i64 %r121, ptr %acc.ptr
-  br label %__L__979
-__L__978:
+  br label %__L__995
+__L__994:
   %r122 = load i64, ptr %acc.ptr
   %r123 = load i64, ptr @_3Cundefined_3E
   store i64 %r123, ptr %acc.ptr
-  br label %__L__979
-__L__979:
+  br label %__L__995
+__L__995:
   %r124 = load i64, ptr %acc.ptr
   store i64 %r124, ptr %t27
   %r125 = load i64, ptr @_3Cpair_3E
@@ -16469,7 +16631,7 @@ __L__979:
   %r128 = zext i1 %r127 to i64
   store i64 %r128, ptr %acc.ptr
   %r129 = icmp ne i64 %r128, 0
-  br i1 %r129, label %cont.130, label %__L__977
+  br i1 %r129, label %cont.130, label %__L__993
 cont.130:
   %r131 = load i64, ptr %acc.ptr
   store i64 0, ptr %t28
@@ -16480,8 +16642,8 @@ cont.130:
   %r136 = load i64, ptr %r135
   store i64 %r136, ptr %t23
   store i64 %r136, ptr %acc.ptr
-  br label %__L__977
-__L__977:
+  br label %__L__993
+__L__993:
   %r137 = load i64, ptr %acc.ptr
   %r138 = load i64, ptr %arg1
   store i64 %r138, ptr %t29
@@ -16508,15 +16670,15 @@ __L__977:
   %r153 = load i64, ptr %r152
   store i64 %r153, ptr %t14
   store i64 %r153, ptr %acc.ptr
-  br label %__L__976
-__L__976:
+  br label %__L__992
+__L__992:
   %r154 = load i64, ptr %acc.ptr
   %r155 = load i64, ptr %t14
   store i64 %r155, ptr %t33
   %r156 = load i64, ptr %t33
   store i64 %r156, ptr %acc.ptr
   %r157 = icmp ne i64 %r156, 0
-  br i1 %r157, label %cont.158, label %__L__982
+  br i1 %r157, label %cont.158, label %__L__998
 cont.158:
   %r159 = load i64, ptr %acc.ptr
   store i64 1, ptr %t34
@@ -16525,13 +16687,13 @@ cont.158:
   %r162 = and i64 %r160, %r161
   store i64 %r162, ptr %acc.ptr
   %r163 = icmp ne i64 %r162, 0
-  br i1 %r163, label %cont.164, label %__L__984
+  br i1 %r163, label %cont.164, label %__L__1000
 cont.164:
   %r165 = load i64, ptr %acc.ptr
   %r166 = load i64, ptr @_3Clong_3E
   store i64 %r166, ptr %acc.ptr
-  br label %__L__985
-__L__984:
+  br label %__L__1001
+__L__1000:
   %r167 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t35
   %r168 = load i64, ptr %t33
@@ -16540,17 +16702,17 @@ __L__984:
   %r171 = getelementptr inbounds i64, ptr %r169, i64 %r170
   %r172 = load i64, ptr %r171
   store i64 %r172, ptr %acc.ptr
-  br label %__L__985
-__L__985:
+  br label %__L__1001
+__L__1001:
   %r173 = load i64, ptr %acc.ptr
   store i64 %r173, ptr %acc.ptr
-  br label %__L__983
-__L__982:
+  br label %__L__999
+__L__998:
   %r174 = load i64, ptr %acc.ptr
   %r175 = load i64, ptr @_3Cundefined_3E
   store i64 %r175, ptr %acc.ptr
-  br label %__L__983
-__L__983:
+  br label %__L__999
+__L__999:
   %r176 = load i64, ptr %acc.ptr
   store i64 %r176, ptr %t36
   %r177 = load i64, ptr @_3Cpair_3E
@@ -16559,7 +16721,7 @@ __L__983:
   %r180 = zext i1 %r179 to i64
   store i64 %r180, ptr %acc.ptr
   %r181 = icmp ne i64 %r180, 0
-  br i1 %r181, label %__L__975, label %cont.182
+  br i1 %r181, label %__L__991, label %cont.182
 cont.182:
   %r183 = load i64, ptr %acc.ptr
   %r184 = load i64, ptr %t9
@@ -16601,8 +16763,8 @@ cont.182:
   %r207 = call i64 %r205(i64 %r206)
   %r208 = load i64, ptr %t41
   store i64 %r208, ptr %acc.ptr
-  br label %__L__974
-__L__973:
+  br label %__L__990
+__L__989:
   %r209 = load i64, ptr %acc.ptr
   %r210 = load i64, ptr @f__lambda
   store i64 %r210, ptr %t43
@@ -16612,7 +16774,7 @@ __L__973:
   %r214 = zext i1 %r213 to i64
   store i64 %r214, ptr %acc.ptr
   %r215 = icmp ne i64 %r214, 0
-  br i1 %r215, label %cont.216, label %__L__986
+  br i1 %r215, label %cont.216, label %__L__1002
 cont.216:
   %r217 = load i64, ptr %acc.ptr
   %r218 = load i64, ptr %arg0
@@ -16650,8 +16812,8 @@ cont.216:
   %r239 = call i64 %r235(i64 %r236, i64 %r237, i64 %r238)
   store i64 %r239, ptr %arg1
   store i64 %r239, ptr %acc.ptr
-  br label %__L__989
-__L__988:
+  br label %__L__1005
+__L__1004:
   %r240 = load i64, ptr %acc.ptr
   %r241 = load i64, ptr %arg1
   store i64 %r241, ptr %t50
@@ -16683,15 +16845,15 @@ __L__988:
   %r260 = load i64, ptr %r259
   store i64 %r260, ptr %t45
   store i64 %r260, ptr %acc.ptr
-  br label %__L__989
-__L__989:
+  br label %__L__1005
+__L__1005:
   %r261 = load i64, ptr %acc.ptr
   %r262 = load i64, ptr %t45
   store i64 %r262, ptr %t55
   %r263 = load i64, ptr %t55
   store i64 %r263, ptr %acc.ptr
   %r264 = icmp ne i64 %r263, 0
-  br i1 %r264, label %cont.265, label %__L__990
+  br i1 %r264, label %cont.265, label %__L__1006
 cont.265:
   %r266 = load i64, ptr %acc.ptr
   store i64 1, ptr %t56
@@ -16700,13 +16862,13 @@ cont.265:
   %r269 = and i64 %r267, %r268
   store i64 %r269, ptr %acc.ptr
   %r270 = icmp ne i64 %r269, 0
-  br i1 %r270, label %cont.271, label %__L__992
+  br i1 %r270, label %cont.271, label %__L__1008
 cont.271:
   %r272 = load i64, ptr %acc.ptr
   %r273 = load i64, ptr @_3Clong_3E
   store i64 %r273, ptr %acc.ptr
-  br label %__L__993
-__L__992:
+  br label %__L__1009
+__L__1008:
   %r274 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t57
   %r275 = load i64, ptr %t55
@@ -16715,17 +16877,17 @@ __L__992:
   %r278 = getelementptr inbounds i64, ptr %r276, i64 %r277
   %r279 = load i64, ptr %r278
   store i64 %r279, ptr %acc.ptr
-  br label %__L__993
-__L__993:
+  br label %__L__1009
+__L__1009:
   %r280 = load i64, ptr %acc.ptr
   store i64 %r280, ptr %acc.ptr
-  br label %__L__991
-__L__990:
+  br label %__L__1007
+__L__1006:
   %r281 = load i64, ptr %acc.ptr
   %r282 = load i64, ptr @_3Cundefined_3E
   store i64 %r282, ptr %acc.ptr
-  br label %__L__991
-__L__991:
+  br label %__L__1007
+__L__1007:
   %r283 = load i64, ptr %acc.ptr
   store i64 %r283, ptr %t58
   %r284 = load i64, ptr @_3Cpair_3E
@@ -16734,13 +16896,13 @@ __L__991:
   %r287 = zext i1 %r286 to i64
   store i64 %r287, ptr %acc.ptr
   %r288 = icmp ne i64 %r287, 0
-  br i1 %r288, label %__L__988, label %cont.289
+  br i1 %r288, label %__L__1004, label %cont.289
 cont.289:
   %r290 = load i64, ptr %acc.ptr
   %r291 = load i64, ptr %t45
   store i64 %r291, ptr %acc.ptr
   %r292 = icmp ne i64 %r291, 0
-  br i1 %r292, label %cont.293, label %__L__994
+  br i1 %r292, label %cont.293, label %__L__1010
 cont.293:
   %r294 = load i64, ptr %acc.ptr
   %r295 = load i64, ptr %arg1
@@ -16761,8 +16923,8 @@ cont.293:
   %r301 = inttoptr i64 %r297 to ptr
   %r305 = call i64 %r301(i64 %r302, i64 %r303, i64 %r304)
   store i64 %r305, ptr %acc.ptr
-  br label %__L__994
-__L__994:
+  br label %__L__1010
+__L__1010:
   %r306 = load i64, ptr %acc.ptr
   %r307 = load i64, ptr %t9
   store i64 %r307, ptr %t62
@@ -16803,8 +16965,8 @@ __L__994:
   %r330 = call i64 %r328(i64 %r329)
   %r331 = load i64, ptr %t66
   store i64 %r331, ptr %acc.ptr
-  br label %__L__987
-__L__986:
+  br label %__L__1003
+__L__1002:
   %r332 = load i64, ptr %acc.ptr
   %r333 = load i64, ptr @f__define
   store i64 %r333, ptr %t68
@@ -16814,7 +16976,7 @@ __L__986:
   %r337 = zext i1 %r336 to i64
   store i64 %r337, ptr %acc.ptr
   %r338 = icmp ne i64 %r337, 0
-  br i1 %r338, label %cont.339, label %__L__995
+  br i1 %r338, label %cont.339, label %__L__1011
 cont.339:
   %r340 = load i64, ptr %acc.ptr
   %r341 = load i64, ptr @globals
@@ -16885,8 +17047,8 @@ cont.339:
   %r384 = call i64 %r381(i64 %r382, i64 %r383)
   store i64 %r384, ptr %t9
   store i64 %r384, ptr %acc.ptr
-  br label %__L__996
-__L__995:
+  br label %__L__1012
+__L__1011:
   %r385 = load i64, ptr %acc.ptr
   %r386 = load i64, ptr @f__set
   store i64 %r386, ptr %t81
@@ -16896,7 +17058,7 @@ __L__995:
   %r390 = zext i1 %r389 to i64
   store i64 %r390, ptr %acc.ptr
   %r391 = icmp ne i64 %r390, 0
-  br i1 %r391, label %cont.392, label %__L__997
+  br i1 %r391, label %cont.392, label %__L__1013
 cont.392:
   %r393 = load i64, ptr %acc.ptr
   %r394 = load i64, ptr %arg1
@@ -16923,10 +17085,10 @@ cont.392:
   %r408 = load i64, ptr %t85
   store i64 %r408, ptr %acc.ptr
   %r409 = icmp ne i64 %r408, 0
-  br i1 %r409, label %__L__999, label %cont.410
+  br i1 %r409, label %__L__1015, label %cont.410
 cont.410:
   %r411 = load i64, ptr %acc.ptr
-  %r412 = ptrtoint ptr @__L__1000 to i64
+  %r412 = ptrtoint ptr @__L__1016 to i64
   store i64 %r412, ptr %t86
   %r413 = load i64, ptr %t9
   store i64 %r413, ptr %t87
@@ -16954,8 +17116,8 @@ cont.410:
   %r427 = inttoptr i64 %r424 to ptr
   %r430 = call i64 %r427(i64 %r428, i64 %r429)
   store i64 %r430, ptr %acc.ptr
-  br label %__L__999
-__L__999:
+  br label %__L__1015
+__L__1015:
   %r431 = load i64, ptr %acc.ptr
   %r432 = load i64, ptr %t9
   store i64 %r432, ptr %t91
@@ -16993,8 +17155,8 @@ __L__999:
   %r454 = call i64 %r451(i64 %r452, i64 %r453)
   store i64 %r454, ptr %t9
   store i64 %r454, ptr %acc.ptr
-  br label %__L__998
-__L__997:
+  br label %__L__1014
+__L__1013:
   %r455 = load i64, ptr %acc.ptr
   %r456 = load i64, ptr @f__quote
   store i64 %r456, ptr %t96
@@ -17004,7 +17166,7 @@ __L__997:
   %r460 = zext i1 %r459 to i64
   store i64 %r460, ptr %acc.ptr
   %r461 = icmp ne i64 %r460, 0
-  br i1 %r461, label %cont.462, label %__L__1001
+  br i1 %r461, label %cont.462, label %__L__1017
 cont.462:
   %r463 = load i64, ptr %acc.ptr
   %r464 = load i64, ptr %t9
@@ -17022,28 +17184,28 @@ cont.462:
   %r472 = call i64 %r469(i64 %r470, i64 %r471)
   store i64 %r472, ptr %t9
   store i64 %r472, ptr %acc.ptr
-  br label %__L__1002
-__L__1001:
+  br label %__L__1018
+__L__1017:
   %r473 = load i64, ptr %acc.ptr
   store i64 0, ptr %acc.ptr
-  br label %__L__1002
-__L__1002:
+  br label %__L__1018
+__L__1018:
   %r474 = load i64, ptr %acc.ptr
   store i64 %r474, ptr %acc.ptr
-  br label %__L__998
-__L__998:
+  br label %__L__1014
+__L__1014:
   %r475 = load i64, ptr %acc.ptr
   store i64 %r475, ptr %acc.ptr
-  br label %__L__996
-__L__996:
+  br label %__L__1012
+__L__1012:
   %r476 = load i64, ptr %acc.ptr
   store i64 %r476, ptr %acc.ptr
-  br label %__L__987
-__L__987:
+  br label %__L__1003
+__L__1003:
   %r477 = load i64, ptr %acc.ptr
   store i64 %r477, ptr %acc.ptr
-  br label %__L__974
-__L__974:
+  br label %__L__990
+__L__990:
   %r478 = load i64, ptr %acc.ptr
   %r479 = load i64, ptr %t7
   store i64 %r479, ptr %t99
@@ -17078,15 +17240,15 @@ __L__974:
   %r499 = call i64 %r497(i64 %r498)
   %r500 = load i64, ptr %t101
   store i64 %r500, ptr %acc.ptr
-  br label %__L__968
-__L__967:
+  br label %__L__984
+__L__983:
   %r501 = load i64, ptr %acc.ptr
   %r502 = load i64, ptr %arg0
   store i64 %r502, ptr %t104
   %r503 = load i64, ptr %t104
   store i64 %r503, ptr %acc.ptr
   %r504 = icmp ne i64 %r503, 0
-  br i1 %r504, label %cont.505, label %__L__1005
+  br i1 %r504, label %cont.505, label %__L__1021
 cont.505:
   %r506 = load i64, ptr %acc.ptr
   store i64 1, ptr %t105
@@ -17095,13 +17257,13 @@ cont.505:
   %r509 = and i64 %r507, %r508
   store i64 %r509, ptr %acc.ptr
   %r510 = icmp ne i64 %r509, 0
-  br i1 %r510, label %cont.511, label %__L__1007
+  br i1 %r510, label %cont.511, label %__L__1023
 cont.511:
   %r512 = load i64, ptr %acc.ptr
   %r513 = load i64, ptr @_3Clong_3E
   store i64 %r513, ptr %acc.ptr
-  br label %__L__1008
-__L__1007:
+  br label %__L__1024
+__L__1023:
   %r514 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t106
   %r515 = load i64, ptr %t104
@@ -17110,17 +17272,17 @@ __L__1007:
   %r518 = getelementptr inbounds i64, ptr %r516, i64 %r517
   %r519 = load i64, ptr %r518
   store i64 %r519, ptr %acc.ptr
-  br label %__L__1008
-__L__1008:
+  br label %__L__1024
+__L__1024:
   %r520 = load i64, ptr %acc.ptr
   store i64 %r520, ptr %acc.ptr
-  br label %__L__1006
-__L__1005:
+  br label %__L__1022
+__L__1021:
   %r521 = load i64, ptr %acc.ptr
   %r522 = load i64, ptr @_3Cundefined_3E
   store i64 %r522, ptr %acc.ptr
-  br label %__L__1006
-__L__1006:
+  br label %__L__1022
+__L__1022:
   %r523 = load i64, ptr %acc.ptr
   store i64 %r523, ptr %t107
   %r524 = load i64, ptr @_3Csymbol_3E
@@ -17129,7 +17291,7 @@ __L__1006:
   %r527 = zext i1 %r526 to i64
   store i64 %r527, ptr %acc.ptr
   %r528 = icmp ne i64 %r527, 0
-  br i1 %r528, label %cont.529, label %__L__1003
+  br i1 %r528, label %cont.529, label %__L__1019
 cont.529:
   %r530 = load i64, ptr %acc.ptr
   %r531 = load i64, ptr %arg1
@@ -17149,10 +17311,10 @@ cont.529:
   %r540 = load i64, ptr %t110
   store i64 %r540, ptr %acc.ptr
   %r541 = icmp ne i64 %r540, 0
-  br i1 %r541, label %__L__1009, label %cont.542
+  br i1 %r541, label %__L__1025, label %cont.542
 cont.542:
   %r543 = load i64, ptr %acc.ptr
-  %r544 = ptrtoint ptr @__L__1010 to i64
+  %r544 = ptrtoint ptr @__L__1026 to i64
   store i64 %r544, ptr %t111
   %r545 = load i64, ptr %arg0
   store i64 %r545, ptr %t112
@@ -17173,8 +17335,8 @@ cont.542:
   %r554 = inttoptr i64 %r551 to ptr
   %r557 = call i64 %r554(i64 %r555, i64 %r556)
   store i64 %r557, ptr %acc.ptr
-  br label %__L__1009
-__L__1009:
+  br label %__L__1025
+__L__1025:
   %r558 = load i64, ptr %acc.ptr
   %r559 = load i64, ptr %t110
   store i64 %r559, ptr %arg0
@@ -17188,7 +17350,7 @@ __L__1009:
   %r565 = call i64 %r563(i64 %r564)
   store i64 %r565, ptr %acc.ptr
   %r566 = icmp ne i64 %r565, 0
-  br i1 %r566, label %cont.567, label %__L__1011
+  br i1 %r566, label %cont.567, label %__L__1027
 cont.567:
   %r568 = load i64, ptr %acc.ptr
   %r569 = load i64, ptr %arg0
@@ -17205,7 +17367,7 @@ cont.567:
   %r576 = load i64, ptr %t119
   store i64 %r576, ptr %acc.ptr
   %r577 = icmp ne i64 %r576, 0
-  br i1 %r577, label %cont.578, label %__L__1015
+  br i1 %r577, label %cont.578, label %__L__1031
 cont.578:
   %r579 = load i64, ptr %acc.ptr
   store i64 1, ptr %t120
@@ -17214,13 +17376,13 @@ cont.578:
   %r582 = and i64 %r580, %r581
   store i64 %r582, ptr %acc.ptr
   %r583 = icmp ne i64 %r582, 0
-  br i1 %r583, label %cont.584, label %__L__1017
+  br i1 %r583, label %cont.584, label %__L__1033
 cont.584:
   %r585 = load i64, ptr %acc.ptr
   %r586 = load i64, ptr @_3Clong_3E
   store i64 %r586, ptr %acc.ptr
-  br label %__L__1018
-__L__1017:
+  br label %__L__1034
+__L__1033:
   %r587 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t121
   %r588 = load i64, ptr %t119
@@ -17229,17 +17391,17 @@ __L__1017:
   %r591 = getelementptr inbounds i64, ptr %r589, i64 %r590
   %r592 = load i64, ptr %r591
   store i64 %r592, ptr %acc.ptr
-  br label %__L__1018
-__L__1018:
+  br label %__L__1034
+__L__1034:
   %r593 = load i64, ptr %acc.ptr
   store i64 %r593, ptr %acc.ptr
-  br label %__L__1016
-__L__1015:
+  br label %__L__1032
+__L__1031:
   %r594 = load i64, ptr %acc.ptr
   %r595 = load i64, ptr @_3Cundefined_3E
   store i64 %r595, ptr %acc.ptr
-  br label %__L__1016
-__L__1016:
+  br label %__L__1032
+__L__1032:
   %r596 = load i64, ptr %acc.ptr
   store i64 %r596, ptr %t122
   %r597 = load i64, ptr @_3Cform_3E
@@ -17248,7 +17410,7 @@ __L__1016:
   %r600 = zext i1 %r599 to i64
   store i64 %r600, ptr %acc.ptr
   %r601 = icmp ne i64 %r600, 0
-  br i1 %r601, label %__L__1014, label %cont.602
+  br i1 %r601, label %__L__1030, label %cont.602
 cont.602:
   %r603 = load i64, ptr %acc.ptr
   %r604 = load i64, ptr %t118
@@ -17256,7 +17418,7 @@ cont.602:
   %r605 = load i64, ptr %t123
   store i64 %r605, ptr %acc.ptr
   %r606 = icmp ne i64 %r605, 0
-  br i1 %r606, label %cont.607, label %__L__1019
+  br i1 %r606, label %cont.607, label %__L__1035
 cont.607:
   %r608 = load i64, ptr %acc.ptr
   store i64 1, ptr %t124
@@ -17265,13 +17427,13 @@ cont.607:
   %r611 = and i64 %r609, %r610
   store i64 %r611, ptr %acc.ptr
   %r612 = icmp ne i64 %r611, 0
-  br i1 %r612, label %cont.613, label %__L__1021
+  br i1 %r612, label %cont.613, label %__L__1037
 cont.613:
   %r614 = load i64, ptr %acc.ptr
   %r615 = load i64, ptr @_3Clong_3E
   store i64 %r615, ptr %acc.ptr
-  br label %__L__1022
-__L__1021:
+  br label %__L__1038
+__L__1037:
   %r616 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t125
   %r617 = load i64, ptr %t123
@@ -17280,17 +17442,17 @@ __L__1021:
   %r620 = getelementptr inbounds i64, ptr %r618, i64 %r619
   %r621 = load i64, ptr %r620
   store i64 %r621, ptr %acc.ptr
-  br label %__L__1022
-__L__1022:
+  br label %__L__1038
+__L__1038:
   %r622 = load i64, ptr %acc.ptr
   store i64 %r622, ptr %acc.ptr
-  br label %__L__1020
-__L__1019:
+  br label %__L__1036
+__L__1035:
   %r623 = load i64, ptr %acc.ptr
   %r624 = load i64, ptr @_3Cundefined_3E
   store i64 %r624, ptr %acc.ptr
-  br label %__L__1020
-__L__1020:
+  br label %__L__1036
+__L__1036:
   %r625 = load i64, ptr %acc.ptr
   store i64 %r625, ptr %t126
   %r626 = load i64, ptr @_3Cfixed_3E
@@ -17298,23 +17460,23 @@ __L__1020:
   %r628 = icmp eq i64 %r626, %r627
   %r629 = zext i1 %r628 to i64
   store i64 %r629, ptr %acc.ptr
-  br label %__L__1014
-__L__1014:
+  br label %__L__1030
+__L__1030:
   %r630 = load i64, ptr %acc.ptr
   store i64 %r630, ptr %acc.ptr
   %r631 = icmp ne i64 %r630, 0
-  br i1 %r631, label %cont.632, label %__L__1013
+  br i1 %r631, label %cont.632, label %__L__1029
 cont.632:
   %r633 = load i64, ptr %acc.ptr
   %r634 = load i64, ptr %t118
   store i64 %r634, ptr %arg0
   store i64 %r634, ptr %acc.ptr
-  br label %__L__1013
-__L__1013:
+  br label %__L__1029
+__L__1029:
   %r635 = load i64, ptr %acc.ptr
   store i64 %r635, ptr %acc.ptr
-  br label %__L__1012
-__L__1011:
+  br label %__L__1028
+__L__1027:
   %r636 = load i64, ptr %acc.ptr
   %r637 = load i64, ptr %arg0
   store i64 %r637, ptr %t127
@@ -17353,7 +17515,7 @@ __L__1011:
   %r661 = zext i1 %r660 to i64
   store i64 %r661, ptr %acc.ptr
   %r662 = icmp ne i64 %r661, 0
-  br i1 %r662, label %__L__1023, label %cont.663
+  br i1 %r662, label %__L__1039, label %cont.663
 cont.663:
   %r664 = load i64, ptr %acc.ptr
   %r665 = load i64, ptr %t129
@@ -17368,16 +17530,16 @@ cont.663:
   %r671 = getelementptr inbounds i64, ptr %r669, i64 %r670
   store i64 %r668, ptr %r671
   store i64 %r668, ptr %acc.ptr
-  br label %__L__1023
-__L__1023:
+  br label %__L__1039
+__L__1039:
   %r672 = load i64, ptr %acc.ptr
   store i64 %r672, ptr %acc.ptr
-  br label %__L__1012
-__L__1012:
+  br label %__L__1028
+__L__1028:
   %r673 = load i64, ptr %acc.ptr
   store i64 %r673, ptr %acc.ptr
-  br label %__L__1004
-__L__1003:
+  br label %__L__1020
+__L__1019:
   %r674 = load i64, ptr %acc.ptr
   %r675 = load i64, ptr @encoders
   store i64 %r675, ptr %t140
@@ -17393,7 +17555,7 @@ __L__1003:
   %r682 = load i64, ptr %t143
   store i64 %r682, ptr %acc.ptr
   %r683 = icmp ne i64 %r682, 0
-  br i1 %r683, label %cont.684, label %__L__1024
+  br i1 %r683, label %cont.684, label %__L__1040
 cont.684:
   %r685 = load i64, ptr %acc.ptr
   store i64 1, ptr %t144
@@ -17402,13 +17564,13 @@ cont.684:
   %r688 = and i64 %r686, %r687
   store i64 %r688, ptr %acc.ptr
   %r689 = icmp ne i64 %r688, 0
-  br i1 %r689, label %cont.690, label %__L__1026
+  br i1 %r689, label %cont.690, label %__L__1042
 cont.690:
   %r691 = load i64, ptr %acc.ptr
   %r692 = load i64, ptr @_3Clong_3E
   store i64 %r692, ptr %acc.ptr
-  br label %__L__1027
-__L__1026:
+  br label %__L__1043
+__L__1042:
   %r693 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t145
   %r694 = load i64, ptr %t143
@@ -17417,17 +17579,17 @@ __L__1026:
   %r697 = getelementptr inbounds i64, ptr %r695, i64 %r696
   %r698 = load i64, ptr %r697
   store i64 %r698, ptr %acc.ptr
-  br label %__L__1027
-__L__1027:
+  br label %__L__1043
+__L__1043:
   %r699 = load i64, ptr %acc.ptr
   store i64 %r699, ptr %acc.ptr
-  br label %__L__1025
-__L__1024:
+  br label %__L__1041
+__L__1040:
   %r700 = load i64, ptr %acc.ptr
   %r701 = load i64, ptr @_3Cundefined_3E
   store i64 %r701, ptr %acc.ptr
-  br label %__L__1025
-__L__1025:
+  br label %__L__1041
+__L__1041:
   %r702 = load i64, ptr %acc.ptr
   store i64 %r702, ptr %t146
   %r703 = ptrtoint ptr @__L__128 to i64
@@ -17443,10 +17605,10 @@ __L__1025:
   %r710 = load i64, ptr %t147
   store i64 %r710, ptr %acc.ptr
   %r711 = icmp ne i64 %r710, 0
-  br i1 %r711, label %cont.712, label %__L__1028
+  br i1 %r711, label %cont.712, label %__L__1044
 cont.712:
   %r713 = load i64, ptr %acc.ptr
-  %r714 = ptrtoint ptr @__L__1029 to i64
+  %r714 = ptrtoint ptr @__L__1045 to i64
   store i64 %r714, ptr %t148
   %r715 = load i64, ptr %t147
   store i64 %r715, ptr %t149
@@ -17471,13 +17633,13 @@ cont.712:
   %r725 = inttoptr i64 %r721 to ptr
   %r729 = call i64 %r725(i64 %r726, i64 %r727, i64 %r728)
   store i64 %r729, ptr %acc.ptr
-  br label %__L__1028
-__L__1028:
+  br label %__L__1044
+__L__1044:
   %r730 = load i64, ptr %acc.ptr
   %r731 = load i64, ptr %t147
   store i64 %r731, ptr %acc.ptr
   %r732 = icmp ne i64 %r731, 0
-  br i1 %r732, label %cont.733, label %__L__1030
+  br i1 %r732, label %cont.733, label %__L__1046
 cont.733:
   %r734 = load i64, ptr %acc.ptr
   %r735 = load i64, ptr %arg1
@@ -17515,7 +17677,7 @@ cont.733:
   %r754 = inttoptr i64 %r751 to ptr
   %r757 = call i64 %r754(i64 %r755, i64 %r756)
   store i64 %r757, ptr %t154
-  %r758 = ptrtoint ptr @__L__1031 to i64
+  %r758 = ptrtoint ptr @__L__1047 to i64
   store i64 %r758, ptr %t158
   %r759 = ptrtoint ptr @printf to i64
   %r760 = load i64, ptr %t158
@@ -17531,7 +17693,7 @@ cont.733:
   %r768 = load i64, ptr %a0
   %r767 = inttoptr i64 %r765 to ptr
   %r769 = call i64 %r767(i64 %r768)
-  %r770 = ptrtoint ptr @__L__1032 to i64
+  %r770 = ptrtoint ptr @__L__1048 to i64
   store i64 %r770, ptr %t160
   %r771 = ptrtoint ptr @printf to i64
   %r772 = load i64, ptr %t160
@@ -17547,7 +17709,7 @@ cont.733:
   %r780 = load i64, ptr %a0
   %r779 = inttoptr i64 %r777 to ptr
   %r781 = call i64 %r779(i64 %r780)
-  %r782 = ptrtoint ptr @__L__1033 to i64
+  %r782 = ptrtoint ptr @__L__1049 to i64
   store i64 %r782, ptr %t162
   %r783 = ptrtoint ptr @printf to i64
   %r784 = load i64, ptr %t162
@@ -17592,16 +17754,16 @@ cont.733:
   %r810 = call i64 %r808(i64 %r809)
   %r811 = load i64, ptr %t167
   store i64 %r811, ptr %acc.ptr
-  br label %__L__1030
-__L__1030:
+  br label %__L__1046
+__L__1046:
   %r812 = load i64, ptr %acc.ptr
   store i64 %r812, ptr %acc.ptr
-  br label %__L__1004
-__L__1004:
+  br label %__L__1020
+__L__1020:
   %r813 = load i64, ptr %acc.ptr
   store i64 %r813, ptr %acc.ptr
-  br label %__L__968
-__L__968:
+  br label %__L__984
+__L__984:
   %r814 = load i64, ptr %acc.ptr
   %r815 = load i64, ptr %arg0
   ret i64 %r815
@@ -17643,7 +17805,7 @@ entry:
   %r1 = load i64, ptr %t0
   store i64 %r1, ptr %acc.ptr
   %r2 = icmp ne i64 %r1, 0
-  br i1 %r2, label %cont.3, label %__L__1036
+  br i1 %r2, label %cont.3, label %__L__1052
 cont.3:
   %r4 = load i64, ptr %acc.ptr
   store i64 1, ptr %t1
@@ -17652,13 +17814,13 @@ cont.3:
   %r7 = and i64 %r5, %r6
   store i64 %r7, ptr %acc.ptr
   %r8 = icmp ne i64 %r7, 0
-  br i1 %r8, label %cont.9, label %__L__1038
+  br i1 %r8, label %cont.9, label %__L__1054
 cont.9:
   %r10 = load i64, ptr %acc.ptr
   %r11 = load i64, ptr @_3Clong_3E
   store i64 %r11, ptr %acc.ptr
-  br label %__L__1039
-__L__1038:
+  br label %__L__1055
+__L__1054:
   %r12 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t2
   %r13 = load i64, ptr %t0
@@ -17667,17 +17829,17 @@ __L__1038:
   %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
-  br label %__L__1039
-__L__1039:
+  br label %__L__1055
+__L__1055:
   %r18 = load i64, ptr %acc.ptr
   store i64 %r18, ptr %acc.ptr
-  br label %__L__1037
-__L__1036:
+  br label %__L__1053
+__L__1052:
   %r19 = load i64, ptr %acc.ptr
   %r20 = load i64, ptr @_3Cundefined_3E
   store i64 %r20, ptr %acc.ptr
-  br label %__L__1037
-__L__1037:
+  br label %__L__1053
+__L__1053:
   %r21 = load i64, ptr %acc.ptr
   store i64 %r21, ptr %t3
   %r22 = load i64, ptr @_3Cpair_3E
@@ -17686,7 +17848,7 @@ __L__1037:
   %r25 = zext i1 %r24 to i64
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__1034
+  br i1 %r26, label %cont.27, label %__L__1050
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 0, ptr %t4
@@ -17777,8 +17939,8 @@ cont.27:
   %r88 = call i64 %r86(i64 %r87)
   %r89 = load i64, ptr %t18
   store i64 %r89, ptr %acc.ptr
-  br label %__L__1035
-__L__1034:
+  br label %__L__1051
+__L__1050:
   %r90 = load i64, ptr %acc.ptr
   %r91 = load i64, ptr %arg0
   store i64 %r91, ptr %t20
@@ -17794,13 +17956,13 @@ __L__1034:
   %r96 = inttoptr i64 %r93 to ptr
   %r99 = call i64 %r96(i64 %r97, i64 %r98)
   store i64 %r99, ptr %acc.ptr
-  br label %__L__1035
-__L__1035:
+  br label %__L__1051
+__L__1051:
   %r100 = load i64, ptr %acc.ptr
   ret i64 %r100
 }
 ; defn k_expand
-@__L__1074 = private constant [5 x i8] c"set-\00"
+@__L__1090 = private constant [5 x i8] c"set-\00"
 define i64 @__L__86(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -17945,7 +18107,7 @@ entry:
   %r1 = load i64, ptr %t0
   store i64 %r1, ptr %acc.ptr
   %r2 = icmp ne i64 %r1, 0
-  br i1 %r2, label %cont.3, label %__L__1042
+  br i1 %r2, label %cont.3, label %__L__1058
 cont.3:
   %r4 = load i64, ptr %acc.ptr
   store i64 1, ptr %t1
@@ -17954,13 +18116,13 @@ cont.3:
   %r7 = and i64 %r5, %r6
   store i64 %r7, ptr %acc.ptr
   %r8 = icmp ne i64 %r7, 0
-  br i1 %r8, label %cont.9, label %__L__1044
+  br i1 %r8, label %cont.9, label %__L__1060
 cont.9:
   %r10 = load i64, ptr %acc.ptr
   %r11 = load i64, ptr @_3Clong_3E
   store i64 %r11, ptr %acc.ptr
-  br label %__L__1045
-__L__1044:
+  br label %__L__1061
+__L__1060:
   %r12 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t2
   %r13 = load i64, ptr %t0
@@ -17969,17 +18131,17 @@ __L__1044:
   %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
-  br label %__L__1045
-__L__1045:
+  br label %__L__1061
+__L__1061:
   %r18 = load i64, ptr %acc.ptr
   store i64 %r18, ptr %acc.ptr
-  br label %__L__1043
-__L__1042:
+  br label %__L__1059
+__L__1058:
   %r19 = load i64, ptr %acc.ptr
   %r20 = load i64, ptr @_3Cundefined_3E
   store i64 %r20, ptr %acc.ptr
-  br label %__L__1043
-__L__1043:
+  br label %__L__1059
+__L__1059:
   %r21 = load i64, ptr %acc.ptr
   store i64 %r21, ptr %t3
   %r22 = load i64, ptr @_3Cpair_3E
@@ -17988,7 +18150,7 @@ __L__1043:
   %r25 = zext i1 %r24 to i64
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__1040
+  br i1 %r26, label %cont.27, label %__L__1056
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 0, ptr %t4
@@ -18023,7 +18185,7 @@ cont.27:
   %r49 = load i64, ptr %t9
   store i64 %r49, ptr %acc.ptr
   %r50 = icmp ne i64 %r49, 0
-  br i1 %r50, label %cont.51, label %__L__1048
+  br i1 %r50, label %cont.51, label %__L__1064
 cont.51:
   %r52 = load i64, ptr %acc.ptr
   store i64 1, ptr %t10
@@ -18032,13 +18194,13 @@ cont.51:
   %r55 = and i64 %r53, %r54
   store i64 %r55, ptr %acc.ptr
   %r56 = icmp ne i64 %r55, 0
-  br i1 %r56, label %cont.57, label %__L__1050
+  br i1 %r56, label %cont.57, label %__L__1066
 cont.57:
   %r58 = load i64, ptr %acc.ptr
   %r59 = load i64, ptr @_3Clong_3E
   store i64 %r59, ptr %acc.ptr
-  br label %__L__1051
-__L__1050:
+  br label %__L__1067
+__L__1066:
   %r60 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t11
   %r61 = load i64, ptr %t9
@@ -18047,17 +18209,17 @@ __L__1050:
   %r64 = getelementptr inbounds i64, ptr %r62, i64 %r63
   %r65 = load i64, ptr %r64
   store i64 %r65, ptr %acc.ptr
-  br label %__L__1051
-__L__1051:
+  br label %__L__1067
+__L__1067:
   %r66 = load i64, ptr %acc.ptr
   store i64 %r66, ptr %acc.ptr
-  br label %__L__1049
-__L__1048:
+  br label %__L__1065
+__L__1064:
   %r67 = load i64, ptr %acc.ptr
   %r68 = load i64, ptr @_3Cundefined_3E
   store i64 %r68, ptr %acc.ptr
-  br label %__L__1049
-__L__1049:
+  br label %__L__1065
+__L__1065:
   %r69 = load i64, ptr %acc.ptr
   store i64 %r69, ptr %t12
   %r70 = load i64, ptr @_3Csymbol_3E
@@ -18066,7 +18228,7 @@ __L__1049:
   %r73 = zext i1 %r72 to i64
   store i64 %r73, ptr %acc.ptr
   %r74 = icmp ne i64 %r73, 0
-  br i1 %r74, label %cont.75, label %__L__1046
+  br i1 %r74, label %cont.75, label %__L__1062
 cont.75:
   %r76 = load i64, ptr %acc.ptr
   %r77 = load i64, ptr %arg1
@@ -18088,7 +18250,7 @@ cont.75:
   %r87 = load i64, ptr %t16
   store i64 %r87, ptr %acc.ptr
   %r88 = icmp ne i64 %r87, 0
-  br i1 %r88, label %cont.89, label %__L__1053
+  br i1 %r88, label %cont.89, label %__L__1069
 cont.89:
   %r90 = load i64, ptr %acc.ptr
   store i64 1, ptr %t17
@@ -18097,13 +18259,13 @@ cont.89:
   %r93 = and i64 %r91, %r92
   store i64 %r93, ptr %acc.ptr
   %r94 = icmp ne i64 %r93, 0
-  br i1 %r94, label %cont.95, label %__L__1055
+  br i1 %r94, label %cont.95, label %__L__1071
 cont.95:
   %r96 = load i64, ptr %acc.ptr
   %r97 = load i64, ptr @_3Clong_3E
   store i64 %r97, ptr %acc.ptr
-  br label %__L__1056
-__L__1055:
+  br label %__L__1072
+__L__1071:
   %r98 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t18
   %r99 = load i64, ptr %t16
@@ -18112,17 +18274,17 @@ __L__1055:
   %r102 = getelementptr inbounds i64, ptr %r100, i64 %r101
   %r103 = load i64, ptr %r102
   store i64 %r103, ptr %acc.ptr
-  br label %__L__1056
-__L__1056:
+  br label %__L__1072
+__L__1072:
   %r104 = load i64, ptr %acc.ptr
   store i64 %r104, ptr %acc.ptr
-  br label %__L__1054
-__L__1053:
+  br label %__L__1070
+__L__1069:
   %r105 = load i64, ptr %acc.ptr
   %r106 = load i64, ptr @_3Cundefined_3E
   store i64 %r106, ptr %acc.ptr
-  br label %__L__1054
-__L__1054:
+  br label %__L__1070
+__L__1070:
   %r107 = load i64, ptr %acc.ptr
   store i64 %r107, ptr %t19
   %r108 = load i64, ptr @_3Cvariable_3E
@@ -18131,7 +18293,7 @@ __L__1054:
   %r111 = zext i1 %r110 to i64
   store i64 %r111, ptr %acc.ptr
   %r112 = icmp ne i64 %r111, 0
-  br i1 %r112, label %cont.113, label %__L__1052
+  br i1 %r112, label %cont.113, label %__L__1068
 cont.113:
   %r114 = load i64, ptr %acc.ptr
   %r115 = load i64, ptr %t15
@@ -18144,15 +18306,15 @@ cont.113:
   %r120 = load i64, ptr %r119
   store i64 %r120, ptr %t15
   store i64 %r120, ptr %acc.ptr
-  br label %__L__1052
-__L__1052:
+  br label %__L__1068
+__L__1068:
   %r121 = load i64, ptr %acc.ptr
   %r122 = load i64, ptr %t15
   store i64 %r122, ptr %t22
   %r123 = load i64, ptr %t22
   store i64 %r123, ptr %acc.ptr
   %r124 = icmp ne i64 %r123, 0
-  br i1 %r124, label %cont.125, label %__L__1058
+  br i1 %r124, label %cont.125, label %__L__1074
 cont.125:
   %r126 = load i64, ptr %acc.ptr
   store i64 1, ptr %t23
@@ -18161,13 +18323,13 @@ cont.125:
   %r129 = and i64 %r127, %r128
   store i64 %r129, ptr %acc.ptr
   %r130 = icmp ne i64 %r129, 0
-  br i1 %r130, label %cont.131, label %__L__1060
+  br i1 %r130, label %cont.131, label %__L__1076
 cont.131:
   %r132 = load i64, ptr %acc.ptr
   %r133 = load i64, ptr @_3Clong_3E
   store i64 %r133, ptr %acc.ptr
-  br label %__L__1061
-__L__1060:
+  br label %__L__1077
+__L__1076:
   %r134 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t24
   %r135 = load i64, ptr %t22
@@ -18176,17 +18338,17 @@ __L__1060:
   %r138 = getelementptr inbounds i64, ptr %r136, i64 %r137
   %r139 = load i64, ptr %r138
   store i64 %r139, ptr %acc.ptr
-  br label %__L__1061
-__L__1061:
+  br label %__L__1077
+__L__1077:
   %r140 = load i64, ptr %acc.ptr
   store i64 %r140, ptr %acc.ptr
-  br label %__L__1059
-__L__1058:
+  br label %__L__1075
+__L__1074:
   %r141 = load i64, ptr %acc.ptr
   %r142 = load i64, ptr @_3Cundefined_3E
   store i64 %r142, ptr %acc.ptr
-  br label %__L__1059
-__L__1059:
+  br label %__L__1075
+__L__1075:
   %r143 = load i64, ptr %acc.ptr
   store i64 %r143, ptr %t25
   %r144 = load i64, ptr @_3Cform_3E
@@ -18195,7 +18357,7 @@ __L__1059:
   %r147 = zext i1 %r146 to i64
   store i64 %r147, ptr %acc.ptr
   %r148 = icmp ne i64 %r147, 0
-  br i1 %r148, label %cont.149, label %__L__1057
+  br i1 %r148, label %cont.149, label %__L__1073
 cont.149:
   %r150 = load i64, ptr %acc.ptr
   %r151 = load i64, ptr %t15
@@ -18210,7 +18372,7 @@ cont.149:
   %r157 = load i64, ptr %t28
   store i64 %r157, ptr %acc.ptr
   %r158 = icmp ne i64 %r157, 0
-  br i1 %r158, label %cont.159, label %__L__1062
+  br i1 %r158, label %cont.159, label %__L__1078
 cont.159:
   %r160 = load i64, ptr %acc.ptr
   %r161 = load i64, ptr %arg1
@@ -18292,20 +18454,20 @@ cont.159:
   %r212 = call i64 %r210(i64 %r211)
   %r213 = load i64, ptr %t7
   store i64 %r213, ptr %acc.ptr
-  br label %__L__1063
-__L__1062:
+  br label %__L__1079
+__L__1078:
   %r214 = load i64, ptr %acc.ptr
   store i64 %r214, ptr %acc.ptr
-  br label %__L__1057
-__L__1057:
+  br label %__L__1073
+__L__1073:
   %r215 = load i64, ptr %acc.ptr
   store i64 %r215, ptr %acc.ptr
-  br label %__L__1047
-__L__1046:
+  br label %__L__1063
+__L__1062:
   %r216 = load i64, ptr %acc.ptr
   store i64 %r216, ptr %acc.ptr
-  br label %__L__1047
-__L__1047:
+  br label %__L__1063
+__L__1063:
   %r217 = load i64, ptr %acc.ptr
   store i64 1, ptr %t42
   %r218 = load i64, ptr %arg0
@@ -18330,7 +18492,7 @@ __L__1047:
   %r233 = zext i1 %r232 to i64
   store i64 %r233, ptr %acc.ptr
   %r234 = icmp ne i64 %r233, 0
-  br i1 %r234, label %__L__1064, label %cont.235
+  br i1 %r234, label %__L__1080, label %cont.235
 cont.235:
   %r236 = load i64, ptr %acc.ptr
   %r237 = load i64, ptr %t43
@@ -18348,8 +18510,8 @@ cont.235:
   %r245 = call i64 %r242(i64 %r243, i64 %r244)
   store i64 %r245, ptr %t43
   store i64 %r245, ptr %acc.ptr
-  br label %__L__1064
-__L__1064:
+  br label %__L__1080
+__L__1080:
   %r246 = load i64, ptr %acc.ptr
   %r247 = load i64, ptr %t7
   store i64 %r247, ptr %t48
@@ -18359,7 +18521,7 @@ __L__1064:
   %r251 = zext i1 %r250 to i64
   store i64 %r251, ptr %acc.ptr
   %r252 = icmp ne i64 %r251, 0
-  br i1 %r252, label %cont.253, label %__L__1065
+  br i1 %r252, label %cont.253, label %__L__1081
 cont.253:
   %r254 = load i64, ptr %acc.ptr
   %r255 = load i64, ptr %t43
@@ -18374,7 +18536,7 @@ cont.253:
   %r261 = load i64, ptr %t50
   store i64 %r261, ptr %acc.ptr
   %r262 = icmp ne i64 %r261, 0
-  br i1 %r262, label %cont.263, label %__L__1066
+  br i1 %r262, label %cont.263, label %__L__1082
 cont.263:
   %r264 = load i64, ptr %acc.ptr
   store i64 1, ptr %t51
@@ -18383,13 +18545,13 @@ cont.263:
   %r267 = and i64 %r265, %r266
   store i64 %r267, ptr %acc.ptr
   %r268 = icmp ne i64 %r267, 0
-  br i1 %r268, label %cont.269, label %__L__1068
+  br i1 %r268, label %cont.269, label %__L__1084
 cont.269:
   %r270 = load i64, ptr %acc.ptr
   %r271 = load i64, ptr @_3Clong_3E
   store i64 %r271, ptr %acc.ptr
-  br label %__L__1069
-__L__1068:
+  br label %__L__1085
+__L__1084:
   %r272 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t52
   %r273 = load i64, ptr %t50
@@ -18398,17 +18560,17 @@ __L__1068:
   %r276 = getelementptr inbounds i64, ptr %r274, i64 %r275
   %r277 = load i64, ptr %r276
   store i64 %r277, ptr %acc.ptr
-  br label %__L__1069
-__L__1069:
+  br label %__L__1085
+__L__1085:
   %r278 = load i64, ptr %acc.ptr
   store i64 %r278, ptr %acc.ptr
-  br label %__L__1067
-__L__1066:
+  br label %__L__1083
+__L__1082:
   %r279 = load i64, ptr %acc.ptr
   %r280 = load i64, ptr @_3Cundefined_3E
   store i64 %r280, ptr %acc.ptr
-  br label %__L__1067
-__L__1067:
+  br label %__L__1083
+__L__1083:
   %r281 = load i64, ptr %acc.ptr
   store i64 %r281, ptr %t53
   %r282 = load i64, ptr @_3Cpair_3E
@@ -18417,7 +18579,7 @@ __L__1067:
   %r285 = zext i1 %r284 to i64
   store i64 %r285, ptr %acc.ptr
   %r286 = icmp ne i64 %r285, 0
-  br i1 %r286, label %cont.287, label %__L__1065
+  br i1 %r286, label %cont.287, label %__L__1081
 cont.287:
   %r288 = load i64, ptr %acc.ptr
   %r289 = load i64, ptr %t43
@@ -18432,7 +18594,7 @@ cont.287:
   %r295 = load i64, ptr %t55
   store i64 %r295, ptr %acc.ptr
   %r296 = icmp ne i64 %r295, 0
-  br i1 %r296, label %cont.297, label %__L__1070
+  br i1 %r296, label %cont.297, label %__L__1086
 cont.297:
   %r298 = load i64, ptr %acc.ptr
   store i64 1, ptr %t56
@@ -18441,13 +18603,13 @@ cont.297:
   %r301 = and i64 %r299, %r300
   store i64 %r301, ptr %acc.ptr
   %r302 = icmp ne i64 %r301, 0
-  br i1 %r302, label %cont.303, label %__L__1072
+  br i1 %r302, label %cont.303, label %__L__1088
 cont.303:
   %r304 = load i64, ptr %acc.ptr
   %r305 = load i64, ptr @_3Clong_3E
   store i64 %r305, ptr %acc.ptr
-  br label %__L__1073
-__L__1072:
+  br label %__L__1089
+__L__1088:
   %r306 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t57
   %r307 = load i64, ptr %t55
@@ -18456,17 +18618,17 @@ __L__1072:
   %r310 = getelementptr inbounds i64, ptr %r308, i64 %r309
   %r311 = load i64, ptr %r310
   store i64 %r311, ptr %acc.ptr
-  br label %__L__1073
-__L__1073:
+  br label %__L__1089
+__L__1089:
   %r312 = load i64, ptr %acc.ptr
   store i64 %r312, ptr %acc.ptr
-  br label %__L__1071
-__L__1070:
+  br label %__L__1087
+__L__1086:
   %r313 = load i64, ptr %acc.ptr
   %r314 = load i64, ptr @_3Cundefined_3E
   store i64 %r314, ptr %acc.ptr
-  br label %__L__1071
-__L__1071:
+  br label %__L__1087
+__L__1087:
   %r315 = load i64, ptr %acc.ptr
   store i64 %r315, ptr %t58
   %r316 = load i64, ptr @_3Csymbol_3E
@@ -18475,7 +18637,7 @@ __L__1071:
   %r319 = zext i1 %r318 to i64
   store i64 %r319, ptr %acc.ptr
   %r320 = icmp ne i64 %r319, 0
-  br i1 %r320, label %cont.321, label %__L__1065
+  br i1 %r320, label %cont.321, label %__L__1081
 cont.321:
   %r322 = load i64, ptr %acc.ptr
   %r323 = ptrtoint ptr @__L__114 to i64
@@ -18484,7 +18646,7 @@ cont.321:
   store i64 %r325, ptr %t59
   %r326 = load i64, ptr %t59
   store i64 %r326, ptr %t60
-  %r327 = ptrtoint ptr @__L__1074 to i64
+  %r327 = ptrtoint ptr @__L__1090 to i64
   store i64 %r327, ptr %t61
   %r328 = ptrtoint ptr @__L__110 to i64
   %r329 = load i64, ptr %t60
@@ -18571,8 +18733,8 @@ cont.321:
   %r388 = call i64 %r385(i64 %r386, i64 %r387)
   store i64 %r388, ptr %t43
   store i64 %r388, ptr %acc.ptr
-  br label %__L__1065
-__L__1065:
+  br label %__L__1081
+__L__1081:
   %r389 = load i64, ptr %acc.ptr
   %r390 = load i64, ptr %t7
   store i64 %r390, ptr %t75
@@ -18605,15 +18767,15 @@ __L__1065:
   %r408 = inttoptr i64 %r406 to ptr
   %r410 = call i64 %r408(i64 %r409)
   store i64 %r410, ptr %acc.ptr
-  br label %__L__1041
-__L__1040:
+  br label %__L__1057
+__L__1056:
   %r411 = load i64, ptr %acc.ptr
   %r412 = load i64, ptr %arg0
   store i64 %r412, ptr %t79
   %r413 = load i64, ptr %t79
   store i64 %r413, ptr %acc.ptr
   %r414 = icmp ne i64 %r413, 0
-  br i1 %r414, label %cont.415, label %__L__1077
+  br i1 %r414, label %cont.415, label %__L__1093
 cont.415:
   %r416 = load i64, ptr %acc.ptr
   store i64 1, ptr %t80
@@ -18622,13 +18784,13 @@ cont.415:
   %r419 = and i64 %r417, %r418
   store i64 %r419, ptr %acc.ptr
   %r420 = icmp ne i64 %r419, 0
-  br i1 %r420, label %cont.421, label %__L__1079
+  br i1 %r420, label %cont.421, label %__L__1095
 cont.421:
   %r422 = load i64, ptr %acc.ptr
   %r423 = load i64, ptr @_3Clong_3E
   store i64 %r423, ptr %acc.ptr
-  br label %__L__1080
-__L__1079:
+  br label %__L__1096
+__L__1095:
   %r424 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t81
   %r425 = load i64, ptr %t79
@@ -18637,17 +18799,17 @@ __L__1079:
   %r428 = getelementptr inbounds i64, ptr %r426, i64 %r427
   %r429 = load i64, ptr %r428
   store i64 %r429, ptr %acc.ptr
-  br label %__L__1080
-__L__1080:
+  br label %__L__1096
+__L__1096:
   %r430 = load i64, ptr %acc.ptr
   store i64 %r430, ptr %acc.ptr
-  br label %__L__1078
-__L__1077:
+  br label %__L__1094
+__L__1093:
   %r431 = load i64, ptr %acc.ptr
   %r432 = load i64, ptr @_3Cundefined_3E
   store i64 %r432, ptr %acc.ptr
-  br label %__L__1078
-__L__1078:
+  br label %__L__1094
+__L__1094:
   %r433 = load i64, ptr %acc.ptr
   store i64 %r433, ptr %t82
   %r434 = load i64, ptr @_3Csymbol_3E
@@ -18656,7 +18818,7 @@ __L__1078:
   %r437 = zext i1 %r436 to i64
   store i64 %r437, ptr %acc.ptr
   %r438 = icmp ne i64 %r437, 0
-  br i1 %r438, label %cont.439, label %__L__1075
+  br i1 %r438, label %cont.439, label %__L__1091
 cont.439:
   %r440 = load i64, ptr %acc.ptr
   %r441 = load i64, ptr %arg1
@@ -18678,7 +18840,7 @@ cont.439:
   %r451 = load i64, ptr %t86
   store i64 %r451, ptr %acc.ptr
   %r452 = icmp ne i64 %r451, 0
-  br i1 %r452, label %cont.453, label %__L__1082
+  br i1 %r452, label %cont.453, label %__L__1098
 cont.453:
   %r454 = load i64, ptr %acc.ptr
   store i64 1, ptr %t87
@@ -18687,13 +18849,13 @@ cont.453:
   %r457 = and i64 %r455, %r456
   store i64 %r457, ptr %acc.ptr
   %r458 = icmp ne i64 %r457, 0
-  br i1 %r458, label %cont.459, label %__L__1084
+  br i1 %r458, label %cont.459, label %__L__1100
 cont.459:
   %r460 = load i64, ptr %acc.ptr
   %r461 = load i64, ptr @_3Clong_3E
   store i64 %r461, ptr %acc.ptr
-  br label %__L__1085
-__L__1084:
+  br label %__L__1101
+__L__1100:
   %r462 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t88
   %r463 = load i64, ptr %t86
@@ -18702,17 +18864,17 @@ __L__1084:
   %r466 = getelementptr inbounds i64, ptr %r464, i64 %r465
   %r467 = load i64, ptr %r466
   store i64 %r467, ptr %acc.ptr
-  br label %__L__1085
-__L__1085:
+  br label %__L__1101
+__L__1101:
   %r468 = load i64, ptr %acc.ptr
   store i64 %r468, ptr %acc.ptr
-  br label %__L__1083
-__L__1082:
+  br label %__L__1099
+__L__1098:
   %r469 = load i64, ptr %acc.ptr
   %r470 = load i64, ptr @_3Cundefined_3E
   store i64 %r470, ptr %acc.ptr
-  br label %__L__1083
-__L__1083:
+  br label %__L__1099
+__L__1099:
   %r471 = load i64, ptr %acc.ptr
   store i64 %r471, ptr %t89
   %r472 = load i64, ptr @_3Cvariable_3E
@@ -18721,7 +18883,7 @@ __L__1083:
   %r475 = zext i1 %r474 to i64
   store i64 %r475, ptr %acc.ptr
   %r476 = icmp ne i64 %r475, 0
-  br i1 %r476, label %cont.477, label %__L__1081
+  br i1 %r476, label %cont.477, label %__L__1097
 cont.477:
   %r478 = load i64, ptr %acc.ptr
   %r479 = load i64, ptr %t85
@@ -18734,15 +18896,15 @@ cont.477:
   %r484 = load i64, ptr %r483
   store i64 %r484, ptr %t85
   store i64 %r484, ptr %acc.ptr
-  br label %__L__1081
-__L__1081:
+  br label %__L__1097
+__L__1097:
   %r485 = load i64, ptr %acc.ptr
   %r486 = load i64, ptr %t85
   store i64 %r486, ptr %t92
   %r487 = load i64, ptr %t92
   store i64 %r487, ptr %acc.ptr
   %r488 = icmp ne i64 %r487, 0
-  br i1 %r488, label %cont.489, label %__L__1087
+  br i1 %r488, label %cont.489, label %__L__1103
 cont.489:
   %r490 = load i64, ptr %acc.ptr
   store i64 1, ptr %t93
@@ -18751,13 +18913,13 @@ cont.489:
   %r493 = and i64 %r491, %r492
   store i64 %r493, ptr %acc.ptr
   %r494 = icmp ne i64 %r493, 0
-  br i1 %r494, label %cont.495, label %__L__1089
+  br i1 %r494, label %cont.495, label %__L__1105
 cont.495:
   %r496 = load i64, ptr %acc.ptr
   %r497 = load i64, ptr @_3Clong_3E
   store i64 %r497, ptr %acc.ptr
-  br label %__L__1090
-__L__1089:
+  br label %__L__1106
+__L__1105:
   %r498 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t94
   %r499 = load i64, ptr %t92
@@ -18766,17 +18928,17 @@ __L__1089:
   %r502 = getelementptr inbounds i64, ptr %r500, i64 %r501
   %r503 = load i64, ptr %r502
   store i64 %r503, ptr %acc.ptr
-  br label %__L__1090
-__L__1090:
+  br label %__L__1106
+__L__1106:
   %r504 = load i64, ptr %acc.ptr
   store i64 %r504, ptr %acc.ptr
-  br label %__L__1088
-__L__1087:
+  br label %__L__1104
+__L__1103:
   %r505 = load i64, ptr %acc.ptr
   %r506 = load i64, ptr @_3Cundefined_3E
   store i64 %r506, ptr %acc.ptr
-  br label %__L__1088
-__L__1088:
+  br label %__L__1104
+__L__1104:
   %r507 = load i64, ptr %acc.ptr
   store i64 %r507, ptr %t95
   %r508 = load i64, ptr @_3Cform_3E
@@ -18785,7 +18947,7 @@ __L__1088:
   %r511 = zext i1 %r510 to i64
   store i64 %r511, ptr %acc.ptr
   %r512 = icmp ne i64 %r511, 0
-  br i1 %r512, label %cont.513, label %__L__1086
+  br i1 %r512, label %cont.513, label %__L__1102
 cont.513:
   %r514 = load i64, ptr %acc.ptr
   %r515 = load i64, ptr %t85
@@ -18800,7 +18962,7 @@ cont.513:
   %r521 = load i64, ptr %t98
   store i64 %r521, ptr %acc.ptr
   %r522 = icmp ne i64 %r521, 0
-  br i1 %r522, label %cont.523, label %__L__1091
+  br i1 %r522, label %cont.523, label %__L__1107
 cont.523:
   %r524 = load i64, ptr %acc.ptr
   %r525 = load i64, ptr %arg0
@@ -18881,16 +19043,16 @@ cont.523:
   %r573 = call i64 %r571(i64 %r572)
   %r574 = load i64, ptr %t110
   store i64 %r574, ptr %acc.ptr
-  br label %__L__1091
-__L__1091:
+  br label %__L__1107
+__L__1107:
   %r575 = load i64, ptr %acc.ptr
   store i64 %r575, ptr %acc.ptr
-  br label %__L__1086
-__L__1086:
+  br label %__L__1102
+__L__1102:
   %r576 = load i64, ptr %acc.ptr
   store i64 %r576, ptr %acc.ptr
-  br label %__L__1076
-__L__1075:
+  br label %__L__1092
+__L__1091:
   %r577 = load i64, ptr %acc.ptr
   %r578 = load i64, ptr @expanders
   store i64 %r578, ptr %t112
@@ -18906,7 +19068,7 @@ __L__1075:
   %r585 = load i64, ptr %t115
   store i64 %r585, ptr %acc.ptr
   %r586 = icmp ne i64 %r585, 0
-  br i1 %r586, label %cont.587, label %__L__1092
+  br i1 %r586, label %cont.587, label %__L__1108
 cont.587:
   %r588 = load i64, ptr %acc.ptr
   store i64 1, ptr %t116
@@ -18915,13 +19077,13 @@ cont.587:
   %r591 = and i64 %r589, %r590
   store i64 %r591, ptr %acc.ptr
   %r592 = icmp ne i64 %r591, 0
-  br i1 %r592, label %cont.593, label %__L__1094
+  br i1 %r592, label %cont.593, label %__L__1110
 cont.593:
   %r594 = load i64, ptr %acc.ptr
   %r595 = load i64, ptr @_3Clong_3E
   store i64 %r595, ptr %acc.ptr
-  br label %__L__1095
-__L__1094:
+  br label %__L__1111
+__L__1110:
   %r596 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t117
   %r597 = load i64, ptr %t115
@@ -18930,17 +19092,17 @@ __L__1094:
   %r600 = getelementptr inbounds i64, ptr %r598, i64 %r599
   %r601 = load i64, ptr %r600
   store i64 %r601, ptr %acc.ptr
-  br label %__L__1095
-__L__1095:
+  br label %__L__1111
+__L__1111:
   %r602 = load i64, ptr %acc.ptr
   store i64 %r602, ptr %acc.ptr
-  br label %__L__1093
-__L__1092:
+  br label %__L__1109
+__L__1108:
   %r603 = load i64, ptr %acc.ptr
   %r604 = load i64, ptr @_3Cundefined_3E
   store i64 %r604, ptr %acc.ptr
-  br label %__L__1093
-__L__1093:
+  br label %__L__1109
+__L__1109:
   %r605 = load i64, ptr %acc.ptr
   store i64 %r605, ptr %t118
   %r606 = ptrtoint ptr @__L__128 to i64
@@ -18956,7 +19118,7 @@ __L__1093:
   %r613 = load i64, ptr %t119
   store i64 %r613, ptr %acc.ptr
   %r614 = icmp ne i64 %r613, 0
-  br i1 %r614, label %cont.615, label %__L__1096
+  br i1 %r614, label %cont.615, label %__L__1112
 cont.615:
   %r616 = load i64, ptr %acc.ptr
   %r617 = load i64, ptr %arg0
@@ -19009,21 +19171,21 @@ cont.615:
   %r647 = call i64 %r645(i64 %r646)
   %r648 = load i64, ptr %t127
   store i64 %r648, ptr %acc.ptr
-  br label %__L__1096
-__L__1096:
+  br label %__L__1112
+__L__1112:
   %r649 = load i64, ptr %acc.ptr
   store i64 %r649, ptr %acc.ptr
-  br label %__L__1076
-__L__1076:
+  br label %__L__1092
+__L__1092:
   %r650 = load i64, ptr %acc.ptr
   store i64 %r650, ptr %acc.ptr
-  br label %__L__1041
-__L__1041:
+  br label %__L__1057
+__L__1057:
   %r651 = load i64, ptr %acc.ptr
   %r652 = load i64, ptr %arg0
   store i64 %r652, ptr %acc.ptr
-  br label %__L__1063
-__L__1063:
+  br label %__L__1079
+__L__1079:
   %r653 = load i64, ptr %acc.ptr
   ret i64 %r653
 }
@@ -19064,7 +19226,7 @@ entry:
   %r1 = load i64, ptr %t0
   store i64 %r1, ptr %acc.ptr
   %r2 = icmp ne i64 %r1, 0
-  br i1 %r2, label %cont.3, label %__L__1099
+  br i1 %r2, label %cont.3, label %__L__1115
 cont.3:
   %r4 = load i64, ptr %acc.ptr
   store i64 1, ptr %t1
@@ -19073,13 +19235,13 @@ cont.3:
   %r7 = and i64 %r5, %r6
   store i64 %r7, ptr %acc.ptr
   %r8 = icmp ne i64 %r7, 0
-  br i1 %r8, label %cont.9, label %__L__1101
+  br i1 %r8, label %cont.9, label %__L__1117
 cont.9:
   %r10 = load i64, ptr %acc.ptr
   %r11 = load i64, ptr @_3Clong_3E
   store i64 %r11, ptr %acc.ptr
-  br label %__L__1102
-__L__1101:
+  br label %__L__1118
+__L__1117:
   %r12 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t2
   %r13 = load i64, ptr %t0
@@ -19088,17 +19250,17 @@ __L__1101:
   %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
-  br label %__L__1102
-__L__1102:
+  br label %__L__1118
+__L__1118:
   %r18 = load i64, ptr %acc.ptr
   store i64 %r18, ptr %acc.ptr
-  br label %__L__1100
-__L__1099:
+  br label %__L__1116
+__L__1115:
   %r19 = load i64, ptr %acc.ptr
   %r20 = load i64, ptr @_3Cundefined_3E
   store i64 %r20, ptr %acc.ptr
-  br label %__L__1100
-__L__1100:
+  br label %__L__1116
+__L__1116:
   %r21 = load i64, ptr %acc.ptr
   store i64 %r21, ptr %t3
   %r22 = load i64, ptr @_3Cpair_3E
@@ -19107,7 +19269,7 @@ __L__1100:
   %r25 = zext i1 %r24 to i64
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__1097
+  br i1 %r26, label %cont.27, label %__L__1113
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 0, ptr %t4
@@ -19198,8 +19360,8 @@ cont.27:
   %r88 = call i64 %r86(i64 %r87)
   %r89 = load i64, ptr %t18
   store i64 %r89, ptr %acc.ptr
-  br label %__L__1098
-__L__1097:
+  br label %__L__1114
+__L__1113:
   %r90 = load i64, ptr %acc.ptr
   %r91 = load i64, ptr %arg0
   store i64 %r91, ptr %t20
@@ -19215,15 +19377,15 @@ __L__1097:
   %r96 = inttoptr i64 %r93 to ptr
   %r99 = call i64 %r96(i64 %r97, i64 %r98)
   store i64 %r99, ptr %acc.ptr
-  br label %__L__1098
-__L__1098:
+  br label %__L__1114
+__L__1114:
   %r100 = load i64, ptr %acc.ptr
   ret i64 %r100
 }
 ; defn k_apply
-@__L__1119 = private constant [17 x i8] c"\0Aeval.k: error: \00"
-@__L__1120 = private constant [15 x i8] c"cannot apply: \00"
-@__L__1121 = private constant [2 x i8] c"\0A\00"
+@__L__1135 = private constant [17 x i8] c"\0Aeval.k: error: \00"
+@__L__1136 = private constant [15 x i8] c"cannot apply: \00"
+@__L__1137 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__88(i64 %p0, i64 %p1, i64 %p2) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -19281,7 +19443,7 @@ entry:
   %r1 = load i64, ptr %t0
   store i64 %r1, ptr %acc.ptr
   %r2 = icmp ne i64 %r1, 0
-  br i1 %r2, label %cont.3, label %__L__1103
+  br i1 %r2, label %cont.3, label %__L__1119
 cont.3:
   %r4 = load i64, ptr %acc.ptr
   store i64 1, ptr %t1
@@ -19290,13 +19452,13 @@ cont.3:
   %r7 = and i64 %r5, %r6
   store i64 %r7, ptr %acc.ptr
   %r8 = icmp ne i64 %r7, 0
-  br i1 %r8, label %cont.9, label %__L__1105
+  br i1 %r8, label %cont.9, label %__L__1121
 cont.9:
   %r10 = load i64, ptr %acc.ptr
   %r11 = load i64, ptr @_3Clong_3E
   store i64 %r11, ptr %acc.ptr
-  br label %__L__1106
-__L__1105:
+  br label %__L__1122
+__L__1121:
   %r12 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t2
   %r13 = load i64, ptr %t0
@@ -19305,17 +19467,17 @@ __L__1105:
   %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
-  br label %__L__1106
-__L__1106:
+  br label %__L__1122
+__L__1122:
   %r18 = load i64, ptr %acc.ptr
   store i64 %r18, ptr %acc.ptr
-  br label %__L__1104
-__L__1103:
+  br label %__L__1120
+__L__1119:
   %r19 = load i64, ptr %acc.ptr
   %r20 = load i64, ptr @_3Cundefined_3E
   store i64 %r20, ptr %acc.ptr
-  br label %__L__1104
-__L__1104:
+  br label %__L__1120
+__L__1120:
   %r21 = load i64, ptr %acc.ptr
   store i64 %r21, ptr %t3
   %r22 = load i64, ptr @_3Cexpr_3E
@@ -19326,7 +19488,7 @@ __L__1104:
   %r26 = zext i1 %r25 to i64
   store i64 %r26, ptr %acc.ptr
   %r27 = icmp ne i64 %r26, 0
-  br i1 %r27, label %cont.28, label %__L__1107
+  br i1 %r27, label %cont.28, label %__L__1123
 cont.28:
   %r29 = load i64, ptr %acc.ptr
   %r30 = load i64, ptr %arg0
@@ -19348,8 +19510,8 @@ cont.28:
   %r37 = inttoptr i64 %r33 to ptr
   %r41 = call i64 %r37(i64 %r38, i64 %r39, i64 %r40)
   store i64 %r41, ptr %acc.ptr
-  br label %__L__1108
-__L__1107:
+  br label %__L__1124
+__L__1123:
   %r42 = load i64, ptr %acc.ptr
   %r43 = load i64, ptr @_3Cfixed_3E
   store i64 %r43, ptr %t8
@@ -19359,7 +19521,7 @@ __L__1107:
   %r47 = zext i1 %r46 to i64
   store i64 %r47, ptr %acc.ptr
   %r48 = icmp ne i64 %r47, 0
-  br i1 %r48, label %cont.49, label %__L__1109
+  br i1 %r48, label %cont.49, label %__L__1125
 cont.49:
   %r50 = load i64, ptr %acc.ptr
   %r51 = load i64, ptr %arg0
@@ -19388,8 +19550,8 @@ cont.49:
   %r63 = inttoptr i64 %r59 to ptr
   %r67 = call i64 %r63(i64 %r64, i64 %r65, i64 %r66)
   store i64 %r67, ptr %acc.ptr
-  br label %__L__1110
-__L__1109:
+  br label %__L__1126
+__L__1125:
   %r68 = load i64, ptr %acc.ptr
   %r69 = load i64, ptr @_3Csubr_3E
   store i64 %r69, ptr %t14
@@ -19399,7 +19561,7 @@ __L__1109:
   %r73 = zext i1 %r72 to i64
   store i64 %r73, ptr %acc.ptr
   %r74 = icmp ne i64 %r73, 0
-  br i1 %r74, label %cont.75, label %__L__1111
+  br i1 %r74, label %cont.75, label %__L__1127
 cont.75:
   %r76 = load i64, ptr %acc.ptr
   %r77 = load i64, ptr %arg1
@@ -19423,8 +19585,8 @@ cont.75:
   %r87 = inttoptr i64 %r84 to ptr
   %r90 = call i64 %r87(i64 %r88, i64 %r89)
   store i64 %r90, ptr %acc.ptr
-  br label %__L__1112
-__L__1111:
+  br label %__L__1128
+__L__1127:
   %r91 = load i64, ptr %acc.ptr
   %r92 = load i64, ptr @applicators
   store i64 %r92, ptr %t19
@@ -19440,7 +19602,7 @@ __L__1111:
   %r99 = load i64, ptr %t22
   store i64 %r99, ptr %acc.ptr
   %r100 = icmp ne i64 %r99, 0
-  br i1 %r100, label %cont.101, label %__L__1113
+  br i1 %r100, label %cont.101, label %__L__1129
 cont.101:
   %r102 = load i64, ptr %acc.ptr
   store i64 1, ptr %t23
@@ -19449,13 +19611,13 @@ cont.101:
   %r105 = and i64 %r103, %r104
   store i64 %r105, ptr %acc.ptr
   %r106 = icmp ne i64 %r105, 0
-  br i1 %r106, label %cont.107, label %__L__1115
+  br i1 %r106, label %cont.107, label %__L__1131
 cont.107:
   %r108 = load i64, ptr %acc.ptr
   %r109 = load i64, ptr @_3Clong_3E
   store i64 %r109, ptr %acc.ptr
-  br label %__L__1116
-__L__1115:
+  br label %__L__1132
+__L__1131:
   %r110 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t24
   %r111 = load i64, ptr %t22
@@ -19464,17 +19626,17 @@ __L__1115:
   %r114 = getelementptr inbounds i64, ptr %r112, i64 %r113
   %r115 = load i64, ptr %r114
   store i64 %r115, ptr %acc.ptr
-  br label %__L__1116
-__L__1116:
+  br label %__L__1132
+__L__1132:
   %r116 = load i64, ptr %acc.ptr
   store i64 %r116, ptr %acc.ptr
-  br label %__L__1114
-__L__1113:
+  br label %__L__1130
+__L__1129:
   %r117 = load i64, ptr %acc.ptr
   %r118 = load i64, ptr @_3Cundefined_3E
   store i64 %r118, ptr %acc.ptr
-  br label %__L__1114
-__L__1114:
+  br label %__L__1130
+__L__1130:
   %r119 = load i64, ptr %acc.ptr
   store i64 %r119, ptr %t25
   %r120 = ptrtoint ptr @__L__128 to i64
@@ -19490,7 +19652,7 @@ __L__1114:
   %r127 = load i64, ptr %t26
   store i64 %r127, ptr %acc.ptr
   %r128 = icmp ne i64 %r127, 0
-  br i1 %r128, label %cont.129, label %__L__1117
+  br i1 %r128, label %cont.129, label %__L__1133
 cont.129:
   %r130 = load i64, ptr %acc.ptr
   %r131 = load i64, ptr %arg1
@@ -19546,10 +19708,10 @@ cont.129:
   %r164 = call i64 %r162(i64 %r163)
   %r165 = load i64, ptr %t34
   store i64 %r165, ptr %acc.ptr
-  br label %__L__1118
-__L__1117:
+  br label %__L__1134
+__L__1133:
   %r166 = load i64, ptr %acc.ptr
-  %r167 = ptrtoint ptr @__L__1119 to i64
+  %r167 = ptrtoint ptr @__L__1135 to i64
   store i64 %r167, ptr %t36
   %r168 = ptrtoint ptr @printf to i64
   %r169 = load i64, ptr %t36
@@ -19557,7 +19719,7 @@ __L__1117:
   %r171 = load i64, ptr %a0
   %r170 = inttoptr i64 %r168 to ptr
   %r172 = call i64 %r170(i64 %r171)
-  %r173 = ptrtoint ptr @__L__1120 to i64
+  %r173 = ptrtoint ptr @__L__1136 to i64
   store i64 %r173, ptr %t37
   %r174 = ptrtoint ptr @printf to i64
   %r175 = load i64, ptr %t37
@@ -19573,7 +19735,7 @@ __L__1117:
   %r183 = load i64, ptr %a0
   %r182 = inttoptr i64 %r180 to ptr
   %r184 = call i64 %r182(i64 %r183)
-  %r185 = ptrtoint ptr @__L__1121 to i64
+  %r185 = ptrtoint ptr @__L__1137 to i64
   store i64 %r185, ptr %t39
   %r186 = ptrtoint ptr @printf to i64
   %r187 = load i64, ptr %t39
@@ -19585,39 +19747,39 @@ __L__1117:
   %r192 = inttoptr i64 %r191 to ptr
   %r193 = call i64 %r192()
   store i64 %r193, ptr %acc.ptr
-  br label %__L__1118
-__L__1118:
+  br label %__L__1134
+__L__1134:
   %r194 = load i64, ptr %acc.ptr
   store i64 %r194, ptr %acc.ptr
-  br label %__L__1112
-__L__1112:
+  br label %__L__1128
+__L__1128:
   %r195 = load i64, ptr %acc.ptr
   store i64 %r195, ptr %acc.ptr
-  br label %__L__1110
-__L__1110:
+  br label %__L__1126
+__L__1126:
   %r196 = load i64, ptr %acc.ptr
   store i64 %r196, ptr %acc.ptr
-  br label %__L__1108
-__L__1108:
+  br label %__L__1124
+__L__1124:
   %r197 = load i64, ptr %acc.ptr
   ret i64 %r197
 }
 ; defn counter
 @counter = global i64 0
 ; defn k_apply_expr
-@__L__1123 = private constant [6 x i8] c"  A  \00"
-@__L__1124 = private constant [2 x i8] c" \00"
-@__L__1125 = private constant [2 x i8] c" \00"
-@__L__1133 = private constant [17 x i8] c"\0Aeval.k: error: \00"
-@__L__1134 = private constant [21 x i8] c"too few arguments: (\00"
-@__L__1135 = private constant [2 x i8] c" \00"
-@__L__1136 = private constant [2 x i8] c")\00"
-@__L__1137 = private constant [2 x i8] c"\0A\00"
-@__L__1148 = private constant [17 x i8] c"\0Aeval.k: error: \00"
-@__L__1149 = private constant [22 x i8] c"too many arguments: (\00"
-@__L__1150 = private constant [2 x i8] c" \00"
-@__L__1151 = private constant [2 x i8] c")\00"
-@__L__1152 = private constant [2 x i8] c"\0A\00"
+@__L__1139 = private constant [6 x i8] c"  A  \00"
+@__L__1140 = private constant [2 x i8] c" \00"
+@__L__1141 = private constant [2 x i8] c" \00"
+@__L__1149 = private constant [17 x i8] c"\0Aeval.k: error: \00"
+@__L__1150 = private constant [21 x i8] c"too few arguments: (\00"
+@__L__1151 = private constant [2 x i8] c" \00"
+@__L__1152 = private constant [2 x i8] c")\00"
+@__L__1153 = private constant [2 x i8] c"\0A\00"
+@__L__1164 = private constant [17 x i8] c"\0Aeval.k: error: \00"
+@__L__1165 = private constant [22 x i8] c"too many arguments: (\00"
+@__L__1166 = private constant [2 x i8] c" \00"
+@__L__1167 = private constant [2 x i8] c")\00"
+@__L__1168 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__89(i64 %p0, i64 %p1, i64 %p2) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -19723,10 +19885,10 @@ entry:
   %r3 = zext i1 %r2 to i64
   store i64 %r3, ptr %acc.ptr
   %r4 = icmp ne i64 %r3, 0
-  br i1 %r4, label %cont.5, label %__L__1122
+  br i1 %r4, label %cont.5, label %__L__1138
 cont.5:
   %r6 = load i64, ptr %acc.ptr
-  %r7 = ptrtoint ptr @__L__1123 to i64
+  %r7 = ptrtoint ptr @__L__1139 to i64
   store i64 %r7, ptr %t1
   %r8 = ptrtoint ptr @printf to i64
   %r9 = load i64, ptr %t1
@@ -19742,7 +19904,7 @@ cont.5:
   %r17 = load i64, ptr %a0
   %r16 = inttoptr i64 %r14 to ptr
   %r18 = call i64 %r16(i64 %r17)
-  %r19 = ptrtoint ptr @__L__1124 to i64
+  %r19 = ptrtoint ptr @__L__1140 to i64
   store i64 %r19, ptr %t3
   %r20 = ptrtoint ptr @printf to i64
   %r21 = load i64, ptr %t3
@@ -19758,7 +19920,7 @@ cont.5:
   %r29 = load i64, ptr %a0
   %r28 = inttoptr i64 %r26 to ptr
   %r30 = call i64 %r28(i64 %r29)
-  %r31 = ptrtoint ptr @__L__1125 to i64
+  %r31 = ptrtoint ptr @__L__1141 to i64
   store i64 %r31, ptr %t5
   %r32 = ptrtoint ptr @printf to i64
   %r33 = load i64, ptr %t5
@@ -19783,8 +19945,8 @@ cont.5:
   %r46 = inttoptr i64 %r44 to ptr
   %r48 = call i64 %r46(i64 %r47)
   store i64 %r48, ptr %acc.ptr
-  br label %__L__1122
-__L__1122:
+  br label %__L__1138
+__L__1138:
   %r49 = load i64, ptr %acc.ptr
   %r50 = load i64, ptr %arg1
   store i64 %r50, ptr %t8
@@ -19867,15 +20029,15 @@ __L__1122:
   %r101 = inttoptr i64 %r99 to ptr
   %r103 = call i64 %r101(i64 %r102)
   store i64 %r103, ptr %acc.ptr
-  br label %__L__1127
-__L__1126:
+  br label %__L__1143
+__L__1142:
   %r104 = load i64, ptr %acc.ptr
   %r105 = load i64, ptr %t8
   store i64 %r105, ptr %t26
   %r106 = load i64, ptr %t26
   store i64 %r106, ptr %acc.ptr
   %r107 = icmp ne i64 %r106, 0
-  br i1 %r107, label %cont.108, label %__L__1129
+  br i1 %r107, label %cont.108, label %__L__1145
 cont.108:
   %r109 = load i64, ptr %acc.ptr
   store i64 1, ptr %t27
@@ -19884,13 +20046,13 @@ cont.108:
   %r112 = and i64 %r110, %r111
   store i64 %r112, ptr %acc.ptr
   %r113 = icmp ne i64 %r112, 0
-  br i1 %r113, label %cont.114, label %__L__1131
+  br i1 %r113, label %cont.114, label %__L__1147
 cont.114:
   %r115 = load i64, ptr %acc.ptr
   %r116 = load i64, ptr @_3Clong_3E
   store i64 %r116, ptr %acc.ptr
-  br label %__L__1132
-__L__1131:
+  br label %__L__1148
+__L__1147:
   %r117 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t28
   %r118 = load i64, ptr %t26
@@ -19899,17 +20061,17 @@ __L__1131:
   %r121 = getelementptr inbounds i64, ptr %r119, i64 %r120
   %r122 = load i64, ptr %r121
   store i64 %r122, ptr %acc.ptr
-  br label %__L__1132
-__L__1132:
+  br label %__L__1148
+__L__1148:
   %r123 = load i64, ptr %acc.ptr
   store i64 %r123, ptr %acc.ptr
-  br label %__L__1130
-__L__1129:
+  br label %__L__1146
+__L__1145:
   %r124 = load i64, ptr %acc.ptr
   %r125 = load i64, ptr @_3Cundefined_3E
   store i64 %r125, ptr %acc.ptr
-  br label %__L__1130
-__L__1130:
+  br label %__L__1146
+__L__1146:
   %r126 = load i64, ptr %acc.ptr
   store i64 %r126, ptr %t29
   %r127 = load i64, ptr @_3Cpair_3E
@@ -19918,10 +20080,10 @@ __L__1130:
   %r130 = zext i1 %r129 to i64
   store i64 %r130, ptr %acc.ptr
   %r131 = icmp ne i64 %r130, 0
-  br i1 %r131, label %__L__1128, label %cont.132
+  br i1 %r131, label %__L__1144, label %cont.132
 cont.132:
   %r133 = load i64, ptr %acc.ptr
-  %r134 = ptrtoint ptr @__L__1133 to i64
+  %r134 = ptrtoint ptr @__L__1149 to i64
   store i64 %r134, ptr %t30
   %r135 = ptrtoint ptr @printf to i64
   %r136 = load i64, ptr %t30
@@ -19929,7 +20091,7 @@ cont.132:
   %r138 = load i64, ptr %a0
   %r137 = inttoptr i64 %r135 to ptr
   %r139 = call i64 %r137(i64 %r138)
-  %r140 = ptrtoint ptr @__L__1134 to i64
+  %r140 = ptrtoint ptr @__L__1150 to i64
   store i64 %r140, ptr %t31
   %r141 = ptrtoint ptr @printf to i64
   %r142 = load i64, ptr %t31
@@ -19945,7 +20107,7 @@ cont.132:
   %r150 = load i64, ptr %a0
   %r149 = inttoptr i64 %r147 to ptr
   %r151 = call i64 %r149(i64 %r150)
-  %r152 = ptrtoint ptr @__L__1135 to i64
+  %r152 = ptrtoint ptr @__L__1151 to i64
   store i64 %r152, ptr %t33
   %r153 = ptrtoint ptr @printf to i64
   %r154 = load i64, ptr %t33
@@ -19961,7 +20123,7 @@ cont.132:
   %r162 = load i64, ptr %a0
   %r161 = inttoptr i64 %r159 to ptr
   %r163 = call i64 %r161(i64 %r162)
-  %r164 = ptrtoint ptr @__L__1136 to i64
+  %r164 = ptrtoint ptr @__L__1152 to i64
   store i64 %r164, ptr %t35
   %r165 = ptrtoint ptr @printf to i64
   %r166 = load i64, ptr %t35
@@ -19969,7 +20131,7 @@ cont.132:
   %r168 = load i64, ptr %a0
   %r167 = inttoptr i64 %r165 to ptr
   %r169 = call i64 %r167(i64 %r168)
-  %r170 = ptrtoint ptr @__L__1137 to i64
+  %r170 = ptrtoint ptr @__L__1153 to i64
   store i64 %r170, ptr %t36
   %r171 = ptrtoint ptr @printf to i64
   %r172 = load i64, ptr %t36
@@ -19981,8 +20143,8 @@ cont.132:
   %r177 = inttoptr i64 %r176 to ptr
   %r178 = call i64 %r177()
   store i64 %r178, ptr %acc.ptr
-  br label %__L__1128
-__L__1128:
+  br label %__L__1144
+__L__1144:
   %r179 = load i64, ptr %acc.ptr
   %r180 = load i64, ptr %t23
   store i64 %r180, ptr %t37
@@ -20037,15 +20199,15 @@ __L__1128:
   %r216 = load i64, ptr %r215
   store i64 %r216, ptr %t8
   store i64 %r216, ptr %acc.ptr
-  br label %__L__1127
-__L__1127:
+  br label %__L__1143
+__L__1143:
   %r217 = load i64, ptr %acc.ptr
   %r218 = load i64, ptr %t15
   store i64 %r218, ptr %t47
   %r219 = load i64, ptr %t47
   store i64 %r219, ptr %acc.ptr
   %r220 = icmp ne i64 %r219, 0
-  br i1 %r220, label %cont.221, label %__L__1138
+  br i1 %r220, label %cont.221, label %__L__1154
 cont.221:
   %r222 = load i64, ptr %acc.ptr
   store i64 1, ptr %t48
@@ -20054,13 +20216,13 @@ cont.221:
   %r225 = and i64 %r223, %r224
   store i64 %r225, ptr %acc.ptr
   %r226 = icmp ne i64 %r225, 0
-  br i1 %r226, label %cont.227, label %__L__1140
+  br i1 %r226, label %cont.227, label %__L__1156
 cont.227:
   %r228 = load i64, ptr %acc.ptr
   %r229 = load i64, ptr @_3Clong_3E
   store i64 %r229, ptr %acc.ptr
-  br label %__L__1141
-__L__1140:
+  br label %__L__1157
+__L__1156:
   %r230 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t49
   %r231 = load i64, ptr %t47
@@ -20069,17 +20231,17 @@ __L__1140:
   %r234 = getelementptr inbounds i64, ptr %r232, i64 %r233
   %r235 = load i64, ptr %r234
   store i64 %r235, ptr %acc.ptr
-  br label %__L__1141
-__L__1141:
+  br label %__L__1157
+__L__1157:
   %r236 = load i64, ptr %acc.ptr
   store i64 %r236, ptr %acc.ptr
-  br label %__L__1139
-__L__1138:
+  br label %__L__1155
+__L__1154:
   %r237 = load i64, ptr %acc.ptr
   %r238 = load i64, ptr @_3Cundefined_3E
   store i64 %r238, ptr %acc.ptr
-  br label %__L__1139
-__L__1139:
+  br label %__L__1155
+__L__1155:
   %r239 = load i64, ptr %acc.ptr
   store i64 %r239, ptr %t50
   %r240 = load i64, ptr @_3Cpair_3E
@@ -20088,7 +20250,7 @@ __L__1139:
   %r243 = zext i1 %r242 to i64
   store i64 %r243, ptr %acc.ptr
   %r244 = icmp ne i64 %r243, 0
-  br i1 %r244, label %__L__1126, label %cont.245
+  br i1 %r244, label %__L__1142, label %cont.245
 cont.245:
   %r246 = load i64, ptr %acc.ptr
   %r247 = load i64, ptr %t15
@@ -20096,7 +20258,7 @@ cont.245:
   %r248 = load i64, ptr %t51
   store i64 %r248, ptr %acc.ptr
   %r249 = icmp ne i64 %r248, 0
-  br i1 %r249, label %cont.250, label %__L__1143
+  br i1 %r249, label %cont.250, label %__L__1159
 cont.250:
   %r251 = load i64, ptr %acc.ptr
   store i64 1, ptr %t52
@@ -20105,13 +20267,13 @@ cont.250:
   %r254 = and i64 %r252, %r253
   store i64 %r254, ptr %acc.ptr
   %r255 = icmp ne i64 %r254, 0
-  br i1 %r255, label %cont.256, label %__L__1145
+  br i1 %r255, label %cont.256, label %__L__1161
 cont.256:
   %r257 = load i64, ptr %acc.ptr
   %r258 = load i64, ptr @_3Clong_3E
   store i64 %r258, ptr %acc.ptr
-  br label %__L__1146
-__L__1145:
+  br label %__L__1162
+__L__1161:
   %r259 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t53
   %r260 = load i64, ptr %t51
@@ -20120,17 +20282,17 @@ __L__1145:
   %r263 = getelementptr inbounds i64, ptr %r261, i64 %r262
   %r264 = load i64, ptr %r263
   store i64 %r264, ptr %acc.ptr
-  br label %__L__1146
-__L__1146:
+  br label %__L__1162
+__L__1162:
   %r265 = load i64, ptr %acc.ptr
   store i64 %r265, ptr %acc.ptr
-  br label %__L__1144
-__L__1143:
+  br label %__L__1160
+__L__1159:
   %r266 = load i64, ptr %acc.ptr
   %r267 = load i64, ptr @_3Cundefined_3E
   store i64 %r267, ptr %acc.ptr
-  br label %__L__1144
-__L__1144:
+  br label %__L__1160
+__L__1160:
   %r268 = load i64, ptr %acc.ptr
   store i64 %r268, ptr %t54
   %r269 = load i64, ptr @_3Cvariable_3E
@@ -20139,7 +20301,7 @@ __L__1144:
   %r272 = zext i1 %r271 to i64
   store i64 %r272, ptr %acc.ptr
   %r273 = icmp ne i64 %r272, 0
-  br i1 %r273, label %cont.274, label %__L__1142
+  br i1 %r273, label %cont.274, label %__L__1158
 cont.274:
   %r275 = load i64, ptr %acc.ptr
   %r276 = load i64, ptr %t23
@@ -20172,16 +20334,16 @@ cont.274:
   %r294 = call i64 %r290(i64 %r291, i64 %r292, i64 %r293)
   store i64 0, ptr %t8
   store i64 0, ptr %acc.ptr
-  br label %__L__1142
-__L__1142:
+  br label %__L__1158
+__L__1158:
   %r295 = load i64, ptr %acc.ptr
   %r296 = load i64, ptr %t8
   store i64 %r296, ptr %acc.ptr
   %r297 = icmp ne i64 %r296, 0
-  br i1 %r297, label %cont.298, label %__L__1147
+  br i1 %r297, label %cont.298, label %__L__1163
 cont.298:
   %r299 = load i64, ptr %acc.ptr
-  %r300 = ptrtoint ptr @__L__1148 to i64
+  %r300 = ptrtoint ptr @__L__1164 to i64
   store i64 %r300, ptr %t61
   %r301 = ptrtoint ptr @printf to i64
   %r302 = load i64, ptr %t61
@@ -20189,7 +20351,7 @@ cont.298:
   %r304 = load i64, ptr %a0
   %r303 = inttoptr i64 %r301 to ptr
   %r305 = call i64 %r303(i64 %r304)
-  %r306 = ptrtoint ptr @__L__1149 to i64
+  %r306 = ptrtoint ptr @__L__1165 to i64
   store i64 %r306, ptr %t62
   %r307 = ptrtoint ptr @printf to i64
   %r308 = load i64, ptr %t62
@@ -20205,7 +20367,7 @@ cont.298:
   %r316 = load i64, ptr %a0
   %r315 = inttoptr i64 %r313 to ptr
   %r317 = call i64 %r315(i64 %r316)
-  %r318 = ptrtoint ptr @__L__1150 to i64
+  %r318 = ptrtoint ptr @__L__1166 to i64
   store i64 %r318, ptr %t64
   %r319 = ptrtoint ptr @printf to i64
   %r320 = load i64, ptr %t64
@@ -20221,7 +20383,7 @@ cont.298:
   %r328 = load i64, ptr %a0
   %r327 = inttoptr i64 %r325 to ptr
   %r329 = call i64 %r327(i64 %r328)
-  %r330 = ptrtoint ptr @__L__1151 to i64
+  %r330 = ptrtoint ptr @__L__1167 to i64
   store i64 %r330, ptr %t66
   %r331 = ptrtoint ptr @printf to i64
   %r332 = load i64, ptr %t66
@@ -20229,7 +20391,7 @@ cont.298:
   %r334 = load i64, ptr %a0
   %r333 = inttoptr i64 %r331 to ptr
   %r335 = call i64 %r333(i64 %r334)
-  %r336 = ptrtoint ptr @__L__1152 to i64
+  %r336 = ptrtoint ptr @__L__1168 to i64
   store i64 %r336, ptr %t67
   %r337 = ptrtoint ptr @printf to i64
   %r338 = load i64, ptr %t67
@@ -20241,8 +20403,8 @@ cont.298:
   %r343 = inttoptr i64 %r342 to ptr
   %r344 = call i64 %r343()
   store i64 %r344, ptr %acc.ptr
-  br label %__L__1147
-__L__1147:
+  br label %__L__1163
+__L__1163:
   %r345 = load i64, ptr %acc.ptr
   store i64 1, ptr %t68
   store i64 1, ptr %t69
@@ -20257,8 +20419,8 @@ __L__1147:
   %r354 = load i64, ptr %r353
   store i64 %r354, ptr %t11
   store i64 %r354, ptr %acc.ptr
-  br label %__L__1154
-__L__1153:
+  br label %__L__1170
+__L__1169:
   %r355 = load i64, ptr %acc.ptr
   store i64 0, ptr %t70
   %r356 = load i64, ptr %t11
@@ -20287,15 +20449,15 @@ __L__1153:
   %r373 = load i64, ptr %r372
   store i64 %r373, ptr %t11
   store i64 %r373, ptr %acc.ptr
-  br label %__L__1154
-__L__1154:
+  br label %__L__1170
+__L__1170:
   %r374 = load i64, ptr %acc.ptr
   %r375 = load i64, ptr %t11
   store i64 %r375, ptr %t74
   %r376 = load i64, ptr %t74
   store i64 %r376, ptr %acc.ptr
   %r377 = icmp ne i64 %r376, 0
-  br i1 %r377, label %cont.378, label %__L__1155
+  br i1 %r377, label %cont.378, label %__L__1171
 cont.378:
   %r379 = load i64, ptr %acc.ptr
   store i64 1, ptr %t75
@@ -20304,13 +20466,13 @@ cont.378:
   %r382 = and i64 %r380, %r381
   store i64 %r382, ptr %acc.ptr
   %r383 = icmp ne i64 %r382, 0
-  br i1 %r383, label %cont.384, label %__L__1157
+  br i1 %r383, label %cont.384, label %__L__1173
 cont.384:
   %r385 = load i64, ptr %acc.ptr
   %r386 = load i64, ptr @_3Clong_3E
   store i64 %r386, ptr %acc.ptr
-  br label %__L__1158
-__L__1157:
+  br label %__L__1174
+__L__1173:
   %r387 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t76
   %r388 = load i64, ptr %t74
@@ -20319,17 +20481,17 @@ __L__1157:
   %r391 = getelementptr inbounds i64, ptr %r389, i64 %r390
   %r392 = load i64, ptr %r391
   store i64 %r392, ptr %acc.ptr
-  br label %__L__1158
-__L__1158:
+  br label %__L__1174
+__L__1174:
   %r393 = load i64, ptr %acc.ptr
   store i64 %r393, ptr %acc.ptr
-  br label %__L__1156
-__L__1155:
+  br label %__L__1172
+__L__1171:
   %r394 = load i64, ptr %acc.ptr
   %r395 = load i64, ptr @_3Cundefined_3E
   store i64 %r395, ptr %acc.ptr
-  br label %__L__1156
-__L__1156:
+  br label %__L__1172
+__L__1172:
   %r396 = load i64, ptr %acc.ptr
   store i64 %r396, ptr %t77
   %r397 = load i64, ptr @_3Cpair_3E
@@ -20338,7 +20500,7 @@ __L__1156:
   %r400 = zext i1 %r399 to i64
   store i64 %r400, ptr %acc.ptr
   %r401 = icmp ne i64 %r400, 0
-  br i1 %r401, label %__L__1153, label %cont.402
+  br i1 %r401, label %__L__1169, label %cont.402
 cont.402:
   %r403 = load i64, ptr %acc.ptr
   %r404 = load i64, ptr %t13
@@ -20351,7 +20513,7 @@ cont.402:
   %r409 = load i64, ptr %r408
   store i64 %r409, ptr %acc.ptr
   %r410 = icmp ne i64 %r409, 0
-  br i1 %r410, label %cont.411, label %__L__1159
+  br i1 %r410, label %cont.411, label %__L__1175
 cont.411:
   %r412 = load i64, ptr %acc.ptr
   %r413 = load i64, ptr %arg2
@@ -20365,8 +20527,8 @@ cont.411:
   %r418 = getelementptr inbounds i64, ptr %r416, i64 %r417
   store i64 %r415, ptr %r418
   store i64 %r415, ptr %acc.ptr
-  br label %__L__1159
-__L__1159:
+  br label %__L__1175
+__L__1175:
   %r419 = load i64, ptr %acc.ptr
   %r420 = load i64, ptr %t8
   store i64 %r420, ptr %t83
@@ -20390,11 +20552,11 @@ __L__1159:
   ret i64 %r433
 }
 ; defn k_eval
-@__L__1161 = private constant [6 x i8] c"  E  \00"
-@__L__1162 = private constant [2 x i8] c" \00"
-@__L__1189 = private constant [17 x i8] c"\0Aeval.k: error: \00"
-@__L__1190 = private constant [16 x i8] c"symbol in eval?\00"
-@__L__1191 = private constant [2 x i8] c"\0A\00"
+@__L__1177 = private constant [6 x i8] c"  E  \00"
+@__L__1178 = private constant [2 x i8] c" \00"
+@__L__1205 = private constant [17 x i8] c"\0Aeval.k: error: \00"
+@__L__1206 = private constant [16 x i8] c"symbol in eval?\00"
+@__L__1207 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__90(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -20511,10 +20673,10 @@ entry:
   %r3 = zext i1 %r2 to i64
   store i64 %r3, ptr %acc.ptr
   %r4 = icmp ne i64 %r3, 0
-  br i1 %r4, label %cont.5, label %__L__1160
+  br i1 %r4, label %cont.5, label %__L__1176
 cont.5:
   %r6 = load i64, ptr %acc.ptr
-  %r7 = ptrtoint ptr @__L__1161 to i64
+  %r7 = ptrtoint ptr @__L__1177 to i64
   store i64 %r7, ptr %t1
   %r8 = ptrtoint ptr @printf to i64
   %r9 = load i64, ptr %t1
@@ -20530,7 +20692,7 @@ cont.5:
   %r17 = load i64, ptr %a0
   %r16 = inttoptr i64 %r14 to ptr
   %r18 = call i64 %r16(i64 %r17)
-  %r19 = ptrtoint ptr @__L__1162 to i64
+  %r19 = ptrtoint ptr @__L__1178 to i64
   store i64 %r19, ptr %t3
   %r20 = ptrtoint ptr @printf to i64
   %r21 = load i64, ptr %t3
@@ -20555,15 +20717,15 @@ cont.5:
   %r34 = inttoptr i64 %r32 to ptr
   %r36 = call i64 %r34(i64 %r35)
   store i64 %r36, ptr %acc.ptr
-  br label %__L__1160
-__L__1160:
+  br label %__L__1176
+__L__1176:
   %r37 = load i64, ptr %acc.ptr
   %r38 = load i64, ptr %arg0
   store i64 %r38, ptr %t6
   %r39 = load i64, ptr %t6
   store i64 %r39, ptr %acc.ptr
   %r40 = icmp ne i64 %r39, 0
-  br i1 %r40, label %cont.41, label %__L__1163
+  br i1 %r40, label %cont.41, label %__L__1179
 cont.41:
   %r42 = load i64, ptr %acc.ptr
   store i64 1, ptr %t7
@@ -20572,13 +20734,13 @@ cont.41:
   %r45 = and i64 %r43, %r44
   store i64 %r45, ptr %acc.ptr
   %r46 = icmp ne i64 %r45, 0
-  br i1 %r46, label %cont.47, label %__L__1165
+  br i1 %r46, label %cont.47, label %__L__1181
 cont.47:
   %r48 = load i64, ptr %acc.ptr
   %r49 = load i64, ptr @_3Clong_3E
   store i64 %r49, ptr %acc.ptr
-  br label %__L__1166
-__L__1165:
+  br label %__L__1182
+__L__1181:
   %r50 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t8
   %r51 = load i64, ptr %t6
@@ -20587,17 +20749,17 @@ __L__1165:
   %r54 = getelementptr inbounds i64, ptr %r52, i64 %r53
   %r55 = load i64, ptr %r54
   store i64 %r55, ptr %acc.ptr
-  br label %__L__1166
-__L__1166:
+  br label %__L__1182
+__L__1182:
   %r56 = load i64, ptr %acc.ptr
   store i64 %r56, ptr %acc.ptr
-  br label %__L__1164
-__L__1163:
+  br label %__L__1180
+__L__1179:
   %r57 = load i64, ptr %acc.ptr
   %r58 = load i64, ptr @_3Cundefined_3E
   store i64 %r58, ptr %acc.ptr
-  br label %__L__1164
-__L__1164:
+  br label %__L__1180
+__L__1180:
   %r59 = load i64, ptr %acc.ptr
   store i64 %r59, ptr %t9
   %r60 = load i64, ptr @_3Cundefined_3E
@@ -20608,13 +20770,13 @@ __L__1164:
   %r64 = zext i1 %r63 to i64
   store i64 %r64, ptr %acc.ptr
   %r65 = icmp ne i64 %r64, 0
-  br i1 %r65, label %cont.66, label %__L__1167
+  br i1 %r65, label %cont.66, label %__L__1183
 cont.66:
   %r67 = load i64, ptr %acc.ptr
   %r68 = load i64, ptr %arg0
   store i64 %r68, ptr %acc.ptr
-  br label %__L__1168
-__L__1167:
+  br label %__L__1184
+__L__1183:
   %r69 = load i64, ptr %acc.ptr
   %r70 = load i64, ptr @_3Clong_3E
   store i64 %r70, ptr %t11
@@ -20624,13 +20786,13 @@ __L__1167:
   %r74 = zext i1 %r73 to i64
   store i64 %r74, ptr %acc.ptr
   %r75 = icmp ne i64 %r74, 0
-  br i1 %r75, label %cont.76, label %__L__1169
+  br i1 %r75, label %cont.76, label %__L__1185
 cont.76:
   %r77 = load i64, ptr %acc.ptr
   %r78 = load i64, ptr %arg0
   store i64 %r78, ptr %acc.ptr
-  br label %__L__1170
-__L__1169:
+  br label %__L__1186
+__L__1185:
   %r79 = load i64, ptr %acc.ptr
   %r80 = load i64, ptr @_3Cstring_3E
   store i64 %r80, ptr %t12
@@ -20640,13 +20802,13 @@ __L__1169:
   %r84 = zext i1 %r83 to i64
   store i64 %r84, ptr %acc.ptr
   %r85 = icmp ne i64 %r84, 0
-  br i1 %r85, label %cont.86, label %__L__1171
+  br i1 %r85, label %cont.86, label %__L__1187
 cont.86:
   %r87 = load i64, ptr %acc.ptr
   %r88 = load i64, ptr %arg0
   store i64 %r88, ptr %acc.ptr
-  br label %__L__1172
-__L__1171:
+  br label %__L__1188
+__L__1187:
   %r89 = load i64, ptr %acc.ptr
   %r90 = load i64, ptr @_3Cvariable_3E
   store i64 %r90, ptr %t13
@@ -20656,7 +20818,7 @@ __L__1171:
   %r94 = zext i1 %r93 to i64
   store i64 %r94, ptr %acc.ptr
   %r95 = icmp ne i64 %r94, 0
-  br i1 %r95, label %cont.96, label %__L__1173
+  br i1 %r95, label %cont.96, label %__L__1189
 cont.96:
   %r97 = load i64, ptr %acc.ptr
   %r98 = load i64, ptr %arg0
@@ -20669,7 +20831,7 @@ cont.96:
   %r103 = call i64 %r101(i64 %r102)
   store i64 %r103, ptr %acc.ptr
   %r104 = icmp ne i64 %r103, 0
-  br i1 %r104, label %cont.105, label %__L__1175
+  br i1 %r104, label %cont.105, label %__L__1191
 cont.105:
   %r106 = load i64, ptr %acc.ptr
   %r107 = load i64, ptr %arg0
@@ -20681,8 +20843,8 @@ cont.105:
   %r111 = getelementptr inbounds i64, ptr %r109, i64 %r110
   %r112 = load i64, ptr %r111
   store i64 %r112, ptr %acc.ptr
-  br label %__L__1176
-__L__1175:
+  br label %__L__1192
+__L__1191:
   %r113 = load i64, ptr %acc.ptr
   store i64 1, ptr %t17
   %r114 = load i64, ptr %arg0
@@ -20725,8 +20887,8 @@ __L__1175:
   %r141 = sub i64 %r139, %r140
   store i64 %r141, ptr %t28
   store i64 %r141, ptr %acc.ptr
-  br label %__L__1178
-__L__1177:
+  br label %__L__1194
+__L__1193:
   %r142 = load i64, ptr %acc.ptr
   %r143 = load i64, ptr %arg1
   store i64 %r143, ptr %t29
@@ -20743,8 +20905,8 @@ __L__1177:
   %r151 = sub i64 %r149, %r150
   store i64 %r151, ptr %t28
   store i64 %r151, ptr %acc.ptr
-  br label %__L__1178
-__L__1178:
+  br label %__L__1194
+__L__1194:
   %r152 = load i64, ptr %acc.ptr
   %r153 = load i64, ptr %t28
   store i64 %r153, ptr %t32
@@ -20753,7 +20915,7 @@ __L__1178:
   %r156 = zext i1 %r155 to i64
   store i64 %r156, ptr %acc.ptr
   %r157 = icmp ne i64 %r156, 0
-  br i1 %r157, label %__L__1177, label %cont.158
+  br i1 %r157, label %__L__1193, label %cont.158
 cont.158:
   %r159 = load i64, ptr %acc.ptr
   %r160 = load i64, ptr %arg1
@@ -20787,12 +20949,12 @@ cont.158:
   %r177 = inttoptr i64 %r174 to ptr
   %r180 = call i64 %r177(i64 %r178, i64 %r179)
   store i64 %r180, ptr %acc.ptr
-  br label %__L__1176
-__L__1176:
+  br label %__L__1192
+__L__1192:
   %r181 = load i64, ptr %acc.ptr
   store i64 %r181, ptr %acc.ptr
-  br label %__L__1174
-__L__1173:
+  br label %__L__1190
+__L__1189:
   %r182 = load i64, ptr %acc.ptr
   %r183 = load i64, ptr @_3Cpair_3E
   store i64 %r183, ptr %t40
@@ -20802,7 +20964,7 @@ __L__1173:
   %r187 = zext i1 %r186 to i64
   store i64 %r187, ptr %acc.ptr
   %r188 = icmp ne i64 %r187, 0
-  br i1 %r188, label %cont.189, label %__L__1179
+  br i1 %r188, label %cont.189, label %__L__1195
 cont.189:
   %r190 = load i64, ptr %acc.ptr
   store i64 0, ptr %t41
@@ -20860,7 +21022,7 @@ cont.189:
   %r226 = load i64, ptr %t50
   store i64 %r226, ptr %acc.ptr
   %r227 = icmp ne i64 %r226, 0
-  br i1 %r227, label %cont.228, label %__L__1183
+  br i1 %r227, label %cont.228, label %__L__1199
 cont.228:
   %r229 = load i64, ptr %acc.ptr
   store i64 1, ptr %t51
@@ -20869,13 +21031,13 @@ cont.228:
   %r232 = and i64 %r230, %r231
   store i64 %r232, ptr %acc.ptr
   %r233 = icmp ne i64 %r232, 0
-  br i1 %r233, label %cont.234, label %__L__1185
+  br i1 %r233, label %cont.234, label %__L__1201
 cont.234:
   %r235 = load i64, ptr %acc.ptr
   %r236 = load i64, ptr @_3Clong_3E
   store i64 %r236, ptr %acc.ptr
-  br label %__L__1186
-__L__1185:
+  br label %__L__1202
+__L__1201:
   %r237 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t52
   %r238 = load i64, ptr %t50
@@ -20884,17 +21046,17 @@ __L__1185:
   %r241 = getelementptr inbounds i64, ptr %r239, i64 %r240
   %r242 = load i64, ptr %r241
   store i64 %r242, ptr %acc.ptr
-  br label %__L__1186
-__L__1186:
+  br label %__L__1202
+__L__1202:
   %r243 = load i64, ptr %acc.ptr
   store i64 %r243, ptr %acc.ptr
-  br label %__L__1184
-__L__1183:
+  br label %__L__1200
+__L__1199:
   %r244 = load i64, ptr %acc.ptr
   %r245 = load i64, ptr @_3Cundefined_3E
   store i64 %r245, ptr %acc.ptr
-  br label %__L__1184
-__L__1184:
+  br label %__L__1200
+__L__1200:
   %r246 = load i64, ptr %acc.ptr
   store i64 %r246, ptr %t53
   %r247 = load i64, ptr @_3Cfixed_3E
@@ -20903,7 +21065,7 @@ __L__1184:
   %r250 = zext i1 %r249 to i64
   store i64 %r250, ptr %acc.ptr
   %r251 = icmp ne i64 %r250, 0
-  br i1 %r251, label %cont.252, label %__L__1181
+  br i1 %r251, label %cont.252, label %__L__1197
 cont.252:
   %r253 = load i64, ptr %acc.ptr
   %r254 = load i64, ptr %t44
@@ -20937,8 +21099,8 @@ cont.252:
   %r270 = inttoptr i64 %r266 to ptr
   %r274 = call i64 %r270(i64 %r271, i64 %r272, i64 %r273)
   store i64 %r274, ptr %acc.ptr
-  br label %__L__1182
-__L__1181:
+  br label %__L__1198
+__L__1197:
   %r275 = load i64, ptr %acc.ptr
   store i64 1, ptr %t60
   %r276 = load i64, ptr %arg0
@@ -20996,8 +21158,8 @@ __L__1181:
   %r312 = call i64 %r310(i64 %r311)
   %r313 = load i64, ptr %t68
   store i64 %r313, ptr %acc.ptr
-  br label %__L__1182
-__L__1182:
+  br label %__L__1198
+__L__1198:
   %r314 = load i64, ptr %acc.ptr
   store i64 %r314, ptr %t44
   store i64 1, ptr %t70
@@ -21017,8 +21179,8 @@ __L__1182:
   %r324 = call i64 %r322(i64 %r323)
   %r325 = load i64, ptr %t71
   store i64 %r325, ptr %acc.ptr
-  br label %__L__1180
-__L__1179:
+  br label %__L__1196
+__L__1195:
   %r326 = load i64, ptr %acc.ptr
   %r327 = load i64, ptr @_3Csymbol_3E
   store i64 %r327, ptr %t73
@@ -21028,10 +21190,10 @@ __L__1179:
   %r331 = zext i1 %r330 to i64
   store i64 %r331, ptr %acc.ptr
   %r332 = icmp ne i64 %r331, 0
-  br i1 %r332, label %cont.333, label %__L__1187
+  br i1 %r332, label %cont.333, label %__L__1203
 cont.333:
   %r334 = load i64, ptr %acc.ptr
-  %r335 = ptrtoint ptr @__L__1189 to i64
+  %r335 = ptrtoint ptr @__L__1205 to i64
   store i64 %r335, ptr %t74
   %r336 = ptrtoint ptr @printf to i64
   %r337 = load i64, ptr %t74
@@ -21039,7 +21201,7 @@ cont.333:
   %r339 = load i64, ptr %a0
   %r338 = inttoptr i64 %r336 to ptr
   %r340 = call i64 %r338(i64 %r339)
-  %r341 = ptrtoint ptr @__L__1190 to i64
+  %r341 = ptrtoint ptr @__L__1206 to i64
   store i64 %r341, ptr %t75
   %r342 = ptrtoint ptr @printf to i64
   %r343 = load i64, ptr %t75
@@ -21047,7 +21209,7 @@ cont.333:
   %r345 = load i64, ptr %a0
   %r344 = inttoptr i64 %r342 to ptr
   %r346 = call i64 %r344(i64 %r345)
-  %r347 = ptrtoint ptr @__L__1191 to i64
+  %r347 = ptrtoint ptr @__L__1207 to i64
   store i64 %r347, ptr %t76
   %r348 = ptrtoint ptr @printf to i64
   %r349 = load i64, ptr %t76
@@ -21059,8 +21221,8 @@ cont.333:
   %r354 = inttoptr i64 %r353 to ptr
   %r355 = call i64 %r354()
   store i64 %r355, ptr %acc.ptr
-  br label %__L__1188
-__L__1187:
+  br label %__L__1204
+__L__1203:
   %r356 = load i64, ptr %acc.ptr
   %r357 = load i64, ptr @evaluators
   store i64 %r357, ptr %t77
@@ -21076,7 +21238,7 @@ __L__1187:
   %r364 = load i64, ptr %t80
   store i64 %r364, ptr %acc.ptr
   %r365 = icmp ne i64 %r364, 0
-  br i1 %r365, label %cont.366, label %__L__1192
+  br i1 %r365, label %cont.366, label %__L__1208
 cont.366:
   %r367 = load i64, ptr %acc.ptr
   store i64 1, ptr %t81
@@ -21085,13 +21247,13 @@ cont.366:
   %r370 = and i64 %r368, %r369
   store i64 %r370, ptr %acc.ptr
   %r371 = icmp ne i64 %r370, 0
-  br i1 %r371, label %cont.372, label %__L__1194
+  br i1 %r371, label %cont.372, label %__L__1210
 cont.372:
   %r373 = load i64, ptr %acc.ptr
   %r374 = load i64, ptr @_3Clong_3E
   store i64 %r374, ptr %acc.ptr
-  br label %__L__1195
-__L__1194:
+  br label %__L__1211
+__L__1210:
   %r375 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t82
   %r376 = load i64, ptr %t80
@@ -21100,17 +21262,17 @@ __L__1194:
   %r379 = getelementptr inbounds i64, ptr %r377, i64 %r378
   %r380 = load i64, ptr %r379
   store i64 %r380, ptr %acc.ptr
-  br label %__L__1195
-__L__1195:
+  br label %__L__1211
+__L__1211:
   %r381 = load i64, ptr %acc.ptr
   store i64 %r381, ptr %acc.ptr
-  br label %__L__1193
-__L__1192:
+  br label %__L__1209
+__L__1208:
   %r382 = load i64, ptr %acc.ptr
   %r383 = load i64, ptr @_3Cundefined_3E
   store i64 %r383, ptr %acc.ptr
-  br label %__L__1193
-__L__1193:
+  br label %__L__1209
+__L__1209:
   %r384 = load i64, ptr %acc.ptr
   store i64 %r384, ptr %t83
   %r385 = ptrtoint ptr @__L__128 to i64
@@ -21126,7 +21288,7 @@ __L__1193:
   %r392 = load i64, ptr %t84
   store i64 %r392, ptr %acc.ptr
   %r393 = icmp ne i64 %r392, 0
-  br i1 %r393, label %cont.394, label %__L__1196
+  br i1 %r393, label %cont.394, label %__L__1212
 cont.394:
   %r395 = load i64, ptr %acc.ptr
   %r396 = load i64, ptr %arg0
@@ -21208,33 +21370,33 @@ cont.394:
   %r445 = call i64 %r443(i64 %r444)
   %r446 = load i64, ptr %t97
   store i64 %r446, ptr %acc.ptr
-  br label %__L__1196
-__L__1196:
+  br label %__L__1212
+__L__1212:
   %r447 = load i64, ptr %acc.ptr
   %r448 = load i64, ptr %arg0
   store i64 %r448, ptr %acc.ptr
-  br label %__L__1188
-__L__1188:
+  br label %__L__1204
+__L__1204:
   %r449 = load i64, ptr %acc.ptr
   store i64 %r449, ptr %acc.ptr
-  br label %__L__1180
-__L__1180:
+  br label %__L__1196
+__L__1196:
   %r450 = load i64, ptr %acc.ptr
   store i64 %r450, ptr %acc.ptr
-  br label %__L__1174
-__L__1174:
+  br label %__L__1190
+__L__1190:
   %r451 = load i64, ptr %acc.ptr
   store i64 %r451, ptr %acc.ptr
-  br label %__L__1172
-__L__1172:
+  br label %__L__1188
+__L__1188:
   %r452 = load i64, ptr %acc.ptr
   store i64 %r452, ptr %acc.ptr
-  br label %__L__1170
-__L__1170:
+  br label %__L__1186
+__L__1186:
   %r453 = load i64, ptr %acc.ptr
   store i64 %r453, ptr %acc.ptr
-  br label %__L__1168
-__L__1168:
+  br label %__L__1184
+__L__1184:
   %r454 = load i64, ptr %acc.ptr
   ret i64 %r454
 }
@@ -21306,8 +21468,8 @@ entry:
   %r11 = call i64 %r9(i64 %r10)
   store i64 %r11, ptr %t4
   store i64 %r11, ptr %acc.ptr
-  br label %__L__1198
-__L__1197:
+  br label %__L__1214
+__L__1213:
   %r12 = load i64, ptr %acc.ptr
   %r13 = load i64, ptr %t2
   store i64 %r13, ptr %t5
@@ -21338,7 +21500,7 @@ __L__1197:
   %r31 = zext i1 %r30 to i64
   store i64 %r31, ptr %acc.ptr
   %r32 = icmp ne i64 %r31, 0
-  br i1 %r32, label %cont.33, label %__L__1199
+  br i1 %r32, label %cont.33, label %__L__1215
 cont.33:
   %r34 = load i64, ptr %acc.ptr
   %r35 = load i64, ptr %t7
@@ -21354,12 +21516,12 @@ cont.33:
   store i64 %r38, ptr %r41
   %r42 = load i64, ptr %t7
   store i64 %r42, ptr %acc.ptr
-  br label %__L__1200
-__L__1199:
+  br label %__L__1216
+__L__1215:
   %r43 = load i64, ptr %acc.ptr
   store i64 %r43, ptr %acc.ptr
-  br label %__L__1198
-__L__1198:
+  br label %__L__1214
+__L__1214:
   %r44 = load i64, ptr %acc.ptr
   store i64 0, ptr %t14
   store i64 1, ptr %t15
@@ -21372,7 +21534,7 @@ __L__1198:
   %r50 = zext i1 %r49 to i64
   store i64 %r50, ptr %acc.ptr
   %r51 = icmp ne i64 %r50, 0
-  br i1 %r51, label %__L__1197, label %cont.52
+  br i1 %r51, label %__L__1213, label %cont.52
 cont.52:
   %r53 = load i64, ptr %acc.ptr
   store i64 1, ptr %t16
@@ -21464,13 +21626,13 @@ cont.52:
   %r111 = call i64 %r109(i64 %r110)
   %r112 = load i64, ptr %t33
   store i64 %r112, ptr %acc.ptr
-  br label %__L__1200
-__L__1200:
+  br label %__L__1216
+__L__1216:
   %r113 = load i64, ptr %acc.ptr
   ret i64 %r113
 }
 ; defn k_env_lookup
-@__L__1203 = private constant [23 x i8] c"undefined variable: %s\00"
+@__L__1219 = private constant [23 x i8] c"undefined variable: %s\00"
 define i64 @__L__92(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -21506,7 +21668,7 @@ entry:
   %r9 = load i64, ptr %t2
   store i64 %r9, ptr %acc.ptr
   %r10 = icmp ne i64 %r9, 0
-  br i1 %r10, label %cont.11, label %__L__1201
+  br i1 %r10, label %cont.11, label %__L__1217
 cont.11:
   %r12 = load i64, ptr %acc.ptr
   %r13 = load i64, ptr %t2
@@ -21518,10 +21680,10 @@ cont.11:
   %r17 = getelementptr inbounds i64, ptr %r15, i64 %r16
   %r18 = load i64, ptr %r17
   store i64 %r18, ptr %acc.ptr
-  br label %__L__1202
-__L__1201:
+  br label %__L__1218
+__L__1217:
   %r19 = load i64, ptr %acc.ptr
-  %r20 = ptrtoint ptr @__L__1203 to i64
+  %r20 = ptrtoint ptr @__L__1219 to i64
   store i64 %r20, ptr %t5
   %r21 = load i64, ptr %arg1
   store i64 %r21, ptr %t6
@@ -21542,8 +21704,8 @@ __L__1201:
   %r30 = inttoptr i64 %r27 to ptr
   %r33 = call i64 %r30(i64 %r31, i64 %r32)
   store i64 %r33, ptr %acc.ptr
-  br label %__L__1202
-__L__1202:
+  br label %__L__1218
+__L__1218:
   %r34 = load i64, ptr %acc.ptr
   ret i64 %r34
 }
@@ -21574,8 +21736,8 @@ entry:
   %t16 = alloca i64
   %a0 = alloca i64
   store i64 0, ptr %acc.ptr
-  br label %__L__1205
-__L__1204:
+  br label %__L__1221
+__L__1220:
   %r0 = load i64, ptr %acc.ptr
   %r1 = load i64, ptr %arg0
   store i64 %r1, ptr %t0
@@ -21605,8 +21767,8 @@ __L__1204:
   %r18 = load i64, ptr %r17
   store i64 %r18, ptr %t7
   store i64 %r18, ptr %acc.ptr
-  br label %__L__1207
-__L__1206:
+  br label %__L__1223
+__L__1222:
   %r19 = load i64, ptr %acc.ptr
   %r20 = load i64, ptr %t4
   store i64 %r20, ptr %t8
@@ -21631,17 +21793,17 @@ __L__1206:
   %r35 = zext i1 %r34 to i64
   store i64 %r35, ptr %acc.ptr
   %r36 = icmp ne i64 %r35, 0
-  br i1 %r36, label %cont.37, label %__L__1208
+  br i1 %r36, label %cont.37, label %__L__1224
 cont.37:
   %r38 = load i64, ptr %acc.ptr
   %r39 = load i64, ptr %t9
   store i64 %r39, ptr %acc.ptr
-  br label %__L__1209
-__L__1208:
+  br label %__L__1225
+__L__1224:
   %r40 = load i64, ptr %acc.ptr
   store i64 %r40, ptr %acc.ptr
-  br label %__L__1207
-__L__1207:
+  br label %__L__1223
+__L__1223:
   %r41 = load i64, ptr %acc.ptr
   store i64 1, ptr %t13
   %r42 = load i64, ptr %t4
@@ -21654,7 +21816,7 @@ __L__1207:
   %r47 = zext i1 %r46 to i64
   store i64 %r47, ptr %acc.ptr
   %r48 = icmp ne i64 %r47, 0
-  br i1 %r48, label %__L__1206, label %cont.49
+  br i1 %r48, label %__L__1222, label %cont.49
 cont.49:
   %r50 = load i64, ptr %acc.ptr
   %r51 = load i64, ptr %arg0
@@ -21667,23 +21829,23 @@ cont.49:
   %r56 = load i64, ptr %r55
   store i64 %r56, ptr %arg0
   store i64 %r56, ptr %acc.ptr
-  br label %__L__1205
-__L__1205:
+  br label %__L__1221
+__L__1221:
   %r57 = load i64, ptr %acc.ptr
   %r58 = load i64, ptr %arg0
   store i64 %r58, ptr %acc.ptr
   %r59 = icmp ne i64 %r58, 0
-  br i1 %r59, label %__L__1204, label %cont.60
+  br i1 %r59, label %__L__1220, label %cont.60
 cont.60:
   %r61 = load i64, ptr %acc.ptr
   store i64 %r61, ptr %acc.ptr
-  br label %__L__1209
-__L__1209:
+  br label %__L__1225
+__L__1225:
   %r62 = load i64, ptr %acc.ptr
   ret i64 %r62
 }
 ; defn read_quote
-@__L__1211 = private constant [33 x i8] c"EOF while reading quoted literal\00"
+@__L__1227 = private constant [33 x i8] c"EOF while reading quoted literal\00"
 define i64 @__L__94(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -21721,10 +21883,10 @@ entry:
   %r10 = zext i1 %r9 to i64
   store i64 %r10, ptr %acc.ptr
   %r11 = icmp ne i64 %r10, 0
-  br i1 %r11, label %cont.12, label %__L__1210
+  br i1 %r11, label %cont.12, label %__L__1226
 cont.12:
   %r13 = load i64, ptr %acc.ptr
-  %r14 = ptrtoint ptr @__L__1211 to i64
+  %r14 = ptrtoint ptr @__L__1227 to i64
   store i64 %r14, ptr %t3
   %r15 = ptrtoint ptr @__L__170 to i64
   %r16 = load i64, ptr %t3
@@ -21733,8 +21895,8 @@ cont.12:
   %r17 = inttoptr i64 %r15 to ptr
   %r19 = call i64 %r17(i64 %r18)
   store i64 %r19, ptr %acc.ptr
-  br label %__L__1210
-__L__1210:
+  br label %__L__1226
+__L__1226:
   %r20 = load i64, ptr %acc.ptr
   %r21 = ptrtoint ptr %t1 to i64
   store i64 %r21, ptr %t4
@@ -21785,7 +21947,7 @@ __L__1210:
   ret i64 %r51
 }
 ; defn read_list
-@__L__1218 = private constant [50 x i8] c"missing closing '%c' delimiter while reading list\00"
+@__L__1234 = private constant [50 x i8] c"missing closing '%c' delimiter while reading list\00"
 define i64 @__L__95(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -21854,8 +22016,8 @@ entry:
   %r17 = inttoptr i64 %r15 to ptr
   %r19 = call i64 %r17(i64 %r18)
   store i64 %r19, ptr %acc.ptr
-  br label %__L__1213
-__L__1212:
+  br label %__L__1229
+__L__1228:
   %r20 = load i64, ptr %acc.ptr
   %r21 = load i64, ptr %t4
   store i64 %r21, ptr %t7
@@ -21881,8 +22043,8 @@ __L__1212:
   store i64 %r31, ptr %r34
   store i64 %r31, ptr %t3
   store i64 %r31, ptr %acc.ptr
-  br label %__L__1213
-__L__1213:
+  br label %__L__1229
+__L__1229:
   %r35 = load i64, ptr %acc.ptr
   %r36 = load i64, ptr %arg1
   store i64 %r36, ptr %t11
@@ -21900,7 +22062,7 @@ __L__1213:
   %r45 = zext i1 %r44 to i64
   store i64 %r45, ptr %acc.ptr
   %r46 = icmp ne i64 %r45, 0
-  br i1 %r46, label %cont.47, label %__L__1214
+  br i1 %r46, label %cont.47, label %__L__1230
 cont.47:
   %r48 = load i64, ptr %acc.ptr
   %r49 = load i64, ptr %t4
@@ -21910,12 +22072,12 @@ cont.47:
   %r52 = icmp ne i64 %r50, %r51
   %r53 = zext i1 %r52 to i64
   store i64 %r53, ptr %acc.ptr
-  br label %__L__1214
-__L__1214:
+  br label %__L__1230
+__L__1230:
   %r54 = load i64, ptr %acc.ptr
   store i64 %r54, ptr %acc.ptr
   %r55 = icmp ne i64 %r54, 0
-  br i1 %r55, label %__L__1212, label %cont.56
+  br i1 %r55, label %__L__1228, label %cont.56
 cont.56:
   %r57 = load i64, ptr %acc.ptr
   %r58 = load i64, ptr %t4
@@ -21926,7 +22088,7 @@ cont.56:
   %r62 = zext i1 %r61 to i64
   store i64 %r62, ptr %acc.ptr
   %r63 = icmp ne i64 %r62, 0
-  br i1 %r63, label %cont.64, label %__L__1215
+  br i1 %r63, label %cont.64, label %__L__1231
 cont.64:
   %r65 = load i64, ptr %acc.ptr
   %r66 = load i64, ptr %arg1
@@ -21946,8 +22108,8 @@ cont.64:
   %r76 = getelementptr inbounds i64, ptr %r74, i64 %r75
   store i64 %r73, ptr %r76
   store i64 %r73, ptr %acc.ptr
-  br label %__L__1215
-__L__1215:
+  br label %__L__1231
+__L__1231:
   %r77 = load i64, ptr %acc.ptr
   store i64 %r77, ptr %t18
   %r78 = ptrtoint ptr %t4 to i64
@@ -21984,7 +22146,7 @@ __L__1215:
   %r101 = zext i1 %r100 to i64
   store i64 %r101, ptr %acc.ptr
   %r102 = icmp ne i64 %r101, 0
-  br i1 %r102, label %cont.103, label %__L__1216
+  br i1 %r102, label %cont.103, label %__L__1232
 cont.103:
   %r104 = load i64, ptr %acc.ptr
   store i64 1, ptr %t24
@@ -21994,10 +22156,10 @@ cont.103:
   %r108 = getelementptr inbounds i64, ptr %r106, i64 %r107
   %r109 = load i64, ptr %r108
   store i64 %r109, ptr %acc.ptr
-  br label %__L__1217
-__L__1216:
+  br label %__L__1233
+__L__1232:
   %r110 = load i64, ptr %acc.ptr
-  %r111 = ptrtoint ptr @__L__1218 to i64
+  %r111 = ptrtoint ptr @__L__1234 to i64
   store i64 %r111, ptr %t25
   %r112 = load i64, ptr %arg0
   store i64 %r112, ptr %t26
@@ -22011,8 +22173,8 @@ __L__1216:
   %r116 = inttoptr i64 %r113 to ptr
   %r119 = call i64 %r116(i64 %r117, i64 %r118)
   store i64 %r119, ptr %acc.ptr
-  br label %__L__1217
-__L__1217:
+  br label %__L__1233
+__L__1233:
   %r120 = load i64, ptr %acc.ptr
   ret i64 %r120
 }
@@ -22076,7 +22238,7 @@ entry:
   ret i64 %r0
 }
 ; defn unexpected_char
-@__L__1219 = private constant [25 x i8] c"unexpected character: %c\00"
+@__L__1235 = private constant [25 x i8] c"unexpected character: %c\00"
 define i64 @__L__99(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -22086,7 +22248,7 @@ entry:
   %t1 = alloca i64
   %a0 = alloca i64
   %a1 = alloca i64
-  %r0 = ptrtoint ptr @__L__1219 to i64
+  %r0 = ptrtoint ptr @__L__1235 to i64
   store i64 %r0, ptr %t0
   %r1 = load i64, ptr %arg0
   store i64 %r1, ptr %t1
@@ -22102,7 +22264,7 @@ entry:
   ret i64 %r8
 }
 ; defn _k_read
-@__L__1264 = private constant [22 x i8] c"illegal character: %c\00"
+@__L__1280 = private constant [22 x i8] c"illegal character: %c\00"
 define i64 @__L__100(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -22194,8 +22356,8 @@ entry:
   %a0 = alloca i64
   %a1 = alloca i64
   store i64 0, ptr %acc.ptr
-  br label %__L__1221
-__L__1220:
+  br label %__L__1237
+__L__1236:
   %r0 = load i64, ptr %acc.ptr
   store i64 32, ptr %t0
   store i64 32, ptr %t1
@@ -22222,12 +22384,12 @@ __L__1220:
   %r16 = call i64 %r14(i64 %r15)
   store i64 %r16, ptr %acc.ptr
   %r17 = icmp ne i64 %r16, 0
-  br i1 %r17, label %cont.18, label %__L__1222
+  br i1 %r17, label %cont.18, label %__L__1238
 cont.18:
   %r19 = load i64, ptr %acc.ptr
   store i64 0, ptr %acc.ptr
-  br label %__L__1223
-__L__1222:
+  br label %__L__1239
+__L__1238:
   %r20 = load i64, ptr %acc.ptr
   %r21 = load i64, ptr %t3
   store i64 %r21, ptr %t5
@@ -22236,7 +22398,7 @@ __L__1222:
   %r24 = zext i1 %r23 to i64
   store i64 %r24, ptr %acc.ptr
   %r25 = icmp ne i64 %r24, 0
-  br i1 %r25, label %cont.26, label %__L__1224
+  br i1 %r25, label %cont.26, label %__L__1240
 cont.26:
   %r27 = load i64, ptr %acc.ptr
   store i64 32, ptr %t6
@@ -22273,8 +22435,8 @@ cont.26:
   %r48 = inttoptr i64 %r46 to ptr
   %r50 = call i64 %r48(i64 %r49)
   store i64 %r50, ptr %acc.ptr
-  br label %__L__1226
-__L__1224:
+  br label %__L__1242
+__L__1240:
   %r51 = load i64, ptr %acc.ptr
   %r52 = load i64, ptr %t3
   store i64 %r52, ptr %t12
@@ -22283,7 +22445,7 @@ __L__1224:
   %r55 = zext i1 %r54 to i64
   store i64 %r55, ptr %acc.ptr
   %r56 = icmp ne i64 %r55, 0
-  br i1 %r56, label %cont.57, label %__L__1227
+  br i1 %r56, label %cont.57, label %__L__1243
 cont.57:
   %r58 = load i64, ptr %acc.ptr
   store i64 32, ptr %t13
@@ -22321,7 +22483,7 @@ cont.57:
   %r81 = call i64 %r79(i64 %r80)
   store i64 %r81, ptr %acc.ptr
   %r82 = icmp ne i64 %r81, 0
-  br i1 %r82, label %cont.83, label %__L__1229
+  br i1 %r82, label %cont.83, label %__L__1245
 cont.83:
   %r84 = load i64, ptr %acc.ptr
   %r85 = load i64, ptr %t3
@@ -22338,8 +22500,8 @@ cont.83:
   %r90 = inttoptr i64 %r87 to ptr
   %r93 = call i64 %r90(i64 %r91, i64 %r92)
   store i64 %r93, ptr %acc.ptr
-  br label %__L__1230
-__L__1229:
+  br label %__L__1246
+__L__1245:
   %r94 = load i64, ptr %acc.ptr
   %r95 = load i64, ptr %t3
   store i64 %r95, ptr %t21
@@ -22355,12 +22517,12 @@ __L__1229:
   %r100 = inttoptr i64 %r97 to ptr
   %r103 = call i64 %r100(i64 %r101, i64 %r102)
   store i64 %r103, ptr %acc.ptr
-  br label %__L__1230
-__L__1230:
+  br label %__L__1246
+__L__1246:
   %r104 = load i64, ptr %acc.ptr
   store i64 %r104, ptr %acc.ptr
-  br label %__L__1226
-__L__1227:
+  br label %__L__1242
+__L__1243:
   %r105 = load i64, ptr %acc.ptr
   %r106 = load i64, ptr %t3
   store i64 %r106, ptr %t23
@@ -22369,7 +22531,7 @@ __L__1227:
   %r109 = zext i1 %r108 to i64
   store i64 %r109, ptr %acc.ptr
   %r110 = icmp ne i64 %r109, 0
-  br i1 %r110, label %cont.111, label %__L__1231
+  br i1 %r110, label %cont.111, label %__L__1247
 cont.111:
   %r112 = load i64, ptr %acc.ptr
   %r113 = load i64, ptr @s__quote
@@ -22386,8 +22548,8 @@ cont.111:
   %r118 = inttoptr i64 %r115 to ptr
   %r121 = call i64 %r118(i64 %r119, i64 %r120)
   store i64 %r121, ptr %acc.ptr
-  br label %__L__1226
-__L__1231:
+  br label %__L__1242
+__L__1247:
   %r122 = load i64, ptr %acc.ptr
   %r123 = load i64, ptr %t3
   store i64 %r123, ptr %t26
@@ -22396,7 +22558,7 @@ __L__1231:
   %r126 = zext i1 %r125 to i64
   store i64 %r126, ptr %acc.ptr
   %r127 = icmp ne i64 %r126, 0
-  br i1 %r127, label %cont.128, label %__L__1233
+  br i1 %r127, label %cont.128, label %__L__1249
 cont.128:
   %r129 = load i64, ptr %acc.ptr
   %r130 = load i64, ptr @s__quasiquote
@@ -22413,8 +22575,8 @@ cont.128:
   %r135 = inttoptr i64 %r132 to ptr
   %r138 = call i64 %r135(i64 %r136, i64 %r137)
   store i64 %r138, ptr %acc.ptr
-  br label %__L__1226
-__L__1233:
+  br label %__L__1242
+__L__1249:
   %r139 = load i64, ptr %acc.ptr
   %r140 = load i64, ptr %t3
   store i64 %r140, ptr %t29
@@ -22423,7 +22585,7 @@ __L__1233:
   %r143 = zext i1 %r142 to i64
   store i64 %r143, ptr %acc.ptr
   %r144 = icmp ne i64 %r143, 0
-  br i1 %r144, label %cont.145, label %__L__1235
+  br i1 %r144, label %cont.145, label %__L__1251
 cont.145:
   %r146 = load i64, ptr %acc.ptr
   store i64 32, ptr %t30
@@ -22448,7 +22610,7 @@ cont.145:
   %r160 = zext i1 %r159 to i64
   store i64 %r160, ptr %acc.ptr
   %r161 = icmp ne i64 %r160, 0
-  br i1 %r161, label %cont.162, label %__L__1237
+  br i1 %r161, label %cont.162, label %__L__1253
 cont.162:
   %r163 = load i64, ptr %acc.ptr
   %r164 = load i64, ptr @s__unquote__splicing
@@ -22465,8 +22627,8 @@ cont.162:
   %r169 = inttoptr i64 %r166 to ptr
   %r172 = call i64 %r169(i64 %r170, i64 %r171)
   store i64 %r172, ptr %acc.ptr
-  br label %__L__1238
-__L__1237:
+  br label %__L__1254
+__L__1253:
   %r173 = load i64, ptr %acc.ptr
   %r174 = load i64, ptr %t33
   store i64 %r174, ptr %t37
@@ -22495,12 +22657,12 @@ __L__1237:
   %r188 = inttoptr i64 %r185 to ptr
   %r191 = call i64 %r188(i64 %r189, i64 %r190)
   store i64 %r191, ptr %acc.ptr
-  br label %__L__1238
-__L__1238:
+  br label %__L__1254
+__L__1254:
   %r192 = load i64, ptr %acc.ptr
   store i64 %r192, ptr %acc.ptr
-  br label %__L__1226
-__L__1235:
+  br label %__L__1242
+__L__1251:
   %r193 = load i64, ptr %acc.ptr
   %r194 = load i64, ptr %t3
   store i64 %r194, ptr %t41
@@ -22512,7 +22674,7 @@ __L__1235:
   %r199 = call i64 %r197(i64 %r198)
   store i64 %r199, ptr %acc.ptr
   %r200 = icmp ne i64 %r199, 0
-  br i1 %r200, label %cont.201, label %__L__1239
+  br i1 %r200, label %cont.201, label %__L__1255
 cont.201:
   %r202 = load i64, ptr %acc.ptr
   %r203 = load i64, ptr %t3
@@ -22529,8 +22691,8 @@ cont.201:
   %r208 = inttoptr i64 %r205 to ptr
   %r211 = call i64 %r208(i64 %r209, i64 %r210)
   store i64 %r211, ptr %acc.ptr
-  br label %__L__1226
-__L__1239:
+  br label %__L__1242
+__L__1255:
   %r212 = load i64, ptr %acc.ptr
   %r213 = load i64, ptr %t3
   store i64 %r213, ptr %t44
@@ -22539,7 +22701,7 @@ __L__1239:
   %r216 = zext i1 %r215 to i64
   store i64 %r216, ptr %acc.ptr
   %r217 = icmp ne i64 %r216, 0
-  br i1 %r217, label %cont.218, label %__L__1241
+  br i1 %r217, label %cont.218, label %__L__1257
 cont.218:
   %r219 = load i64, ptr %acc.ptr
   store i64 41, ptr %t45
@@ -22555,8 +22717,8 @@ cont.218:
   %r224 = inttoptr i64 %r221 to ptr
   %r227 = call i64 %r224(i64 %r225, i64 %r226)
   store i64 %r227, ptr %acc.ptr
-  br label %__L__1226
-__L__1241:
+  br label %__L__1242
+__L__1257:
   %r228 = load i64, ptr %acc.ptr
   %r229 = load i64, ptr %t3
   store i64 %r229, ptr %t47
@@ -22565,7 +22727,7 @@ __L__1241:
   %r232 = zext i1 %r231 to i64
   store i64 %r232, ptr %acc.ptr
   %r233 = icmp ne i64 %r232, 0
-  br i1 %r233, label %cont.234, label %__L__1243
+  br i1 %r233, label %cont.234, label %__L__1259
 cont.234:
   %r235 = load i64, ptr %acc.ptr
   %r236 = load i64, ptr %t3
@@ -22590,8 +22752,8 @@ cont.234:
   %r248 = inttoptr i64 %r246 to ptr
   %r250 = call i64 %r248(i64 %r249)
   store i64 %r250, ptr %acc.ptr
-  br label %__L__1226
-__L__1243:
+  br label %__L__1242
+__L__1259:
   %r251 = load i64, ptr %acc.ptr
   %r252 = load i64, ptr %t3
   store i64 %r252, ptr %t51
@@ -22600,7 +22762,7 @@ __L__1243:
   %r255 = zext i1 %r254 to i64
   store i64 %r255, ptr %acc.ptr
   %r256 = icmp ne i64 %r255, 0
-  br i1 %r256, label %cont.257, label %__L__1245
+  br i1 %r256, label %cont.257, label %__L__1261
 cont.257:
   %r258 = load i64, ptr %acc.ptr
   store i64 93, ptr %t52
@@ -22616,8 +22778,8 @@ cont.257:
   %r263 = inttoptr i64 %r260 to ptr
   %r266 = call i64 %r263(i64 %r264, i64 %r265)
   store i64 %r266, ptr %acc.ptr
-  br label %__L__1226
-__L__1245:
+  br label %__L__1242
+__L__1261:
   %r267 = load i64, ptr %acc.ptr
   %r268 = load i64, ptr %t3
   store i64 %r268, ptr %t54
@@ -22626,7 +22788,7 @@ __L__1245:
   %r271 = zext i1 %r270 to i64
   store i64 %r271, ptr %acc.ptr
   %r272 = icmp ne i64 %r271, 0
-  br i1 %r272, label %cont.273, label %__L__1247
+  br i1 %r272, label %cont.273, label %__L__1263
 cont.273:
   %r274 = load i64, ptr %acc.ptr
   %r275 = load i64, ptr %t3
@@ -22651,8 +22813,8 @@ cont.273:
   %r287 = inttoptr i64 %r285 to ptr
   %r289 = call i64 %r287(i64 %r288)
   store i64 %r289, ptr %acc.ptr
-  br label %__L__1226
-__L__1247:
+  br label %__L__1242
+__L__1263:
   %r290 = load i64, ptr %acc.ptr
   %r291 = load i64, ptr %t3
   store i64 %r291, ptr %t58
@@ -22661,7 +22823,7 @@ __L__1247:
   %r294 = zext i1 %r293 to i64
   store i64 %r294, ptr %acc.ptr
   %r295 = icmp ne i64 %r294, 0
-  br i1 %r295, label %cont.296, label %__L__1249
+  br i1 %r295, label %cont.296, label %__L__1265
 cont.296:
   %r297 = load i64, ptr %acc.ptr
   store i64 125, ptr %t59
@@ -22677,8 +22839,8 @@ cont.296:
   %r302 = inttoptr i64 %r299 to ptr
   %r305 = call i64 %r302(i64 %r303, i64 %r304)
   store i64 %r305, ptr %acc.ptr
-  br label %__L__1226
-__L__1249:
+  br label %__L__1242
+__L__1265:
   %r306 = load i64, ptr %acc.ptr
   %r307 = load i64, ptr %t3
   store i64 %r307, ptr %t61
@@ -22687,7 +22849,7 @@ __L__1249:
   %r310 = zext i1 %r309 to i64
   store i64 %r310, ptr %acc.ptr
   %r311 = icmp ne i64 %r310, 0
-  br i1 %r311, label %cont.312, label %__L__1251
+  br i1 %r311, label %cont.312, label %__L__1267
 cont.312:
   %r313 = load i64, ptr %acc.ptr
   %r314 = load i64, ptr %t3
@@ -22712,8 +22874,8 @@ cont.312:
   %r326 = inttoptr i64 %r324 to ptr
   %r328 = call i64 %r326(i64 %r327)
   store i64 %r328, ptr %acc.ptr
-  br label %__L__1226
-__L__1251:
+  br label %__L__1242
+__L__1267:
   %r329 = load i64, ptr %acc.ptr
   %r330 = load i64, ptr %t3
   store i64 %r330, ptr %t65
@@ -22725,7 +22887,7 @@ __L__1251:
   %r335 = call i64 %r333(i64 %r334)
   store i64 %r335, ptr %acc.ptr
   %r336 = icmp ne i64 %r335, 0
-  br i1 %r336, label %cont.337, label %__L__1253
+  br i1 %r336, label %cont.337, label %__L__1269
 cont.337:
   %r338 = load i64, ptr %acc.ptr
   %r339 = load i64, ptr %t3
@@ -22742,8 +22904,8 @@ cont.337:
   %r344 = inttoptr i64 %r341 to ptr
   %r347 = call i64 %r344(i64 %r345, i64 %r346)
   store i64 %r347, ptr %acc.ptr
-  br label %__L__1226
-__L__1253:
+  br label %__L__1242
+__L__1269:
   %r348 = load i64, ptr %acc.ptr
   %r349 = load i64, ptr %t3
   store i64 %r349, ptr %t68
@@ -22752,16 +22914,16 @@ __L__1253:
   %r352 = zext i1 %r351 to i64
   store i64 %r352, ptr %acc.ptr
   %r353 = icmp ne i64 %r352, 0
-  br i1 %r353, label %cont.354, label %__L__1255
+  br i1 %r353, label %cont.354, label %__L__1271
 cont.354:
   %r355 = load i64, ptr %acc.ptr
   store i64 %r355, ptr %acc.ptr
-  br label %__L__1258
-__L__1257:
+  br label %__L__1274
+__L__1273:
   %r356 = load i64, ptr %acc.ptr
   store i64 %r356, ptr %acc.ptr
-  br label %__L__1258
-__L__1258:
+  br label %__L__1274
+__L__1274:
   %r357 = load i64, ptr %acc.ptr
   store i64 32, ptr %t69
   store i64 32, ptr %t70
@@ -22784,7 +22946,7 @@ __L__1258:
   %r370 = zext i1 %r369 to i64
   store i64 %r370, ptr %acc.ptr
   %r371 = icmp ne i64 %r370, 0
-  br i1 %r371, label %cont.372, label %__L__1259
+  br i1 %r371, label %cont.372, label %__L__1275
 cont.372:
   %r373 = load i64, ptr %acc.ptr
   %r374 = load i64, ptr %t3
@@ -22794,7 +22956,7 @@ cont.372:
   %r377 = zext i1 %r376 to i64
   store i64 %r377, ptr %acc.ptr
   %r378 = icmp ne i64 %r377, 0
-  br i1 %r378, label %cont.379, label %__L__1259
+  br i1 %r378, label %cont.379, label %__L__1275
 cont.379:
   %r380 = load i64, ptr %acc.ptr
   %r381 = load i64, ptr %t3
@@ -22804,17 +22966,17 @@ cont.379:
   %r384 = icmp ne i64 %r382, %r383
   %r385 = zext i1 %r384 to i64
   store i64 %r385, ptr %acc.ptr
-  br label %__L__1259
-__L__1259:
+  br label %__L__1275
+__L__1275:
   %r386 = load i64, ptr %acc.ptr
   store i64 %r386, ptr %acc.ptr
   %r387 = icmp ne i64 %r386, 0
-  br i1 %r387, label %__L__1257, label %cont.388
+  br i1 %r387, label %__L__1273, label %cont.388
 cont.388:
   %r389 = load i64, ptr %acc.ptr
   store i64 %r389, ptr %acc.ptr
-  br label %__L__1256
-__L__1255:
+  br label %__L__1272
+__L__1271:
   %r390 = load i64, ptr %acc.ptr
   %r391 = load i64, ptr %t3
   store i64 %r391, ptr %t75
@@ -22823,7 +22985,7 @@ __L__1255:
   %r394 = zext i1 %r393 to i64
   store i64 %r394, ptr %acc.ptr
   %r395 = icmp ne i64 %r394, 0
-  br i1 %r395, label %cont.396, label %__L__1260
+  br i1 %r395, label %cont.396, label %__L__1276
 cont.396:
   %r397 = load i64, ptr %acc.ptr
   %r398 = load i64, ptr %t3
@@ -22840,8 +23002,8 @@ cont.396:
   %r403 = inttoptr i64 %r400 to ptr
   %r406 = call i64 %r403(i64 %r404, i64 %r405)
   store i64 %r406, ptr %acc.ptr
-  br label %__L__1226
-__L__1260:
+  br label %__L__1242
+__L__1276:
   %r407 = load i64, ptr %acc.ptr
   store i64 0, ptr %t78
   %r408 = load i64, ptr %t3
@@ -22850,15 +23012,15 @@ __L__1260:
   %r411 = zext i1 %r410 to i64
   store i64 %r411, ptr %acc.ptr
   %r412 = icmp ne i64 %r411, 0
-  br i1 %r412, label %cont.413, label %__L__1262
+  br i1 %r412, label %cont.413, label %__L__1278
 cont.413:
   %r414 = load i64, ptr %acc.ptr
   %r415 = load i64, ptr @DONE
   store i64 %r415, ptr %acc.ptr
-  br label %__L__1226
-__L__1262:
+  br label %__L__1242
+__L__1278:
   %r416 = load i64, ptr %acc.ptr
-  %r417 = ptrtoint ptr @__L__1264 to i64
+  %r417 = ptrtoint ptr @__L__1280 to i64
   store i64 %r417, ptr %t79
   %r418 = load i64, ptr %t3
   store i64 %r418, ptr %t80
@@ -22872,90 +23034,90 @@ __L__1262:
   %r422 = inttoptr i64 %r419 to ptr
   %r425 = call i64 %r422(i64 %r423, i64 %r424)
   store i64 %r425, ptr %acc.ptr
-  br label %__L__1263
-__L__1263:
+  br label %__L__1279
+__L__1279:
   %r426 = load i64, ptr %acc.ptr
   store i64 %r426, ptr %acc.ptr
-  br label %__L__1261
-__L__1261:
+  br label %__L__1277
+__L__1277:
   %r427 = load i64, ptr %acc.ptr
   store i64 %r427, ptr %acc.ptr
-  br label %__L__1256
-__L__1256:
+  br label %__L__1272
+__L__1272:
   %r428 = load i64, ptr %acc.ptr
   store i64 %r428, ptr %acc.ptr
-  br label %__L__1254
-__L__1254:
+  br label %__L__1270
+__L__1270:
   %r429 = load i64, ptr %acc.ptr
   store i64 %r429, ptr %acc.ptr
-  br label %__L__1252
-__L__1252:
+  br label %__L__1268
+__L__1268:
   %r430 = load i64, ptr %acc.ptr
   store i64 %r430, ptr %acc.ptr
-  br label %__L__1250
-__L__1250:
+  br label %__L__1266
+__L__1266:
   %r431 = load i64, ptr %acc.ptr
   store i64 %r431, ptr %acc.ptr
-  br label %__L__1248
-__L__1248:
+  br label %__L__1264
+__L__1264:
   %r432 = load i64, ptr %acc.ptr
   store i64 %r432, ptr %acc.ptr
-  br label %__L__1246
-__L__1246:
+  br label %__L__1262
+__L__1262:
   %r433 = load i64, ptr %acc.ptr
   store i64 %r433, ptr %acc.ptr
-  br label %__L__1244
-__L__1244:
+  br label %__L__1260
+__L__1260:
   %r434 = load i64, ptr %acc.ptr
   store i64 %r434, ptr %acc.ptr
-  br label %__L__1242
-__L__1242:
+  br label %__L__1258
+__L__1258:
   %r435 = load i64, ptr %acc.ptr
   store i64 %r435, ptr %acc.ptr
-  br label %__L__1240
-__L__1240:
+  br label %__L__1256
+__L__1256:
   %r436 = load i64, ptr %acc.ptr
   store i64 %r436, ptr %acc.ptr
-  br label %__L__1236
-__L__1236:
+  br label %__L__1252
+__L__1252:
   %r437 = load i64, ptr %acc.ptr
   store i64 %r437, ptr %acc.ptr
-  br label %__L__1234
-__L__1234:
+  br label %__L__1250
+__L__1250:
   %r438 = load i64, ptr %acc.ptr
   store i64 %r438, ptr %acc.ptr
-  br label %__L__1232
-__L__1232:
+  br label %__L__1248
+__L__1248:
   %r439 = load i64, ptr %acc.ptr
   store i64 %r439, ptr %acc.ptr
-  br label %__L__1228
-__L__1228:
+  br label %__L__1244
+__L__1244:
   %r440 = load i64, ptr %acc.ptr
   store i64 %r440, ptr %acc.ptr
-  br label %__L__1225
-__L__1225:
+  br label %__L__1241
+__L__1241:
   %r441 = load i64, ptr %acc.ptr
   store i64 %r441, ptr %acc.ptr
-  br label %__L__1223
-__L__1223:
+  br label %__L__1239
+__L__1239:
   %r442 = load i64, ptr %acc.ptr
   store i64 %r442, ptr %acc.ptr
-  br label %__L__1221
-__L__1221:
+  br label %__L__1237
+__L__1237:
   %r443 = load i64, ptr %acc.ptr
   store i64 1, ptr %acc.ptr
   %r444 = icmp ne i64 1, 0
-  br i1 %r444, label %__L__1220, label %cont.445
+  br i1 %r444, label %__L__1236, label %cont.445
 cont.445:
   %r446 = load i64, ptr %acc.ptr
   store i64 %r446, ptr %acc.ptr
-  br label %__L__1226
-__L__1226:
+  br label %__L__1242
+__L__1242:
   %r447 = load i64, ptr %acc.ptr
   ret i64 %r447
 }
 ; defn read_string
-@__L__1268 = private constant [28 x i8] c"unterminated string literal\00"
+@__L__1284 = private constant [28 x i8] c"unterminated string literal\00"
 define i64 @__L__101(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -22985,8 +23147,8 @@ entry:
   %r2 = call i64 %r1()
   store i64 %r2, ptr %t0
   store i64 %r2, ptr %acc.ptr
-  br label %__L__1266
-__L__1265:
+  br label %__L__1282
+__L__1281:
   %r3 = load i64, ptr %acc.ptr
   %r4 = load i64, ptr %arg0
   store i64 %r4, ptr %t1
@@ -23010,10 +23172,10 @@ __L__1265:
   %r17 = zext i1 %r16 to i64
   store i64 %r17, ptr %acc.ptr
   %r18 = icmp ne i64 %r17, 0
-  br i1 %r18, label %cont.19, label %__L__1267
+  br i1 %r18, label %cont.19, label %__L__1283
 cont.19:
   %r20 = load i64, ptr %acc.ptr
-  %r21 = ptrtoint ptr @__L__1268 to i64
+  %r21 = ptrtoint ptr @__L__1284 to i64
   store i64 %r21, ptr %t4
   %r22 = ptrtoint ptr @__L__170 to i64
   %r23 = load i64, ptr %t4
@@ -23022,8 +23184,8 @@ cont.19:
   %r24 = inttoptr i64 %r22 to ptr
   %r26 = call i64 %r24(i64 %r25)
   store i64 %r26, ptr %acc.ptr
-  br label %__L__1267
-__L__1267:
+  br label %__L__1283
+__L__1283:
   %r27 = load i64, ptr %acc.ptr
   %r28 = load i64, ptr %t0
   store i64 %r28, ptr %t5
@@ -23039,8 +23201,8 @@ __L__1267:
   %r33 = inttoptr i64 %r30 to ptr
   %r36 = call i64 %r33(i64 %r34, i64 %r35)
   store i64 %r36, ptr %acc.ptr
-  br label %__L__1266
-__L__1266:
+  br label %__L__1282
+__L__1282:
   %r37 = load i64, ptr %acc.ptr
   %r38 = load i64, ptr %arg1
   store i64 %r38, ptr %t7
@@ -23057,7 +23219,7 @@ __L__1266:
   %r46 = zext i1 %r45 to i64
   store i64 %r46, ptr %acc.ptr
   %r47 = icmp ne i64 %r46, 0
-  br i1 %r47, label %__L__1265, label %cont.48
+  br i1 %r47, label %__L__1281, label %cont.48
 cont.48:
   %r49 = load i64, ptr %acc.ptr
   %r50 = load i64, ptr %t0
@@ -23126,8 +23288,8 @@ entry:
   %r2 = call i64 %r1()
   store i64 %r2, ptr %t0
   store i64 %r2, ptr %acc.ptr
-  br label %__L__1270
-__L__1269:
+  br label %__L__1286
+__L__1285:
   %r3 = load i64, ptr %acc.ptr
   %r4 = load i64, ptr %t0
   store i64 %r4, ptr %t1
@@ -23152,8 +23314,8 @@ __L__1269:
   %r18 = call i64 %r16(i64 %r17)
   store i64 %r18, ptr %arg0
   store i64 %r18, ptr %acc.ptr
-  br label %__L__1270
-__L__1270:
+  br label %__L__1286
+__L__1286:
   %r19 = load i64, ptr %acc.ptr
   %r20 = load i64, ptr %arg0
   store i64 %r20, ptr %t4
@@ -23165,7 +23327,7 @@ __L__1270:
   %r25 = call i64 %r23(i64 %r24)
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %__L__1271, label %cont.27
+  br i1 %r26, label %__L__1287, label %cont.27
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   %r29 = load i64, ptr %arg0
@@ -23177,12 +23339,12 @@ cont.27:
   %r32 = inttoptr i64 %r30 to ptr
   %r34 = call i64 %r32(i64 %r33)
   store i64 %r34, ptr %acc.ptr
-  br label %__L__1271
-__L__1271:
+  br label %__L__1287
+__L__1287:
   %r35 = load i64, ptr %acc.ptr
   store i64 %r35, ptr %acc.ptr
   %r36 = icmp ne i64 %r35, 0
-  br i1 %r36, label %__L__1269, label %cont.37
+  br i1 %r36, label %__L__1285, label %cont.37
 cont.37:
   %r38 = load i64, ptr %acc.ptr
   %r39 = load i64, ptr %arg0
@@ -23337,8 +23499,8 @@ entry:
   %r12 = inttoptr i64 %r9 to ptr
   %r15 = call i64 %r12(i64 %r13, i64 %r14)
   store i64 %r15, ptr %acc.ptr
-  br label %__L__1273
-__L__1272:
+  br label %__L__1289
+__L__1288:
   %r16 = load i64, ptr %acc.ptr
   %r17 = load i64, ptr %t0
   store i64 %r17, ptr %t5
@@ -23354,8 +23516,8 @@ __L__1272:
   %r22 = inttoptr i64 %r19 to ptr
   %r25 = call i64 %r22(i64 %r23, i64 %r24)
   store i64 %r25, ptr %acc.ptr
-  br label %__L__1273
-__L__1273:
+  br label %__L__1289
+__L__1289:
   %r26 = load i64, ptr %acc.ptr
   %r27 = load i64, ptr %arg1
   store i64 %r27, ptr %t7
@@ -23375,7 +23537,7 @@ __L__1273:
   %r37 = call i64 %r35(i64 %r36)
   store i64 %r37, ptr %acc.ptr
   %r38 = icmp ne i64 %r37, 0
-  br i1 %r38, label %__L__1272, label %cont.39
+  br i1 %r38, label %__L__1288, label %cont.39
 cont.39:
   %r40 = load i64, ptr %acc.ptr
   %r41 = load i64, ptr %arg0
@@ -23385,7 +23547,7 @@ cont.39:
   %r44 = zext i1 %r43 to i64
   store i64 %r44, ptr %acc.ptr
   %r45 = icmp ne i64 %r44, 0
-  br i1 %r45, label %__L__1276, label %cont.46
+  br i1 %r45, label %__L__1292, label %cont.46
 cont.46:
   %r47 = load i64, ptr %acc.ptr
   %r48 = load i64, ptr %arg0
@@ -23395,7 +23557,7 @@ cont.46:
   %r51 = zext i1 %r50 to i64
   store i64 %r51, ptr %acc.ptr
   %r52 = icmp ne i64 %r51, 0
-  br i1 %r52, label %__L__1276, label %cont.53
+  br i1 %r52, label %__L__1292, label %cont.53
 cont.53:
   %r54 = load i64, ptr %acc.ptr
   %r55 = load i64, ptr %arg0
@@ -23404,12 +23566,12 @@ cont.53:
   %r57 = icmp eq i64 69, %r56
   %r58 = zext i1 %r57 to i64
   store i64 %r58, ptr %acc.ptr
-  br label %__L__1276
-__L__1276:
+  br label %__L__1292
+__L__1292:
   %r59 = load i64, ptr %acc.ptr
   store i64 %r59, ptr %acc.ptr
   %r60 = icmp ne i64 %r59, 0
-  br i1 %r60, label %cont.61, label %__L__1274
+  br i1 %r60, label %cont.61, label %__L__1290
 cont.61:
   %r62 = load i64, ptr %acc.ptr
   %r63 = load i64, ptr %arg0
@@ -23419,7 +23581,7 @@ cont.61:
   %r66 = zext i1 %r65 to i64
   store i64 %r66, ptr %acc.ptr
   %r67 = icmp ne i64 %r66, 0
-  br i1 %r67, label %cont.68, label %__L__1277
+  br i1 %r67, label %cont.68, label %__L__1293
 cont.68:
   %r69 = load i64, ptr %acc.ptr
   %r70 = load i64, ptr %t0
@@ -23445,8 +23607,8 @@ cont.68:
   %r84 = call i64 %r82(i64 %r83)
   store i64 %r84, ptr %arg0
   store i64 %r84, ptr %acc.ptr
-  br label %__L__1279
-__L__1278:
+  br label %__L__1295
+__L__1294:
   %r85 = load i64, ptr %acc.ptr
   %r86 = load i64, ptr %t0
   store i64 %r86, ptr %t16
@@ -23471,8 +23633,8 @@ __L__1278:
   %r100 = call i64 %r98(i64 %r99)
   store i64 %r100, ptr %arg0
   store i64 %r100, ptr %acc.ptr
-  br label %__L__1279
-__L__1279:
+  br label %__L__1295
+__L__1295:
   %r101 = load i64, ptr %acc.ptr
   %r102 = load i64, ptr %arg0
   store i64 %r102, ptr %t19
@@ -23484,12 +23646,12 @@ __L__1279:
   %r107 = call i64 %r105(i64 %r106)
   store i64 %r107, ptr %acc.ptr
   %r108 = icmp ne i64 %r107, 0
-  br i1 %r108, label %__L__1278, label %cont.109
+  br i1 %r108, label %__L__1294, label %cont.109
 cont.109:
   %r110 = load i64, ptr %acc.ptr
   store i64 %r110, ptr %acc.ptr
-  br label %__L__1277
-__L__1277:
+  br label %__L__1293
+__L__1293:
   %r111 = load i64, ptr %acc.ptr
   %r112 = load i64, ptr %arg0
   store i64 %r112, ptr %t20
@@ -23498,7 +23660,7 @@ __L__1277:
   %r115 = zext i1 %r114 to i64
   store i64 %r115, ptr %acc.ptr
   %r116 = icmp ne i64 %r115, 0
-  br i1 %r116, label %__L__1281, label %cont.117
+  br i1 %r116, label %__L__1297, label %cont.117
 cont.117:
   %r118 = load i64, ptr %acc.ptr
   %r119 = load i64, ptr %arg0
@@ -23507,12 +23669,12 @@ cont.117:
   %r121 = icmp eq i64 69, %r120
   %r122 = zext i1 %r121 to i64
   store i64 %r122, ptr %acc.ptr
-  br label %__L__1281
-__L__1281:
+  br label %__L__1297
+__L__1297:
   %r123 = load i64, ptr %acc.ptr
   store i64 %r123, ptr %acc.ptr
   %r124 = icmp ne i64 %r123, 0
-  br i1 %r124, label %cont.125, label %__L__1280
+  br i1 %r124, label %cont.125, label %__L__1296
 cont.125:
   %r126 = load i64, ptr %acc.ptr
   %r127 = load i64, ptr %t0
@@ -23544,7 +23706,7 @@ cont.125:
   %r145 = zext i1 %r144 to i64
   store i64 %r145, ptr %acc.ptr
   %r146 = icmp ne i64 %r145, 0
-  br i1 %r146, label %__L__1283, label %cont.147
+  br i1 %r146, label %__L__1299, label %cont.147
 cont.147:
   %r148 = load i64, ptr %acc.ptr
   %r149 = load i64, ptr %arg0
@@ -23553,12 +23715,12 @@ cont.147:
   %r151 = icmp eq i64 43, %r150
   %r152 = zext i1 %r151 to i64
   store i64 %r152, ptr %acc.ptr
-  br label %__L__1283
-__L__1283:
+  br label %__L__1299
+__L__1299:
   %r153 = load i64, ptr %acc.ptr
   store i64 %r153, ptr %acc.ptr
   %r154 = icmp ne i64 %r153, 0
-  br i1 %r154, label %cont.155, label %__L__1282
+  br i1 %r154, label %cont.155, label %__L__1298
 cont.155:
   %r156 = load i64, ptr %acc.ptr
   %r157 = load i64, ptr %t0
@@ -23584,12 +23746,12 @@ cont.155:
   %r171 = call i64 %r169(i64 %r170)
   store i64 %r171, ptr %arg0
   store i64 %r171, ptr %acc.ptr
-  br label %__L__1282
-__L__1282:
+  br label %__L__1298
+__L__1298:
   %r172 = load i64, ptr %acc.ptr
   store i64 %r172, ptr %acc.ptr
-  br label %__L__1285
-__L__1284:
+  br label %__L__1301
+__L__1300:
   %r173 = load i64, ptr %acc.ptr
   %r174 = load i64, ptr %t0
   store i64 %r174, ptr %t30
@@ -23614,8 +23776,8 @@ __L__1284:
   %r188 = call i64 %r186(i64 %r187)
   store i64 %r188, ptr %arg0
   store i64 %r188, ptr %acc.ptr
-  br label %__L__1285
-__L__1285:
+  br label %__L__1301
+__L__1301:
   %r189 = load i64, ptr %acc.ptr
   %r190 = load i64, ptr %arg0
   store i64 %r190, ptr %t33
@@ -23627,12 +23789,12 @@ __L__1285:
   %r195 = call i64 %r193(i64 %r194)
   store i64 %r195, ptr %acc.ptr
   %r196 = icmp ne i64 %r195, 0
-  br i1 %r196, label %__L__1284, label %cont.197
+  br i1 %r196, label %__L__1300, label %cont.197
 cont.197:
   %r198 = load i64, ptr %acc.ptr
   store i64 %r198, ptr %acc.ptr
-  br label %__L__1280
-__L__1280:
+  br label %__L__1296
+__L__1296:
   %r199 = load i64, ptr %acc.ptr
   %r200 = load i64, ptr %arg0
   store i64 %r200, ptr %t34
@@ -23694,8 +23856,8 @@ __L__1280:
   %r238 = inttoptr i64 %r236 to ptr
   %r240 = call i64 %r238(i64 %r239)
   store i64 %r240, ptr %acc.ptr
-  br label %__L__1275
-__L__1274:
+  br label %__L__1291
+__L__1290:
   %r241 = load i64, ptr %acc.ptr
   %r242 = load i64, ptr %arg0
   store i64 %r242, ptr %t44
@@ -23704,7 +23866,7 @@ __L__1274:
   %r245 = zext i1 %r244 to i64
   store i64 %r245, ptr %acc.ptr
   %r246 = icmp ne i64 %r245, 0
-  br i1 %r246, label %cont.247, label %__L__1286
+  br i1 %r246, label %cont.247, label %__L__1302
 cont.247:
   %r248 = load i64, ptr %acc.ptr
   store i64 2, ptr %t45
@@ -23719,7 +23881,7 @@ cont.247:
   %r256 = zext i1 %r255 to i64
   store i64 %r256, ptr %acc.ptr
   %r257 = icmp ne i64 %r256, 0
-  br i1 %r257, label %cont.258, label %__L__1286
+  br i1 %r257, label %cont.258, label %__L__1302
 cont.258:
   %r259 = load i64, ptr %acc.ptr
   %r260 = load i64, ptr %t0
@@ -23736,8 +23898,8 @@ cont.258:
   %r265 = inttoptr i64 %r262 to ptr
   %r268 = call i64 %r265(i64 %r266, i64 %r267)
   store i64 %r268, ptr %acc.ptr
-  br label %__L__1288
-__L__1287:
+  br label %__L__1304
+__L__1303:
   %r269 = load i64, ptr %acc.ptr
   %r270 = load i64, ptr %t0
   store i64 %r270, ptr %t49
@@ -23753,8 +23915,8 @@ __L__1287:
   %r275 = inttoptr i64 %r272 to ptr
   %r278 = call i64 %r275(i64 %r276, i64 %r277)
   store i64 %r278, ptr %acc.ptr
-  br label %__L__1288
-__L__1288:
+  br label %__L__1304
+__L__1304:
   %r279 = load i64, ptr %acc.ptr
   %r280 = load i64, ptr %arg1
   store i64 %r280, ptr %t51
@@ -23774,12 +23936,12 @@ __L__1288:
   %r290 = call i64 %r288(i64 %r289)
   store i64 %r290, ptr %acc.ptr
   %r291 = icmp ne i64 %r290, 0
-  br i1 %r291, label %__L__1287, label %cont.292
+  br i1 %r291, label %__L__1303, label %cont.292
 cont.292:
   %r293 = load i64, ptr %acc.ptr
   store i64 %r293, ptr %acc.ptr
-  br label %__L__1286
-__L__1286:
+  br label %__L__1302
+__L__1302:
   %r294 = load i64, ptr %acc.ptr
   %r295 = load i64, ptr %arg0
   store i64 %r295, ptr %t53
@@ -23809,7 +23971,7 @@ __L__1286:
   %r312 = load i64, ptr %t2
   store i64 %r312, ptr %acc.ptr
   %r313 = icmp ne i64 %r312, 0
-  br i1 %r313, label %cont.314, label %__L__1289
+  br i1 %r313, label %cont.314, label %__L__1305
 cont.314:
   %r315 = load i64, ptr %acc.ptr
   store i64 0, ptr %t57
@@ -23822,8 +23984,8 @@ cont.314:
   %r321 = load i64, ptr %t58
   %r322 = add i64 1, %r321
   store i64 %r322, ptr %acc.ptr
-  br label %__L__1290
-__L__1289:
+  br label %__L__1306
+__L__1305:
   %r323 = load i64, ptr %acc.ptr
   store i64 0, ptr %t59
   %r324 = load i64, ptr %t0
@@ -23832,8 +23994,8 @@ __L__1289:
   %r327 = getelementptr inbounds i64, ptr %r325, i64 %r326
   %r328 = load i64, ptr %r327
   store i64 %r328, ptr %acc.ptr
-  br label %__L__1290
-__L__1290:
+  br label %__L__1306
+__L__1306:
   %r329 = load i64, ptr %acc.ptr
   store i64 %r329, ptr %t60
   %r330 = load i64, ptr %t60
@@ -23864,19 +24026,19 @@ __L__1290:
   %r346 = load i64, ptr %t2
   store i64 %r346, ptr %acc.ptr
   %r347 = icmp ne i64 %r346, 0
-  br i1 %r347, label %cont.348, label %__L__1291
+  br i1 %r347, label %cont.348, label %__L__1307
 cont.348:
   %r349 = load i64, ptr %acc.ptr
   %r350 = load i64, ptr %t64
   %r351 = sub i64 0, %r350
   store i64 %r351, ptr %acc.ptr
-  br label %__L__1292
-__L__1291:
+  br label %__L__1308
+__L__1307:
   %r352 = load i64, ptr %acc.ptr
   %r353 = load i64, ptr %t64
   store i64 %r353, ptr %acc.ptr
-  br label %__L__1292
-__L__1292:
+  br label %__L__1308
+__L__1308:
   %r354 = load i64, ptr %acc.ptr
   store i64 %r354, ptr %t66
   %r355 = ptrtoint ptr @__L__154 to i64
@@ -23886,13 +24048,13 @@ __L__1292:
   %r357 = inttoptr i64 %r355 to ptr
   %r359 = call i64 %r357(i64 %r358)
   store i64 %r359, ptr %acc.ptr
-  br label %__L__1275
-__L__1275:
+  br label %__L__1291
+__L__1291:
   %r360 = load i64, ptr %acc.ptr
   ret i64 %r360
 }
 ; defn read_char
-@__L__1327 = private constant [30 x i8] c"illegal character escape: \5C%c\00"
+@__L__1343 = private constant [30 x i8] c"illegal character escape: \5C%c\00"
 define i64 @__L__104(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -23971,7 +24133,7 @@ entry:
   %r3 = zext i1 %r2 to i64
   store i64 %r3, ptr %acc.ptr
   %r4 = icmp ne i64 %r3, 0
-  br i1 %r4, label %cont.5, label %__L__1293
+  br i1 %r4, label %cont.5, label %__L__1309
 cont.5:
   %r6 = load i64, ptr %acc.ptr
   %r7 = load i64, ptr %arg1
@@ -23990,12 +24152,12 @@ cont.5:
   %r16 = zext i1 %r15 to i64
   store i64 %r16, ptr %acc.ptr
   %r17 = icmp ne i64 %r16, 0
-  br i1 %r17, label %cont.18, label %__L__1295
+  br i1 %r17, label %cont.18, label %__L__1311
 cont.18:
   %r19 = load i64, ptr %acc.ptr
   store i64 7, ptr %acc.ptr
-  br label %__L__1296
-__L__1295:
+  br label %__L__1312
+__L__1311:
   %r20 = load i64, ptr %acc.ptr
   store i64 98, ptr %t3
   %r21 = load i64, ptr %arg0
@@ -24004,12 +24166,12 @@ __L__1295:
   %r24 = zext i1 %r23 to i64
   store i64 %r24, ptr %acc.ptr
   %r25 = icmp ne i64 %r24, 0
-  br i1 %r25, label %cont.26, label %__L__1297
+  br i1 %r25, label %cont.26, label %__L__1313
 cont.26:
   %r27 = load i64, ptr %acc.ptr
   store i64 8, ptr %acc.ptr
-  br label %__L__1298
-__L__1297:
+  br label %__L__1314
+__L__1313:
   %r28 = load i64, ptr %acc.ptr
   store i64 102, ptr %t4
   %r29 = load i64, ptr %arg0
@@ -24018,12 +24180,12 @@ __L__1297:
   %r32 = zext i1 %r31 to i64
   store i64 %r32, ptr %acc.ptr
   %r33 = icmp ne i64 %r32, 0
-  br i1 %r33, label %cont.34, label %__L__1299
+  br i1 %r33, label %cont.34, label %__L__1315
 cont.34:
   %r35 = load i64, ptr %acc.ptr
   store i64 12, ptr %acc.ptr
-  br label %__L__1300
-__L__1299:
+  br label %__L__1316
+__L__1315:
   %r36 = load i64, ptr %acc.ptr
   store i64 110, ptr %t5
   %r37 = load i64, ptr %arg0
@@ -24032,12 +24194,12 @@ __L__1299:
   %r40 = zext i1 %r39 to i64
   store i64 %r40, ptr %acc.ptr
   %r41 = icmp ne i64 %r40, 0
-  br i1 %r41, label %cont.42, label %__L__1301
+  br i1 %r41, label %cont.42, label %__L__1317
 cont.42:
   %r43 = load i64, ptr %acc.ptr
   store i64 10, ptr %acc.ptr
-  br label %__L__1302
-__L__1301:
+  br label %__L__1318
+__L__1317:
   %r44 = load i64, ptr %acc.ptr
   store i64 114, ptr %t6
   %r45 = load i64, ptr %arg0
@@ -24046,12 +24208,12 @@ __L__1301:
   %r48 = zext i1 %r47 to i64
   store i64 %r48, ptr %acc.ptr
   %r49 = icmp ne i64 %r48, 0
-  br i1 %r49, label %cont.50, label %__L__1303
+  br i1 %r49, label %cont.50, label %__L__1319
 cont.50:
   %r51 = load i64, ptr %acc.ptr
   store i64 13, ptr %acc.ptr
-  br label %__L__1304
-__L__1303:
+  br label %__L__1320
+__L__1319:
   %r52 = load i64, ptr %acc.ptr
   store i64 116, ptr %t7
   %r53 = load i64, ptr %arg0
@@ -24060,12 +24222,12 @@ __L__1303:
   %r56 = zext i1 %r55 to i64
   store i64 %r56, ptr %acc.ptr
   %r57 = icmp ne i64 %r56, 0
-  br i1 %r57, label %cont.58, label %__L__1305
+  br i1 %r57, label %cont.58, label %__L__1321
 cont.58:
   %r59 = load i64, ptr %acc.ptr
   store i64 9, ptr %acc.ptr
-  br label %__L__1306
-__L__1305:
+  br label %__L__1322
+__L__1321:
   %r60 = load i64, ptr %acc.ptr
   store i64 118, ptr %t8
   %r61 = load i64, ptr %arg0
@@ -24074,12 +24236,12 @@ __L__1305:
   %r64 = zext i1 %r63 to i64
   store i64 %r64, ptr %acc.ptr
   %r65 = icmp ne i64 %r64, 0
-  br i1 %r65, label %cont.66, label %__L__1307
+  br i1 %r65, label %cont.66, label %__L__1323
 cont.66:
   %r67 = load i64, ptr %acc.ptr
   store i64 11, ptr %acc.ptr
-  br label %__L__1308
-__L__1307:
+  br label %__L__1324
+__L__1323:
   %r68 = load i64, ptr %acc.ptr
   store i64 117, ptr %t9
   %r69 = load i64, ptr %arg0
@@ -24088,7 +24250,7 @@ __L__1307:
   %r72 = zext i1 %r71 to i64
   store i64 %r72, ptr %acc.ptr
   %r73 = icmp ne i64 %r72, 0
-  br i1 %r73, label %cont.74, label %__L__1309
+  br i1 %r73, label %cont.74, label %__L__1325
 cont.74:
   %r75 = load i64, ptr %acc.ptr
   %r76 = load i64, ptr %arg1
@@ -24178,8 +24340,8 @@ cont.74:
   %r134 = load i64, ptr %t25
   %r135 = add i64 %r133, %r134
   store i64 %r135, ptr %acc.ptr
-  br label %__L__1310
-__L__1309:
+  br label %__L__1326
+__L__1325:
   %r136 = load i64, ptr %acc.ptr
   store i64 120, ptr %t28
   %r137 = load i64, ptr %arg0
@@ -24188,7 +24350,7 @@ __L__1309:
   %r140 = zext i1 %r139 to i64
   store i64 %r140, ptr %acc.ptr
   %r141 = icmp ne i64 %r140, 0
-  br i1 %r141, label %cont.142, label %__L__1311
+  br i1 %r141, label %cont.142, label %__L__1327
 cont.142:
   %r143 = load i64, ptr %acc.ptr
   store i64 0, ptr %t29
@@ -24210,7 +24372,7 @@ cont.142:
   %r154 = call i64 %r152(i64 %r153)
   store i64 %r154, ptr %acc.ptr
   %r155 = icmp ne i64 %r154, 0
-  br i1 %r155, label %cont.156, label %__L__1313
+  br i1 %r155, label %cont.156, label %__L__1329
 cont.156:
   %r157 = load i64, ptr %acc.ptr
   %r158 = load i64, ptr %arg0
@@ -24240,7 +24402,7 @@ cont.156:
   %r174 = call i64 %r172(i64 %r173)
   store i64 %r174, ptr %acc.ptr
   %r175 = icmp ne i64 %r174, 0
-  br i1 %r175, label %cont.176, label %__L__1315
+  br i1 %r175, label %cont.176, label %__L__1331
 cont.176:
   %r177 = load i64, ptr %acc.ptr
   %r178 = load i64, ptr %arg0
@@ -24269,20 +24431,20 @@ cont.176:
   %r194 = call i64 %r192(i64 %r193)
   store i64 %r194, ptr %arg0
   store i64 %r194, ptr %acc.ptr
-  br label %__L__1316
-__L__1315:
+  br label %__L__1332
+__L__1331:
   %r195 = load i64, ptr %acc.ptr
   store i64 %r195, ptr %acc.ptr
-  br label %__L__1316
-__L__1316:
+  br label %__L__1332
+__L__1332:
   %r196 = load i64, ptr %acc.ptr
   store i64 %r196, ptr %acc.ptr
-  br label %__L__1314
-__L__1313:
+  br label %__L__1330
+__L__1329:
   %r197 = load i64, ptr %acc.ptr
   store i64 %r197, ptr %acc.ptr
-  br label %__L__1314
-__L__1314:
+  br label %__L__1330
+__L__1330:
   %r198 = load i64, ptr %acc.ptr
   %r199 = load i64, ptr %arg0
   store i64 %r199, ptr %t39
@@ -24299,8 +24461,8 @@ __L__1314:
   %r207 = call i64 %r204(i64 %r205, i64 %r206)
   %r208 = load i64, ptr %t29
   store i64 %r208, ptr %acc.ptr
-  br label %__L__1312
-__L__1311:
+  br label %__L__1328
+__L__1327:
   %r209 = load i64, ptr %acc.ptr
   %r210 = load i64, ptr %arg0
   store i64 %r210, ptr %t41
@@ -24309,7 +24471,7 @@ __L__1311:
   %r213 = zext i1 %r212 to i64
   store i64 %r213, ptr %acc.ptr
   %r214 = icmp ne i64 %r213, 0
-  br i1 %r214, label %cont.215, label %__L__1319
+  br i1 %r214, label %cont.215, label %__L__1335
 cont.215:
   %r216 = load i64, ptr %acc.ptr
   store i64 55, ptr %t42
@@ -24318,12 +24480,12 @@ cont.215:
   %r219 = icmp sle i64 %r217, %r218
   %r220 = zext i1 %r219 to i64
   store i64 %r220, ptr %acc.ptr
-  br label %__L__1319
-__L__1319:
+  br label %__L__1335
+__L__1335:
   %r221 = load i64, ptr %acc.ptr
   store i64 %r221, ptr %acc.ptr
   %r222 = icmp ne i64 %r221, 0
-  br i1 %r222, label %cont.223, label %__L__1317
+  br i1 %r222, label %cont.223, label %__L__1333
 cont.223:
   %r224 = load i64, ptr %acc.ptr
   %r225 = load i64, ptr %arg0
@@ -24353,7 +24515,7 @@ cont.223:
   %r241 = call i64 %r239(i64 %r240)
   store i64 %r241, ptr %acc.ptr
   %r242 = icmp ne i64 %r241, 0
-  br i1 %r242, label %cont.243, label %__L__1320
+  br i1 %r242, label %cont.243, label %__L__1336
 cont.243:
   %r244 = load i64, ptr %acc.ptr
   %r245 = load i64, ptr %arg0
@@ -24390,7 +24552,7 @@ cont.243:
   %r266 = call i64 %r264(i64 %r265)
   store i64 %r266, ptr %acc.ptr
   %r267 = icmp ne i64 %r266, 0
-  br i1 %r267, label %cont.268, label %__L__1322
+  br i1 %r267, label %cont.268, label %__L__1338
 cont.268:
   %r269 = load i64, ptr %acc.ptr
   %r270 = load i64, ptr %arg0
@@ -24419,20 +24581,20 @@ cont.268:
   %r286 = call i64 %r284(i64 %r285)
   store i64 %r286, ptr %arg0
   store i64 %r286, ptr %acc.ptr
-  br label %__L__1323
-__L__1322:
+  br label %__L__1339
+__L__1338:
   %r287 = load i64, ptr %acc.ptr
   store i64 %r287, ptr %acc.ptr
-  br label %__L__1323
-__L__1323:
+  br label %__L__1339
+__L__1339:
   %r288 = load i64, ptr %acc.ptr
   store i64 %r288, ptr %acc.ptr
-  br label %__L__1321
-__L__1320:
+  br label %__L__1337
+__L__1336:
   %r289 = load i64, ptr %acc.ptr
   store i64 %r289, ptr %acc.ptr
-  br label %__L__1321
-__L__1321:
+  br label %__L__1337
+__L__1337:
   %r290 = load i64, ptr %acc.ptr
   %r291 = load i64, ptr %arg0
   store i64 %r291, ptr %t56
@@ -24449,8 +24611,8 @@ __L__1321:
   %r299 = call i64 %r296(i64 %r297, i64 %r298)
   %r300 = load i64, ptr %t44
   store i64 %r300, ptr %acc.ptr
-  br label %__L__1318
-__L__1317:
+  br label %__L__1334
+__L__1333:
   %r301 = load i64, ptr %acc.ptr
   %r302 = load i64, ptr %arg0
   store i64 %r302, ptr %t58
@@ -24462,7 +24624,7 @@ __L__1317:
   %r307 = call i64 %r305(i64 %r306)
   store i64 %r307, ptr %acc.ptr
   %r308 = icmp ne i64 %r307, 0
-  br i1 %r308, label %__L__1326, label %cont.309
+  br i1 %r308, label %__L__1342, label %cont.309
 cont.309:
   %r310 = load i64, ptr %acc.ptr
   %r311 = load i64, ptr %arg0
@@ -24474,15 +24636,15 @@ cont.309:
   %r314 = inttoptr i64 %r312 to ptr
   %r316 = call i64 %r314(i64 %r315)
   store i64 %r316, ptr %acc.ptr
-  br label %__L__1326
-__L__1326:
+  br label %__L__1342
+__L__1342:
   %r317 = load i64, ptr %acc.ptr
   store i64 %r317, ptr %acc.ptr
   %r318 = icmp ne i64 %r317, 0
-  br i1 %r318, label %cont.319, label %__L__1324
+  br i1 %r318, label %cont.319, label %__L__1340
 cont.319:
   %r320 = load i64, ptr %acc.ptr
-  %r321 = ptrtoint ptr @__L__1327 to i64
+  %r321 = ptrtoint ptr @__L__1343 to i64
   store i64 %r321, ptr %t60
   %r322 = load i64, ptr %arg0
   store i64 %r322, ptr %t61
@@ -24496,67 +24658,67 @@ cont.319:
   %r326 = inttoptr i64 %r323 to ptr
   %r329 = call i64 %r326(i64 %r327, i64 %r328)
   store i64 %r329, ptr %acc.ptr
-  br label %__L__1325
-__L__1324:
+  br label %__L__1341
+__L__1340:
   %r330 = load i64, ptr %acc.ptr
   %r331 = load i64, ptr %arg0
   store i64 %r331, ptr %acc.ptr
-  br label %__L__1325
-__L__1325:
+  br label %__L__1341
+__L__1341:
   %r332 = load i64, ptr %acc.ptr
   store i64 %r332, ptr %acc.ptr
-  br label %__L__1318
-__L__1318:
+  br label %__L__1334
+__L__1334:
   %r333 = load i64, ptr %acc.ptr
   store i64 %r333, ptr %acc.ptr
-  br label %__L__1312
-__L__1312:
+  br label %__L__1328
+__L__1328:
   %r334 = load i64, ptr %acc.ptr
   store i64 %r334, ptr %acc.ptr
-  br label %__L__1310
-__L__1310:
+  br label %__L__1326
+__L__1326:
   %r335 = load i64, ptr %acc.ptr
   store i64 %r335, ptr %acc.ptr
-  br label %__L__1308
-__L__1308:
+  br label %__L__1324
+__L__1324:
   %r336 = load i64, ptr %acc.ptr
   store i64 %r336, ptr %acc.ptr
-  br label %__L__1306
-__L__1306:
+  br label %__L__1322
+__L__1322:
   %r337 = load i64, ptr %acc.ptr
   store i64 %r337, ptr %acc.ptr
-  br label %__L__1304
-__L__1304:
+  br label %__L__1320
+__L__1320:
   %r338 = load i64, ptr %acc.ptr
   store i64 %r338, ptr %acc.ptr
-  br label %__L__1302
-__L__1302:
+  br label %__L__1318
+__L__1318:
   %r339 = load i64, ptr %acc.ptr
   store i64 %r339, ptr %acc.ptr
-  br label %__L__1300
-__L__1300:
+  br label %__L__1316
+__L__1316:
   %r340 = load i64, ptr %acc.ptr
   store i64 %r340, ptr %acc.ptr
-  br label %__L__1298
-__L__1298:
+  br label %__L__1314
+__L__1314:
   %r341 = load i64, ptr %acc.ptr
   store i64 %r341, ptr %acc.ptr
-  br label %__L__1296
-__L__1296:
+  br label %__L__1312
+__L__1312:
   %r342 = load i64, ptr %acc.ptr
   store i64 %r342, ptr %acc.ptr
-  br label %__L__1294
-__L__1293:
+  br label %__L__1310
+__L__1309:
   %r343 = load i64, ptr %acc.ptr
   %r344 = load i64, ptr %arg0
   store i64 %r344, ptr %acc.ptr
-  br label %__L__1294
-__L__1294:
+  br label %__L__1310
+__L__1310:
   %r345 = load i64, ptr %acc.ptr
   ret i64 %r345
 }
 ; defn digit_value
-@__L__1337 = private constant [34 x i8] c"illegal digit in character escape\00"
+@__L__1353 = private constant [34 x i8] c"illegal digit in character escape\00"
 define i64 @__L__105(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -24582,7 +24744,7 @@ entry:
   %r3 = zext i1 %r2 to i64
   store i64 %r3, ptr %acc.ptr
   %r4 = icmp ne i64 %r3, 0
-  br i1 %r4, label %cont.5, label %__L__1330
+  br i1 %r4, label %cont.5, label %__L__1346
 cont.5:
   %r6 = load i64, ptr %acc.ptr
   store i64 57, ptr %t1
@@ -24591,12 +24753,12 @@ cont.5:
   %r9 = icmp sle i64 %r7, %r8
   %r10 = zext i1 %r9 to i64
   store i64 %r10, ptr %acc.ptr
-  br label %__L__1330
-__L__1330:
+  br label %__L__1346
+__L__1346:
   %r11 = load i64, ptr %acc.ptr
   store i64 %r11, ptr %acc.ptr
   %r12 = icmp ne i64 %r11, 0
-  br i1 %r12, label %cont.13, label %__L__1328
+  br i1 %r12, label %cont.13, label %__L__1344
 cont.13:
   %r14 = load i64, ptr %acc.ptr
   store i64 48, ptr %t2
@@ -24604,8 +24766,8 @@ cont.13:
   %r16 = load i64, ptr %t2
   %r17 = sub i64 %r15, %r16
   store i64 %r17, ptr %acc.ptr
-  br label %__L__1329
-__L__1328:
+  br label %__L__1345
+__L__1344:
   %r18 = load i64, ptr %acc.ptr
   %r19 = load i64, ptr %arg0
   store i64 %r19, ptr %t3
@@ -24614,7 +24776,7 @@ __L__1328:
   %r22 = zext i1 %r21 to i64
   store i64 %r22, ptr %acc.ptr
   %r23 = icmp ne i64 %r22, 0
-  br i1 %r23, label %cont.24, label %__L__1333
+  br i1 %r23, label %cont.24, label %__L__1349
 cont.24:
   %r25 = load i64, ptr %acc.ptr
   store i64 122, ptr %t4
@@ -24623,12 +24785,12 @@ cont.24:
   %r28 = icmp sle i64 %r26, %r27
   %r29 = zext i1 %r28 to i64
   store i64 %r29, ptr %acc.ptr
-  br label %__L__1333
-__L__1333:
+  br label %__L__1349
+__L__1349:
   %r30 = load i64, ptr %acc.ptr
   store i64 %r30, ptr %acc.ptr
   %r31 = icmp ne i64 %r30, 0
-  br i1 %r31, label %cont.32, label %__L__1331
+  br i1 %r31, label %cont.32, label %__L__1347
 cont.32:
   %r33 = load i64, ptr %acc.ptr
   store i64 10, ptr %t5
@@ -24639,8 +24801,8 @@ cont.32:
   %r37 = load i64, ptr %t6
   %r38 = sub i64 %r36, %r37
   store i64 %r38, ptr %acc.ptr
-  br label %__L__1332
-__L__1331:
+  br label %__L__1348
+__L__1347:
   %r39 = load i64, ptr %acc.ptr
   %r40 = load i64, ptr %arg0
   store i64 %r40, ptr %t7
@@ -24649,7 +24811,7 @@ __L__1331:
   %r43 = zext i1 %r42 to i64
   store i64 %r43, ptr %acc.ptr
   %r44 = icmp ne i64 %r43, 0
-  br i1 %r44, label %cont.45, label %__L__1336
+  br i1 %r44, label %cont.45, label %__L__1352
 cont.45:
   %r46 = load i64, ptr %acc.ptr
   store i64 90, ptr %t8
@@ -24658,12 +24820,12 @@ cont.45:
   %r49 = icmp sle i64 %r47, %r48
   %r50 = zext i1 %r49 to i64
   store i64 %r50, ptr %acc.ptr
-  br label %__L__1336
-__L__1336:
+  br label %__L__1352
+__L__1352:
   %r51 = load i64, ptr %acc.ptr
   store i64 %r51, ptr %acc.ptr
   %r52 = icmp ne i64 %r51, 0
-  br i1 %r52, label %cont.53, label %__L__1334
+  br i1 %r52, label %cont.53, label %__L__1350
 cont.53:
   %r54 = load i64, ptr %acc.ptr
   store i64 10, ptr %t9
@@ -24674,10 +24836,10 @@ cont.53:
   %r58 = load i64, ptr %t10
   %r59 = sub i64 %r57, %r58
   store i64 %r59, ptr %acc.ptr
-  br label %__L__1335
-__L__1334:
+  br label %__L__1351
+__L__1350:
   %r60 = load i64, ptr %acc.ptr
-  %r61 = ptrtoint ptr @__L__1337 to i64
+  %r61 = ptrtoint ptr @__L__1353 to i64
   store i64 %r61, ptr %t11
   %r62 = ptrtoint ptr @__L__170 to i64
   %r63 = load i64, ptr %t11
@@ -24686,16 +24848,16 @@ __L__1334:
   %r64 = inttoptr i64 %r62 to ptr
   %r66 = call i64 %r64(i64 %r65)
   store i64 %r66, ptr %acc.ptr
-  br label %__L__1335
-__L__1335:
+  br label %__L__1351
+__L__1351:
   %r67 = load i64, ptr %acc.ptr
   store i64 %r67, ptr %acc.ptr
-  br label %__L__1332
-__L__1332:
+  br label %__L__1348
+__L__1348:
   %r68 = load i64, ptr %acc.ptr
   store i64 %r68, ptr %acc.ptr
-  br label %__L__1329
-__L__1329:
+  br label %__L__1345
+__L__1345:
   %r69 = load i64, ptr %acc.ptr
   ret i64 %r69
 }
@@ -24718,7 +24880,7 @@ entry:
   %r3 = zext i1 %r2 to i64
   store i64 %r3, ptr %acc.ptr
   %r4 = icmp ne i64 %r3, 0
-  br i1 %r4, label %cont.5, label %__L__1339
+  br i1 %r4, label %cont.5, label %__L__1355
 cont.5:
   %r6 = load i64, ptr %acc.ptr
   store i64 57, ptr %t1
@@ -24727,12 +24889,12 @@ cont.5:
   %r9 = icmp sle i64 %r7, %r8
   %r10 = zext i1 %r9 to i64
   store i64 %r10, ptr %acc.ptr
-  br label %__L__1339
-__L__1339:
+  br label %__L__1355
+__L__1355:
   %r11 = load i64, ptr %acc.ptr
   store i64 %r11, ptr %acc.ptr
   %r12 = icmp ne i64 %r11, 0
-  br i1 %r12, label %__L__1338, label %cont.13
+  br i1 %r12, label %__L__1354, label %cont.13
 cont.13:
   %r14 = load i64, ptr %acc.ptr
   %r15 = load i64, ptr %arg0
@@ -24742,7 +24904,7 @@ cont.13:
   %r18 = zext i1 %r17 to i64
   store i64 %r18, ptr %acc.ptr
   %r19 = icmp ne i64 %r18, 0
-  br i1 %r19, label %cont.20, label %__L__1340
+  br i1 %r19, label %cont.20, label %__L__1356
 cont.20:
   %r21 = load i64, ptr %acc.ptr
   store i64 102, ptr %t3
@@ -24751,12 +24913,12 @@ cont.20:
   %r24 = icmp sle i64 %r22, %r23
   %r25 = zext i1 %r24 to i64
   store i64 %r25, ptr %acc.ptr
-  br label %__L__1340
-__L__1340:
+  br label %__L__1356
+__L__1356:
   %r26 = load i64, ptr %acc.ptr
   store i64 %r26, ptr %acc.ptr
   %r27 = icmp ne i64 %r26, 0
-  br i1 %r27, label %__L__1338, label %cont.28
+  br i1 %r27, label %__L__1354, label %cont.28
 cont.28:
   %r29 = load i64, ptr %acc.ptr
   %r30 = load i64, ptr %arg0
@@ -24766,7 +24928,7 @@ cont.28:
   %r33 = zext i1 %r32 to i64
   store i64 %r33, ptr %acc.ptr
   %r34 = icmp ne i64 %r33, 0
-  br i1 %r34, label %cont.35, label %__L__1341
+  br i1 %r34, label %cont.35, label %__L__1357
 cont.35:
   %r36 = load i64, ptr %acc.ptr
   store i64 70, ptr %t5
@@ -24775,12 +24937,12 @@ cont.35:
   %r39 = icmp sle i64 %r37, %r38
   %r40 = zext i1 %r39 to i64
   store i64 %r40, ptr %acc.ptr
-  br label %__L__1341
-__L__1341:
+  br label %__L__1357
+__L__1357:
   %r41 = load i64, ptr %acc.ptr
   store i64 %r41, ptr %acc.ptr
-  br label %__L__1338
-__L__1338:
+  br label %__L__1354
+__L__1354:
   %r42 = load i64, ptr %acc.ptr
   ret i64 %r42
 }
@@ -24799,7 +24961,7 @@ entry:
   %r3 = zext i1 %r2 to i64
   store i64 %r3, ptr %acc.ptr
   %r4 = icmp ne i64 %r3, 0
-  br i1 %r4, label %cont.5, label %__L__1342
+  br i1 %r4, label %cont.5, label %__L__1358
 cont.5:
   %r6 = load i64, ptr %acc.ptr
   store i64 55, ptr %t1
@@ -24808,8 +24970,8 @@ cont.5:
   %r9 = icmp sle i64 %r7, %r8
   %r10 = zext i1 %r9 to i64
   store i64 %r10, ptr %acc.ptr
-  br label %__L__1342
-__L__1342:
+  br label %__L__1358
+__L__1358:
   %r11 = load i64, ptr %acc.ptr
   ret i64 %r11
 }
@@ -24866,8 +25028,8 @@ entry:
   %r7 = sub i64 %r5, %r6
   store i64 %r7, ptr %t3
   store i64 %r7, ptr %acc.ptr
-  br label %__L__1344
-__L__1343:
+  br label %__L__1360
+__L__1359:
   %r8 = load i64, ptr %acc.ptr
   store i64 2, ptr %t4
   %r9 = load i64, ptr %t3
@@ -24926,7 +25088,7 @@ __L__1343:
   %r45 = zext i1 %r44 to i64
   store i64 %r45, ptr %acc.ptr
   %r46 = icmp ne i64 %r45, 0
-  br i1 %r46, label %cont.47, label %__L__1345
+  br i1 %r46, label %cont.47, label %__L__1361
 cont.47:
   %r48 = load i64, ptr %acc.ptr
   store i64 1, ptr %t18
@@ -24935,8 +25097,8 @@ cont.47:
   %r51 = sub i64 %r49, %r50
   store i64 %r51, ptr %t3
   store i64 %r51, ptr %acc.ptr
-  br label %__L__1346
-__L__1345:
+  br label %__L__1362
+__L__1361:
   %r52 = load i64, ptr %acc.ptr
   store i64 0, ptr %t19
   %r53 = load i64, ptr %t16
@@ -24945,7 +25107,7 @@ __L__1345:
   %r56 = zext i1 %r55 to i64
   store i64 %r56, ptr %acc.ptr
   %r57 = icmp ne i64 %r56, 0
-  br i1 %r57, label %cont.58, label %__L__1347
+  br i1 %r57, label %cont.58, label %__L__1363
 cont.58:
   %r59 = load i64, ptr %acc.ptr
   store i64 1, ptr %t20
@@ -24954,21 +25116,21 @@ cont.58:
   %r62 = add i64 %r60, %r61
   store i64 %r62, ptr %t0
   store i64 %r62, ptr %acc.ptr
-  br label %__L__1348
-__L__1347:
+  br label %__L__1364
+__L__1363:
   %r63 = load i64, ptr %acc.ptr
   %r64 = load i64, ptr %t9
   store i64 %r64, ptr %acc.ptr
-  br label %__L__1349
-__L__1348:
+  br label %__L__1365
+__L__1364:
   %r65 = load i64, ptr %acc.ptr
   store i64 %r65, ptr %acc.ptr
-  br label %__L__1346
-__L__1346:
+  br label %__L__1362
+__L__1362:
   %r66 = load i64, ptr %acc.ptr
   store i64 %r66, ptr %acc.ptr
-  br label %__L__1344
-__L__1344:
+  br label %__L__1360
+__L__1360:
   %r67 = load i64, ptr %acc.ptr
   %r68 = load i64, ptr %t3
   store i64 %r68, ptr %t21
@@ -24978,7 +25140,7 @@ __L__1344:
   %r72 = zext i1 %r71 to i64
   store i64 %r72, ptr %acc.ptr
   %r73 = icmp ne i64 %r72, 0
-  br i1 %r73, label %__L__1343, label %cont.74
+  br i1 %r73, label %__L__1359, label %cont.74
 cont.74:
   %r75 = load i64, ptr %acc.ptr
   %r76 = load i64, ptr %arg0
@@ -25027,8 +25189,8 @@ cont.74:
   %r105 = call i64 %r103(i64 %r104)
   %r106 = load i64, ptr %t28
   store i64 %r106, ptr %acc.ptr
-  br label %__L__1349
-__L__1349:
+  br label %__L__1365
+__L__1365:
   %r107 = load i64, ptr %acc.ptr
   ret i64 %r107
 }
@@ -25103,8 +25265,8 @@ entry:
   store i64 0, ptr %t0
   store i64 0, ptr %t1
   store i64 0, ptr %acc.ptr
-  br label %__L__1351
-__L__1350:
+  br label %__L__1367
+__L__1366:
   %r0 = load i64, ptr %acc.ptr
   %r1 = load i64, ptr %arg0
   store i64 %r1, ptr %t2
@@ -25125,8 +25287,8 @@ __L__1350:
   %r12 = add i64 1, %r11
   store i64 %r12, ptr %t0
   store i64 %r12, ptr %acc.ptr
-  br label %__L__1351
-__L__1351:
+  br label %__L__1367
+__L__1367:
   %r13 = load i64, ptr %acc.ptr
   %r14 = load i64, ptr %t0
   store i64 %r14, ptr %t5
@@ -25139,7 +25301,7 @@ __L__1351:
   store i64 %r20, ptr %t1
   store i64 %r20, ptr %acc.ptr
   %r21 = icmp ne i64 %r20, 0
-  br i1 %r21, label %__L__1350, label %cont.22
+  br i1 %r21, label %__L__1366, label %cont.22
 cont.22:
   %r23 = load i64, ptr %acc.ptr
   ret i64 %r23
@@ -25183,7 +25345,7 @@ entry:
   %r12 = zext i1 %r11 to i64
   store i64 %r12, ptr %acc.ptr
   %r13 = icmp ne i64 %r12, 0
-  br i1 %r13, label %cont.14, label %__L__1352
+  br i1 %r13, label %cont.14, label %__L__1368
 cont.14:
   %r15 = load i64, ptr %acc.ptr
   %r16 = load i64, ptr %arg0
@@ -25195,8 +25357,8 @@ cont.14:
   %r19 = inttoptr i64 %r17 to ptr
   %r21 = call i64 %r19(i64 %r20)
   store i64 %r21, ptr %acc.ptr
-  br label %__L__1352
-__L__1352:
+  br label %__L__1368
+__L__1368:
   %r22 = load i64, ptr %acc.ptr
   store i64 2, ptr %t4
   %r23 = load i64, ptr %arg0
@@ -25456,7 +25618,7 @@ entry:
   %r3 = zext i1 %r2 to i64
   store i64 %r3, ptr %acc.ptr
   %r4 = icmp ne i64 %r3, 0
-  br i1 %r4, label %__L__1353, label %cont.5
+  br i1 %r4, label %__L__1369, label %cont.5
 cont.5:
   %r6 = load i64, ptr %acc.ptr
   %r7 = load i64, ptr %arg0
@@ -25466,7 +25628,7 @@ cont.5:
   %r10 = zext i1 %r9 to i64
   store i64 %r10, ptr %acc.ptr
   %r11 = icmp ne i64 %r10, 0
-  br i1 %r11, label %cont.12, label %__L__1354
+  br i1 %r11, label %cont.12, label %__L__1370
 cont.12:
   %r13 = load i64, ptr %acc.ptr
   store i64 38, ptr %t2
@@ -25475,12 +25637,12 @@ cont.12:
   %r16 = icmp sle i64 %r14, %r15
   %r17 = zext i1 %r16 to i64
   store i64 %r17, ptr %acc.ptr
-  br label %__L__1354
-__L__1354:
+  br label %__L__1370
+__L__1370:
   %r18 = load i64, ptr %acc.ptr
   store i64 %r18, ptr %acc.ptr
   %r19 = icmp ne i64 %r18, 0
-  br i1 %r19, label %__L__1353, label %cont.20
+  br i1 %r19, label %__L__1369, label %cont.20
 cont.20:
   %r21 = load i64, ptr %acc.ptr
   %r22 = load i64, ptr %arg0
@@ -25490,7 +25652,7 @@ cont.20:
   %r25 = zext i1 %r24 to i64
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__1355
+  br i1 %r26, label %cont.27, label %__L__1371
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 47, ptr %t4
@@ -25499,12 +25661,12 @@ cont.27:
   %r31 = icmp sle i64 %r29, %r30
   %r32 = zext i1 %r31 to i64
   store i64 %r32, ptr %acc.ptr
-  br label %__L__1355
-__L__1355:
+  br label %__L__1371
+__L__1371:
   %r33 = load i64, ptr %acc.ptr
   store i64 %r33, ptr %acc.ptr
   %r34 = icmp ne i64 %r33, 0
-  br i1 %r34, label %__L__1353, label %cont.35
+  br i1 %r34, label %__L__1369, label %cont.35
 cont.35:
   %r36 = load i64, ptr %acc.ptr
   %r37 = load i64, ptr %arg0
@@ -25514,7 +25676,7 @@ cont.35:
   %r40 = zext i1 %r39 to i64
   store i64 %r40, ptr %acc.ptr
   %r41 = icmp ne i64 %r40, 0
-  br i1 %r41, label %__L__1353, label %cont.42
+  br i1 %r41, label %__L__1369, label %cont.42
 cont.42:
   %r43 = load i64, ptr %acc.ptr
   %r44 = load i64, ptr %arg0
@@ -25524,7 +25686,7 @@ cont.42:
   %r47 = zext i1 %r46 to i64
   store i64 %r47, ptr %acc.ptr
   %r48 = icmp ne i64 %r47, 0
-  br i1 %r48, label %cont.49, label %__L__1356
+  br i1 %r48, label %cont.49, label %__L__1372
 cont.49:
   %r50 = load i64, ptr %acc.ptr
   store i64 90, ptr %t7
@@ -25533,12 +25695,12 @@ cont.49:
   %r53 = icmp sle i64 %r51, %r52
   %r54 = zext i1 %r53 to i64
   store i64 %r54, ptr %acc.ptr
-  br label %__L__1356
-__L__1356:
+  br label %__L__1372
+__L__1372:
   %r55 = load i64, ptr %acc.ptr
   store i64 %r55, ptr %acc.ptr
   %r56 = icmp ne i64 %r55, 0
-  br i1 %r56, label %__L__1353, label %cont.57
+  br i1 %r56, label %__L__1369, label %cont.57
 cont.57:
   %r58 = load i64, ptr %acc.ptr
   %r59 = load i64, ptr %arg0
@@ -25548,7 +25710,7 @@ cont.57:
   %r62 = zext i1 %r61 to i64
   store i64 %r62, ptr %acc.ptr
   %r63 = icmp ne i64 %r62, 0
-  br i1 %r63, label %__L__1353, label %cont.64
+  br i1 %r63, label %__L__1369, label %cont.64
 cont.64:
   %r65 = load i64, ptr %acc.ptr
   %r66 = load i64, ptr %arg0
@@ -25558,7 +25720,7 @@ cont.64:
   %r69 = zext i1 %r68 to i64
   store i64 %r69, ptr %acc.ptr
   %r70 = icmp ne i64 %r69, 0
-  br i1 %r70, label %__L__1353, label %cont.71
+  br i1 %r70, label %__L__1369, label %cont.71
 cont.71:
   %r72 = load i64, ptr %acc.ptr
   %r73 = load i64, ptr %arg0
@@ -25568,7 +25730,7 @@ cont.71:
   %r76 = zext i1 %r75 to i64
   store i64 %r76, ptr %acc.ptr
   %r77 = icmp ne i64 %r76, 0
-  br i1 %r77, label %__L__1353, label %cont.78
+  br i1 %r77, label %__L__1369, label %cont.78
 cont.78:
   %r79 = load i64, ptr %acc.ptr
   %r80 = load i64, ptr %arg0
@@ -25578,7 +25740,7 @@ cont.78:
   %r83 = zext i1 %r82 to i64
   store i64 %r83, ptr %acc.ptr
   %r84 = icmp ne i64 %r83, 0
-  br i1 %r84, label %cont.85, label %__L__1357
+  br i1 %r84, label %cont.85, label %__L__1373
 cont.85:
   %r86 = load i64, ptr %acc.ptr
   store i64 122, ptr %t12
@@ -25587,12 +25749,12 @@ cont.85:
   %r89 = icmp sle i64 %r87, %r88
   %r90 = zext i1 %r89 to i64
   store i64 %r90, ptr %acc.ptr
-  br label %__L__1357
-__L__1357:
+  br label %__L__1373
+__L__1373:
   %r91 = load i64, ptr %acc.ptr
   store i64 %r91, ptr %acc.ptr
   %r92 = icmp ne i64 %r91, 0
-  br i1 %r92, label %__L__1353, label %cont.93
+  br i1 %r92, label %__L__1369, label %cont.93
 cont.93:
   %r94 = load i64, ptr %acc.ptr
   %r95 = load i64, ptr %arg0
@@ -25602,7 +25764,7 @@ cont.93:
   %r98 = zext i1 %r97 to i64
   store i64 %r98, ptr %acc.ptr
   %r99 = icmp ne i64 %r98, 0
-  br i1 %r99, label %__L__1353, label %cont.100
+  br i1 %r99, label %__L__1369, label %cont.100
 cont.100:
   %r101 = load i64, ptr %acc.ptr
   %r102 = load i64, ptr %arg0
@@ -25612,7 +25774,7 @@ cont.100:
   %r105 = zext i1 %r104 to i64
   store i64 %r105, ptr %acc.ptr
   %r106 = icmp ne i64 %r105, 0
-  br i1 %r106, label %__L__1353, label %cont.107
+  br i1 %r106, label %__L__1369, label %cont.107
 cont.107:
   %r108 = load i64, ptr %acc.ptr
   %r109 = load i64, ptr %arg0
@@ -25621,8 +25783,8 @@ cont.107:
   %r111 = icmp sle i64 128, %r110
   %r112 = zext i1 %r111 to i64
   store i64 %r112, ptr %acc.ptr
-  br label %__L__1353
-__L__1353:
+  br label %__L__1369
+__L__1369:
   %r113 = load i64, ptr %acc.ptr
   ret i64 %r113
 }
@@ -25643,7 +25805,7 @@ entry:
   %r3 = zext i1 %r2 to i64
   store i64 %r3, ptr %acc.ptr
   %r4 = icmp ne i64 %r3, 0
-  br i1 %r4, label %cont.5, label %__L__1359
+  br i1 %r4, label %cont.5, label %__L__1375
 cont.5:
   %r6 = load i64, ptr %acc.ptr
   store i64 122, ptr %t1
@@ -25652,12 +25814,12 @@ cont.5:
   %r9 = icmp sle i64 %r7, %r8
   %r10 = zext i1 %r9 to i64
   store i64 %r10, ptr %acc.ptr
-  br label %__L__1359
-__L__1359:
+  br label %__L__1375
+__L__1375:
   %r11 = load i64, ptr %acc.ptr
   store i64 %r11, ptr %acc.ptr
   %r12 = icmp ne i64 %r11, 0
-  br i1 %r12, label %__L__1358, label %cont.13
+  br i1 %r12, label %__L__1374, label %cont.13
 cont.13:
   %r14 = load i64, ptr %acc.ptr
   %r15 = load i64, ptr %arg0
@@ -25667,7 +25829,7 @@ cont.13:
   %r18 = zext i1 %r17 to i64
   store i64 %r18, ptr %acc.ptr
   %r19 = icmp ne i64 %r18, 0
-  br i1 %r19, label %cont.20, label %__L__1360
+  br i1 %r19, label %cont.20, label %__L__1376
 cont.20:
   %r21 = load i64, ptr %acc.ptr
   store i64 90, ptr %t3
@@ -25676,12 +25838,12 @@ cont.20:
   %r24 = icmp sle i64 %r22, %r23
   %r25 = zext i1 %r24 to i64
   store i64 %r25, ptr %acc.ptr
-  br label %__L__1360
-__L__1360:
+  br label %__L__1376
+__L__1376:
   %r26 = load i64, ptr %acc.ptr
   store i64 %r26, ptr %acc.ptr
-  br label %__L__1358
-__L__1358:
+  br label %__L__1374
+__L__1374:
   %r27 = load i64, ptr %acc.ptr
   ret i64 %r27
 }
@@ -25704,7 +25866,7 @@ entry:
   %r3 = zext i1 %r2 to i64
   store i64 %r3, ptr %acc.ptr
   %r4 = icmp ne i64 %r3, 0
-  br i1 %r4, label %cont.5, label %__L__1362
+  br i1 %r4, label %cont.5, label %__L__1378
 cont.5:
   %r6 = load i64, ptr %acc.ptr
   store i64 57, ptr %t1
@@ -25713,12 +25875,12 @@ cont.5:
   %r9 = icmp sle i64 %r7, %r8
   %r10 = zext i1 %r9 to i64
   store i64 %r10, ptr %acc.ptr
-  br label %__L__1362
-__L__1362:
+  br label %__L__1378
+__L__1378:
   %r11 = load i64, ptr %acc.ptr
   store i64 %r11, ptr %acc.ptr
   %r12 = icmp ne i64 %r11, 0
-  br i1 %r12, label %__L__1361, label %cont.13
+  br i1 %r12, label %__L__1377, label %cont.13
 cont.13:
   %r14 = load i64, ptr %acc.ptr
   %r15 = load i64, ptr %arg0
@@ -25728,7 +25890,7 @@ cont.13:
   %r18 = zext i1 %r17 to i64
   store i64 %r18, ptr %acc.ptr
   %r19 = icmp ne i64 %r18, 0
-  br i1 %r19, label %cont.20, label %__L__1363
+  br i1 %r19, label %cont.20, label %__L__1379
 cont.20:
   %r21 = load i64, ptr %acc.ptr
   store i64 102, ptr %t3
@@ -25737,12 +25899,12 @@ cont.20:
   %r24 = icmp sle i64 %r22, %r23
   %r25 = zext i1 %r24 to i64
   store i64 %r25, ptr %acc.ptr
-  br label %__L__1363
-__L__1363:
+  br label %__L__1379
+__L__1379:
   %r26 = load i64, ptr %acc.ptr
   store i64 %r26, ptr %acc.ptr
   %r27 = icmp ne i64 %r26, 0
-  br i1 %r27, label %__L__1361, label %cont.28
+  br i1 %r27, label %__L__1377, label %cont.28
 cont.28:
   %r29 = load i64, ptr %acc.ptr
   %r30 = load i64, ptr %arg0
@@ -25752,7 +25914,7 @@ cont.28:
   %r33 = zext i1 %r32 to i64
   store i64 %r33, ptr %acc.ptr
   %r34 = icmp ne i64 %r33, 0
-  br i1 %r34, label %cont.35, label %__L__1364
+  br i1 %r34, label %cont.35, label %__L__1380
 cont.35:
   %r36 = load i64, ptr %acc.ptr
   store i64 70, ptr %t5
@@ -25761,12 +25923,12 @@ cont.35:
   %r39 = icmp sle i64 %r37, %r38
   %r40 = zext i1 %r39 to i64
   store i64 %r40, ptr %acc.ptr
-  br label %__L__1364
-__L__1364:
+  br label %__L__1380
+__L__1380:
   %r41 = load i64, ptr %acc.ptr
   store i64 %r41, ptr %acc.ptr
-  br label %__L__1361
-__L__1361:
+  br label %__L__1377
+__L__1377:
   %r42 = load i64, ptr %acc.ptr
   ret i64 %r42
 }
@@ -25785,7 +25947,7 @@ entry:
   %r3 = zext i1 %r2 to i64
   store i64 %r3, ptr %acc.ptr
   %r4 = icmp ne i64 %r3, 0
-  br i1 %r4, label %cont.5, label %__L__1365
+  br i1 %r4, label %cont.5, label %__L__1381
 cont.5:
   %r6 = load i64, ptr %acc.ptr
   store i64 57, ptr %t1
@@ -25794,8 +25956,8 @@ cont.5:
   %r9 = icmp sle i64 %r7, %r8
   %r10 = zext i1 %r9 to i64
   store i64 %r10, ptr %acc.ptr
-  br label %__L__1365
-__L__1365:
+  br label %__L__1381
+__L__1381:
   %r11 = load i64, ptr %acc.ptr
   ret i64 %r11
 }
@@ -25818,7 +25980,7 @@ entry:
   %r3 = zext i1 %r2 to i64
   store i64 %r3, ptr %acc.ptr
   %r4 = icmp ne i64 %r3, 0
-  br i1 %r4, label %__L__1366, label %cont.5
+  br i1 %r4, label %__L__1382, label %cont.5
 cont.5:
   %r6 = load i64, ptr %acc.ptr
   %r7 = load i64, ptr %arg0
@@ -25828,7 +25990,7 @@ cont.5:
   %r10 = zext i1 %r9 to i64
   store i64 %r10, ptr %acc.ptr
   %r11 = icmp ne i64 %r10, 0
-  br i1 %r11, label %__L__1366, label %cont.12
+  br i1 %r11, label %__L__1382, label %cont.12
 cont.12:
   %r13 = load i64, ptr %acc.ptr
   %r14 = load i64, ptr %arg0
@@ -25838,7 +26000,7 @@ cont.12:
   %r17 = zext i1 %r16 to i64
   store i64 %r17, ptr %acc.ptr
   %r18 = icmp ne i64 %r17, 0
-  br i1 %r18, label %__L__1366, label %cont.19
+  br i1 %r18, label %__L__1382, label %cont.19
 cont.19:
   %r20 = load i64, ptr %acc.ptr
   %r21 = load i64, ptr %arg0
@@ -25848,7 +26010,7 @@ cont.19:
   %r24 = zext i1 %r23 to i64
   store i64 %r24, ptr %acc.ptr
   %r25 = icmp ne i64 %r24, 0
-  br i1 %r25, label %__L__1366, label %cont.26
+  br i1 %r25, label %__L__1382, label %cont.26
 cont.26:
   %r27 = load i64, ptr %acc.ptr
   %r28 = load i64, ptr %arg0
@@ -25858,7 +26020,7 @@ cont.26:
   %r31 = zext i1 %r30 to i64
   store i64 %r31, ptr %acc.ptr
   %r32 = icmp ne i64 %r31, 0
-  br i1 %r32, label %__L__1366, label %cont.33
+  br i1 %r32, label %__L__1382, label %cont.33
 cont.33:
   %r34 = load i64, ptr %acc.ptr
   %r35 = load i64, ptr %arg0
@@ -25867,13 +26029,13 @@ cont.33:
   %r37 = icmp eq i64 13, %r36
   %r38 = zext i1 %r37 to i64
   store i64 %r38, ptr %acc.ptr
-  br label %__L__1366
-__L__1366:
+  br label %__L__1382
+__L__1382:
   %r39 = load i64, ptr %acc.ptr
   ret i64 %r39
 }
 ; defn k_dumpln
-@__L__1367 = private constant [2 x i8] c"\0A\00"
+@__L__1383 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__120(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -25896,7 +26058,7 @@ entry:
   %r6 = load i64, ptr %a1
   %r4 = inttoptr i64 %r1 to ptr
   %r7 = call i64 %r4(i64 %r5, i64 %r6)
-  %r8 = ptrtoint ptr @__L__1367 to i64
+  %r8 = ptrtoint ptr @__L__1383 to i64
   store i64 %r8, ptr %t2
   %r9 = ptrtoint ptr @printf to i64
   %r10 = load i64, ptr %t2
@@ -25931,7 +26093,7 @@ entry:
   ret i64 %r7
 }
 ; defn k_println
-@__L__1368 = private constant [2 x i8] c"\0A\00"
+@__L__1384 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__122(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -25954,7 +26116,7 @@ entry:
   %r6 = load i64, ptr %a1
   %r4 = inttoptr i64 %r1 to ptr
   %r7 = call i64 %r4(i64 %r5, i64 %r6)
-  %r8 = ptrtoint ptr @__L__1368 to i64
+  %r8 = ptrtoint ptr @__L__1384 to i64
   store i64 %r8, ptr %t2
   %r9 = ptrtoint ptr @printf to i64
   %r10 = load i64, ptr %t2
@@ -25989,36 +26151,36 @@ entry:
   ret i64 %r7
 }
 ; defn do_print
-@__L__1375 = private constant [4 x i8] c"nil\00"
-@__L__1378 = private constant [3 x i8] c"%d\00"
-@__L__1385 = private constant [3 x i8] c"%s\00"
-@__L__1386 = private constant [2 x i8] c"\22\00"
-@__L__1394 = private constant [3 x i8] c"\5C\22\00"
-@__L__1397 = private constant [3 x i8] c"\5C\5C\00"
-@__L__1398 = private constant [3 x i8] c"%c\00"
-@__L__1399 = private constant [6 x i8] c"\5C%03o\00"
-@__L__1400 = private constant [2 x i8] c"\22\00"
-@__L__1403 = private constant [3 x i8] c"%s\00"
-@__L__1406 = private constant [2 x i8] c"(\00"
-@__L__1414 = private constant [2 x i8] c" \00"
-@__L__1422 = private constant [10 x i8] c"<globals>\00"
-@__L__1424 = private constant [4 x i8] c" . \00"
-@__L__1425 = private constant [2 x i8] c")\00"
-@__L__1428 = private constant [7 x i8] c"Array(\00"
-@__L__1432 = private constant [2 x i8] c" \00"
-@__L__1433 = private constant [2 x i8] c")\00"
-@__L__1436 = private constant [6 x i8] c"Expr(\00"
-@__L__1437 = private constant [2 x i8] c")\00"
-@__L__1440 = private constant [6 x i8] c"Form(\00"
-@__L__1441 = private constant [2 x i8] c",\00"
-@__L__1442 = private constant [2 x i8] c")\00"
-@__L__1445 = private constant [7 x i8] c"Fixed(\00"
-@__L__1446 = private constant [2 x i8] c")\00"
-@__L__1449 = private constant [9 x i8] c"Subr(%s)\00"
-@__L__1453 = private constant [7 x i8] c".%d+%d\00"
-@__L__1456 = private constant [8 x i8] c"Env<%d>\00"
-@__L__1459 = private constant [10 x i8] c"Context<>\00"
-@__L__1460 = private constant [10 x i8] c"<type:%d>\00"
+@__L__1391 = private constant [4 x i8] c"nil\00"
+@__L__1394 = private constant [3 x i8] c"%d\00"
+@__L__1401 = private constant [3 x i8] c"%s\00"
+@__L__1402 = private constant [2 x i8] c"\22\00"
+@__L__1410 = private constant [3 x i8] c"\5C\22\00"
+@__L__1413 = private constant [3 x i8] c"\5C\5C\00"
+@__L__1414 = private constant [3 x i8] c"%c\00"
+@__L__1415 = private constant [6 x i8] c"\5C%03o\00"
+@__L__1416 = private constant [2 x i8] c"\22\00"
+@__L__1419 = private constant [3 x i8] c"%s\00"
+@__L__1422 = private constant [2 x i8] c"(\00"
+@__L__1430 = private constant [2 x i8] c" \00"
+@__L__1438 = private constant [10 x i8] c"<globals>\00"
+@__L__1440 = private constant [4 x i8] c" . \00"
+@__L__1441 = private constant [2 x i8] c")\00"
+@__L__1444 = private constant [7 x i8] c"Array(\00"
+@__L__1448 = private constant [2 x i8] c" \00"
+@__L__1449 = private constant [2 x i8] c")\00"
+@__L__1452 = private constant [6 x i8] c"Expr(\00"
+@__L__1453 = private constant [2 x i8] c")\00"
+@__L__1456 = private constant [6 x i8] c"Form(\00"
+@__L__1457 = private constant [2 x i8] c",\00"
+@__L__1458 = private constant [2 x i8] c")\00"
+@__L__1461 = private constant [7 x i8] c"Fixed(\00"
+@__L__1462 = private constant [2 x i8] c")\00"
+@__L__1465 = private constant [9 x i8] c"Subr(%s)\00"
+@__L__1469 = private constant [7 x i8] c".%d+%d\00"
+@__L__1472 = private constant [8 x i8] c"Env<%d>\00"
+@__L__1475 = private constant [10 x i8] c"Context<>\00"
+@__L__1476 = private constant [10 x i8] c"<type:%d>\00"
 define i64 @__L__124(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -26170,7 +26332,7 @@ entry:
   %r1 = load i64, ptr %t0
   store i64 %r1, ptr %acc.ptr
   %r2 = icmp ne i64 %r1, 0
-  br i1 %r2, label %cont.3, label %__L__1369
+  br i1 %r2, label %cont.3, label %__L__1385
 cont.3:
   %r4 = load i64, ptr %acc.ptr
   store i64 1, ptr %t1
@@ -26179,13 +26341,13 @@ cont.3:
   %r7 = and i64 %r5, %r6
   store i64 %r7, ptr %acc.ptr
   %r8 = icmp ne i64 %r7, 0
-  br i1 %r8, label %cont.9, label %__L__1371
+  br i1 %r8, label %cont.9, label %__L__1387
 cont.9:
   %r10 = load i64, ptr %acc.ptr
   %r11 = load i64, ptr @_3Clong_3E
   store i64 %r11, ptr %acc.ptr
-  br label %__L__1372
-__L__1371:
+  br label %__L__1388
+__L__1387:
   %r12 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t2
   %r13 = load i64, ptr %t0
@@ -26194,17 +26356,17 @@ __L__1371:
   %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
-  br label %__L__1372
-__L__1372:
+  br label %__L__1388
+__L__1388:
   %r18 = load i64, ptr %acc.ptr
   store i64 %r18, ptr %acc.ptr
-  br label %__L__1370
-__L__1369:
+  br label %__L__1386
+__L__1385:
   %r19 = load i64, ptr %acc.ptr
   %r20 = load i64, ptr @_3Cundefined_3E
   store i64 %r20, ptr %acc.ptr
-  br label %__L__1370
-__L__1370:
+  br label %__L__1386
+__L__1386:
   %r21 = load i64, ptr %acc.ptr
   store i64 %r21, ptr %t3
   %r22 = load i64, ptr @_3Cundefined_3E
@@ -26215,10 +26377,10 @@ __L__1370:
   %r26 = zext i1 %r25 to i64
   store i64 %r26, ptr %acc.ptr
   %r27 = icmp ne i64 %r26, 0
-  br i1 %r27, label %cont.28, label %__L__1373
+  br i1 %r27, label %cont.28, label %__L__1389
 cont.28:
   %r29 = load i64, ptr %acc.ptr
-  %r30 = ptrtoint ptr @__L__1375 to i64
+  %r30 = ptrtoint ptr @__L__1391 to i64
   store i64 %r30, ptr %t5
   %r31 = ptrtoint ptr @printf to i64
   %r32 = load i64, ptr %t5
@@ -26227,8 +26389,8 @@ cont.28:
   %r33 = inttoptr i64 %r31 to ptr
   %r35 = call i64 %r33(i64 %r34)
   store i64 %r35, ptr %acc.ptr
-  br label %__L__1374
-__L__1373:
+  br label %__L__1390
+__L__1389:
   %r36 = load i64, ptr %acc.ptr
   %r37 = load i64, ptr @_3Clong_3E
   store i64 %r37, ptr %t6
@@ -26238,10 +26400,10 @@ __L__1373:
   %r41 = zext i1 %r40 to i64
   store i64 %r41, ptr %acc.ptr
   %r42 = icmp ne i64 %r41, 0
-  br i1 %r42, label %cont.43, label %__L__1376
+  br i1 %r42, label %cont.43, label %__L__1392
 cont.43:
   %r44 = load i64, ptr %acc.ptr
-  %r45 = ptrtoint ptr @__L__1378 to i64
+  %r45 = ptrtoint ptr @__L__1394 to i64
   store i64 %r45, ptr %t7
   store i64 1, ptr %t8
   %r46 = load i64, ptr %arg0
@@ -26258,8 +26420,8 @@ cont.43:
   %r52 = inttoptr i64 %r49 to ptr
   %r55 = call i64 %r52(i64 %r53, i64 %r54)
   store i64 %r55, ptr %acc.ptr
-  br label %__L__1377
-__L__1376:
+  br label %__L__1393
+__L__1392:
   %r56 = load i64, ptr %acc.ptr
   %r57 = load i64, ptr @_3Cdouble_3E
   store i64 %r57, ptr %t10
@@ -26269,7 +26431,7 @@ __L__1376:
   %r61 = zext i1 %r60 to i64
   store i64 %r61, ptr %acc.ptr
   %r62 = icmp ne i64 %r61, 0
-  br i1 %r62, label %cont.63, label %__L__1379
+  br i1 %r62, label %cont.63, label %__L__1395
 cont.63:
   %r64 = load i64, ptr %acc.ptr
   store i64 0, ptr %t11
@@ -26286,8 +26448,8 @@ cont.63:
   %r72 = inttoptr i64 %r70 to ptr
   %r74 = call i64 %r72(i64 %r73)
   store i64 %r74, ptr %acc.ptr
-  br label %__L__1380
-__L__1379:
+  br label %__L__1396
+__L__1395:
   %r75 = load i64, ptr %acc.ptr
   %r76 = load i64, ptr @_3Cstring_3E
   store i64 %r76, ptr %t13
@@ -26297,7 +26459,7 @@ __L__1379:
   %r80 = zext i1 %r79 to i64
   store i64 %r80, ptr %acc.ptr
   %r81 = icmp ne i64 %r80, 0
-  br i1 %r81, label %cont.82, label %__L__1381
+  br i1 %r81, label %cont.82, label %__L__1397
 cont.82:
   %r83 = load i64, ptr %acc.ptr
   %r84 = load i64, ptr %arg0
@@ -26314,10 +26476,10 @@ cont.82:
   %r92 = zext i1 %r91 to i64
   store i64 %r92, ptr %acc.ptr
   %r93 = icmp ne i64 %r92, 0
-  br i1 %r93, label %cont.94, label %__L__1383
+  br i1 %r93, label %cont.94, label %__L__1399
 cont.94:
   %r95 = load i64, ptr %acc.ptr
-  %r96 = ptrtoint ptr @__L__1385 to i64
+  %r96 = ptrtoint ptr @__L__1401 to i64
   store i64 %r96, ptr %t17
   %r97 = load i64, ptr %t16
   store i64 %r97, ptr %t18
@@ -26331,12 +26493,12 @@ cont.94:
   %r101 = inttoptr i64 %r98 to ptr
   %r104 = call i64 %r101(i64 %r102, i64 %r103)
   store i64 %r104, ptr %acc.ptr
-  br label %__L__1384
-__L__1383:
+  br label %__L__1400
+__L__1399:
   %r105 = load i64, ptr %acc.ptr
   store i64 0, ptr %t19
   store i64 0, ptr %t20
-  %r106 = ptrtoint ptr @__L__1386 to i64
+  %r106 = ptrtoint ptr @__L__1402 to i64
   store i64 %r106, ptr %t21
   %r107 = ptrtoint ptr @printf to i64
   %r108 = load i64, ptr %t21
@@ -26345,8 +26507,8 @@ __L__1383:
   %r109 = inttoptr i64 %r107 to ptr
   %r111 = call i64 %r109(i64 %r110)
   store i64 %r111, ptr %acc.ptr
-  br label %__L__1388
-__L__1387:
+  br label %__L__1404
+__L__1403:
   %r112 = load i64, ptr %acc.ptr
   %r113 = load i64, ptr %t20
   store i64 %r113, ptr %t22
@@ -26355,7 +26517,7 @@ __L__1387:
   %r116 = zext i1 %r115 to i64
   store i64 %r116, ptr %acc.ptr
   %r117 = icmp ne i64 %r116, 0
-  br i1 %r117, label %cont.118, label %__L__1391
+  br i1 %r117, label %cont.118, label %__L__1407
 cont.118:
   %r119 = load i64, ptr %acc.ptr
   store i64 126, ptr %t23
@@ -26364,12 +26526,12 @@ cont.118:
   %r122 = icmp sle i64 %r120, %r121
   %r123 = zext i1 %r122 to i64
   store i64 %r123, ptr %acc.ptr
-  br label %__L__1391
-__L__1391:
+  br label %__L__1407
+__L__1407:
   %r124 = load i64, ptr %acc.ptr
   store i64 %r124, ptr %acc.ptr
   %r125 = icmp ne i64 %r124, 0
-  br i1 %r125, label %cont.126, label %__L__1389
+  br i1 %r125, label %cont.126, label %__L__1405
 cont.126:
   %r127 = load i64, ptr %acc.ptr
   store i64 34, ptr %t24
@@ -26379,10 +26541,10 @@ cont.126:
   %r131 = zext i1 %r130 to i64
   store i64 %r131, ptr %acc.ptr
   %r132 = icmp ne i64 %r131, 0
-  br i1 %r132, label %cont.133, label %__L__1392
+  br i1 %r132, label %cont.133, label %__L__1408
 cont.133:
   %r134 = load i64, ptr %acc.ptr
-  %r135 = ptrtoint ptr @__L__1394 to i64
+  %r135 = ptrtoint ptr @__L__1410 to i64
   store i64 %r135, ptr %t25
   %r136 = ptrtoint ptr @printf to i64
   %r137 = load i64, ptr %t25
@@ -26391,8 +26553,8 @@ cont.133:
   %r138 = inttoptr i64 %r136 to ptr
   %r140 = call i64 %r138(i64 %r139)
   store i64 %r140, ptr %acc.ptr
-  br label %__L__1393
-__L__1392:
+  br label %__L__1409
+__L__1408:
   %r141 = load i64, ptr %acc.ptr
   store i64 92, ptr %t26
   %r142 = load i64, ptr %t20
@@ -26401,10 +26563,10 @@ __L__1392:
   %r145 = zext i1 %r144 to i64
   store i64 %r145, ptr %acc.ptr
   %r146 = icmp ne i64 %r145, 0
-  br i1 %r146, label %cont.147, label %__L__1395
+  br i1 %r146, label %cont.147, label %__L__1411
 cont.147:
   %r148 = load i64, ptr %acc.ptr
-  %r149 = ptrtoint ptr @__L__1397 to i64
+  %r149 = ptrtoint ptr @__L__1413 to i64
   store i64 %r149, ptr %t27
   %r150 = ptrtoint ptr @printf to i64
   %r151 = load i64, ptr %t27
@@ -26413,10 +26575,10 @@ cont.147:
   %r152 = inttoptr i64 %r150 to ptr
   %r154 = call i64 %r152(i64 %r153)
   store i64 %r154, ptr %acc.ptr
-  br label %__L__1396
-__L__1395:
+  br label %__L__1412
+__L__1411:
   %r155 = load i64, ptr %acc.ptr
-  %r156 = ptrtoint ptr @__L__1398 to i64
+  %r156 = ptrtoint ptr @__L__1414 to i64
   store i64 %r156, ptr %t28
   %r157 = load i64, ptr %t20
   store i64 %r157, ptr %t29
@@ -26430,18 +26592,18 @@ __L__1395:
   %r161 = inttoptr i64 %r158 to ptr
   %r164 = call i64 %r161(i64 %r162, i64 %r163)
   store i64 %r164, ptr %acc.ptr
-  br label %__L__1396
-__L__1396:
+  br label %__L__1412
+__L__1412:
   %r165 = load i64, ptr %acc.ptr
   store i64 %r165, ptr %acc.ptr
-  br label %__L__1393
-__L__1393:
+  br label %__L__1409
+__L__1409:
   %r166 = load i64, ptr %acc.ptr
   store i64 %r166, ptr %acc.ptr
-  br label %__L__1390
-__L__1389:
+  br label %__L__1406
+__L__1405:
   %r167 = load i64, ptr %acc.ptr
-  %r168 = ptrtoint ptr @__L__1399 to i64
+  %r168 = ptrtoint ptr @__L__1415 to i64
   store i64 %r168, ptr %t30
   %r169 = load i64, ptr %t20
   store i64 %r169, ptr %t31
@@ -26455,8 +26617,8 @@ __L__1389:
   %r173 = inttoptr i64 %r170 to ptr
   %r176 = call i64 %r173(i64 %r174, i64 %r175)
   store i64 %r176, ptr %acc.ptr
-  br label %__L__1390
-__L__1390:
+  br label %__L__1406
+__L__1406:
   %r177 = load i64, ptr %acc.ptr
   %r178 = load i64, ptr %t19
   store i64 %r178, ptr %t32
@@ -26464,8 +26626,8 @@ __L__1390:
   %r180 = add i64 1, %r179
   store i64 %r180, ptr %t19
   store i64 %r180, ptr %acc.ptr
-  br label %__L__1388
-__L__1388:
+  br label %__L__1404
+__L__1404:
   %r181 = load i64, ptr %acc.ptr
   %r182 = load i64, ptr %t19
   store i64 %r182, ptr %t33
@@ -26478,10 +26640,10 @@ __L__1388:
   store i64 %r188, ptr %t20
   store i64 %r188, ptr %acc.ptr
   %r189 = icmp ne i64 %r188, 0
-  br i1 %r189, label %__L__1387, label %cont.190
+  br i1 %r189, label %__L__1403, label %cont.190
 cont.190:
   %r191 = load i64, ptr %acc.ptr
-  %r192 = ptrtoint ptr @__L__1400 to i64
+  %r192 = ptrtoint ptr @__L__1416 to i64
   store i64 %r192, ptr %t34
   %r193 = ptrtoint ptr @printf to i64
   %r194 = load i64, ptr %t34
@@ -26490,12 +26652,12 @@ cont.190:
   %r195 = inttoptr i64 %r193 to ptr
   %r197 = call i64 %r195(i64 %r196)
   store i64 %r197, ptr %acc.ptr
-  br label %__L__1384
-__L__1384:
+  br label %__L__1400
+__L__1400:
   %r198 = load i64, ptr %acc.ptr
   store i64 %r198, ptr %acc.ptr
-  br label %__L__1382
-__L__1381:
+  br label %__L__1398
+__L__1397:
   %r199 = load i64, ptr %acc.ptr
   %r200 = load i64, ptr @_3Csymbol_3E
   store i64 %r200, ptr %t35
@@ -26505,10 +26667,10 @@ __L__1381:
   %r204 = zext i1 %r203 to i64
   store i64 %r204, ptr %acc.ptr
   %r205 = icmp ne i64 %r204, 0
-  br i1 %r205, label %cont.206, label %__L__1401
+  br i1 %r205, label %cont.206, label %__L__1417
 cont.206:
   %r207 = load i64, ptr %acc.ptr
-  %r208 = ptrtoint ptr @__L__1403 to i64
+  %r208 = ptrtoint ptr @__L__1419 to i64
   store i64 %r208, ptr %t36
   %r209 = load i64, ptr %arg0
   store i64 %r209, ptr %t37
@@ -26529,8 +26691,8 @@ cont.206:
   %r218 = inttoptr i64 %r215 to ptr
   %r221 = call i64 %r218(i64 %r219, i64 %r220)
   store i64 %r221, ptr %acc.ptr
-  br label %__L__1402
-__L__1401:
+  br label %__L__1418
+__L__1417:
   %r222 = load i64, ptr %acc.ptr
   %r223 = load i64, ptr @_3Cpair_3E
   store i64 %r223, ptr %t40
@@ -26540,10 +26702,10 @@ __L__1401:
   %r227 = zext i1 %r226 to i64
   store i64 %r227, ptr %acc.ptr
   %r228 = icmp ne i64 %r227, 0
-  br i1 %r228, label %cont.229, label %__L__1404
+  br i1 %r228, label %cont.229, label %__L__1420
 cont.229:
   %r230 = load i64, ptr %acc.ptr
-  %r231 = ptrtoint ptr @__L__1406 to i64
+  %r231 = ptrtoint ptr @__L__1422 to i64
   store i64 %r231, ptr %t41
   %r232 = ptrtoint ptr @printf to i64
   %r233 = load i64, ptr %t41
@@ -26552,8 +26714,8 @@ cont.229:
   %r234 = inttoptr i64 %r232 to ptr
   %r236 = call i64 %r234(i64 %r235)
   store i64 %r236, ptr %acc.ptr
-  br label %__L__1408
-__L__1407:
+  br label %__L__1424
+__L__1423:
   %r237 = load i64, ptr %acc.ptr
   store i64 0, ptr %t42
   %r238 = load i64, ptr %arg0
@@ -26584,7 +26746,7 @@ __L__1407:
   %r256 = load i64, ptr %t46
   store i64 %r256, ptr %acc.ptr
   %r257 = icmp ne i64 %r256, 0
-  br i1 %r257, label %cont.258, label %__L__1410
+  br i1 %r257, label %cont.258, label %__L__1426
 cont.258:
   %r259 = load i64, ptr %acc.ptr
   store i64 1, ptr %t47
@@ -26593,13 +26755,13 @@ cont.258:
   %r262 = and i64 %r260, %r261
   store i64 %r262, ptr %acc.ptr
   %r263 = icmp ne i64 %r262, 0
-  br i1 %r263, label %cont.264, label %__L__1412
+  br i1 %r263, label %cont.264, label %__L__1428
 cont.264:
   %r265 = load i64, ptr %acc.ptr
   %r266 = load i64, ptr @_3Clong_3E
   store i64 %r266, ptr %acc.ptr
-  br label %__L__1413
-__L__1412:
+  br label %__L__1429
+__L__1428:
   %r267 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t48
   %r268 = load i64, ptr %t46
@@ -26608,17 +26770,17 @@ __L__1412:
   %r271 = getelementptr inbounds i64, ptr %r269, i64 %r270
   %r272 = load i64, ptr %r271
   store i64 %r272, ptr %acc.ptr
-  br label %__L__1413
-__L__1413:
+  br label %__L__1429
+__L__1429:
   %r273 = load i64, ptr %acc.ptr
   store i64 %r273, ptr %acc.ptr
-  br label %__L__1411
-__L__1410:
+  br label %__L__1427
+__L__1426:
   %r274 = load i64, ptr %acc.ptr
   %r275 = load i64, ptr @_3Cundefined_3E
   store i64 %r275, ptr %acc.ptr
-  br label %__L__1411
-__L__1411:
+  br label %__L__1427
+__L__1427:
   %r276 = load i64, ptr %acc.ptr
   store i64 %r276, ptr %t49
   %r277 = load i64, ptr @_3Cpair_3E
@@ -26627,10 +26789,10 @@ __L__1411:
   %r280 = zext i1 %r279 to i64
   store i64 %r280, ptr %acc.ptr
   %r281 = icmp ne i64 %r280, 0
-  br i1 %r281, label %cont.282, label %__L__1409
+  br i1 %r281, label %cont.282, label %__L__1425
 cont.282:
   %r283 = load i64, ptr %acc.ptr
-  %r284 = ptrtoint ptr @__L__1414 to i64
+  %r284 = ptrtoint ptr @__L__1430 to i64
   store i64 %r284, ptr %t50
   %r285 = ptrtoint ptr @printf to i64
   %r286 = load i64, ptr %t50
@@ -26639,19 +26801,19 @@ cont.282:
   %r287 = inttoptr i64 %r285 to ptr
   %r289 = call i64 %r287(i64 %r288)
   store i64 %r289, ptr %acc.ptr
-  br label %__L__1409
-__L__1409:
+  br label %__L__1425
+__L__1425:
   %r290 = load i64, ptr %acc.ptr
   store i64 %r290, ptr %acc.ptr
-  br label %__L__1408
-__L__1408:
+  br label %__L__1424
+__L__1424:
   %r291 = load i64, ptr %acc.ptr
   %r292 = load i64, ptr %arg0
   store i64 %r292, ptr %t51
   %r293 = load i64, ptr %t51
   store i64 %r293, ptr %acc.ptr
   %r294 = icmp ne i64 %r293, 0
-  br i1 %r294, label %cont.295, label %__L__1416
+  br i1 %r294, label %cont.295, label %__L__1432
 cont.295:
   %r296 = load i64, ptr %acc.ptr
   store i64 1, ptr %t52
@@ -26660,13 +26822,13 @@ cont.295:
   %r299 = and i64 %r297, %r298
   store i64 %r299, ptr %acc.ptr
   %r300 = icmp ne i64 %r299, 0
-  br i1 %r300, label %cont.301, label %__L__1418
+  br i1 %r300, label %cont.301, label %__L__1434
 cont.301:
   %r302 = load i64, ptr %acc.ptr
   %r303 = load i64, ptr @_3Clong_3E
   store i64 %r303, ptr %acc.ptr
-  br label %__L__1419
-__L__1418:
+  br label %__L__1435
+__L__1434:
   %r304 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t53
   %r305 = load i64, ptr %t51
@@ -26675,17 +26837,17 @@ __L__1418:
   %r308 = getelementptr inbounds i64, ptr %r306, i64 %r307
   %r309 = load i64, ptr %r308
   store i64 %r309, ptr %acc.ptr
-  br label %__L__1419
-__L__1419:
+  br label %__L__1435
+__L__1435:
   %r310 = load i64, ptr %acc.ptr
   store i64 %r310, ptr %acc.ptr
-  br label %__L__1417
-__L__1416:
+  br label %__L__1433
+__L__1432:
   %r311 = load i64, ptr %acc.ptr
   %r312 = load i64, ptr @_3Cundefined_3E
   store i64 %r312, ptr %acc.ptr
-  br label %__L__1417
-__L__1417:
+  br label %__L__1433
+__L__1433:
   %r313 = load i64, ptr %acc.ptr
   store i64 %r313, ptr %t54
   %r314 = load i64, ptr @_3Cpair_3E
@@ -26694,7 +26856,7 @@ __L__1417:
   %r317 = zext i1 %r316 to i64
   store i64 %r317, ptr %acc.ptr
   %r318 = icmp ne i64 %r317, 0
-  br i1 %r318, label %cont.319, label %__L__1415
+  br i1 %r318, label %cont.319, label %__L__1431
 cont.319:
   %r320 = load i64, ptr %acc.ptr
   %r321 = load i64, ptr %arg0
@@ -26704,12 +26866,12 @@ cont.319:
   %r324 = icmp ne i64 %r322, %r323
   %r325 = zext i1 %r324 to i64
   store i64 %r325, ptr %acc.ptr
-  br label %__L__1415
-__L__1415:
+  br label %__L__1431
+__L__1431:
   %r326 = load i64, ptr %acc.ptr
   store i64 %r326, ptr %acc.ptr
   %r327 = icmp ne i64 %r326, 0
-  br i1 %r327, label %__L__1407, label %cont.328
+  br i1 %r327, label %__L__1423, label %cont.328
 cont.328:
   %r329 = load i64, ptr %acc.ptr
   %r330 = load i64, ptr %arg0
@@ -26720,10 +26882,10 @@ cont.328:
   %r334 = zext i1 %r333 to i64
   store i64 %r334, ptr %acc.ptr
   %r335 = icmp ne i64 %r334, 0
-  br i1 %r335, label %cont.336, label %__L__1420
+  br i1 %r335, label %cont.336, label %__L__1436
 cont.336:
   %r337 = load i64, ptr %acc.ptr
-  %r338 = ptrtoint ptr @__L__1422 to i64
+  %r338 = ptrtoint ptr @__L__1438 to i64
   store i64 %r338, ptr %t57
   %r339 = ptrtoint ptr @printf to i64
   %r340 = load i64, ptr %t57
@@ -26732,16 +26894,16 @@ cont.336:
   %r341 = inttoptr i64 %r339 to ptr
   %r343 = call i64 %r341(i64 %r342)
   store i64 %r343, ptr %acc.ptr
-  br label %__L__1421
-__L__1420:
+  br label %__L__1437
+__L__1436:
   %r344 = load i64, ptr %acc.ptr
   %r345 = load i64, ptr %arg0
   store i64 %r345, ptr %acc.ptr
   %r346 = icmp ne i64 %r345, 0
-  br i1 %r346, label %cont.347, label %__L__1423
+  br i1 %r346, label %cont.347, label %__L__1439
 cont.347:
   %r348 = load i64, ptr %acc.ptr
-  %r349 = ptrtoint ptr @__L__1424 to i64
+  %r349 = ptrtoint ptr @__L__1440 to i64
   store i64 %r349, ptr %t58
   %r350 = ptrtoint ptr @printf to i64
   %r351 = load i64, ptr %t58
@@ -26763,14 +26925,14 @@ cont.347:
   %r360 = inttoptr i64 %r357 to ptr
   %r363 = call i64 %r360(i64 %r361, i64 %r362)
   store i64 %r363, ptr %acc.ptr
-  br label %__L__1423
-__L__1423:
+  br label %__L__1439
+__L__1439:
   %r364 = load i64, ptr %acc.ptr
   store i64 %r364, ptr %acc.ptr
-  br label %__L__1421
-__L__1421:
+  br label %__L__1437
+__L__1437:
   %r365 = load i64, ptr %acc.ptr
-  %r366 = ptrtoint ptr @__L__1425 to i64
+  %r366 = ptrtoint ptr @__L__1441 to i64
   store i64 %r366, ptr %t61
   %r367 = ptrtoint ptr @printf to i64
   %r368 = load i64, ptr %t61
@@ -26779,8 +26941,8 @@ __L__1421:
   %r369 = inttoptr i64 %r367 to ptr
   %r371 = call i64 %r369(i64 %r370)
   store i64 %r371, ptr %acc.ptr
-  br label %__L__1405
-__L__1404:
+  br label %__L__1421
+__L__1420:
   %r372 = load i64, ptr %acc.ptr
   %r373 = load i64, ptr @_3Carray_3E
   store i64 %r373, ptr %t62
@@ -26790,7 +26952,7 @@ __L__1404:
   %r377 = zext i1 %r376 to i64
   store i64 %r377, ptr %acc.ptr
   %r378 = icmp ne i64 %r377, 0
-  br i1 %r378, label %cont.379, label %__L__1426
+  br i1 %r378, label %cont.379, label %__L__1442
 cont.379:
   %r380 = load i64, ptr %acc.ptr
   %r381 = load i64, ptr %arg0
@@ -26802,7 +26964,7 @@ cont.379:
   %r384 = inttoptr i64 %r382 to ptr
   %r386 = call i64 %r384(i64 %r385)
   store i64 %r386, ptr %t64
-  %r387 = ptrtoint ptr @__L__1428 to i64
+  %r387 = ptrtoint ptr @__L__1444 to i64
   store i64 %r387, ptr %t65
   %r388 = ptrtoint ptr @printf to i64
   %r389 = load i64, ptr %t65
@@ -26814,16 +26976,16 @@ cont.379:
   %r393 = load i64, ptr %t64
   store i64 %r393, ptr %t67
   store i64 %r393, ptr %acc.ptr
-  br label %__L__1430
-__L__1429:
+  br label %__L__1446
+__L__1445:
   %r394 = load i64, ptr %acc.ptr
   %r395 = load i64, ptr %t66
   store i64 %r395, ptr %acc.ptr
   %r396 = icmp ne i64 %r395, 0
-  br i1 %r396, label %cont.397, label %__L__1431
+  br i1 %r396, label %cont.397, label %__L__1447
 cont.397:
   %r398 = load i64, ptr %acc.ptr
-  %r399 = ptrtoint ptr @__L__1432 to i64
+  %r399 = ptrtoint ptr @__L__1448 to i64
   store i64 %r399, ptr %t68
   %r400 = ptrtoint ptr @printf to i64
   %r401 = load i64, ptr %t68
@@ -26832,8 +26994,8 @@ cont.397:
   %r402 = inttoptr i64 %r400 to ptr
   %r404 = call i64 %r402(i64 %r403)
   store i64 %r404, ptr %acc.ptr
-  br label %__L__1431
-__L__1431:
+  br label %__L__1447
+__L__1447:
   %r405 = load i64, ptr %acc.ptr
   %r406 = load i64, ptr %arg0
   store i64 %r406, ptr %t69
@@ -26866,8 +27028,8 @@ __L__1431:
   %r425 = add i64 %r423, %r424
   store i64 %r425, ptr %t66
   store i64 %r425, ptr %acc.ptr
-  br label %__L__1430
-__L__1430:
+  br label %__L__1446
+__L__1446:
   %r426 = load i64, ptr %acc.ptr
   %r427 = load i64, ptr %t67
   store i64 %r427, ptr %t74
@@ -26877,10 +27039,10 @@ __L__1430:
   %r431 = zext i1 %r430 to i64
   store i64 %r431, ptr %acc.ptr
   %r432 = icmp ne i64 %r431, 0
-  br i1 %r432, label %__L__1429, label %cont.433
+  br i1 %r432, label %__L__1445, label %cont.433
 cont.433:
   %r434 = load i64, ptr %acc.ptr
-  %r435 = ptrtoint ptr @__L__1433 to i64
+  %r435 = ptrtoint ptr @__L__1449 to i64
   store i64 %r435, ptr %t75
   %r436 = ptrtoint ptr @printf to i64
   %r437 = load i64, ptr %t75
@@ -26889,8 +27051,8 @@ cont.433:
   %r438 = inttoptr i64 %r436 to ptr
   %r440 = call i64 %r438(i64 %r439)
   store i64 %r440, ptr %acc.ptr
-  br label %__L__1427
-__L__1426:
+  br label %__L__1443
+__L__1442:
   %r441 = load i64, ptr %acc.ptr
   %r442 = load i64, ptr @_3Cexpr_3E
   store i64 %r442, ptr %t76
@@ -26900,10 +27062,10 @@ __L__1426:
   %r446 = zext i1 %r445 to i64
   store i64 %r446, ptr %acc.ptr
   %r447 = icmp ne i64 %r446, 0
-  br i1 %r447, label %cont.448, label %__L__1434
+  br i1 %r447, label %cont.448, label %__L__1450
 cont.448:
   %r449 = load i64, ptr %acc.ptr
-  %r450 = ptrtoint ptr @__L__1436 to i64
+  %r450 = ptrtoint ptr @__L__1452 to i64
   store i64 %r450, ptr %t77
   %r451 = ptrtoint ptr @printf to i64
   %r452 = load i64, ptr %t77
@@ -26938,7 +27100,7 @@ cont.448:
   %r473 = load i64, ptr %a1
   %r471 = inttoptr i64 %r468 to ptr
   %r474 = call i64 %r471(i64 %r472, i64 %r473)
-  %r475 = ptrtoint ptr @__L__1437 to i64
+  %r475 = ptrtoint ptr @__L__1453 to i64
   store i64 %r475, ptr %t83
   %r476 = ptrtoint ptr @printf to i64
   %r477 = load i64, ptr %t83
@@ -26947,8 +27109,8 @@ cont.448:
   %r478 = inttoptr i64 %r476 to ptr
   %r480 = call i64 %r478(i64 %r479)
   store i64 %r480, ptr %acc.ptr
-  br label %__L__1435
-__L__1434:
+  br label %__L__1451
+__L__1450:
   %r481 = load i64, ptr %acc.ptr
   %r482 = load i64, ptr @_3Cform_3E
   store i64 %r482, ptr %t84
@@ -26958,10 +27120,10 @@ __L__1434:
   %r486 = zext i1 %r485 to i64
   store i64 %r486, ptr %acc.ptr
   %r487 = icmp ne i64 %r486, 0
-  br i1 %r487, label %cont.488, label %__L__1438
+  br i1 %r487, label %cont.488, label %__L__1454
 cont.488:
   %r489 = load i64, ptr %acc.ptr
-  %r490 = ptrtoint ptr @__L__1440 to i64
+  %r490 = ptrtoint ptr @__L__1456 to i64
   store i64 %r490, ptr %t85
   %r491 = ptrtoint ptr @printf to i64
   %r492 = load i64, ptr %t85
@@ -26989,7 +27151,7 @@ cont.488:
   %r508 = load i64, ptr %a1
   %r506 = inttoptr i64 %r503 to ptr
   %r509 = call i64 %r506(i64 %r507, i64 %r508)
-  %r510 = ptrtoint ptr @__L__1441 to i64
+  %r510 = ptrtoint ptr @__L__1457 to i64
   store i64 %r510, ptr %t90
   %r511 = ptrtoint ptr @printf to i64
   %r512 = load i64, ptr %t90
@@ -27017,7 +27179,7 @@ cont.488:
   %r528 = load i64, ptr %a1
   %r526 = inttoptr i64 %r523 to ptr
   %r529 = call i64 %r526(i64 %r527, i64 %r528)
-  %r530 = ptrtoint ptr @__L__1442 to i64
+  %r530 = ptrtoint ptr @__L__1458 to i64
   store i64 %r530, ptr %t95
   %r531 = ptrtoint ptr @printf to i64
   %r532 = load i64, ptr %t95
@@ -27026,8 +27188,8 @@ cont.488:
   %r533 = inttoptr i64 %r531 to ptr
   %r535 = call i64 %r533(i64 %r534)
   store i64 %r535, ptr %acc.ptr
-  br label %__L__1439
-__L__1438:
+  br label %__L__1455
+__L__1454:
   %r536 = load i64, ptr %acc.ptr
   %r537 = load i64, ptr @_3Cfixed_3E
   store i64 %r537, ptr %t96
@@ -27037,10 +27199,10 @@ __L__1438:
   %r541 = zext i1 %r540 to i64
   store i64 %r541, ptr %acc.ptr
   %r542 = icmp ne i64 %r541, 0
-  br i1 %r542, label %cont.543, label %__L__1443
+  br i1 %r542, label %cont.543, label %__L__1459
 cont.543:
   %r544 = load i64, ptr %acc.ptr
-  %r545 = ptrtoint ptr @__L__1445 to i64
+  %r545 = ptrtoint ptr @__L__1461 to i64
   store i64 %r545, ptr %t97
   %r546 = ptrtoint ptr @printf to i64
   %r547 = load i64, ptr %t97
@@ -27068,7 +27230,7 @@ cont.543:
   %r563 = load i64, ptr %a1
   %r561 = inttoptr i64 %r558 to ptr
   %r564 = call i64 %r561(i64 %r562, i64 %r563)
-  %r565 = ptrtoint ptr @__L__1446 to i64
+  %r565 = ptrtoint ptr @__L__1462 to i64
   store i64 %r565, ptr %t102
   %r566 = ptrtoint ptr @printf to i64
   %r567 = load i64, ptr %t102
@@ -27077,8 +27239,8 @@ cont.543:
   %r568 = inttoptr i64 %r566 to ptr
   %r570 = call i64 %r568(i64 %r569)
   store i64 %r570, ptr %acc.ptr
-  br label %__L__1444
-__L__1443:
+  br label %__L__1460
+__L__1459:
   %r571 = load i64, ptr %acc.ptr
   %r572 = load i64, ptr @_3Csubr_3E
   store i64 %r572, ptr %t103
@@ -27088,10 +27250,10 @@ __L__1443:
   %r576 = zext i1 %r575 to i64
   store i64 %r576, ptr %acc.ptr
   %r577 = icmp ne i64 %r576, 0
-  br i1 %r577, label %cont.578, label %__L__1447
+  br i1 %r577, label %cont.578, label %__L__1463
 cont.578:
   %r579 = load i64, ptr %acc.ptr
-  %r580 = ptrtoint ptr @__L__1449 to i64
+  %r580 = ptrtoint ptr @__L__1465 to i64
   store i64 %r580, ptr %t104
   %r581 = load i64, ptr %arg0
   store i64 %r581, ptr %t105
@@ -27112,8 +27274,8 @@ cont.578:
   %r590 = inttoptr i64 %r587 to ptr
   %r593 = call i64 %r590(i64 %r591, i64 %r592)
   store i64 %r593, ptr %acc.ptr
-  br label %__L__1448
-__L__1447:
+  br label %__L__1464
+__L__1463:
   %r594 = load i64, ptr %acc.ptr
   %r595 = load i64, ptr @_3Cvariable_3E
   store i64 %r595, ptr %t108
@@ -27123,7 +27285,7 @@ __L__1447:
   %r599 = zext i1 %r598 to i64
   store i64 %r599, ptr %acc.ptr
   %r600 = icmp ne i64 %r599, 0
-  br i1 %r600, label %cont.601, label %__L__1450
+  br i1 %r600, label %cont.601, label %__L__1466
 cont.601:
   %r602 = load i64, ptr %acc.ptr
   %r603 = load i64, ptr %arg0
@@ -27153,10 +27315,10 @@ cont.601:
   %r620 = load i64, ptr %t111
   store i64 %r620, ptr %acc.ptr
   %r621 = icmp ne i64 %r620, 0
-  br i1 %r621, label %cont.622, label %__L__1452
+  br i1 %r621, label %cont.622, label %__L__1468
 cont.622:
   %r623 = load i64, ptr %acc.ptr
-  %r624 = ptrtoint ptr @__L__1453 to i64
+  %r624 = ptrtoint ptr @__L__1469 to i64
   store i64 %r624, ptr %t115
   store i64 1, ptr %t116
   %r625 = load i64, ptr %arg0
@@ -27202,12 +27364,12 @@ cont.622:
   %r650 = inttoptr i64 %r646 to ptr
   %r654 = call i64 %r650(i64 %r651, i64 %r652, i64 %r653)
   store i64 %r654, ptr %acc.ptr
-  br label %__L__1452
-__L__1452:
+  br label %__L__1468
+__L__1468:
   %r655 = load i64, ptr %acc.ptr
   store i64 %r655, ptr %acc.ptr
-  br label %__L__1451
-__L__1450:
+  br label %__L__1467
+__L__1466:
   %r656 = load i64, ptr %acc.ptr
   %r657 = load i64, ptr @_3Cenv_3E
   store i64 %r657, ptr %t126
@@ -27217,10 +27379,10 @@ __L__1450:
   %r661 = zext i1 %r660 to i64
   store i64 %r661, ptr %acc.ptr
   %r662 = icmp ne i64 %r661, 0
-  br i1 %r662, label %cont.663, label %__L__1454
+  br i1 %r662, label %cont.663, label %__L__1470
 cont.663:
   %r664 = load i64, ptr %acc.ptr
-  %r665 = ptrtoint ptr @__L__1456 to i64
+  %r665 = ptrtoint ptr @__L__1472 to i64
   store i64 %r665, ptr %t127
   store i64 1, ptr %t128
   %r666 = load i64, ptr %arg0
@@ -27244,8 +27406,8 @@ cont.663:
   %r677 = inttoptr i64 %r674 to ptr
   %r680 = call i64 %r677(i64 %r678, i64 %r679)
   store i64 %r680, ptr %acc.ptr
-  br label %__L__1455
-__L__1454:
+  br label %__L__1471
+__L__1470:
   %r681 = load i64, ptr %acc.ptr
   %r682 = load i64, ptr @_3Ccontext_3E
   store i64 %r682, ptr %t132
@@ -27255,10 +27417,10 @@ __L__1454:
   %r686 = zext i1 %r685 to i64
   store i64 %r686, ptr %acc.ptr
   %r687 = icmp ne i64 %r686, 0
-  br i1 %r687, label %cont.688, label %__L__1457
+  br i1 %r687, label %cont.688, label %__L__1473
 cont.688:
   %r689 = load i64, ptr %acc.ptr
-  %r690 = ptrtoint ptr @__L__1459 to i64
+  %r690 = ptrtoint ptr @__L__1475 to i64
   store i64 %r690, ptr %t133
   %r691 = ptrtoint ptr @printf to i64
   %r692 = load i64, ptr %t133
@@ -27267,10 +27429,10 @@ cont.688:
   %r693 = inttoptr i64 %r691 to ptr
   %r695 = call i64 %r693(i64 %r694)
   store i64 %r695, ptr %acc.ptr
-  br label %__L__1458
-__L__1457:
+  br label %__L__1474
+__L__1473:
   %r696 = load i64, ptr %acc.ptr
-  %r697 = ptrtoint ptr @__L__1460 to i64
+  %r697 = ptrtoint ptr @__L__1476 to i64
   store i64 %r697, ptr %t134
   %r698 = load i64, ptr %t3
   store i64 %r698, ptr %t135
@@ -27284,60 +27446,60 @@ __L__1457:
   %r702 = inttoptr i64 %r699 to ptr
   %r705 = call i64 %r702(i64 %r703, i64 %r704)
   store i64 %r705, ptr %acc.ptr
-  br label %__L__1458
-__L__1458:
+  br label %__L__1474
+__L__1474:
   %r706 = load i64, ptr %acc.ptr
   store i64 %r706, ptr %acc.ptr
-  br label %__L__1455
-__L__1455:
+  br label %__L__1471
+__L__1471:
   %r707 = load i64, ptr %acc.ptr
   store i64 %r707, ptr %acc.ptr
-  br label %__L__1451
-__L__1451:
+  br label %__L__1467
+__L__1467:
   %r708 = load i64, ptr %acc.ptr
   store i64 %r708, ptr %acc.ptr
-  br label %__L__1448
-__L__1448:
+  br label %__L__1464
+__L__1464:
   %r709 = load i64, ptr %acc.ptr
   store i64 %r709, ptr %acc.ptr
-  br label %__L__1444
-__L__1444:
+  br label %__L__1460
+__L__1460:
   %r710 = load i64, ptr %acc.ptr
   store i64 %r710, ptr %acc.ptr
-  br label %__L__1439
-__L__1439:
+  br label %__L__1455
+__L__1455:
   %r711 = load i64, ptr %acc.ptr
   store i64 %r711, ptr %acc.ptr
-  br label %__L__1435
-__L__1435:
+  br label %__L__1451
+__L__1451:
   %r712 = load i64, ptr %acc.ptr
   store i64 %r712, ptr %acc.ptr
-  br label %__L__1427
-__L__1427:
+  br label %__L__1443
+__L__1443:
   %r713 = load i64, ptr %acc.ptr
   store i64 %r713, ptr %acc.ptr
-  br label %__L__1405
-__L__1405:
+  br label %__L__1421
+__L__1421:
   %r714 = load i64, ptr %acc.ptr
   store i64 %r714, ptr %acc.ptr
-  br label %__L__1402
-__L__1402:
+  br label %__L__1418
+__L__1418:
   %r715 = load i64, ptr %acc.ptr
   store i64 %r715, ptr %acc.ptr
-  br label %__L__1382
-__L__1382:
+  br label %__L__1398
+__L__1398:
   %r716 = load i64, ptr %acc.ptr
   store i64 %r716, ptr %acc.ptr
-  br label %__L__1380
-__L__1380:
+  br label %__L__1396
+__L__1396:
   %r717 = load i64, ptr %acc.ptr
   store i64 %r717, ptr %acc.ptr
-  br label %__L__1377
-__L__1377:
+  br label %__L__1393
+__L__1393:
   %r718 = load i64, ptr %acc.ptr
   store i64 %r718, ptr %acc.ptr
-  br label %__L__1374
-__L__1374:
+  br label %__L__1390
+__L__1390:
   %r719 = load i64, ptr %acc.ptr
   ret i64 %r719
 }
@@ -27404,7 +27566,7 @@ entry:
   %r19 = zext i1 %r18 to i64
   store i64 %r19, ptr %acc.ptr
   %r20 = icmp ne i64 %r19, 0
-  br i1 %r20, label %cont.21, label %__L__1461
+  br i1 %r20, label %cont.21, label %__L__1477
 cont.21:
   %r22 = load i64, ptr %acc.ptr
   %r23 = load i64, ptr %arg0
@@ -27454,8 +27616,8 @@ cont.21:
   %r49 = inttoptr i64 %r45 to ptr
   %r53 = call i64 %r49(i64 %r50, i64 %r51, i64 %r52)
   store i64 %r53, ptr %acc.ptr
-  br label %__L__1461
-__L__1461:
+  br label %__L__1477
+__L__1477:
   %r54 = load i64, ptr %acc.ptr
   %r55 = load i64, ptr %arg0
   store i64 %r55, ptr %t17
@@ -27576,7 +27738,7 @@ entry:
   %r1 = load i64, ptr %t0
   store i64 %r1, ptr %acc.ptr
   %r2 = icmp ne i64 %r1, 0
-  br i1 %r2, label %cont.3, label %__L__1463
+  br i1 %r2, label %cont.3, label %__L__1479
 cont.3:
   %r4 = load i64, ptr %acc.ptr
   store i64 1, ptr %t1
@@ -27585,13 +27747,13 @@ cont.3:
   %r7 = and i64 %r5, %r6
   store i64 %r7, ptr %acc.ptr
   %r8 = icmp ne i64 %r7, 0
-  br i1 %r8, label %cont.9, label %__L__1465
+  br i1 %r8, label %cont.9, label %__L__1481
 cont.9:
   %r10 = load i64, ptr %acc.ptr
   %r11 = load i64, ptr @_3Clong_3E
   store i64 %r11, ptr %acc.ptr
-  br label %__L__1466
-__L__1465:
+  br label %__L__1482
+__L__1481:
   %r12 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t2
   %r13 = load i64, ptr %t0
@@ -27600,17 +27762,17 @@ __L__1465:
   %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
-  br label %__L__1466
-__L__1466:
+  br label %__L__1482
+__L__1482:
   %r18 = load i64, ptr %acc.ptr
   store i64 %r18, ptr %acc.ptr
-  br label %__L__1464
-__L__1463:
+  br label %__L__1480
+__L__1479:
   %r19 = load i64, ptr %acc.ptr
   %r20 = load i64, ptr @_3Cundefined_3E
   store i64 %r20, ptr %acc.ptr
-  br label %__L__1464
-__L__1464:
+  br label %__L__1480
+__L__1480:
   %r21 = load i64, ptr %acc.ptr
   store i64 %r21, ptr %t3
   %r22 = load i64, ptr @_3Carray_3E
@@ -27619,7 +27781,7 @@ __L__1464:
   %r25 = zext i1 %r24 to i64
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__1462
+  br i1 %r26, label %cont.27, label %__L__1478
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   %r29 = load i64, ptr %arg0
@@ -27650,7 +27812,7 @@ cont.27:
   %r46 = zext i1 %r45 to i64
   store i64 %r46, ptr %acc.ptr
   %r47 = icmp ne i64 %r46, 0
-  br i1 %r47, label %cont.48, label %__L__1467
+  br i1 %r47, label %cont.48, label %__L__1483
 cont.48:
   %r49 = load i64, ptr %acc.ptr
   %r50 = load i64, ptr %t10
@@ -27661,7 +27823,7 @@ cont.48:
   %r54 = zext i1 %r53 to i64
   store i64 %r54, ptr %acc.ptr
   %r55 = icmp ne i64 %r54, 0
-  br i1 %r55, label %__L__1468, label %cont.56
+  br i1 %r55, label %__L__1484, label %cont.56
 cont.56:
   %r57 = load i64, ptr %acc.ptr
   store i64 8, ptr %t13
@@ -27677,8 +27839,8 @@ cont.56:
   %r65 = sdiv i64 %r63, %r64
   store i64 %r65, ptr %t15
   store i64 %r65, ptr %acc.ptr
-  br label %__L__1470
-__L__1469:
+  br label %__L__1486
+__L__1485:
   %r66 = load i64, ptr %acc.ptr
   store i64 2, ptr %t16
   %r67 = load i64, ptr %t15
@@ -27686,8 +27848,8 @@ __L__1469:
   %r69 = mul i64 %r67, %r68
   store i64 %r69, ptr %t15
   store i64 %r69, ptr %acc.ptr
-  br label %__L__1470
-__L__1470:
+  br label %__L__1486
+__L__1486:
   %r70 = load i64, ptr %acc.ptr
   %r71 = load i64, ptr %arg1
   store i64 %r71, ptr %t17
@@ -27697,7 +27859,7 @@ __L__1470:
   %r75 = zext i1 %r74 to i64
   store i64 %r75, ptr %acc.ptr
   %r76 = icmp ne i64 %r75, 0
-  br i1 %r76, label %__L__1469, label %cont.77
+  br i1 %r76, label %__L__1485, label %cont.77
 cont.77:
   %r78 = load i64, ptr %acc.ptr
   %r79 = ptrtoint ptr %arg0 to i64
@@ -27790,8 +27952,8 @@ cont.77:
   %r136 = call i64 %r134(i64 %r135)
   %r137 = load i64, ptr %t35
   store i64 %r137, ptr %acc.ptr
-  br label %__L__1468
-__L__1468:
+  br label %__L__1484
+__L__1484:
   %r138 = load i64, ptr %acc.ptr
   %r139 = load i64, ptr %arg2
   store i64 %r139, ptr %t37
@@ -27804,12 +27966,12 @@ __L__1468:
   %r145 = getelementptr inbounds i64, ptr %r143, i64 %r144
   store i64 %r142, ptr %r145
   store i64 %r142, ptr %acc.ptr
-  br label %__L__1467
-__L__1467:
+  br label %__L__1483
+__L__1483:
   %r146 = load i64, ptr %acc.ptr
   store i64 %r146, ptr %acc.ptr
-  br label %__L__1462
-__L__1462:
+  br label %__L__1478
+__L__1478:
   %r147 = load i64, ptr %acc.ptr
   ret i64 %r147
 }
@@ -27840,7 +28002,7 @@ entry:
   %r1 = load i64, ptr %t0
   store i64 %r1, ptr %acc.ptr
   %r2 = icmp ne i64 %r1, 0
-  br i1 %r2, label %cont.3, label %__L__1472
+  br i1 %r2, label %cont.3, label %__L__1488
 cont.3:
   %r4 = load i64, ptr %acc.ptr
   store i64 1, ptr %t1
@@ -27849,13 +28011,13 @@ cont.3:
   %r7 = and i64 %r5, %r6
   store i64 %r7, ptr %acc.ptr
   %r8 = icmp ne i64 %r7, 0
-  br i1 %r8, label %cont.9, label %__L__1474
+  br i1 %r8, label %cont.9, label %__L__1490
 cont.9:
   %r10 = load i64, ptr %acc.ptr
   %r11 = load i64, ptr @_3Clong_3E
   store i64 %r11, ptr %acc.ptr
-  br label %__L__1475
-__L__1474:
+  br label %__L__1491
+__L__1490:
   %r12 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t2
   %r13 = load i64, ptr %t0
@@ -27864,17 +28026,17 @@ __L__1474:
   %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
-  br label %__L__1475
-__L__1475:
+  br label %__L__1491
+__L__1491:
   %r18 = load i64, ptr %acc.ptr
   store i64 %r18, ptr %acc.ptr
-  br label %__L__1473
-__L__1472:
+  br label %__L__1489
+__L__1488:
   %r19 = load i64, ptr %acc.ptr
   %r20 = load i64, ptr @_3Cundefined_3E
   store i64 %r20, ptr %acc.ptr
-  br label %__L__1473
-__L__1473:
+  br label %__L__1489
+__L__1489:
   %r21 = load i64, ptr %acc.ptr
   store i64 %r21, ptr %t3
   %r22 = load i64, ptr @_3Carray_3E
@@ -27883,7 +28045,7 @@ __L__1473:
   %r25 = zext i1 %r24 to i64
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__1471
+  br i1 %r26, label %cont.27, label %__L__1487
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   %r29 = load i64, ptr %arg0
@@ -27914,7 +28076,7 @@ cont.27:
   %r46 = zext i1 %r45 to i64
   store i64 %r46, ptr %acc.ptr
   %r47 = icmp ne i64 %r46, 0
-  br i1 %r47, label %cont.48, label %__L__1476
+  br i1 %r47, label %cont.48, label %__L__1492
 cont.48:
   %r49 = load i64, ptr %acc.ptr
   %r50 = load i64, ptr %t10
@@ -27925,7 +28087,7 @@ cont.48:
   %r54 = zext i1 %r53 to i64
   store i64 %r54, ptr %acc.ptr
   %r55 = icmp ne i64 %r54, 0
-  br i1 %r55, label %cont.56, label %__L__1476
+  br i1 %r55, label %cont.56, label %__L__1492
 cont.56:
   %r57 = load i64, ptr %acc.ptr
   %r58 = load i64, ptr %arg1
@@ -27936,12 +28098,12 @@ cont.56:
   %r62 = getelementptr inbounds i64, ptr %r60, i64 %r61
   %r63 = load i64, ptr %r62
   store i64 %r63, ptr %acc.ptr
-  br label %__L__1476
-__L__1476:
+  br label %__L__1492
+__L__1492:
   %r64 = load i64, ptr %acc.ptr
   store i64 %r64, ptr %acc.ptr
-  br label %__L__1471
-__L__1471:
+  br label %__L__1487
+__L__1487:
   %r65 = load i64, ptr %acc.ptr
   ret i64 %r65
 }
@@ -27995,7 +28157,7 @@ entry:
   %r1 = load i64, ptr %t0
   store i64 %r1, ptr %acc.ptr
   %r2 = icmp ne i64 %r1, 0
-  br i1 %r2, label %cont.3, label %__L__1479
+  br i1 %r2, label %cont.3, label %__L__1495
 cont.3:
   %r4 = load i64, ptr %acc.ptr
   store i64 1, ptr %t1
@@ -28004,13 +28166,13 @@ cont.3:
   %r7 = and i64 %r5, %r6
   store i64 %r7, ptr %acc.ptr
   %r8 = icmp ne i64 %r7, 0
-  br i1 %r8, label %cont.9, label %__L__1481
+  br i1 %r8, label %cont.9, label %__L__1497
 cont.9:
   %r10 = load i64, ptr %acc.ptr
   %r11 = load i64, ptr @_3Clong_3E
   store i64 %r11, ptr %acc.ptr
-  br label %__L__1482
-__L__1481:
+  br label %__L__1498
+__L__1497:
   %r12 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t2
   %r13 = load i64, ptr %t0
@@ -28019,17 +28181,17 @@ __L__1481:
   %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
-  br label %__L__1482
-__L__1482:
+  br label %__L__1498
+__L__1498:
   %r18 = load i64, ptr %acc.ptr
   store i64 %r18, ptr %acc.ptr
-  br label %__L__1480
-__L__1479:
+  br label %__L__1496
+__L__1495:
   %r19 = load i64, ptr %acc.ptr
   %r20 = load i64, ptr @_3Cundefined_3E
   store i64 %r20, ptr %acc.ptr
-  br label %__L__1480
-__L__1480:
+  br label %__L__1496
+__L__1496:
   %r21 = load i64, ptr %acc.ptr
   store i64 %r21, ptr %t3
   %r22 = load i64, ptr @_3Cpair_3E
@@ -28038,7 +28200,7 @@ __L__1480:
   %r25 = zext i1 %r24 to i64
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__1477
+  br i1 %r26, label %cont.27, label %__L__1493
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 1, ptr %t4
@@ -28097,13 +28259,13 @@ cont.27:
   %r66 = call i64 %r64(i64 %r65)
   %r67 = load i64, ptr %t11
   store i64 %r67, ptr %acc.ptr
-  br label %__L__1478
-__L__1477:
+  br label %__L__1494
+__L__1493:
   %r68 = load i64, ptr %acc.ptr
   %r69 = load i64, ptr %arg1
   store i64 %r69, ptr %acc.ptr
-  br label %__L__1478
-__L__1478:
+  br label %__L__1494
+__L__1494:
   %r70 = load i64, ptr %acc.ptr
   ret i64 %r70
 }
@@ -28257,7 +28419,7 @@ entry:
   %r1 = load i64, ptr %t0
   store i64 %r1, ptr %acc.ptr
   %r2 = icmp ne i64 %r1, 0
-  br i1 %r2, label %cont.3, label %__L__1484
+  br i1 %r2, label %cont.3, label %__L__1500
 cont.3:
   %r4 = load i64, ptr %acc.ptr
   store i64 1, ptr %t1
@@ -28266,13 +28428,13 @@ cont.3:
   %r7 = and i64 %r5, %r6
   store i64 %r7, ptr %acc.ptr
   %r8 = icmp ne i64 %r7, 0
-  br i1 %r8, label %cont.9, label %__L__1486
+  br i1 %r8, label %cont.9, label %__L__1502
 cont.9:
   %r10 = load i64, ptr %acc.ptr
   %r11 = load i64, ptr @_3Clong_3E
   store i64 %r11, ptr %acc.ptr
-  br label %__L__1487
-__L__1486:
+  br label %__L__1503
+__L__1502:
   %r12 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t2
   %r13 = load i64, ptr %t0
@@ -28281,17 +28443,17 @@ __L__1486:
   %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
-  br label %__L__1487
-__L__1487:
+  br label %__L__1503
+__L__1503:
   %r18 = load i64, ptr %acc.ptr
   store i64 %r18, ptr %acc.ptr
-  br label %__L__1485
-__L__1484:
+  br label %__L__1501
+__L__1500:
   %r19 = load i64, ptr %acc.ptr
   %r20 = load i64, ptr @_3Cundefined_3E
   store i64 %r20, ptr %acc.ptr
-  br label %__L__1485
-__L__1485:
+  br label %__L__1501
+__L__1501:
   %r21 = load i64, ptr %acc.ptr
   store i64 %r21, ptr %t3
   %r22 = load i64, ptr @_3Cpair_3E
@@ -28300,7 +28462,7 @@ __L__1485:
   %r25 = zext i1 %r24 to i64
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__1483
+  br i1 %r26, label %cont.27, label %__L__1499
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 1, ptr %t4
@@ -28310,8 +28472,8 @@ cont.27:
   %r32 = getelementptr inbounds i64, ptr %r30, i64 %r31
   %r33 = load i64, ptr %r32
   store i64 %r33, ptr %acc.ptr
-  br label %__L__1483
-__L__1483:
+  br label %__L__1499
+__L__1499:
   %r34 = load i64, ptr %acc.ptr
   ret i64 %r34
 }
@@ -28331,7 +28493,7 @@ entry:
   %r1 = load i64, ptr %t0
   store i64 %r1, ptr %acc.ptr
   %r2 = icmp ne i64 %r1, 0
-  br i1 %r2, label %cont.3, label %__L__1489
+  br i1 %r2, label %cont.3, label %__L__1505
 cont.3:
   %r4 = load i64, ptr %acc.ptr
   store i64 1, ptr %t1
@@ -28340,13 +28502,13 @@ cont.3:
   %r7 = and i64 %r5, %r6
   store i64 %r7, ptr %acc.ptr
   %r8 = icmp ne i64 %r7, 0
-  br i1 %r8, label %cont.9, label %__L__1491
+  br i1 %r8, label %cont.9, label %__L__1507
 cont.9:
   %r10 = load i64, ptr %acc.ptr
   %r11 = load i64, ptr @_3Clong_3E
   store i64 %r11, ptr %acc.ptr
-  br label %__L__1492
-__L__1491:
+  br label %__L__1508
+__L__1507:
   %r12 = load i64, ptr %acc.ptr
   store i64 -1, ptr %t2
   %r13 = load i64, ptr %t0
@@ -28355,17 +28517,17 @@ __L__1491:
   %r16 = getelementptr inbounds i64, ptr %r14, i64 %r15
   %r17 = load i64, ptr %r16
   store i64 %r17, ptr %acc.ptr
-  br label %__L__1492
-__L__1492:
+  br label %__L__1508
+__L__1508:
   %r18 = load i64, ptr %acc.ptr
   store i64 %r18, ptr %acc.ptr
-  br label %__L__1490
-__L__1489:
+  br label %__L__1506
+__L__1505:
   %r19 = load i64, ptr %acc.ptr
   %r20 = load i64, ptr @_3Cundefined_3E
   store i64 %r20, ptr %acc.ptr
-  br label %__L__1490
-__L__1490:
+  br label %__L__1506
+__L__1506:
   %r21 = load i64, ptr %acc.ptr
   store i64 %r21, ptr %t3
   %r22 = load i64, ptr @_3Cpair_3E
@@ -28374,7 +28536,7 @@ __L__1490:
   %r25 = zext i1 %r24 to i64
   store i64 %r25, ptr %acc.ptr
   %r26 = icmp ne i64 %r25, 0
-  br i1 %r26, label %cont.27, label %__L__1488
+  br i1 %r26, label %cont.27, label %__L__1504
 cont.27:
   %r28 = load i64, ptr %acc.ptr
   store i64 0, ptr %t4
@@ -28384,8 +28546,8 @@ cont.27:
   %r32 = getelementptr inbounds i64, ptr %r30, i64 %r31
   %r33 = load i64, ptr %r32
   store i64 %r33, ptr %acc.ptr
-  br label %__L__1488
-__L__1488:
+  br label %__L__1504
+__L__1504:
   %r34 = load i64, ptr %acc.ptr
   ret i64 %r34
 }
@@ -28414,7 +28576,7 @@ entry:
   %r6 = load i64, ptr %t2
   store i64 %r6, ptr %acc.ptr
   %r7 = icmp ne i64 %r6, 0
-  br i1 %r7, label %cont.8, label %__L__1493
+  br i1 %r7, label %cont.8, label %__L__1509
 cont.8:
   %r9 = load i64, ptr %acc.ptr
   store i64 1, ptr %t3
@@ -28433,8 +28595,8 @@ cont.8:
   %r19 = icmp eq i64 0, %r18
   %r20 = zext i1 %r19 to i64
   store i64 %r20, ptr %acc.ptr
-  br label %__L__1493
-__L__1493:
+  br label %__L__1509
+__L__1509:
   %r21 = load i64, ptr %acc.ptr
   ret i64 %r21
 }
@@ -28470,7 +28632,7 @@ entry:
   %r0 = load i64, ptr %arg1
   store i64 %r0, ptr %acc.ptr
   %r1 = icmp ne i64 %r0, 0
-  br i1 %r1, label %cont.2, label %__L__1496
+  br i1 %r1, label %cont.2, label %__L__1512
 cont.2:
   %r3 = load i64, ptr %acc.ptr
   %r4 = load i64, ptr %arg1
@@ -28483,12 +28645,12 @@ cont.2:
   %r9 = load i64, ptr %r8
   store i64 %r9, ptr %t0
   store i64 %r9, ptr %acc.ptr
-  br label %__L__1496
-__L__1496:
+  br label %__L__1512
+__L__1512:
   %r10 = load i64, ptr %acc.ptr
   store i64 %r10, ptr %acc.ptr
   %r11 = icmp ne i64 %r10, 0
-  br i1 %r11, label %cont.12, label %__L__1494
+  br i1 %r11, label %cont.12, label %__L__1510
 cont.12:
   %r13 = load i64, ptr %acc.ptr
   %r14 = load i64, ptr %t0
@@ -28514,8 +28676,8 @@ cont.12:
   %r27 = getelementptr inbounds i64, ptr %r25, i64 %r26
   store i64 %r24, ptr %r27
   store i64 %r24, ptr %acc.ptr
-  br label %__L__1495
-__L__1494:
+  br label %__L__1511
+__L__1510:
   %r28 = load i64, ptr %acc.ptr
   %r29 = load i64, ptr %arg0
   store i64 %r29, ptr %t9
@@ -28539,7 +28701,7 @@ __L__1494:
   %r41 = load i64, ptr %arg1
   store i64 %r41, ptr %acc.ptr
   %r42 = icmp ne i64 %r41, 0
-  br i1 %r42, label %cont.43, label %__L__1497
+  br i1 %r42, label %cont.43, label %__L__1513
 cont.43:
   %r44 = load i64, ptr %acc.ptr
   %r45 = load i64, ptr %arg1
@@ -28554,12 +28716,12 @@ cont.43:
   %r51 = getelementptr inbounds i64, ptr %r49, i64 %r50
   store i64 %r48, ptr %r51
   store i64 %r48, ptr %acc.ptr
-  br label %__L__1497
-__L__1497:
+  br label %__L__1513
+__L__1513:
   %r52 = load i64, ptr %acc.ptr
   store i64 %r52, ptr %acc.ptr
-  br label %__L__1495
-__L__1495:
+  br label %__L__1511
+__L__1511:
   %r53 = load i64, ptr %acc.ptr
   %r54 = load i64, ptr %t0
   ret i64 %r54
@@ -28722,7 +28884,7 @@ entry:
   %r20 = load i64, ptr %arg0
   store i64 %r20, ptr %acc.ptr
   %r21 = icmp ne i64 %r20, 0
-  br i1 %r21, label %cont.22, label %__L__1498
+  br i1 %r21, label %cont.22, label %__L__1514
 cont.22:
   %r23 = load i64, ptr %acc.ptr
   %r24 = load i64, ptr %arg1
@@ -28741,12 +28903,12 @@ cont.22:
   %r33 = load i64, ptr %t6
   %r34 = add i64 %r32, %r33
   store i64 %r34, ptr %acc.ptr
-  br label %__L__1499
-__L__1498:
+  br label %__L__1515
+__L__1514:
   %r35 = load i64, ptr %acc.ptr
   store i64 0, ptr %acc.ptr
-  br label %__L__1499
-__L__1499:
+  br label %__L__1515
+__L__1515:
   %r36 = load i64, ptr %acc.ptr
   store i64 %r36, ptr %t10
   %r37 = ptrtoint ptr @__L__154 to i64
@@ -28824,7 +28986,7 @@ __L__1499:
 ; defn get
 ; form get
 ; defn type_check_fail
-@__L__1500 = private constant [33 x i8] c"illegal type: expected %d got %d\00"
+@__L__1516 = private constant [33 x i8] c"illegal type: expected %d got %d\00"
 define i64 @__L__142(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -28838,7 +29000,7 @@ entry:
   %a0 = alloca i64
   %a1 = alloca i64
   %a2 = alloca i64
-  %r0 = ptrtoint ptr @__L__1500 to i64
+  %r0 = ptrtoint ptr @__L__1516 to i64
   store i64 %r0, ptr %t0
   %r1 = load i64, ptr %arg0
   store i64 %r1, ptr %t1
@@ -29248,17 +29410,17 @@ entry:
   %r0 = load i64, ptr %arg0
   store i64 %r0, ptr %acc.ptr
   %r1 = icmp ne i64 %r0, 0
-  br i1 %r1, label %cont.2, label %__L__1501
+  br i1 %r1, label %cont.2, label %__L__1517
 cont.2:
   %r3 = load i64, ptr %acc.ptr
   %r4 = load i64, ptr %arg0
   store i64 %r4, ptr %acc.ptr
-  br label %__L__1502
-__L__1501:
+  br label %__L__1518
+__L__1517:
   %r5 = load i64, ptr %acc.ptr
   store i64 1, ptr %acc.ptr
-  br label %__L__1502
-__L__1502:
+  br label %__L__1518
+__L__1518:
   %r6 = load i64, ptr %acc.ptr
   store i64 %r6, ptr %t0
   %r7 = load i64, ptr @_3Carray_3E
@@ -29653,7 +29815,7 @@ entry:
   %r8 = zext i1 %r7 to i64
   store i64 %r8, ptr %acc.ptr
   %r9 = icmp ne i64 %r8, 0
-  br i1 %r9, label %cont.10, label %__L__1503
+  br i1 %r9, label %cont.10, label %__L__1519
 cont.10:
   %r11 = load i64, ptr %acc.ptr
   %r12 = load i64, ptr @_3Clong_3E
@@ -29680,8 +29842,8 @@ cont.10:
   store i64 %r22, ptr %r25
   %r26 = load i64, ptr %t5
   store i64 %r26, ptr %acc.ptr
-  br label %__L__1504
-__L__1503:
+  br label %__L__1520
+__L__1519:
   %r27 = load i64, ptr %acc.ptr
   store i64 1, ptr %t8
   store i64 1, ptr %t9
@@ -29691,8 +29853,8 @@ __L__1503:
   %r31 = load i64, ptr %t8
   %r32 = or i64 %r30, %r31
   store i64 %r32, ptr %acc.ptr
-  br label %__L__1504
-__L__1504:
+  br label %__L__1520
+__L__1520:
   %r33 = load i64, ptr %acc.ptr
   ret i64 %r33
 }
@@ -30018,15 +30180,15 @@ entry:
   %r14 = zext i1 %r13 to i64
   store i64 %r14, ptr %acc.ptr
   %r15 = icmp ne i64 %r14, 0
-  br i1 %r15, label %cont.16, label %__L__1505
+  br i1 %r15, label %cont.16, label %__L__1521
 cont.16:
   %r17 = load i64, ptr %acc.ptr
   %r18 = ptrtoint ptr @__L__159 to i64
   %r19 = inttoptr i64 %r18 to ptr
   %r20 = call i64 %r19()
   store i64 %r20, ptr %acc.ptr
-  br label %__L__1505
-__L__1505:
+  br label %__L__1521
+__L__1521:
   %r21 = load i64, ptr %acc.ptr
   store i64 8, ptr %t6
   %r22 = load i64, ptr %t6
@@ -30038,13 +30200,13 @@ __L__1505:
   %r27 = zext i1 %r26 to i64
   store i64 %r27, ptr %acc.ptr
   %r28 = icmp ne i64 %r27, 0
-  br i1 %r28, label %cont.29, label %__L__1506
+  br i1 %r28, label %cont.29, label %__L__1522
 cont.29:
   %r30 = load i64, ptr %acc.ptr
   %r31 = load i64, ptr @gc__freelist
   store i64 %r31, ptr %acc.ptr
   %r32 = icmp ne i64 %r31, 0
-  br i1 %r32, label %cont.33, label %__L__1506
+  br i1 %r32, label %cont.33, label %__L__1522
 cont.33:
   %r34 = load i64, ptr %acc.ptr
   %r35 = load i64, ptr @gc__freelist
@@ -30082,8 +30244,8 @@ cont.33:
   %r55 = call i64 %r51(i64 %r52, i64 %r53, i64 %r54)
   %r56 = load i64, ptr %t10
   store i64 %r56, ptr %acc.ptr
-  br label %__L__1507
-__L__1506:
+  br label %__L__1523
+__L__1522:
   %r57 = load i64, ptr %acc.ptr
   store i64 2, ptr %t16
   %r58 = load i64, ptr @gc__memory__last
@@ -30100,16 +30262,16 @@ __L__1506:
   %r66 = add i64 %r64, %r65
   store i64 %r66, ptr %t20
   store i64 %r66, ptr %acc.ptr
-  br label %__L__1509
-__L__1508:
+  br label %__L__1525
+__L__1524:
   %r67 = load i64, ptr %acc.ptr
   store i64 %r67, ptr %acc.ptr
-  br label %__L__1511
-__L__1510:
+  br label %__L__1527
+__L__1526:
   %r68 = load i64, ptr %acc.ptr
   store i64 %r68, ptr %acc.ptr
-  br label %__L__1511
-__L__1511:
+  br label %__L__1527
+__L__1527:
   %r69 = load i64, ptr %acc.ptr
   store i64 1, ptr %t21
   %r70 = load i64, ptr %t18
@@ -30123,7 +30285,7 @@ __L__1511:
   %r77 = zext i1 %r76 to i64
   store i64 %r77, ptr %acc.ptr
   %r78 = icmp ne i64 %r77, 0
-  br i1 %r78, label %cont.79, label %__L__1512
+  br i1 %r78, label %cont.79, label %__L__1528
 cont.79:
   %r80 = load i64, ptr %acc.ptr
   store i64 0, ptr %t23
@@ -30141,7 +30303,7 @@ cont.79:
   %r90 = zext i1 %r89 to i64
   store i64 %r90, ptr %acc.ptr
   %r91 = icmp ne i64 %r90, 0
-  br i1 %r91, label %cont.92, label %__L__1516
+  br i1 %r91, label %cont.92, label %__L__1532
 cont.92:
   %r93 = load i64, ptr %acc.ptr
   store i64 1, ptr %t26
@@ -30161,7 +30323,7 @@ cont.92:
   %r105 = zext i1 %r104 to i64
   store i64 %r105, ptr %acc.ptr
   %r106 = icmp ne i64 %r105, 0
-  br i1 %r106, label %__L__1517, label %cont.107
+  br i1 %r106, label %__L__1533, label %cont.107
 cont.107:
   %r108 = load i64, ptr %acc.ptr
   %r109 = load i64, ptr %t24
@@ -30183,25 +30345,25 @@ cont.107:
   %r121 = icmp ne i64 %r119, %r120
   %r122 = zext i1 %r121 to i64
   store i64 %r122, ptr %acc.ptr
-  br label %__L__1517
-__L__1517:
+  br label %__L__1533
+__L__1533:
   %r123 = load i64, ptr %acc.ptr
   store i64 %r123, ptr %acc.ptr
-  br label %__L__1516
-__L__1516:
+  br label %__L__1532
+__L__1532:
   %r124 = load i64, ptr %acc.ptr
   store i64 %r124, ptr %acc.ptr
   %r125 = icmp ne i64 %r124, 0
-  br i1 %r125, label %cont.126, label %__L__1514
+  br i1 %r125, label %cont.126, label %__L__1530
 cont.126:
   %r127 = load i64, ptr %acc.ptr
   store i64 0, ptr %acc.ptr
-  br label %__L__1515
-__L__1514:
+  br label %__L__1531
+__L__1530:
   %r128 = load i64, ptr %acc.ptr
   store i64 %r128, ptr %acc.ptr
-  br label %__L__1519
-__L__1518:
+  br label %__L__1535
+__L__1534:
   %r129 = load i64, ptr %acc.ptr
   store i64 2, ptr %t33
   %r130 = load i64, ptr %t18
@@ -30254,18 +30416,18 @@ __L__1518:
   %r164 = zext i1 %r163 to i64
   store i64 %r164, ptr %acc.ptr
   %r165 = icmp ne i64 %r164, 0
-  br i1 %r165, label %cont.166, label %__L__1520
+  br i1 %r165, label %cont.166, label %__L__1536
 cont.166:
   %r167 = load i64, ptr %acc.ptr
   %r168 = load i64, ptr %t18
   store i64 %r168, ptr @gc__memory__last
   store i64 %r168, ptr %acc.ptr
-  br label %__L__1520
-__L__1520:
+  br label %__L__1536
+__L__1536:
   %r169 = load i64, ptr %acc.ptr
   store i64 %r169, ptr %acc.ptr
-  br label %__L__1519
-__L__1519:
+  br label %__L__1535
+__L__1535:
   %r170 = load i64, ptr %acc.ptr
   store i64 1, ptr %t44
   store i64 2, ptr %t45
@@ -30284,7 +30446,7 @@ __L__1519:
   %r182 = zext i1 %r181 to i64
   store i64 %r182, ptr %acc.ptr
   %r183 = icmp ne i64 %r182, 0
-  br i1 %r183, label %cont.184, label %__L__1521
+  br i1 %r183, label %cont.184, label %__L__1537
 cont.184:
   %r185 = load i64, ptr %acc.ptr
   %r186 = load i64, ptr %t24
@@ -30306,12 +30468,12 @@ cont.184:
   %r198 = icmp eq i64 %r196, %r197
   %r199 = zext i1 %r198 to i64
   store i64 %r199, ptr %acc.ptr
-  br label %__L__1521
-__L__1521:
+  br label %__L__1537
+__L__1537:
   %r200 = load i64, ptr %acc.ptr
   store i64 %r200, ptr %acc.ptr
   %r201 = icmp ne i64 %r200, 0
-  br i1 %r201, label %__L__1518, label %cont.202
+  br i1 %r201, label %__L__1534, label %cont.202
 cont.202:
   %r203 = load i64, ptr %acc.ptr
   %r204 = load i64, ptr %t24
@@ -30322,7 +30484,7 @@ cont.202:
   %r208 = zext i1 %r207 to i64
   store i64 %r208, ptr %acc.ptr
   %r209 = icmp ne i64 %r208, 0
-  br i1 %r209, label %__L__1524, label %cont.210
+  br i1 %r209, label %__L__1540, label %cont.210
 cont.210:
   %r211 = load i64, ptr %acc.ptr
   %r212 = load i64, ptr %t24
@@ -30332,12 +30494,12 @@ cont.210:
   %r215 = icmp eq i64 %r213, %r214
   %r216 = zext i1 %r215 to i64
   store i64 %r216, ptr %acc.ptr
-  br label %__L__1524
-__L__1524:
+  br label %__L__1540
+__L__1540:
   %r217 = load i64, ptr %acc.ptr
   store i64 %r217, ptr %acc.ptr
   %r218 = icmp ne i64 %r217, 0
-  br i1 %r218, label %cont.219, label %__L__1522
+  br i1 %r218, label %cont.219, label %__L__1538
 cont.219:
   %r220 = load i64, ptr %acc.ptr
   %r221 = load i64, ptr %t20
@@ -30348,7 +30510,7 @@ cont.219:
   %r225 = zext i1 %r224 to i64
   store i64 %r225, ptr %acc.ptr
   %r226 = icmp ne i64 %r225, 0
-  br i1 %r226, label %cont.227, label %__L__1525
+  br i1 %r226, label %cont.227, label %__L__1541
 cont.227:
   %r228 = load i64, ptr %acc.ptr
   %r229 = load i64, ptr %t20
@@ -30416,8 +30578,8 @@ cont.227:
   %r271 = load i64, ptr %arg0
   store i64 %r271, ptr %t24
   store i64 %r271, ptr %acc.ptr
-  br label %__L__1525
-__L__1525:
+  br label %__L__1541
+__L__1541:
   %r272 = load i64, ptr %acc.ptr
   store i64 1, ptr %t69
   store i64 1, ptr %t70
@@ -30453,24 +30615,24 @@ __L__1525:
   %r292 = call i64 %r288(i64 %r289, i64 %r290, i64 %r291)
   %r293 = load i64, ptr %t72
   store i64 %r293, ptr %acc.ptr
-  br label %__L__1507
-__L__1522:
+  br label %__L__1523
+__L__1538:
   %r294 = load i64, ptr %acc.ptr
   store i64 %r294, ptr %acc.ptr
-  br label %__L__1523
-__L__1523:
+  br label %__L__1539
+__L__1539:
   %r295 = load i64, ptr %acc.ptr
   store i64 %r295, ptr %acc.ptr
-  br label %__L__1515
-__L__1515:
+  br label %__L__1531
+__L__1531:
   %r296 = load i64, ptr %acc.ptr
   store i64 %r296, ptr %acc.ptr
-  br label %__L__1513
-__L__1512:
+  br label %__L__1529
+__L__1528:
   %r297 = load i64, ptr %acc.ptr
   store i64 %r297, ptr %acc.ptr
-  br label %__L__1513
-__L__1513:
+  br label %__L__1529
+__L__1529:
   %r298 = load i64, ptr %acc.ptr
   store i64 2, ptr %t76
   %r299 = load i64, ptr %t18
@@ -30486,7 +30648,7 @@ __L__1513:
   %r307 = zext i1 %r306 to i64
   store i64 %r307, ptr %acc.ptr
   %r308 = icmp ne i64 %r307, 0
-  br i1 %r308, label %__L__1510, label %cont.309
+  br i1 %r308, label %__L__1526, label %cont.309
 cont.309:
   %r310 = load i64, ptr %acc.ptr
   %r311 = load i64, ptr %arg0
@@ -30518,17 +30680,17 @@ cont.309:
   %r328 = load i64, ptr %t82
   store i64 %r328, ptr %t18
   store i64 %r328, ptr %acc.ptr
-  br label %__L__1509
-__L__1509:
+  br label %__L__1525
+__L__1525:
   %r329 = load i64, ptr %acc.ptr
   store i64 1, ptr %acc.ptr
   %r330 = icmp ne i64 1, 0
-  br i1 %r330, label %__L__1508, label %cont.331
+  br i1 %r330, label %__L__1524, label %cont.331
 cont.331:
   %r332 = load i64, ptr %acc.ptr
   store i64 %r332, ptr %acc.ptr
-  br label %__L__1507
-__L__1507:
+  br label %__L__1523
+__L__1523:
   %r333 = load i64, ptr %acc.ptr
   ret i64 %r333
 }
@@ -30545,8 +30707,8 @@ entry:
   %a0 = alloca i64
   store i64 0, ptr %t0
   store i64 0, ptr %acc.ptr
-  br label %__L__1527
-__L__1526:
+  br label %__L__1543
+__L__1542:
   %r0 = load i64, ptr %acc.ptr
   store i64 0, ptr %t1
   %r1 = load i64, ptr %t0
@@ -30573,8 +30735,8 @@ __L__1526:
   %r18 = add i64 1, %r17
   store i64 %r18, ptr %t0
   store i64 %r18, ptr %acc.ptr
-  br label %__L__1527
-__L__1527:
+  br label %__L__1543
+__L__1543:
   %r19 = load i64, ptr %acc.ptr
   %r20 = load i64, ptr @gc__root__count
   store i64 %r20, ptr %t5
@@ -30584,7 +30746,7 @@ __L__1527:
   %r24 = zext i1 %r23 to i64
   store i64 %r24, ptr %acc.ptr
   %r25 = icmp ne i64 %r24, 0
-  br i1 %r25, label %__L__1526, label %cont.26
+  br i1 %r25, label %__L__1542, label %cont.26
 cont.26:
   %r27 = load i64, ptr %acc.ptr
   %r28 = ptrtoint ptr @__L__161 to i64
@@ -30622,7 +30784,7 @@ entry:
   %r0 = load i64, ptr %arg0
   store i64 %r0, ptr %acc.ptr
   %r1 = icmp ne i64 %r0, 0
-  br i1 %r1, label %cont.2, label %__L__1528
+  br i1 %r1, label %cont.2, label %__L__1544
 cont.2:
   %r3 = load i64, ptr %acc.ptr
   %r4 = load i64, ptr %arg0
@@ -30633,7 +30795,7 @@ cont.2:
   %r8 = zext i1 %r7 to i64
   store i64 %r8, ptr %acc.ptr
   %r9 = icmp ne i64 %r8, 0
-  br i1 %r9, label %cont.10, label %__L__1528
+  br i1 %r9, label %cont.10, label %__L__1544
 cont.10:
   %r11 = load i64, ptr %acc.ptr
   store i64 32, ptr %t1
@@ -30654,7 +30816,7 @@ cont.10:
   %r22 = and i64 %r20, %r21
   store i64 %r22, ptr %acc.ptr
   %r23 = icmp ne i64 %r22, 0
-  br i1 %r23, label %__L__1529, label %cont.24
+  br i1 %r23, label %__L__1545, label %cont.24
 cont.24:
   %r25 = load i64, ptr %acc.ptr
   store i64 4, ptr %t6
@@ -30675,7 +30837,7 @@ cont.24:
   %r36 = and i64 %r34, %r35
   store i64 %r36, ptr %acc.ptr
   %r37 = icmp ne i64 %r36, 0
-  br i1 %r37, label %__L__1530, label %cont.38
+  br i1 %r37, label %__L__1546, label %cont.38
 cont.38:
   %r39 = load i64, ptr %acc.ptr
   store i64 8, ptr %t10
@@ -30689,8 +30851,8 @@ cont.38:
   %r46 = sdiv i64 %r44, %r45
   store i64 %r46, ptr %t12
   store i64 0, ptr %acc.ptr
-  br label %__L__1532
-__L__1531:
+  br label %__L__1548
+__L__1547:
   %r47 = load i64, ptr %acc.ptr
   store i64 1, ptr %t13
   %r48 = load i64, ptr %t12
@@ -30712,26 +30874,26 @@ __L__1531:
   %r59 = inttoptr i64 %r57 to ptr
   %r61 = call i64 %r59(i64 %r60)
   store i64 %r61, ptr %acc.ptr
-  br label %__L__1532
-__L__1532:
+  br label %__L__1548
+__L__1548:
   %r62 = load i64, ptr %acc.ptr
   %r63 = load i64, ptr %t12
   store i64 %r63, ptr %acc.ptr
   %r64 = icmp ne i64 %r63, 0
-  br i1 %r64, label %__L__1531, label %cont.65
+  br i1 %r64, label %__L__1547, label %cont.65
 cont.65:
   %r66 = load i64, ptr %acc.ptr
   store i64 %r66, ptr %acc.ptr
-  br label %__L__1530
-__L__1530:
+  br label %__L__1546
+__L__1546:
   %r67 = load i64, ptr %acc.ptr
   store i64 %r67, ptr %acc.ptr
-  br label %__L__1529
-__L__1529:
+  br label %__L__1545
+__L__1545:
   %r68 = load i64, ptr %acc.ptr
   store i64 %r68, ptr %acc.ptr
-  br label %__L__1528
-__L__1528:
+  br label %__L__1544
+__L__1544:
   %r69 = load i64, ptr %acc.ptr
   ret i64 %r69
 }
@@ -30774,8 +30936,8 @@ entry:
   store i64 0, ptr %t2
   store i64 0, ptr %t3
   store i64 0, ptr %acc.ptr
-  br label %__L__1534
-__L__1533:
+  br label %__L__1550
+__L__1549:
   %r1 = load i64, ptr %acc.ptr
   store i64 1, ptr %t4
   %r2 = load i64, ptr %t0
@@ -30790,7 +30952,7 @@ __L__1533:
   %r9 = and i64 %r7, %r8
   store i64 %r9, ptr %acc.ptr
   %r10 = icmp ne i64 %r9, 0
-  br i1 %r10, label %cont.11, label %__L__1535
+  br i1 %r10, label %cont.11, label %__L__1551
 cont.11:
   %r12 = load i64, ptr %acc.ptr
   store i64 0, ptr %t7
@@ -30822,8 +30984,8 @@ cont.11:
   %r31 = getelementptr inbounds i64, ptr %r29, i64 %r30
   store i64 %r28, ptr %r31
   store i64 %r28, ptr %acc.ptr
-  br label %__L__1536
-__L__1535:
+  br label %__L__1552
+__L__1551:
   %r32 = load i64, ptr %acc.ptr
   store i64 0, ptr %t13
   %r33 = load i64, ptr %t0
@@ -30851,7 +31013,7 @@ __L__1535:
   %r50 = zext i1 %r49 to i64
   store i64 %r50, ptr %acc.ptr
   %r51 = icmp ne i64 %r50, 0
-  br i1 %r51, label %cont.52, label %__L__1537
+  br i1 %r51, label %cont.52, label %__L__1553
 cont.52:
   %r53 = load i64, ptr %acc.ptr
   store i64 32, ptr %t18
@@ -30879,8 +31041,8 @@ cont.52:
   %r68 = load i64, ptr %t0
   store i64 %r68, ptr @gc__freelist
   store i64 %r68, ptr %acc.ptr
-  br label %__L__1538
-__L__1537:
+  br label %__L__1554
+__L__1553:
   %r69 = load i64, ptr %acc.ptr
   store i64 0, ptr %t24
   store i64 1, ptr %t25
@@ -30891,12 +31053,12 @@ __L__1537:
   %r74 = getelementptr inbounds i64, ptr %r72, i64 %r73
   store i64 %r71, ptr %r74
   store i64 %r71, ptr %acc.ptr
-  br label %__L__1538
-__L__1538:
+  br label %__L__1554
+__L__1554:
   %r75 = load i64, ptr %acc.ptr
   store i64 %r75, ptr %acc.ptr
-  br label %__L__1536
-__L__1536:
+  br label %__L__1552
+__L__1552:
   %r76 = load i64, ptr %acc.ptr
   store i64 2, ptr %t26
   %r77 = load i64, ptr %t0
@@ -30912,22 +31074,22 @@ __L__1536:
   %r85 = zext i1 %r84 to i64
   store i64 %r85, ptr %acc.ptr
   %r86 = icmp ne i64 %r85, 0
-  br i1 %r86, label %cont.87, label %__L__1539
+  br i1 %r86, label %cont.87, label %__L__1555
 cont.87:
   %r88 = load i64, ptr %acc.ptr
   store i64 0, ptr %t0
   store i64 0, ptr %acc.ptr
-  br label %__L__1539
-__L__1539:
+  br label %__L__1555
+__L__1555:
   %r89 = load i64, ptr %acc.ptr
   store i64 %r89, ptr %acc.ptr
-  br label %__L__1534
-__L__1534:
+  br label %__L__1550
+__L__1550:
   %r90 = load i64, ptr %acc.ptr
   %r91 = load i64, ptr %t0
   store i64 %r91, ptr %acc.ptr
   %r92 = icmp ne i64 %r91, 0
-  br i1 %r92, label %__L__1533, label %cont.93
+  br i1 %r92, label %__L__1549, label %cont.93
 cont.93:
   %r94 = load i64, ptr %acc.ptr
   %r95 = load i64, ptr %t1
@@ -31007,8 +31169,8 @@ entry:
   ret i64 %r22
 }
 ; defn gc_pop_root
-@__L__1541 = private constant [21 x i8] c"root table underflow\00"
-@__L__1543 = private constant [14 x i8] c"non-lifo root\00"
+@__L__1557 = private constant [21 x i8] c"root table underflow\00"
+@__L__1559 = private constant [14 x i8] c"non-lifo root\00"
 define i64 @__L__164(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -31023,10 +31185,10 @@ entry:
   %r0 = load i64, ptr @gc__root__count
   store i64 %r0, ptr %acc.ptr
   %r1 = icmp ne i64 %r0, 0
-  br i1 %r1, label %__L__1540, label %cont.2
+  br i1 %r1, label %__L__1556, label %cont.2
 cont.2:
   %r3 = load i64, ptr %acc.ptr
-  %r4 = ptrtoint ptr @__L__1541 to i64
+  %r4 = ptrtoint ptr @__L__1557 to i64
   store i64 %r4, ptr %t0
   %r5 = ptrtoint ptr @__L__170 to i64
   %r6 = load i64, ptr %t0
@@ -31035,8 +31197,8 @@ cont.2:
   %r7 = inttoptr i64 %r5 to ptr
   %r9 = call i64 %r7(i64 %r8)
   store i64 %r9, ptr %acc.ptr
-  br label %__L__1540
-__L__1540:
+  br label %__L__1556
+__L__1556:
   %r10 = load i64, ptr %acc.ptr
   store i64 1, ptr %t1
   %r11 = load i64, ptr @gc__root__count
@@ -31057,10 +31219,10 @@ __L__1540:
   %r23 = zext i1 %r22 to i64
   store i64 %r23, ptr %acc.ptr
   %r24 = icmp ne i64 %r23, 0
-  br i1 %r24, label %__L__1542, label %cont.25
+  br i1 %r24, label %__L__1558, label %cont.25
 cont.25:
   %r26 = load i64, ptr %acc.ptr
-  %r27 = ptrtoint ptr @__L__1543 to i64
+  %r27 = ptrtoint ptr @__L__1559 to i64
   store i64 %r27, ptr %t4
   %r28 = ptrtoint ptr @__L__170 to i64
   %r29 = load i64, ptr %t4
@@ -31069,8 +31231,8 @@ cont.25:
   %r30 = inttoptr i64 %r28 to ptr
   %r32 = call i64 %r30(i64 %r31)
   store i64 %r32, ptr %acc.ptr
-  br label %__L__1542
-__L__1542:
+  br label %__L__1558
+__L__1558:
   %r33 = load i64, ptr %acc.ptr
   ret i64 %r33
 }
@@ -31106,7 +31268,7 @@ entry:
   %r4 = zext i1 %r3 to i64
   store i64 %r4, ptr %acc.ptr
   %r5 = icmp ne i64 %r4, 0
-  br i1 %r5, label %cont.6, label %__L__1544
+  br i1 %r5, label %cont.6, label %__L__1560
 cont.6:
   %r7 = load i64, ptr %acc.ptr
   store i64 32, ptr %t1
@@ -31160,7 +31322,7 @@ cont.6:
   %r39 = load i64, ptr @gc__roots
   store i64 %r39, ptr %acc.ptr
   %r40 = icmp ne i64 %r39, 0
-  br i1 %r40, label %cont.41, label %__L__1545
+  br i1 %r40, label %cont.41, label %__L__1561
 cont.41:
   %r42 = load i64, ptr %acc.ptr
   %r43 = load i64, ptr @gc__roots
@@ -31172,14 +31334,14 @@ cont.41:
   %r46 = inttoptr i64 %r44 to ptr
   %r48 = call i64 %r46(i64 %r47)
   store i64 %r48, ptr %acc.ptr
-  br label %__L__1545
-__L__1545:
+  br label %__L__1561
+__L__1561:
   %r49 = load i64, ptr %acc.ptr
   %r50 = load i64, ptr %t6
   store i64 %r50, ptr @gc__roots
   store i64 %r50, ptr %acc.ptr
-  br label %__L__1544
-__L__1544:
+  br label %__L__1560
+__L__1560:
   %r51 = load i64, ptr %acc.ptr
   %r52 = load i64, ptr %arg0
   store i64 %r52, ptr %t12
@@ -31221,7 +31383,7 @@ entry:
   ret i64 %r7
 }
 ; defn new_memory_block
-@__L__1547 = private constant [14 x i8] c"out of memory\00"
+@__L__1563 = private constant [14 x i8] c"out of memory\00"
 define i64 @__L__167(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -31250,10 +31412,10 @@ entry:
   %r6 = load i64, ptr %t1
   store i64 %r6, ptr %acc.ptr
   %r7 = icmp ne i64 %r6, 0
-  br i1 %r7, label %__L__1546, label %cont.8
+  br i1 %r7, label %__L__1562, label %cont.8
 cont.8:
   %r9 = load i64, ptr %acc.ptr
-  %r10 = ptrtoint ptr @__L__1547 to i64
+  %r10 = ptrtoint ptr @__L__1563 to i64
   store i64 %r10, ptr %t2
   %r11 = ptrtoint ptr @__L__170 to i64
   %r12 = load i64, ptr %t2
@@ -31262,8 +31424,8 @@ cont.8:
   %r13 = inttoptr i64 %r11 to ptr
   %r15 = call i64 %r13(i64 %r14)
   store i64 %r15, ptr %acc.ptr
-  br label %__L__1546
-__L__1546:
+  br label %__L__1562
+__L__1562:
   %r16 = load i64, ptr %acc.ptr
   store i64 32, ptr %t3
   %r17 = load i64, ptr %arg0
@@ -31300,8 +31462,8 @@ __L__1546:
 ; defn k_error
 ; form k_error
 ; defn fatal2
-@__L__1548 = private constant [10 x i8] c"\0Aeval.k: \00"
-@__L__1549 = private constant [2 x i8] c"\0A\00"
+@__L__1564 = private constant [10 x i8] c"\0Aeval.k: \00"
+@__L__1565 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__168(i64 %p0, i64 %p1, i64 %p2) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -31319,7 +31481,7 @@ entry:
   %a0 = alloca i64
   %a1 = alloca i64
   %a2 = alloca i64
-  %r0 = ptrtoint ptr @__L__1548 to i64
+  %r0 = ptrtoint ptr @__L__1564 to i64
   store i64 %r0, ptr %t0
   %r1 = ptrtoint ptr @printf to i64
   %r2 = load i64, ptr %t0
@@ -31345,7 +31507,7 @@ entry:
   %r16 = load i64, ptr %a2
   %r13 = inttoptr i64 %r9 to ptr
   %r17 = call i64 %r13(i64 %r14, i64 %r15, i64 %r16)
-  %r18 = ptrtoint ptr @__L__1549 to i64
+  %r18 = ptrtoint ptr @__L__1565 to i64
   store i64 %r18, ptr %t4
   %r19 = ptrtoint ptr @printf to i64
   %r20 = load i64, ptr %t4
@@ -31359,8 +31521,8 @@ entry:
   ret i64 %r26
 }
 ; defn fatal1
-@__L__1550 = private constant [10 x i8] c"\0Aeval.k: \00"
-@__L__1551 = private constant [2 x i8] c"\0A\00"
+@__L__1566 = private constant [10 x i8] c"\0Aeval.k: \00"
+@__L__1567 = private constant [2 x i8] c"\0A\00"
 define i64 @__L__169(i64 %p0, i64 %p1) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -31374,7 +31536,7 @@ entry:
   %t3 = alloca i64
   %a0 = alloca i64
   %a1 = alloca i64
-  %r0 = ptrtoint ptr @__L__1550 to i64
+  %r0 = ptrtoint ptr @__L__1566 to i64
   store i64 %r0, ptr %t0
   %r1 = ptrtoint ptr @printf to i64
   %r2 = load i64, ptr %t0
@@ -31395,7 +31557,7 @@ entry:
   %r13 = load i64, ptr %a1
   %r11 = inttoptr i64 %r8 to ptr
   %r14 = call i64 %r11(i64 %r12, i64 %r13)
-  %r15 = ptrtoint ptr @__L__1551 to i64
+  %r15 = ptrtoint ptr @__L__1567 to i64
   store i64 %r15, ptr %t3
   %r16 = ptrtoint ptr @printf to i64
   %r17 = load i64, ptr %t3
@@ -31409,7 +31571,7 @@ entry:
   ret i64 %r23
 }
 ; defn fatal
-@__L__1552 = private constant [13 x i8] c"\0Aeval.k: %s\0A\00"
+@__L__1568 = private constant [13 x i8] c"\0Aeval.k: %s\0A\00"
 define i64 @__L__170(i64 %p0) nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -31420,7 +31582,7 @@ entry:
   %t2 = alloca i64
   %a0 = alloca i64
   %a1 = alloca i64
-  %r0 = ptrtoint ptr @__L__1552 to i64
+  %r0 = ptrtoint ptr @__L__1568 to i64
   store i64 %r0, ptr %t0
   %r1 = load i64, ptr %arg0
   store i64 %r1, ptr %t1
@@ -31443,7 +31605,7 @@ entry:
   ret i64 %r13
 }
 ; defn die
-@__L__1555 = private constant [6 x i8] c"%3d: \00"
+@__L__1571 = private constant [6 x i8] c"%3d: \00"
 define i64 @__L__171() nounwind {
 entry:
   %acc.ptr = alloca i64
@@ -31461,10 +31623,10 @@ entry:
   %r0 = load i64, ptr @trace__depth
   store i64 %r0, ptr %t0
   store i64 %r0, ptr %acc.ptr
-  br label %__L__1554
-__L__1553:
+  br label %__L__1570
+__L__1569:
   %r1 = load i64, ptr %acc.ptr
-  %r2 = ptrtoint ptr @__L__1555 to i64
+  %r2 = ptrtoint ptr @__L__1571 to i64
   store i64 %r2, ptr %t1
   %r3 = load i64, ptr %t0
   store i64 %r3, ptr %t2
@@ -31498,8 +31660,8 @@ __L__1553:
   %r22 = inttoptr i64 %r20 to ptr
   %r24 = call i64 %r22(i64 %r23)
   store i64 %r24, ptr %acc.ptr
-  br label %__L__1554
-__L__1554:
+  br label %__L__1570
+__L__1570:
   %r25 = load i64, ptr %acc.ptr
   store i64 1, ptr %t6
   %r26 = load i64, ptr %t0
@@ -31512,7 +31674,7 @@ __L__1554:
   %r31 = zext i1 %r30 to i64
   store i64 %r31, ptr %acc.ptr
   %r32 = icmp ne i64 %r31, 0
-  br i1 %r32, label %__L__1553, label %cont.33
+  br i1 %r32, label %__L__1569, label %cont.33
 cont.33:
   %r34 = load i64, ptr %acc.ptr
   store i64 1, ptr %t8
@@ -31545,18 +31707,18 @@ entry:
   %r4 = zext i1 %r3 to i64
   store i64 %r4, ptr %acc.ptr
   %r5 = icmp ne i64 %r4, 0
-  br i1 %r5, label %cont.6, label %__L__1556
+  br i1 %r5, label %cont.6, label %__L__1572
 cont.6:
   %r7 = load i64, ptr %acc.ptr
   %r8 = load i64, ptr %arg0
   store i64 %r8, ptr %acc.ptr
-  br label %__L__1557
-__L__1556:
+  br label %__L__1573
+__L__1572:
   %r9 = load i64, ptr %acc.ptr
   %r10 = load i64, ptr %arg1
   store i64 %r10, ptr %acc.ptr
-  br label %__L__1557
-__L__1557:
+  br label %__L__1573
+__L__1573:
   %r11 = load i64, ptr %acc.ptr
   ret i64 %r11
 }
